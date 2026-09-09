@@ -1,0 +1,1787 @@
+<!doctype html>
+<html lang="en" data-force-theme="light" class="light">
+  
+<head>
+    <!-- =========================
+Head links 
+===========================-->
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="title" content="Automating Delivery Updates and the Courier Loop | plumcut" />
+<meta
+  name="description"
+  content="The operations side of order tracking: courier data quality, failed attempts, cash on delivery reattempts, and why a sent message is not a delivered one."
+/>
+<meta
+  name="keywords"
+  content="automate delivery updates, courier tracking automation, logistics automation ecommerce, cash on delivery operations, order tracking WhatsApp"
+/>
+<meta name="author" content="plumcut" />
+<meta
+  name="robots"
+  content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+/>
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<meta name="language" content="English" />
+
+<link rel="canonical" href="https://plumcut.com/blog/automate-logistics-delivery-updates" />
+<link rel="alternate" hreflang="en" href="https://plumcut.com/blog/automate-logistics-delivery-updates" />
+<link rel="alternate" hreflang="x-default" href="https://plumcut.com/blog/automate-logistics-delivery-updates" />
+
+<!-- Additional SEO Meta Tags -->
+<meta name="distribution" content="Global" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://plumcut.com/blog/automate-logistics-delivery-updates" />
+<meta property="og:title" content="Automating Delivery Updates and the Courier Loop | plumcut" />
+<meta
+  property="og:description"
+  content="The operations side of order tracking: courier data quality, failed attempts, cash on delivery reattempts, and why a sent message is not a delivered one."
+/>
+<meta
+  property="og:image"
+  content="https://plumcut.com/blog/heroes/wrapped-parcel-plain.jpg"
+/>
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="A plainly wrapped parcel tied with string" />
+<meta property="og:site_name" content="plumcut" />
+<meta property="og:locale" content="en_US" />
+<meta property="article:author" content="plumcut" />
+<meta property="article:publisher" content="plumcut" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@plumcut" />
+<meta name="twitter:creator" content="@plumcut" />
+<meta name="twitter:url" content="https://plumcut.com/blog/automate-logistics-delivery-updates" />
+<meta name="twitter:title" content="Automating Delivery Updates and the Courier Loop | plumcut" />
+<meta
+  name="twitter:description"
+  content="The operations side of order tracking: courier data quality, failed attempts, cash on delivery reattempts, and why a sent message is not a delivered one."
+/>
+<meta
+  name="twitter:image"
+  content="https://plumcut.com/blog/heroes/wrapped-parcel-plain.jpg"
+/>
+<meta name="twitter:image:alt" content="A plainly wrapped parcel tied with string" />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Automating Delivery Updates and the Courier Loop",
+  "description": "The operations side of order tracking: courier data quality, failed attempts, cash on delivery reattempts, and why a sent message is not a delivered one.",
+  "image": "https://plumcut.com/blog/heroes/wrapped-parcel-plain.jpg",
+  "datePublished": "2026-09-08",
+  "dateModified": "2026-09-08",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
+    "name": "plumcut",
+    "url": "https://plumcut.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "plumcut",
+    "url": "https://plumcut.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://plumcut.com/images/shared/new%20icon.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://plumcut.com/blog/automate-logistics-delivery-updates"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://plumcut.com/blog/",
+    "name": "plumcut field notes"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://plumcut.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Field notes",
+      "item": "https://plumcut.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Automating Delivery Updates and the Courier Loop",
+      "item": "https://plumcut.com/blog/automate-logistics-delivery-updates"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I get courier tracking data automatically?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>Usually yes, through the carrier's API. Aramex, for example, publishes a shipments tracking API in its developer solutions centre that accepts a list of waybill numbers and returns their tracking data, requiring a registered account with credentials. Access is typically pull based rather than pushed to you, so how fresh your data is depends on how often you poll, and carriers differ in what they expose.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a delivered status on WhatsApp mean the parcel arrived?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>No. Meta's status webhook describes your message, not your shipment. Delivered means the message reached at least one of the customer's devices. A message can stay at sent because the customer has not come online, and Meta holds messages for offline customers for a 30 day window. Track parcel state and message state as two separate things.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I send an out for delivery message?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>Only if your courier updates that status early enough on the delivery day to be useful. A notification that arrives after the parcel has already been delivered is a paid message that makes your business look disorganised. If the carrier's timing is unreliable, send the dispatch notification and skip this one.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should automation handle a failed delivery attempt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>By escalating, not by messaging alone. Map the failure status to an internal alert with a named owner and a deadline measured in hours, because whether a reattempt is worth a second leg is a commercial decision, particularly on cash on delivery. Contact the customer with a concrete next option rather than an apology, and log the reason in a fixed vocabulary so the pattern behind repeated failures becomes visible.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do delivery notifications cost money?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>A notification you send first, when no customer service window is open, is a utility template and is billed at the rate for that customer's market. Replies inside the 24 hour window a customer opened are not charged, and neither are utility messages sent in response to a user. Meta revised its rate cards effective 1 July 2026 and rates are market specific, so check the current card rather than a quoted figure.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What changes when orders are cash on delivery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>The delivery attempt is also the payment attempt, so a failed attempt is a cancelled sale plus two legs of shipping rather than a rescheduling. Confirm the order and the delivery window before dispatch instead of after, state the amount and the currency the customer will be asked for, and give them a way to change the day before the driver leaves.\u003c/p>"
+      }
+    }
+  ]
+}
+</script>
+<!-- Additional SEO Meta Tags -->
+<meta name="theme-color" content="#000000" />
+<meta name="msapplication-TileColor" content="#000000" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="plumcut" />
+<meta name="application-name" content="plumcut" />
+<meta
+  name="msapplication-tooltip"
+  content="plumcut, the AI that sells on WhatsApp"
+/>
+<meta name="msapplication-starturl" content="/" />
+<!-- Favicon and Icons -->
+<link rel="icon" type="image/png" href="/images/shared/new%20icon.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/images/shared/new%20icon.png" />
+<link rel="shortcut icon" href="/images/shared/new%20icon.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/shared/new%20icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="preconnect" href="https://fonts.googleapis.com/" />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+<link rel="preload" href="/assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" href="/images/loader.mp4" as="video" type="video/mp4" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&amp;display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@500&display=swap"
+  rel="stylesheet"
+/>
+
+    <title>Automating Delivery Updates and the Courier Loop | plumcut</title>
+    
+    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+      .site-loader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
+    </style></noscript>
+    <style id="critical-loader-style">
+  .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
+  .site-loader--hidden { opacity: 0; visibility: hidden; }
+  .site-loader__video { width: clamp(160px, 40vw, 420px); max-height: 60vh; height: auto; display: block; }
+  body.is-loading { overflow: hidden; }
+</style>
+    
+    <style>
+      /* Apply Alan Sans across the page while allowing weight overrides */
+      body {
+        font-weight: 300;
+      }
+
+      body * {
+        font-family: 'Alan Sans', sans-serif !important;
+      }
+
+      main h2 {
+        font-size: var(--text-heading-6) !important;
+        line-height: var(--tw-leading, var(--text-heading-6--line-height)) !important;
+        text-transform: uppercase !important;
+        font-family: 'Alan Sans', sans-serif !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+      }
+
+
+      .section-title-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: #E65E04;
+        font-size: calc(var(--text-tagline-1) * 1.3);
+        line-height: 1.2;
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .section-title-bullet {
+        width: 1.4rem;
+        height: 1.4rem;
+        flex-shrink: 0;
+        object-fit: contain;
+      }
+
+      .section-title-text {
+        display: inline-block;
+      }
+
+      /* Unified spacing for every section title block (label -> heading -> text).
+         Overrides per-instance mb-5/mb-4/mt-3 utility classes so the gap is
+         identical across all sections and pages. */
+      .section-title-label { margin-bottom: 0.6rem !important; }
+      .section-title-heading { margin-top: 0 !important; margin-bottom: 0.9rem !important; }
+
+      .section-title-heading {
+        font-size: var(--text-heading-6);
+        line-height: var(--tw-leading, var(--text-heading-6--line-height));
+        color: #4B1D6A;
+        text-transform: uppercase;
+        font-family: 'Alan Sans', sans-serif !important;
+        font-weight: 500 !important;
+      }
+
+      @media (min-width: 40rem) {
+        main h2 {
+          font-size: var(--text-heading-5) !important;
+          line-height: var(--tw-leading, var(--text-heading-5--line-height)) !important;
+        }
+
+        .section-title-heading {
+          font-size: var(--text-heading-5);
+          line-height: var(--tw-leading, var(--text-heading-5--line-height));
+        }
+      }
+
+      @media (min-width: 48rem) {
+        main h2 {
+          font-size: var(--text-heading-4) !important;
+          line-height: var(--tw-leading, var(--text-heading-4--line-height)) !important;
+        }
+
+        .section-title-heading {
+          font-size: var(--text-heading-4);
+          line-height: var(--tw-leading, var(--text-heading-4--line-height));
+        }
+      }
+
+      @media (min-width: 80rem) {
+        main h2 {
+          font-size: var(--text-heading-3) !important;
+          line-height: var(--tw-leading, var(--text-heading-3--line-height)) !important;
+        }
+
+        .section-title-heading {
+          font-size: var(--text-heading-3);
+          line-height: var(--tw-leading, var(--text-heading-3--line-height));
+        }
+      }
+
+      @media (min-width: 64rem) {
+        .section-title-label {
+          font-size: calc(var(--text-tagline-1) * 1.55);
+        }
+      }
+
+      .numbers-section {
+        background: #481D52;
+      }
+
+      .about-hero-section {
+        padding-top: clamp(6.5rem, 18vw, 10.625rem);
+      }
+
+      .about-hero-video {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-hero-video__media {
+        position: relative;
+        z-index: 0;
+        filter: blur(6px);
+        transform: scale(1.03);
+      }
+
+      .about-hero-video::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: rgba(0, 0, 0, 0.35);
+        pointer-events: none;
+      }
+
+      .about-hero-video__text {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #ffffff;
+        padding: clamp(1.25rem, 4vw, 3rem);
+        text-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+      }
+
+      .faq-section {
+        padding-bottom: clamp(3rem, 6vw, 5.5rem);
+      }
+
+      .faq-section .faq-card {
+        padding-top: clamp(4.5rem, 8vw, 7.5rem);
+        padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
+        border-radius: clamp(1.75rem, 3vw, 3rem);
+      }
+
+      .faq-section .faq-intro {
+        max-width: 860px;
+      }
+
+      .faq-section .faq-intro > * + * {
+        margin-top: clamp(0.85rem, 2vw, 1.5rem);
+      }
+
+      .faq-section .section-title-label {
+        font-size: calc(var(--text-tagline-1) * 1.5);
+        gap: 0.8rem;
+      }
+
+      .faq-section .section-title-bullet {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+
+      .faq-section .section-title-heading {
+        font-size: clamp(2.5rem, 4.8vw, 4.35rem);
+      }
+
+      .faq-section .faq-tagline {
+        font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+      }
+
+      .hero-cta-button {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(255, 255, 255, 0.62) 48%,
+          rgba(255, 255, 255, 0.9) 100%
+        );
+        background-size: 220% 100%;
+        background-position: 0% 50%;
+        color: #4B1D6A;
+        box-shadow:
+          0 20px 44px rgba(18, 8, 34, 0.3),
+          inset 0 1px 3px rgba(255, 255, 255, 0.9),
+          inset 0 -12px 26px rgba(255, 255, 255, 0.24);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+        transition:
+          color 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+
+      .hero-cta-button:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(255, 255, 255, 0.62) 48%,
+          rgba(255, 255, 255, 0.9) 100%
+        );
+        background-size: 220% 100%;
+      }
+
+      .hero-cta-icon {
+        width: clamp(3.4rem, 4.8vw, 3.9rem);
+        height: clamp(3.4rem, 4.8vw, 3.9rem);
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      .hero-cta-icon img {
+        width: clamp(2.2rem, 2.9vw, 2.6rem);
+        height: clamp(2.2rem, 2.9vw, 2.6rem);
+      }
+
+      .hero-cta-button > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .faq-section .hero-cta-button--faq {
+        position: relative;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.28) 0%,
+            rgba(255, 255, 255, 0.1) 46%,
+            rgba(255, 255, 255, 0.22) 100%
+          ),
+          linear-gradient(160deg, #4B1D6A 0%, #3D1857 100%);
+        background-size: 220% 100%, 100% 100%;
+        background-position: 0% 50%, 0 0;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        box-shadow:
+          0 20px 40px rgba(20, 10, 34, 0.45),
+          inset 0 1px 2px rgba(255, 255, 255, 0.45),
+          inset 0 -8px 22px rgba(255, 255, 255, 0.12);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+        transition:
+          color 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+        font-size: clamp(1.45rem, 2.05vw, 2.35rem);
+        line-height: 1.1;
+      }
+
+      .faq-section .hero-cta-button--faq::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #481D52;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .faq-section .hero-cta-button--faq:hover {
+        color: #ffffff;
+      }
+
+      .faq-section .hero-cta-button--faq:hover::before {
+        opacity: 1;
+      }
+
+      .our-story-section .our-story-text {
+        text-align: justify;
+        text-justify: inter-word;
+        line-height: 1.85;
+        letter-spacing: 0.01em;
+      }
+
+      .our-story-section .our-story-text + .our-story-text {
+        margin-top: 1.5rem;
+      }
+
+      .our-story-figure {
+        height: clamp(360px, 60vh, 760px);
+      }
+
+      .our-story-figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .solve-real-icon {
+        color: #481D52;
+        display: block;
+      }
+
+      .solve-real-icon-pulse {
+        stroke: currentColor !important;
+        animation: solve-real-icon-pulse 1s ease-in-out infinite;
+        will-change: color, filter;
+      }
+
+      .solve-real-icon-bounce {
+        animation: solve-real-icon-bounce 1.25s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      @keyframes hero-cta-glass {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes solve-real-icon-pulse {
+        0%,
+        100% {
+          color: #481D52;
+          filter: drop-shadow(0 0 0 rgba(230, 94, 4, 0));
+        }
+        50% {
+          color: #E65E04;
+          filter: drop-shadow(0 0 8px rgba(230, 94, 4, 0.7));
+        }
+      }
+
+      @keyframes solve-real-icon-bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+
+      .header-logo {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(2px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .header-one.scroll-header .header-logo {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .header-nav .nav-underline {
+        position: relative;
+        padding-bottom: 6px;
+      }
+
+      .header-nav .nav-underline::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 60%;
+        height: 2px;
+        background-color: currentColor;
+        border-radius: 999px;
+        opacity: 0.5;
+        transition: opacity 0.2s ease, height 0.2s ease;
+      }
+
+      .header-nav .nav-underline:hover::after {
+        opacity: 0.8;
+      }
+
+      .header-nav .nav-underline.is-active::after {
+        height: 3px;
+        opacity: 1;
+      }
+
+      .pc-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 70;
+        background: #ffffff;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        border-bottom: 2px solid #E65E04;
+        box-shadow: none;
+        will-change: opacity, transform;
+        --pc-nav-font-size: clamp(0.9rem, 1.1vw + 0.6rem, 1.35rem);
+        --pc-nav-font-size-active: clamp(1rem, 1.6vw + 0.55rem, 1.55rem);
+        --pc-nav-letter-spacing: clamp(0.015em, 0.25vw, 0.03em);
+        --pc-nav-gap: clamp(0.75rem, 4.5vw, 3.5rem);
+      }
+
+      .pc-navbar.is-faded {
+        opacity: 0;
+        transform: translateY(-100%);
+        pointer-events: none;
+      }
+
+      .pc-navbar.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .pc-navbar .pc-nav-link {
+        color: #481D52;
+        opacity: 0.82;
+      }
+
+      .pc-navbar .pc-nav-link::after {
+        background: #E65E04;
+        opacity: 0.7;
+      }
+
+      .pc-navbar-inner {
+        max-width: none;
+        width: 100%;
+        margin: 0;
+        min-height: 76px;
+        padding: 0.8rem 32px;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+      }
+
+      .pc-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--pc-nav-gap);
+        padding: 0.9rem 0.5rem;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        grid-column: 2;
+        justify-self: center;
+      }
+
+      .pc-nav-logo {
+        position: static;
+        grid-column: 1;
+        justify-self: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pc-nav-logo img {
+        height: 56px;
+        width: auto;
+        display: block;
+      }
+
+      .pc-nav-link {
+        position: relative;
+        text-decoration: none;
+        font-size: var(--pc-nav-font-size);
+        font-weight: 500;
+        letter-spacing: var(--pc-nav-letter-spacing);
+        padding-bottom: 0.55rem;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .pc-nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: 2px;
+        width: 48%;
+        transform: translateX(-50%) scaleX(0.7);
+        transform-origin: center;
+        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .pc-nav-link:hover {
+        opacity: 1;
+      }
+
+      .pc-nav-link:hover::after {
+        opacity: 1;
+        width: 62%;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .pc-nav-link.is-active {
+        font-size: var(--pc-nav-font-size-active);
+        font-weight: 600 !important;
+        opacity: 1;
+      }
+
+      .pc-nav-link.is-active::after {
+        width: 72%;
+        height: 3px;
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      /* Home link: text on desktop, plum icon on phone */
+      .pc-nav-home-icon {
+        display: none;
+      }
+
+      @media (max-width: 640px) {
+        .pc-nav-home-text {
+          display: none;
+        }
+
+        .pc-nav-home-icon {
+          display: block;
+          height: 2.1rem;
+          width: auto;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon) {
+          padding-bottom: 0;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon)::after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .pc-nav-logo {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .pc-navbar {
+          top: 0;
+          --pc-nav-font-size: 0.82rem;
+          --pc-nav-font-size-active: 0.88rem;
+          --pc-nav-letter-spacing: 0.005em;
+          --pc-nav-gap: 0.4rem;
+        }
+
+        .pc-navbar-inner {
+          display: flex;
+          padding: 0.6rem 12px;
+        }
+
+        .pc-nav {
+          width: 100%;
+          grid-column: auto;
+          justify-self: auto;
+          justify-content: space-evenly;
+          gap: var(--pc-nav-gap);
+          flex-wrap: nowrap;
+          padding: 0.5rem 0.25rem;
+        }
+
+        .pc-nav-link {
+          font-size: var(--pc-nav-font-size);
+          letter-spacing: var(--pc-nav-letter-spacing);
+          padding: 0.35rem 0.1rem 0.4rem;
+        }
+
+        .pc-nav-link.is-active {
+          font-size: var(--pc-nav-font-size-active);
+        }
+      }
+
+      .footer.footer-three {
+        background-color: transparent;
+      }
+
+      .footer-ribbon {
+        background-color: #E65E04;
+      }
+
+      .footer-three .footer-ribbon {
+        background: linear-gradient(135deg, #F0791F 0%, #E65E04 46%, #C7430A 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-three .footer-ribbon::before {
+        content:"";
+        position:absolute;
+        inset:0;
+        background:
+          radial-gradient(120% 90% at 100% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0) 58%),
+          radial-gradient(120% 90% at 0% 100%, rgba(72,29,82,0.28), rgba(72,29,82,0) 55%);
+        pointer-events:none;
+        z-index:0;
+      }
+
+      .footer-three .footer-ribbon > .main-container {
+        position:relative;
+        z-index:1;
+      }
+
+      .footer-copyright {
+        color: #481D52;
+      }
+
+      .footer-brand-card {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 16px 28px rgba(18, 9, 30, 0.2);
+      }
+
+      .footer-brand-card figure {
+        margin: 0;
+      }
+
+      .footer-outside-white {
+        color: #ffffff;
+      }
+
+      .footer-outside-white .footer-link-v2,
+      .footer-outside-white .text-secondary,
+      .footer-outside-white .text-secondary\/40,
+      .footer-outside-white .text-secondary\/60,
+      .footer-outside-white .text-secondary\/80 {
+        color: #ffffff;
+      }
+
+      .footer-social-white .stroke-secondary {
+        stroke: #ffffff;
+        fill: none;
+      }
+
+      .footer-social-white .fill-secondary {
+        fill: #ffffff;
+      }
+
+      .footer-social-white .bg-stroke-1 {
+        background-color: rgba(255, 255, 255, 0.45);
+      }
+
+      .footer-social-white {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .footer-social-white .footer-social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer-social-white svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .footer-outside-white .footer-link-v2:before {
+        background-color: #ffffff;
+      }
+
+      .footer-heading {
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer-heading::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.25rem;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        transform-origin: left;
+        transform: scaleX(0);
+        animation: footer-heading-underline 0.6s ease-out forwards;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      @keyframes footer-heading-underline {
+        from {
+          transform: scaleX(0);
+          opacity: 0;
+        }
+        to {
+          transform: scaleX(1);
+          opacity: 1;
+        }
+      }
+      .footer-logo-video {
+        display: block;
+        width: clamp(120px, 35vw, 180px);
+        height: auto;
+        margin: 0 auto;
+      }
+
+      .about-viewport-scale {
+        font-size: clamp(14px, 1.15vw, 18px);
+      }
+
+      @media (min-width: 1024px) {
+        .footer-logo-video {
+          width: 27%;
+          margin: 0;
+        }
+      }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1913777752672489');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1913777752672489&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <style>
+      /* ---- blog: scoped, no invented Tailwind utilities (main.css is pre-compiled) ---- */
+      .blog-shell { max-width: 780px; margin: 0 auto; }
+      .blog-wide { max-width: 1180px; margin: 0 auto; }
+      .blog-hero-media { border-radius: 24px; overflow: hidden; margin-bottom: 2.5rem; background: #f2ecf4; }
+      .blog-hero-media img { width: 100%; height: clamp(220px, 38vw, 460px); object-fit: cover; display: block; }
+      .blog-hero-credit { font-size: 0.78rem; color: #481D52; opacity: 0.55; margin-top: 0.6rem; text-align: right; }
+      .blog-hero-credit a { text-decoration: underline; }
+      .blog-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; color: #481D52; opacity: 0.7; font-size: 0.9rem; margin-bottom: 1.25rem; }
+      .blog-tag { background: #E65E04; color: #fff; border-radius: 999px; padding: 0.22rem 0.8rem; font-size: 0.78rem; letter-spacing: 0.02em; opacity: 1; }
+      .blog-body { color: #481D52; font-size: clamp(1rem, 1.05vw, 1.12rem); line-height: 1.75; }
+      /* main.css ships a "main h2" rule forcing uppercase + centred with
+         !important. That suits the section titles but not article prose.
+         These selectors outrank it, so they need !important too. Scoped to the
+         prose containers only: the closing CTA reuses the home page section
+         styling and must keep the centred uppercase treatment. */
+      main .blog-body h2, main .blog-body h3, main .blog-body h4,
+      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-index-head h2, main .blog-index .blog-card-title {
+        text-align: left !important;
+        text-transform: none !important;
+        font-family: 'Alan Sans', sans-serif !important;
+        font-weight: 500 !important;
+      }
+      main .blog-body .blog-h2, main .blog-faq .blog-h2, main .blog-related .blog-h2 {
+        font-size: clamp(1.45rem, 2.2vw, 1.95rem) !important;
+        line-height: 1.28 !important;
+      }
+      main .blog-body .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem) !important; line-height: 1.35 !important; }
+      main .blog-related .blog-card-title, main .blog-index .blog-card-title {
+        font-size: 1.1rem !important; line-height: 1.35 !important;
+      }
+      .blog-h2 { font-size: clamp(1.45rem, 2.2vw, 1.95rem); font-weight: 500; color: #481D52; margin: 2.6rem 0 0.9rem; line-height: 1.28; }
+      .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); font-weight: 500; color: #481D52; margin: 1.9rem 0 0.6rem; }
+      .blog-h4 { font-size: 1.05rem; font-weight: 500; color: #481D52; margin: 1.4rem 0 0.4rem; }
+      .blog-body p { margin: 0 0 1.15rem; }
+      .blog-list { margin: 0 0 1.3rem 1.15rem; }
+      .blog-list li { margin-bottom: 0.55rem; list-style: disc; }
+      ol.blog-list li { list-style: decimal; }
+      .blog-link { color: #E65E04; text-decoration: underline; text-underline-offset: 3px; }
+      .blog-link:hover { opacity: 0.75; }
+      .blog-quote { border-left: 3px solid #E65E04; background: #faf6fb; border-radius: 0 14px 14px 0; padding: 1.15rem 1.35rem; margin: 1.6rem 0; }
+      .blog-quote p:last-child { margin-bottom: 0; }
+      .blog-hr { border: 0; border-top: 1px solid rgba(72,29,82,0.15); margin: 2.4rem 0; }
+      .blog-code { background: #2b0c3c; color: #f6efe9; border-radius: 14px; padding: 1rem 1.2rem; overflow-x: auto; font-size: 0.88rem; margin: 0 0 1.4rem; }
+      .blog-table-wrap { overflow-x: auto; margin: 0 0 1.6rem; border-radius: 16px; border: 1px solid rgba(72,29,82,0.14); }
+      .blog-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; min-width: 520px; }
+      .blog-table th { background: #481D52; color: #fff; text-align: left; padding: 0.8rem 1rem; font-weight: 500; }
+      .blog-table td { padding: 0.8rem 1rem; border-top: 1px solid rgba(72,29,82,0.12); color: #481D52; vertical-align: top; }
+      .blog-toc { background: #faf6fb; border: 1px solid rgba(72,29,82,0.12); border-radius: 18px; padding: 1.2rem 1.4rem; margin: 0 0 2.2rem; }
+      .blog-toc-title { font-size: 0.8rem; letter-spacing: 0.09em; text-transform: uppercase; color: #E65E04; margin-bottom: 0.65rem; }
+      .blog-toc ol { margin: 0; padding-left: 1.1rem; }
+      .blog-toc li { list-style: decimal; margin-bottom: 0.35rem; color: #481D52; }
+      .blog-toc a:hover { color: #E65E04; }
+      .blog-faq { margin-top: 3rem; }
+      .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
+      .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
+      .blog-faq-item summary::-webkit-details-marker { display: none; }
+      .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
+      .blog-faq-item[open] summary::after { content: "\2013"; }
+      .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
+      .blog-faq-answer p:last-child { margin-bottom: 0; }
+      /* ---- closing CTA: the home page "Don't take our word for it" section.
+         These rules are scoped inside index.html rather than compiled into
+         main.css, so they are duplicated here verbatim. If the home page
+         version changes, change this to match. ---- */
+      .blog-final-cta { margin: 3.5rem 0 0; }
+      .blog-final-cta .combined-card { background: #481D52; border-radius: 26px; overflow: hidden; }
+      .blog-final-cta .section-title-label { color: #E65E04; justify-content: center; }
+      .blog-final-cta .section-title-heading { color: #ffffff; }
+      .blog-final-cta .combined-lede { color: rgba(255, 255, 255, 0.78); }
+      .blog-final-cta .hero-cta-button {
+        position: relative; overflow: hidden; isolation: isolate;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.62) 48%, rgba(255,255,255,0.9) 100%);
+        background-size: 220% 100%; background-position: 0% 50%;
+        color: #4B1D6A;
+        box-shadow: 0 26px 55px rgba(14,6,26,0.35), inset 0 1px 2px rgba(255,255,255,0.8), inset 0 -10px 25px rgba(255,255,255,0.25);
+        font-size: clamp(1.25rem, 1.8vw, 1.75rem); line-height: 1.1;
+        padding: clamp(0.35rem, 0.75vw, 0.6rem) clamp(1.85rem, 3.2vw, 2.25rem);
+        justify-content: center; gap: clamp(0.75rem, 1.4vw, 1rem);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+        transition: color .35s ease, border-color .35s ease, box-shadow .35s ease;
+      }
+      .blog-final-cta .hero-cta-button > * { position: relative; z-index: 2; }
+      .blog-final-cta .hero-cta-button::before {
+        content: ""; position: absolute; inset: 0; background: rgba(255,255,255,0.45);
+        opacity: 0; transition: opacity .35s ease; z-index: 1; pointer-events: none;
+      }
+      .blog-final-cta .hero-cta-button:hover { border-color: rgba(255,255,255,0.95); }
+      .blog-final-cta .hero-cta-button:hover::before { opacity: 1; }
+      .blog-final-cta .hero-cta-icon {
+        width: clamp(2.8rem, 4vw, 3.4rem); height: clamp(2.8rem, 4vw, 3.4rem);
+        background: transparent; border: none; box-shadow: none;
+      }
+      .blog-final-cta .hero-cta-icon img { width: clamp(1.9rem, 2.5vw, 2.3rem); height: clamp(1.9rem, 2.5vw, 2.3rem); }
+      .blog-final-cta .combined-subpill {
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 1.5px solid rgba(255, 255, 255, 0.55); color: #ffffff;
+        border-radius: 999px; padding: 0.55rem 1.6rem; font-size: 1.05rem; font-weight: 500;
+        transition: background .25s ease, color .25s ease, border-color .25s ease;
+      }
+      .blog-final-cta .combined-subpill:hover { background: #ffffff; color: #481D52; border-color: #ffffff; }
+      @keyframes hero-cta-glass {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      .blog-related { margin-top: 3.5rem; }
+      .blog-topic-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+      .blog-topic-nav a { border: 1px solid #481D52; border-radius: 999px; padding: 0.5rem 1rem; color: #481D52; }
+      .blog-topic-nav a:hover, .blog-topic-nav a:focus-visible { background: #faf6fb; text-decoration: underline; }
+      .blog-topic-section { margin-top: 2.5rem; scroll-margin-top: 110px; }
+      .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
+      .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
+      .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
+      .blog-card-media { background: #f2ecf4; }
+      .blog-card-media img { width: 100%; height: 190px; object-fit: cover; display: block; }
+      .blog-card-body { padding: 1.15rem 1.3rem 1.45rem; display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
+      .blog-card-tag { color: #E65E04; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+      .blog-card-title { color: #481D52; font-size: 1.1rem; font-weight: 500; line-height: 1.35; }
+      .blog-card-desc { color: #481D52; opacity: 0.72; font-size: 0.92rem; line-height: 1.55; flex: 1; }
+      .blog-card-date { color: #481D52; opacity: 0.5; font-size: 0.8rem; }
+      .blog-empty { color: #481D52; opacity: 0.7; padding: 2rem 0; }
+      @media (max-width: 640px) {
+        .blog-hero-media img { height: 210px; }
+        .blog-cta { border-radius: 20px; }
+      }
+    </style>
+<meta name="plumcut-content-version" content="e3e2e566f41fe9cbbffb25c76e3fa25eb5eb584989afde61ac092504593b1f36">
+</head>
+  <body class="bg-white dark:bg-background-5 is-loading">
+    <script>
+      // Keep articles usable if the shared animation bundle fails to load.
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        var loader = document.querySelector('.site-loader');
+        if (loader) loader.classList.add('site-loader--hidden');
+      }, 6000);
+    </script>
+    <div class="site-loader" aria-hidden="true">
+      <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
+        <source src="/images/loader.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- =========================
+Top Nav Buttons
+===========================-->
+
+    <!-- =========================
+Header
+===========================-->
+<header class="pc-navbar pc-navbar--sticky is-visible" aria-hidden="false">
+  <div class="pc-navbar-inner">
+    <a class="pc-nav-logo" href="/" aria-label="plumcut home">
+      <img src="/images/index/logo%20with%20wordmark.png" alt="plumcut wordmark" width="1080" height="318" fetchpriority="high">
+    </a>
+    <nav class="pc-nav" aria-label="Primary">
+      <a class="pc-nav-link" href="/" aria-label="Home">
+        <span class="pc-nav-home-text">Home</span>
+        <img class="pc-nav-home-icon" src="/images/shared/new%20icon.png" alt="plumcut home">
+      </a>
+      <a class="pc-nav-link" href="/how-it-works">How it works</a>
+      <a class="pc-nav-link" href="/solutions">Solutions</a>
+      <a class="pc-nav-link" href="/pricing">Pricing</a>
+      <a class="pc-nav-link" href="/about">About</a>
+    </nav>
+  </div>
+</header>
+    <main>
+      <article class="blog-article lg:py-[100px] pt-16 md:pt-20 lg:pb-[140px] md:pb-[100px] pb-16 mt-10 md:mt-16 lg:mt-20">
+        <div class="main-container edge-safe max-w-[1880px]">
+          <div class="blog-shell">
+
+            <div class="space-y-3 mb-8">
+              <p class="section-title-label sm:justify-start justify-center">
+                <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+                <a class="section-title-text" href="/blog/">Field notes</a>
+              </p>
+              <h1 style="color: #481D52;" class="text-heading-4">
+                Automating Delivery Updates and the Courier Loop
+              </h1>
+              <div class="blog-meta">
+                <span class="blog-tag">Automation guide</span>
+                <span>By <a href="/about">plumcut</a></span>
+                <span>Published <time datetime="2026-09-08">8 September 2026</time></span>
+
+
+                <span>9 min read</span>
+              </div>
+            </div>
+
+            <figure class="blog-hero-media">
+        <img src="/blog/heroes/wrapped-parcel-plain.jpg" alt="A plainly wrapped parcel tied with string" width="1600" height="900" fetchpriority="high" decoding="async">
+      </figure>
+      <p class="blog-hero-credit">Photo by <a href="https://www.flickr.com/photos/147875007@N03" target="_blank" rel="noopener nofollow">Rawpixel Ltd</a> on Flickr, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener nofollow">CC0 1.0</a></p>
+
+            
+<nav class="blog-toc" aria-label="On this page">
+  <p class="blog-toc-title">On this page</p>
+  <ol>
+    <li><a href="#this-is-the-other-half-of-where-is-my-order">This is the other half of &quot;where is my order&quot;</a></li>
+    <li><a href="#the-loop-event-by-event">The loop, event by event</a></li>
+    <li><a href="#courier-data-is-the-weak-link-and-you-should-design-around-it">Courier data is the weak link, and you should design around it</a></li>
+    <li><a href="#sent-is-not-delivered-and-delivered-is-not-the-parcel">Sent is not delivered, and delivered is not the parcel</a></li>
+    <li><a href="#cash-on-delivery-changes-the-shape-of-the-loop">Cash on delivery changes the shape of the loop</a></li>
+    <li><a href="#the-failed-attempt-is-where-the-money-is">The failed attempt is where the money is</a></li>
+    <li><a href="#what-this-costs">What this costs</a></li>
+    <li><a href="#what-to-do-this-week">What to do this week</a></li>
+  </ol>
+</nav>
+
+            <div class="blog-body">
+<p>A parcel leaves your table and stops being yours. It becomes a row in a courier's system, updated by a driver on a phone, in a status vocabulary you did not choose. Meanwhile the customer is asking you, not the courier, where it is. You are accountable for information you do not control, which is the actual shape of the logistics problem for a store in this region.</p>
+<blockquote class="blog-quote"><p>Automating delivery updates is a data problem before it is a messaging problem. The loop has four events worth telling a customer about: the order is confirmed, the parcel is dispatched with a tracking reference, a delivery is attempted, and it either lands or fails. Your store already emits the first two, through webhooks such as Shopify's <code>orders/create</code> and <code>fulfillments/create</code>. The courier owns the last two, and its data is the weak link: statuses are the courier's vocabulary rather than yours, they arrive when a driver updates them rather than when the event happened, and access is usually a polling API keyed on a waybill number rather than a push. The event that costs the most money is the failed delivery attempt, especially on cash on delivery, because a reattempt costs a second leg and often ends in a return. So build the loop around that event, not around the happy path. And remember the two are separate: a message marked as delivered means it reached the customer's device, not that the parcel reached their door.</p></blockquote>
+<h2 id="this-is-the-other-half-of-where-is-my-order" class="blog-h2">This is the other half of &quot;where is my order&quot;</h2>
+<p>We already covered the customer facing side of this in <a href="/blog/where-is-my-order-whatsapp" class="blog-link">can AI answer where is my order on WhatsApp</a>. That article is about answering the question well when a customer asks it: matching them to their order, replying inside the free window, and handling split shipments.</p>
+<p>This one is about the supply side of that answer. Where the status comes from, why it is often wrong or late, what to do when the courier says one thing and reality says another, and how to run the loop so that fewer customers need to ask at all. If you only read one, read that one first. This is what you need once it is working and you are still losing afternoons to chasing.</p>
+<h2 id="the-loop-event-by-event" class="blog-h2">The loop, event by event</h2>
+<div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Event</th><th>Who owns the data</th><th>Who needs to know</th><th>Message rules</th></tr></thead><tbody><tr><td>Order confirmed</td><td>Your store</td><td>Customer, fulfilment</td><td>Utility template if you send it first, free if it replies inside an open window</td></tr><tr><td>Dispatched, with tracking reference</td><td>Your store, once the courier reference is attached</td><td>Customer</td><td>Utility template, triggered by a user action, so it must be approved in advance</td></tr><tr><td>Out for delivery</td><td>Courier</td><td>Customer, and only if the courier data is timely enough to be useful</td><td>Utility template, and only worth sending if it is accurate</td></tr><tr><td>Delivered or failed</td><td>Courier</td><td>Customer, fulfilment, finance if cash on delivery</td><td>The failed case is the one that needs a human path</td></tr></tbody></table></div>
+<p>The judgment in that table is the third row. An &quot;out for delivery&quot; message is only worth sending if the courier updates it in the morning of the delivery day. If it lands at 6pm on the day the parcel already arrived, you have paid for a message that makes your business look confused.</p>
+<h2 id="courier-data-is-the-weak-link-and-you-should-design-around-it" class="blog-h2">Courier data is the weak link, and you should design around it</h2>
+<p>Regional carriers do expose programmatic access. Aramex, for instance, publishes a developer solutions centre with a shipments tracking API built on SOAP, which takes a list of waybill numbers and returns their tracking data, and requires a registered account with credentials. That is representative of what is available: functional, pull based, keyed on a waybill.</p>
+<p>Three consequences follow, and they apply whichever carrier you use.</p>
+<p><strong>You poll, so you choose the lag.</strong> With a pull based API, the freshness of your data is a decision you make about how often to ask. Poll too rarely and you tell customers stale things. Poll every parcel every minute and you will be rate limited. Most stores are well served by polling active shipments a few times a day and pausing once a parcel reaches a terminal state.</p>
+<p><strong>The status vocabulary is theirs, not yours.</strong> Couriers use their own status names, and multiple internal statuses often collapse into what a customer needs to know. Build an explicit translation table from courier statuses to the three or four states you are willing to tell a customer about, and decide what an unmapped status does. The safe default for an unrecognised status is to say nothing automatically and raise it internally, never to guess.</p>
+<p><strong>Absence of an update is not absence of movement.</strong> A driver updates when they update. A parcel with no scan for two days may be sitting in a depot or may be in a van. Do not let an automated message imply a delay that has not been confirmed, and do not let silence in the courier feed become silence to the customer if they have asked.</p>
+<h2 id="sent-is-not-delivered-and-delivered-is-not-the-parcel" class="blog-h2">Sent is not delivered, and delivered is not the parcel</h2>
+<p>This distinction causes real operational confusion, so it is worth stating precisely.</p>
+<p>Meta's status webhook reports the state of your message, not your shipment. A successful API response only means the request was accepted; delivery is communicated separately through the messages webhook. A <code>delivered</code> status means the message reached at least one of the user's devices. A message can sit at <code>sent</code> because the customer has not come online, and Meta holds messages for offline customers for a 30 day window. In rare cases the same message triggers both a <code>delivered</code> and a <code>failed</code> webhook, when a customer is logged in on multiple devices and one receives it and another does not. If your webhook endpoint returns anything other than a 200, Meta retries with decreasing frequency for up to seven days.</p>
+<p>So build two separate state machines and never let them share a field name. One tracks the parcel. One tracks whether your customer actually received what you said about it. A customer who never came online has not been informed, however green your outbound log looks, and that is exactly the customer who complains that nobody told them anything.</p>
+<h2 id="cash-on-delivery-changes-the-shape-of-the-loop" class="blog-h2">Cash on delivery changes the shape of the loop</h2>
+<p>Where payment happens at the door, the delivery attempt is also the payment attempt, and that changes what the loop is for.</p>
+<p>The order is not really an order until somebody has confirmed they still want it and will be there with the money. The delivery window matters more than it does on a prepaid order, because a driver arriving when nobody is home is a wasted leg rather than a rescheduled convenience. And a failure is not a delivery problem, it is a cancelled sale plus the cost of the outbound and return legs.</p>
+<p>The practical consequences for automation are narrow and specific:</p>
+<ul class="blog-list"><li>Confirm before you dispatch, not after. A confirmation message you send first is a utility template under Meta's categorization, since it follows a user action, and it needs opt in and prior approval.</li><li>Give the customer a way to change the day before the driver leaves, not after the attempt fails.</li><li>Tell them the amount to have ready, in the currency they will actually be asked for. In several markets in this region that is not a trivial detail.</li><li>On a failed attempt, get a person involved fast. A reattempt is a commercial decision about whether this order is still worth the second leg, and that is not a decision to automate.</li></ul>
+<h2 id="the-failed-attempt-is-where-the-money-is" class="blog-h2">The failed attempt is where the money is</h2>
+<p>Most tracking automation is built around the happy path, because the happy path is easy and demos well. The happy path costs you almost nothing to get wrong: a customer whose parcel arrives on time is not going to leave over a late notification.</p>
+<p>The failed attempt is different. It is the moment where a sale can still be saved and usually is not, because nobody notices for a day, and by then the parcel is heading back. Design the loop so that a failure is the loudest thing in it:</p>
+<ol class="blog-list"><li>The failure status maps to an internal alert, not just a customer message.</li><li>A named person owns the reattempt decision, with a deadline measured in hours.</li><li>The customer hears from you before they hear nothing, with a concrete next option rather than an apology.</li><li>Every failure is logged with a reason, because after thirty of them the pattern is usually one area, one courier branch, or one address format your checkout accepts and your driver cannot use.</li></ol>
+<p>That fourth step is the one that changes the business rather than the day. Failed deliveries cluster, and the cluster is almost always findable.</p>
+<h2 id="what-this-costs" class="blog-h2">What this costs</h2>
+<p>Under Meta's per message pricing, applying to all businesses since 1 July 2025, replies inside the 24 hour customer service window a customer opened are not charged, and utility messages sent in response to a user are also not charged. What you pay for is messaging first: a dispatch notification or a delivery confirmation sent when no window is open is a utility template, billed at the rate for that customer's market.</p>
+<p>Rates are market specific and Meta revised its rate cards effective 1 July 2026, with utility and authentication volume tiers that unlock lower rates as you send more, so check the current rate card for your customers' countries rather than a figure in any article, including this one.</p>
+<p>The arithmetic that matters is simple. One dispatch notification per order, paid, against the inbound tracking questions it prevents, which would have been answered free but not for free in your team's time. For most stores in this region the notification wins, and it wins by more the busier you are.</p>
+<h2 id="what-to-do-this-week" class="blog-h2">What to do this week</h2>
+<ol class="blog-list"><li>List every status your courier can return and map each one to the three or four states you will tell a customer about. Decide explicitly what an unmapped status does.</li><li>Separate parcel state from message state in whatever you use to track orders. Do not let a message marked delivered be read as a parcel delivered.</li><li>Make a failed delivery attempt raise an internal alert with a named owner and an hours long deadline.</li><li>Start logging failure reasons in a fixed vocabulary. Review them after thirty and look for the area, the branch or the address format.</li><li>If you take cash on delivery, confirm before dispatch and state the amount and currency in that message.</li></ol>
+<p>Most of that is process, not software, and it is worth doing before you buy anything.</p>
+<p>When you do want the loop run rather than assembled, <a href="/solutions" class="blog-link">plumcut</a> is the option we recommend, with the disclosure that it is our product. plum sits in the customer's own WhatsApp thread, connected to your store, so order events and the customer's question meet in the same place instead of in two systems and a person's memory. It answers the tracking question in Arabic or English at the hour it is asked, and hands the failed attempt to your team with the context attached, which is the split this article argues for. We build and run that for the brand, so the courier mapping and the failure path are our job to maintain rather than another thing on your operations lead's list. See <a href="/how-it-works" class="blog-link">how it works</a>, or <a href="/pricing" class="blog-link">pricing</a>.</p>
+            </div>
+
+            
+<section class="blog-faq" aria-labelledby="blog-faq-title">
+  <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
+  <details class="blog-faq-item">
+    <summary>Can I get courier tracking data automatically?</summary>
+    <div class="blog-faq-answer"><p>Usually yes, through the carrier's API. Aramex, for example, publishes a shipments tracking API in its developer solutions centre that accepts a list of waybill numbers and returns their tracking data, requiring a registered account with credentials. Access is typically pull based rather than pushed to you, so how fresh your data is depends on how often you poll, and carriers differ in what they expose.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>Does a delivered status on WhatsApp mean the parcel arrived?</summary>
+    <div class="blog-faq-answer"><p>No. Meta's status webhook describes your message, not your shipment. Delivered means the message reached at least one of the customer's devices. A message can stay at sent because the customer has not come online, and Meta holds messages for offline customers for a 30 day window. Track parcel state and message state as two separate things.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>Should I send an out for delivery message?</summary>
+    <div class="blog-faq-answer"><p>Only if your courier updates that status early enough on the delivery day to be useful. A notification that arrives after the parcel has already been delivered is a paid message that makes your business look disorganised. If the carrier's timing is unreliable, send the dispatch notification and skip this one.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>How should automation handle a failed delivery attempt?</summary>
+    <div class="blog-faq-answer"><p>By escalating, not by messaging alone. Map the failure status to an internal alert with a named owner and a deadline measured in hours, because whether a reattempt is worth a second leg is a commercial decision, particularly on cash on delivery. Contact the customer with a concrete next option rather than an apology, and log the reason in a fixed vocabulary so the pattern behind repeated failures becomes visible.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>Do delivery notifications cost money?</summary>
+    <div class="blog-faq-answer"><p>A notification you send first, when no customer service window is open, is a utility template and is billed at the rate for that customer's market. Replies inside the 24 hour window a customer opened are not charged, and neither are utility messages sent in response to a user. Meta revised its rate cards effective 1 July 2026 and rates are market specific, so check the current card rather than a quoted figure.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>What changes when orders are cash on delivery?</summary>
+    <div class="blog-faq-answer"><p>The delivery attempt is also the payment attempt, so a failed attempt is a cancelled sale plus two legs of shipping rather than a rescheduling. Confirm the order and the delivery window before dispatch instead of after, state the amount and the currency the customer will be asked for, and give them a way to change the day before the driver leaves.</p></div>
+  </details>
+</section>
+
+            
+<section class="final-combined blog-final-cta" aria-labelledby="blog-cta-title">
+  <div class="combined-card">
+    <div class="relative z-10 px-6 py-12 md:px-10 md:py-16">
+      <div class="text-center max-w-[820px] mx-auto space-y-4 md:space-y-5">
+        <span class="section-title-label">
+          <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <span class="section-title-text">Don't take our word for it</span>
+        </span>
+        <h2 id="blog-cta-title" class="section-title-heading">
+          Have a question? Ask plum.<br>See it for yourself
+        </h2>
+        <p class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
+          Losing hours to delivery chasing? Ask plum how order events, courier status and the customer's own thread can run as one loop.
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center gap-5 mt-10">
+        <a
+          href="https://wa.me/96181864662?text=Hi%20plum!" data-cta="article-demo" data-article="automate-logistics-delivery-updates"
+          class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
+        >
+          <span class="hero-cta-icon flex items-center justify-center rounded-full">
+            <img src="/images/shared/new%20icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          </span>
+          <span>Chat with plum</span>
+        </a>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." data-cta="article-question" data-article="automate-logistics-delivery-updates" class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." data-cta="article-meeting" data-article="automate-logistics-delivery-updates" class="combined-subpill">book a meeting</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+            
+<section class="blog-related" aria-labelledby="blog-related-title">
+  <h2 id="blog-related-title" class="blog-h2">Keep reading</h2>
+  <div class="blog-related-grid">
+    <a class="blog-card" href="/blog/where-is-my-order-whatsapp">
+      <div class="blog-card-media">
+        <img src="/blog/heroes/sealed-box.jpg" alt="A sealed cardboard box ready to ship" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Automation guide</span>
+        <h3 class="blog-card-title">Can AI Answer Where Is My Order on WhatsApp in 2026?</h3>
+        <p class="blog-card-desc">The most common message in commerce is a tracking question. What it takes to answer it automatically on WhatsApp, what it costs, and where it breaks.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a>
+    <a class="blog-card" href="/blog/whatsapp-ai-shopify-lebanon-gulf">
+      <div class="blog-card-media">
+        <img src="https://live.staticflickr.com/65535/47955063506_9ee4337660_b.jpg" alt="A rail of clothes on hangers inside a bright fashion store" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">plum in practice</span>
+        <h3 class="blog-card-title">WhatsApp AI for Shopify Stores in Lebanon and the Gulf</h3>
+        <p class="blog-card-desc">Why MENA Shopify stores sell in WhatsApp instead of the checkout, what breaks when you automate it, and what a working setup looks like.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a>
+    <a class="blog-card" href="/blog/how-to-automate-whatsapp-for-your-business">
+      <div class="blog-card-media">
+        <img src="https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.1.0&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb&amp;w=1600" alt="A phone showing a messaging app on a desk beside a laptop" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Automation guide</span>
+        <h3 class="blog-card-title">How to Automate WhatsApp for Your Business in 2026</h3>
+        <p class="blog-card-desc">A practical walkthrough of WhatsApp automation for commerce brands, from the free Business app to the Cloud API, and how to pick the right level.</p>
+        <span class="blog-card-date">5 September 2026</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- =========================
+Footer
+===========================-->
+<footer class="footer footer-three relative overflow-hidden">
+  <div class="footer-ribbon">
+    <div class="main-container">
+    <div
+      class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[80px] xl:pb-[80px] pt-14 pb-14 justify-between"
+    >
+      <div class="lg:col-span-4 col-span-12">
+        <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
+          <div class="footer-brand-card">
+            <figure>
+              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop preload="metadata">
+  <source src="/images/loader compressed.mp4" type="video/mp4" />
+</video>
+            </figure>
+            <p class="mt-4 text-secondary dark:text-accent">
+              plumcut builds and runs the AI that sells on WhatsApp, answering, booking, and turning every conversation into insight you own. Built in Lebanon, made for the brands of the region.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-8 col-span-12 grid grid-cols-12 gap-x-0 gap-y-8 footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
+        <div class="col-span-6 md:col-span-6">
+          <div data-ns-animate data-delay="0.4" class="space-y-8 text-center md:text-left text-white">
+            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
+              Menu
+            </p>
+            <ul class="space-y-5">
+              <li>
+                <a href="/" class="footer-link-v2"> Home </a>
+              </li>
+              <li>
+                <a href="/how-it-works" class="footer-link-v2"> How it works </a>
+              </li>
+              <li>
+                <a href="/solutions" class="footer-link-v2"> Solutions </a>
+              </li>
+              <li>
+                <a href="/pricing" class="footer-link-v2"> Pricing </a>
+              </li>
+              <li>
+                <a href="/about" class="footer-link-v2"> About </a>
+              </li>
+              <li>
+                <a href="/blog/" class="footer-link-v2"> Field notes </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-span-6 md:col-span-6">
+          <div data-ns-animate data-delay="0.6" class="space-y-8 text-center md:text-left text-white">
+            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
+              Socials
+            </p>
+            <div class="footer-social-white">
+              <a href="https://wa.me/96181864662?text=Hi%20plum!" target="_blank" rel="noopener" class="footer-social-link">
+                <span class="sr-only">WhatsApp</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.8c2.16 0 4.18.84 5.71 2.37a8.04 8.04 0 0 1 2.37 5.74c0 4.48-3.65 8.12-8.12 8.12-1.53 0-3.02-.43-4.31-1.23l-.31-.18-3.2.84.85-3.12-.2-.32a8.06 8.06 0 0 1-1.24-4.32c0-4.48 3.64-8.12 8.12-8.12zm4.6 10.18c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29z"
+                    class="fill-secondary dark:fill-accent"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/plumcut_/" class="footer-social-link footer-social-instagram">
+                <span class="sr-only">Instagram</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M11 1H5C2.79086 1 1 2.79086 1 5V11C1 13.2091 2.79086 15 5 15H11C13.2091 15 15 13.2091 15 11V5C15 2.79086 13.2091 1 11 1Z"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 8.79565 10.6839 9.55871 10.1213 10.1213C9.55871 10.6839 8.79565 11 8 11Z"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <rect
+                    x="11"
+                    y="5"
+                    width="2"
+                    height="2"
+                    rx="1"
+                    transform="rotate(-90 11 5)"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="11.5"
+                    y="4.5"
+                    width="1"
+                    height="1"
+                    rx="0.5"
+                    transform="rotate(-90 11.5 4.5)"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/company/plumcut/" class="footer-social-link">
+                <span class="sr-only">LinkedIn</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="11"
+                  viewBox="0 0 13 11"
+                  fill="none"
+                >
+                  <path
+                    d="M2.25 4C2.25 3.58579 1.91421 3.25 1.5 3.25C1.08579 3.25 0.75 3.58579 0.75 4H2.25ZM0.75 10C0.75 10.4142 1.08579 10.75 1.5 10.75C1.91421 10.75 2.25 10.4142 2.25 10H0.75ZM10.75 10C10.75 10.4142 11.0858 10.75 11.5 10.75C11.9142 10.75 12.25 10.4142 12.25 10H10.75ZM5.5 7H4.75H5.5ZM4.75 10C4.75 10.4142 5.08579 10.75 5.5 10.75C5.91421 10.75 6.25 10.4142 6.25 10H4.75ZM2.25 1C2.25 0.585786 1.91421 0.25 1.5 0.25C1.08579 0.25 0.75 0.585786 0.75 1H2.25ZM0.75 2C0.75 2.41421 1.08579 2.75 1.5 2.75C1.91421 2.75 2.25 2.41421 2.25 2H0.75ZM1.5 4H0.75V10H1.5H2.25V4H1.5ZM11.5 10H12.25V7H11.5H10.75V10H11.5ZM11.5 7H12.25C12.25 4.92893 10.5711 3.25 8.5 3.25V4V4.75C9.74264 4.75 10.75 5.75736 10.75 7H11.5ZM8.5 4V3.25C6.42893 3.25 4.75 4.92893 4.75 7H5.5H6.25C6.25 5.75736 7.25736 4.75 8.5 4.75V4ZM5.5 7H4.75V10H5.5H6.25V7H5.5ZM1.5 1H0.75V2H1.5H2.25V1H1.5Z"
+                    class="fill-secondary dark:fill-accent"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/plumcut" class="footer-social-link">
+                <span class="sr-only">Facebook</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="7"
+                  height="16"
+                  viewBox="0 0 7 16"
+                  fill="none"
+                >
+                  <path
+                    d="M2.25 15C2.25 15.4142 2.58579 15.75 3 15.75C3.41421 15.75 3.75 15.4142 3.75 15H2.25ZM3.75 7C3.75 6.58579 3.41421 6.25 3 6.25C2.58579 6.25 2.25 6.58579 2.25 7H3.75ZM6 1.75C6.41421 1.75 6.75 1.41421 6.75 1C6.75 0.585786 6.41421 0.25 6 0.25V1.75ZM3 4H2.25H3ZM2.25 7C2.25 7.41421 2.58579 7.75 3 7.75C3.41421 7.75 3.75 7.41421 3.75 7H2.25ZM3 6.25C2.58579 6.25 2.25 6.58579 2.25 7C2.25 7.41421 2.58579 7.75 3 7.75V6.25ZM5 7.75C5.41421 7.75 5.75 7.41421 5.75 7C5.75 6.58579 5.41421 6.25 5 6.25V7.75ZM3 7.75C3.41421 7.75 3.75 7.41421 3.75 7C3.75 6.58579 3.41421 6.25 3 6.25V7.75ZM1 6.25C0.585786 6.25 0.25 6.58579 0.25 7C0.25 7.41421 0.585786 7.75 1 7.75V6.25ZM3 15H3.75V7H3H2.25V15H3ZM6 1V0.25C3.92893 0.25 2.25 1.92893 2.25 4H3H3.75C3.75 2.75736 4.75736 1.75 6 1.75V1ZM3 4H2.25V7H3H3.75V4H3ZM3 7V7.75H5V7V6.25H3V7ZM3 7V6.25H1V7V7.75H3V7Z"
+                    class="fill-secondary dark:fill-accent"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="pt-8 pb-12 text-center">
+      <p
+        data-ns-animate
+        data-delay="0.7"
+        data-offset="10"
+        data-start="top 105%"
+        class="footer-copyright"
+      >
+        &copy; 2026 plumcut. All rights reserved.
+      </p>
+    </div>
+  </div>
+
+
+
+
+  <script src="/vendor/swiper.min.js"></script>
+<script src="/vendor/vanilla-infinite-marquee.min.js"></script>
+<script src="/vendor/split-text.min.js"></script>
+<script src="/vendor/gsap.min.js"></script>
+<script src="/vendor/scroll-trigger.min.js"></script>
+<script src="/vendor/draw-svg.min.js"></script>
+<script src="/vendor/motionpathplugin.min.js"></script>
+<script src="/vendor/lenis.min.js"></script>
+<script src="/vendor/springer.min.js"></script>
+<script src="/vendor/number-counter.js"></script>
+<script src="/vendor/stack-card.min.js"></script>
+
+
+  <script  src="/assets/main.js"></script>
+  <script>
+    (function() {
+      const navbar = document.querySelector(".pc-navbar:not(.pc-navbar--sticky)");
+      if (!navbar) return;
+
+      let ticking = false;
+
+      const update = () => {
+        ticking = false;
+        const shouldFade = window.scrollY > 120;
+        navbar.classList.toggle("is-faded", shouldFade);
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      update();
+    })();
+  </script>
+  <script>
+    (function() {
+      const stickyNavbar = document.querySelector(".pc-navbar--sticky");
+      const hero = document.querySelector("[data-hero-parallax]");
+      if (!stickyNavbar || !hero) return;
+
+      const setVisible = (isVisible) => {
+        stickyNavbar.classList.toggle("is-visible", isVisible);
+        stickyNavbar.setAttribute("aria-hidden", isVisible ? "false" : "true");
+      };
+
+      let ticking = false;
+
+      const update = () => {
+        ticking = false;
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const stickyHeight = stickyNavbar.offsetHeight || 0;
+        setVisible(heroBottom <= stickyHeight);
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      update();
+    })();
+  </script>
+<!-- Hero Bubble Parallax -->
+<script>
+  (function() {
+    const hero = document.querySelector('[data-hero-parallax]');
+    if (!hero) return;
+
+    const layers = Array.from(hero.querySelectorAll('[data-parallax-layer]'));
+    if (!layers.length) return;
+
+    const layerMeta = new Map();
+
+    layers.forEach((layer) => {
+      const bean = layer.closest('.hero-bean');
+      const speed = 8 + Math.random() * 16;
+      const angle = Math.random() * Math.PI * 2;
+      const driftX = 8 + Math.random() * 18;
+      const driftY = 8 + Math.random() * 18;
+      const driftSpeed = 0.15 + Math.random() * 0.25;
+      const driftPhase = Math.random() * Math.PI * 2;
+
+      layer.dataset.speed = speed.toFixed(2);
+      layer.dataset.angle = angle.toFixed(4);
+      layerMeta.set(layer, { driftX, driftY, driftSpeed, driftPhase });
+
+      if (bean) {
+        const floatRange = 18 + Math.random() * 35;
+        const floatAngle = Math.random() * Math.PI * 2;
+        const floatX = Math.cos(floatAngle) * floatRange;
+        const floatY = Math.sin(floatAngle) * floatRange;
+        const floatDuration = (18 + Math.random() * 18).toFixed(2) + 's';
+        const floatDelay = (-Math.random() * 12).toFixed(2) + 's';
+        const rotate = (Math.random() * 6 - 3).toFixed(2) + 'deg';
+        const blur = (Math.random() * 8 + 3).toFixed(1) + 'px';
+        const spinDuration = (28 + Math.random() * 36).toFixed(2) + 's';
+        const spinDirection = Math.random() > 0.5 ? 'normal' : 'reverse';
+
+        bean.style.setProperty('--float-x', `${floatX}px`);
+        bean.style.setProperty('--float-y', `${floatY}px`);
+        bean.style.setProperty('--float-duration', floatDuration);
+        bean.style.setProperty('--float-delay', floatDelay);
+        bean.style.setProperty('--float-rotate', rotate);
+        bean.style.setProperty('--bean-blur', blur);
+        bean.style.setProperty('--spin-duration', spinDuration);
+        bean.style.setProperty('--spin-direction', spinDirection);
+      }
+    });
+
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    const update = (time) => {
+      const t = time * 0.001;
+      layers.forEach((layer) => {
+        const meta = layerMeta.get(layer);
+        const speed = parseFloat(layer.dataset.speed || '10');
+        const angle = parseFloat(layer.dataset.angle || '0');
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        const rotatedX = currentX * cos - currentY * sin;
+        const rotatedY = currentX * sin + currentY * cos;
+        const driftT = t * meta.driftSpeed + meta.driftPhase;
+        const driftX = Math.sin(driftT) * meta.driftX;
+        const driftY = Math.cos(driftT * 0.9 + meta.driftPhase) * meta.driftY;
+        const x = rotatedX * speed + driftX;
+        const y = rotatedY * speed + driftY;
+
+        layer.style.setProperty('--bean-parallax-x', `${x}px`);
+        layer.style.setProperty('--bean-parallax-y', `${y}px`);
+      });
+    };
+
+    const tick = (time) => {
+      const ease = 0.04;
+      currentX += (targetX - currentX) * ease;
+      currentY += (targetY - currentY) * ease;
+      update(time);
+      requestAnimationFrame(tick);
+    };
+
+    const handleMove = (event) => {
+      const rect = hero.getBoundingClientRect();
+      const relX = (event.clientX - rect.left) / rect.width - 0.5;
+      const relY = (event.clientY - rect.top) / rect.height - 0.5;
+      const mouseScale = 0.6;
+      targetX = relX * mouseScale;
+      targetY = relY * mouseScale;
+    };
+
+    const reset = () => {
+      targetX = 0;
+      targetY = 0;
+    };
+
+    hero.addEventListener('mousemove', handleMove);
+    hero.addEventListener('mouseleave', reset);
+    hero.addEventListener('touchend', reset);
+    requestAnimationFrame(tick);
+  })();
+</script>
+
+</footer>
+    
+    <script>
+      (function() {
+        const button = document.querySelector(".scroll-top-trigger");
+        const footer = document.querySelector("footer");
+        const header = document.querySelector(".header-one");
+        if (!button) return;
+
+        let locked = false;
+
+        const update = () => {
+          const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+          if (scrollY <= 200) {
+            locked = false;
+          }
+
+          const footerTop = footer ? footer.getBoundingClientRect().top : Number.POSITIVE_INFINITY;
+          const footerVisible = footerTop <= window.innerHeight;
+          const headerActive = header
+            ? header.classList.contains("scrolling-down") || header.classList.contains("scroll-header") || scrollY > 200
+            : scrollY > 200;
+          const shouldShow = headerActive && scrollY > 200 && !footerVisible && !locked;
+          button.classList.toggle("is-visible", shouldShow);
+        };
+
+        button.addEventListener("click", () => {
+          locked = true;
+          button.classList.remove("is-visible");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+      })();
+    </script>
+    <script>
+      (function() {
+        const badges = Array.from(document.querySelectorAll(".section-title-badge"));
+        if (!badges.length) return;
+
+        const maxAlpha = 0.35;
+        const distanceRatio = 0.45;
+        let ticking = false;
+
+        const update = () => {
+          ticking = false;
+          const viewportCenter = window.innerHeight / 2;
+          const maxDistance = window.innerHeight * distanceRatio;
+
+          badges.forEach((badge) => {
+            const rect = badge.getBoundingClientRect();
+            if (rect.width === 0 && rect.height === 0) {
+              badge.style.setProperty("--badge-shadow-alpha", "0");
+              return;
+            }
+
+            const badgeCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(viewportCenter - badgeCenter);
+            const strength = Math.max(0, Math.min(1, 1 - distance / maxDistance));
+            badge.style.setProperty("--badge-shadow-alpha", strength * maxAlpha);
+          });
+        };
+
+        const requestUpdate = () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(update);
+          }
+        };
+
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate);
+        requestUpdate();
+      })();
+    </script>
+  </body>
+
+</html>

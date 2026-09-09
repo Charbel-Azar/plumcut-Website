@@ -1,0 +1,1783 @@
+<!doctype html>
+<html lang="en" data-force-theme="light" class="light">
+  
+<head>
+    <!-- =========================
+Head links 
+===========================-->
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="title" content="How to Connect WhatsApp Orders to Your Fleet Management Software | plumcut" />
+<meta
+  name="description"
+  content="What it takes for an order placed in a WhatsApp conversation to appear in a fleet dashboard by itself, and how logistics vendors can offer it."
+/>
+<meta
+  name="keywords"
+  content="WhatsApp order integration, fleet management software integration, logistics SaaS WhatsApp, automate order creation API, delivery software integration"
+/>
+<meta name="author" content="plumcut" />
+<meta
+  name="robots"
+  content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+/>
+<meta name="googlebot" content="index, follow" />
+<meta name="bingbot" content="index, follow" />
+
+<meta name="language" content="English" />
+
+<link rel="canonical" href="https://plumcut.com/blog/connect-whatsapp-orders-fleet-software" />
+<link rel="alternate" hreflang="en" href="https://plumcut.com/blog/connect-whatsapp-orders-fleet-software" />
+<link rel="alternate" hreflang="x-default" href="https://plumcut.com/blog/connect-whatsapp-orders-fleet-software" />
+
+<!-- Additional SEO Meta Tags -->
+<meta name="distribution" content="Global" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://plumcut.com/blog/connect-whatsapp-orders-fleet-software" />
+<meta property="og:title" content="How to Connect WhatsApp Orders to Your Fleet Management Software | plumcut" />
+<meta
+  property="og:description"
+  content="What it takes for an order placed in a WhatsApp conversation to appear in a fleet dashboard by itself, and how logistics vendors can offer it."
+/>
+<meta
+  property="og:image"
+  content="https://plumcut.com/blog/heroes/sealed-box.jpg"
+/>
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="A sealed cardboard box ready to ship" />
+<meta property="og:site_name" content="plumcut" />
+<meta property="og:locale" content="en_US" />
+<meta property="article:author" content="plumcut" />
+<meta property="article:publisher" content="plumcut" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@plumcut" />
+<meta name="twitter:creator" content="@plumcut" />
+<meta name="twitter:url" content="https://plumcut.com/blog/connect-whatsapp-orders-fleet-software" />
+<meta name="twitter:title" content="How to Connect WhatsApp Orders to Your Fleet Management Software | plumcut" />
+<meta
+  name="twitter:description"
+  content="What it takes for an order placed in a WhatsApp conversation to appear in a fleet dashboard by itself, and how logistics vendors can offer it."
+/>
+<meta
+  name="twitter:image"
+  content="https://plumcut.com/blog/heroes/sealed-box.jpg"
+/>
+<meta name="twitter:image:alt" content="A sealed cardboard box ready to ship" />
+
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Connect WhatsApp Orders to Your Fleet Management Software",
+  "description": "What it takes for an order placed in a WhatsApp conversation to appear in a fleet dashboard by itself, and how logistics vendors can offer it.",
+  "image": "https://plumcut.com/blog/heroes/sealed-box.jpg",
+  "datePublished": "2026-09-09",
+  "dateModified": "2026-09-09",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
+    "name": "plumcut",
+    "url": "https://plumcut.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "plumcut",
+    "url": "https://plumcut.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://plumcut.com/images/shared/new%20icon.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://plumcut.com/blog/connect-whatsapp-orders-fleet-software"
+  },
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://plumcut.com/blog/",
+    "name": "plumcut field notes"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://plumcut.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Field notes",
+      "item": "https://plumcut.com/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How to Connect WhatsApp Orders to Your Fleet Management Software",
+      "item": "https://plumcut.com/blog/connect-whatsapp-orders-fleet-software"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does it take to create an order in fleet software from a WhatsApp message?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>Four things. A WhatsApp Business API number so a system can receive and send messages, a layer that reads the conversation and extracts the order fields, a validation step that refuses to create an order it cannot dispatch, and an authenticated call to your platform's create job endpoint carrying your own reference so the order cannot be duplicated. The platform's status webhooks then close the loop by pushing updates back into the same thread.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can this work if my logistics platform is custom built rather than off the shelf?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>Yes, and it is often easier. A custom platform means the team that owns the database can add a create order endpoint and a status webhook shaped exactly the way the conversation layer needs them, instead of you working around a vendor's field names. What matters is that something authenticated exists to write an order and something exists to tell you when its status changes.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should a logistics software company build conversational ordering itself or partner?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>It depends on whether conversation is your product. Message handling is not a feature you ship once. It is a live surface with template approvals, a 24 hour reply window, per market pricing, and language behaviour that has to survive real customers writing badly. If your roadmap is routing, dispatch and proof of delivery, the honest comparison is between a partner who maintains that surface and the engineering months you would spend maintaining it yourself.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What stops a duplicate order being created when a customer repeats themselves?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>An idempotency reference generated from the conversation and sent with the create call, so a second attempt with the same reference updates rather than creates. Delivery platforms generally let you attach your own external identifier to a job for exactly this purpose. Without it, a customer who says &quot;yes, confirm&quot; twice produces two dispatches, and that is the most common way an integration like this loses money.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the customer have to leave WhatsApp at any point?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>No, that is the point of doing it this way. The order is captured in the thread, the order number is returned into the same thread, and status changes arrive there too. Sending the customer to a portal or a form reintroduces exactly the step that made people reply in the chat in the first place.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are order notifications billed on WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>A message you send first, outside an open customer service window, is a template message billed at the rate for that customer's market, while replies inside the 24 hour window the customer opened are not charged. Rates are market specific and Meta has revised its rate card, so check the current card rather than a figure quoted in an article. We covered the detail in our piece on what the WhatsApp Business API really costs.\u003c/p>"
+      }
+    }
+  ]
+}
+</script>
+<!-- Additional SEO Meta Tags -->
+<meta name="theme-color" content="#000000" />
+<meta name="msapplication-TileColor" content="#000000" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="plumcut" />
+<meta name="application-name" content="plumcut" />
+<meta
+  name="msapplication-tooltip"
+  content="plumcut, the AI that sells on WhatsApp"
+/>
+<meta name="msapplication-starturl" content="/" />
+<!-- Favicon and Icons -->
+<link rel="icon" type="image/png" href="/images/shared/new%20icon.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="/images/shared/new%20icon.png" />
+<link rel="shortcut icon" href="/images/shared/new%20icon.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/shared/new%20icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="preconnect" href="https://fonts.googleapis.com/" />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
+<link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+<link rel="preload" href="/assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" href="/images/loader.mp4" as="video" type="video/mp4" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&amp;display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@500&display=swap"
+  rel="stylesheet"
+/>
+
+    <title>How to Connect WhatsApp Orders to Your Fleet Management Software | plumcut</title>
+    
+    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+      .site-loader { display: none !important; }
+      body.is-loading { overflow: auto !important; }
+      [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
+    </style></noscript>
+    <style id="critical-loader-style">
+  .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
+  .site-loader--hidden { opacity: 0; visibility: hidden; }
+  .site-loader__video { width: clamp(160px, 40vw, 420px); max-height: 60vh; height: auto; display: block; }
+  body.is-loading { overflow: hidden; }
+</style>
+    
+    <style>
+      /* Apply Alan Sans across the page while allowing weight overrides */
+      body {
+        font-weight: 300;
+      }
+
+      body * {
+        font-family: 'Alan Sans', sans-serif !important;
+      }
+
+      main h2 {
+        font-size: var(--text-heading-6) !important;
+        line-height: var(--tw-leading, var(--text-heading-6--line-height)) !important;
+        text-transform: uppercase !important;
+        font-family: 'Alan Sans', sans-serif !important;
+        font-weight: 500 !important;
+        text-align: center !important;
+      }
+
+
+      .section-title-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: #E65E04;
+        font-size: calc(var(--text-tagline-1) * 1.3);
+        line-height: 1.2;
+        padding: 0;
+        background: transparent;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .section-title-bullet {
+        width: 1.4rem;
+        height: 1.4rem;
+        flex-shrink: 0;
+        object-fit: contain;
+      }
+
+      .section-title-text {
+        display: inline-block;
+      }
+
+      /* Unified spacing for every section title block (label -> heading -> text).
+         Overrides per-instance mb-5/mb-4/mt-3 utility classes so the gap is
+         identical across all sections and pages. */
+      .section-title-label { margin-bottom: 0.6rem !important; }
+      .section-title-heading { margin-top: 0 !important; margin-bottom: 0.9rem !important; }
+
+      .section-title-heading {
+        font-size: var(--text-heading-6);
+        line-height: var(--tw-leading, var(--text-heading-6--line-height));
+        color: #4B1D6A;
+        text-transform: uppercase;
+        font-family: 'Alan Sans', sans-serif !important;
+        font-weight: 500 !important;
+      }
+
+      @media (min-width: 40rem) {
+        main h2 {
+          font-size: var(--text-heading-5) !important;
+          line-height: var(--tw-leading, var(--text-heading-5--line-height)) !important;
+        }
+
+        .section-title-heading {
+          font-size: var(--text-heading-5);
+          line-height: var(--tw-leading, var(--text-heading-5--line-height));
+        }
+      }
+
+      @media (min-width: 48rem) {
+        main h2 {
+          font-size: var(--text-heading-4) !important;
+          line-height: var(--tw-leading, var(--text-heading-4--line-height)) !important;
+        }
+
+        .section-title-heading {
+          font-size: var(--text-heading-4);
+          line-height: var(--tw-leading, var(--text-heading-4--line-height));
+        }
+      }
+
+      @media (min-width: 80rem) {
+        main h2 {
+          font-size: var(--text-heading-3) !important;
+          line-height: var(--tw-leading, var(--text-heading-3--line-height)) !important;
+        }
+
+        .section-title-heading {
+          font-size: var(--text-heading-3);
+          line-height: var(--tw-leading, var(--text-heading-3--line-height));
+        }
+      }
+
+      @media (min-width: 64rem) {
+        .section-title-label {
+          font-size: calc(var(--text-tagline-1) * 1.55);
+        }
+      }
+
+      .numbers-section {
+        background: #481D52;
+      }
+
+      .about-hero-section {
+        padding-top: clamp(6.5rem, 18vw, 10.625rem);
+      }
+
+      .about-hero-video {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-hero-video__media {
+        position: relative;
+        z-index: 0;
+        filter: blur(6px);
+        transform: scale(1.03);
+      }
+
+      .about-hero-video::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: rgba(0, 0, 0, 0.35);
+        pointer-events: none;
+      }
+
+      .about-hero-video__text {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #ffffff;
+        padding: clamp(1.25rem, 4vw, 3rem);
+        text-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+      }
+
+      .faq-section {
+        padding-bottom: clamp(3rem, 6vw, 5.5rem);
+      }
+
+      .faq-section .faq-card {
+        padding-top: clamp(4.5rem, 8vw, 7.5rem);
+        padding-bottom: clamp(4.5rem, 8vw, 7.5rem);
+        border-radius: clamp(1.75rem, 3vw, 3rem);
+      }
+
+      .faq-section .faq-intro {
+        max-width: 860px;
+      }
+
+      .faq-section .faq-intro > * + * {
+        margin-top: clamp(0.85rem, 2vw, 1.5rem);
+      }
+
+      .faq-section .section-title-label {
+        font-size: calc(var(--text-tagline-1) * 1.5);
+        gap: 0.8rem;
+      }
+
+      .faq-section .section-title-bullet {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+
+      .faq-section .section-title-heading {
+        font-size: clamp(2.5rem, 4.8vw, 4.35rem);
+      }
+
+      .faq-section .faq-tagline {
+        font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+      }
+
+      .hero-cta-button {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(255, 255, 255, 0.62) 48%,
+          rgba(255, 255, 255, 0.9) 100%
+        );
+        background-size: 220% 100%;
+        background-position: 0% 50%;
+        color: #4B1D6A;
+        box-shadow:
+          0 20px 44px rgba(18, 8, 34, 0.3),
+          inset 0 1px 3px rgba(255, 255, 255, 0.9),
+          inset 0 -12px 26px rgba(255, 255, 255, 0.24);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+        transition:
+          color 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+      }
+
+      .hero-cta-button:hover {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.96) 0%,
+          rgba(255, 255, 255, 0.62) 48%,
+          rgba(255, 255, 255, 0.9) 100%
+        );
+        background-size: 220% 100%;
+      }
+
+      .hero-cta-icon {
+        width: clamp(3.4rem, 4.8vw, 3.9rem);
+        height: clamp(3.4rem, 4.8vw, 3.9rem);
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      .hero-cta-icon img {
+        width: clamp(2.2rem, 2.9vw, 2.6rem);
+        height: clamp(2.2rem, 2.9vw, 2.6rem);
+      }
+
+      .hero-cta-button > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      .faq-section .hero-cta-button--faq {
+        position: relative;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.28) 0%,
+            rgba(255, 255, 255, 0.1) 46%,
+            rgba(255, 255, 255, 0.22) 100%
+          ),
+          linear-gradient(160deg, #4B1D6A 0%, #3D1857 100%);
+        background-size: 220% 100%, 100% 100%;
+        background-position: 0% 50%, 0 0;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        box-shadow:
+          0 20px 40px rgba(20, 10, 34, 0.45),
+          inset 0 1px 2px rgba(255, 255, 255, 0.45),
+          inset 0 -8px 22px rgba(255, 255, 255, 0.12);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+        transition:
+          color 0.35s ease,
+          border-color 0.35s ease,
+          box-shadow 0.35s ease;
+        font-size: clamp(1.45rem, 2.05vw, 2.35rem);
+        line-height: 1.1;
+      }
+
+      .faq-section .hero-cta-button--faq::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: #481D52;
+        opacity: 0;
+        transition: opacity 0.35s ease;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .faq-section .hero-cta-button--faq:hover {
+        color: #ffffff;
+      }
+
+      .faq-section .hero-cta-button--faq:hover::before {
+        opacity: 1;
+      }
+
+      .our-story-section .our-story-text {
+        text-align: justify;
+        text-justify: inter-word;
+        line-height: 1.85;
+        letter-spacing: 0.01em;
+      }
+
+      .our-story-section .our-story-text + .our-story-text {
+        margin-top: 1.5rem;
+      }
+
+      .our-story-figure {
+        height: clamp(360px, 60vh, 760px);
+      }
+
+      .our-story-figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .solve-real-icon {
+        color: #481D52;
+        display: block;
+      }
+
+      .solve-real-icon-pulse {
+        stroke: currentColor !important;
+        animation: solve-real-icon-pulse 1s ease-in-out infinite;
+        will-change: color, filter;
+      }
+
+      .solve-real-icon-bounce {
+        animation: solve-real-icon-bounce 1.25s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      @keyframes hero-cta-glass {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      @keyframes solve-real-icon-pulse {
+        0%,
+        100% {
+          color: #481D52;
+          filter: drop-shadow(0 0 0 rgba(230, 94, 4, 0));
+        }
+        50% {
+          color: #E65E04;
+          filter: drop-shadow(0 0 8px rgba(230, 94, 4, 0.7));
+        }
+      }
+
+      @keyframes solve-real-icon-bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+
+      .header-logo {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(2px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .header-one.scroll-header .header-logo {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .header-nav .nav-underline {
+        position: relative;
+        padding-bottom: 6px;
+      }
+
+      .header-nav .nav-underline::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 60%;
+        height: 2px;
+        background-color: currentColor;
+        border-radius: 999px;
+        opacity: 0.5;
+        transition: opacity 0.2s ease, height 0.2s ease;
+      }
+
+      .header-nav .nav-underline:hover::after {
+        opacity: 0.8;
+      }
+
+      .header-nav .nav-underline.is-active::after {
+        height: 3px;
+        opacity: 1;
+      }
+
+      .pc-navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 70;
+        background: #ffffff;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        border-bottom: 2px solid #E65E04;
+        box-shadow: none;
+        will-change: opacity, transform;
+        --pc-nav-font-size: clamp(0.9rem, 1.1vw + 0.6rem, 1.35rem);
+        --pc-nav-font-size-active: clamp(1rem, 1.6vw + 0.55rem, 1.55rem);
+        --pc-nav-letter-spacing: clamp(0.015em, 0.25vw, 0.03em);
+        --pc-nav-gap: clamp(0.75rem, 4.5vw, 3.5rem);
+      }
+
+      .pc-navbar.is-faded {
+        opacity: 0;
+        transform: translateY(-100%);
+        pointer-events: none;
+      }
+
+      .pc-navbar.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .pc-navbar .pc-nav-link {
+        color: #481D52;
+        opacity: 0.82;
+      }
+
+      .pc-navbar .pc-nav-link::after {
+        background: #E65E04;
+        opacity: 0.7;
+      }
+
+      .pc-navbar-inner {
+        max-width: none;
+        width: 100%;
+        margin: 0;
+        min-height: 76px;
+        padding: 0.8rem 32px;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+      }
+
+      .pc-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--pc-nav-gap);
+        padding: 0.9rem 0.5rem;
+        flex-wrap: nowrap;
+        white-space: nowrap;
+        grid-column: 2;
+        justify-self: center;
+      }
+
+      .pc-nav-logo {
+        position: static;
+        grid-column: 1;
+        justify-self: center;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .pc-nav-logo img {
+        height: 56px;
+        width: auto;
+        display: block;
+      }
+
+      .pc-nav-link {
+        position: relative;
+        text-decoration: none;
+        font-size: var(--pc-nav-font-size);
+        font-weight: 500;
+        letter-spacing: var(--pc-nav-letter-spacing);
+        padding-bottom: 0.55rem;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .pc-nav-link::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: 2px;
+        width: 48%;
+        transform: translateX(-50%) scaleX(0.7);
+        transform-origin: center;
+        transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+
+      .pc-nav-link:hover {
+        opacity: 1;
+      }
+
+      .pc-nav-link:hover::after {
+        opacity: 1;
+        width: 62%;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .pc-nav-link.is-active {
+        font-size: var(--pc-nav-font-size-active);
+        font-weight: 600 !important;
+        opacity: 1;
+      }
+
+      .pc-nav-link.is-active::after {
+        width: 72%;
+        height: 3px;
+        opacity: 1;
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      /* Home link: text on desktop, plum icon on phone */
+      .pc-nav-home-icon {
+        display: none;
+      }
+
+      @media (max-width: 640px) {
+        .pc-nav-home-text {
+          display: none;
+        }
+
+        .pc-nav-home-icon {
+          display: block;
+          height: 2.1rem;
+          width: auto;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon) {
+          padding-bottom: 0;
+          flex: 0 0 auto;
+        }
+
+        .pc-nav-link:has(.pc-nav-home-icon)::after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .pc-nav-logo {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .pc-navbar {
+          top: 0;
+          --pc-nav-font-size: 0.82rem;
+          --pc-nav-font-size-active: 0.88rem;
+          --pc-nav-letter-spacing: 0.005em;
+          --pc-nav-gap: 0.4rem;
+        }
+
+        .pc-navbar-inner {
+          display: flex;
+          padding: 0.6rem 12px;
+        }
+
+        .pc-nav {
+          width: 100%;
+          grid-column: auto;
+          justify-self: auto;
+          justify-content: space-evenly;
+          gap: var(--pc-nav-gap);
+          flex-wrap: nowrap;
+          padding: 0.5rem 0.25rem;
+        }
+
+        .pc-nav-link {
+          font-size: var(--pc-nav-font-size);
+          letter-spacing: var(--pc-nav-letter-spacing);
+          padding: 0.35rem 0.1rem 0.4rem;
+        }
+
+        .pc-nav-link.is-active {
+          font-size: var(--pc-nav-font-size-active);
+        }
+      }
+
+      .footer.footer-three {
+        background-color: transparent;
+      }
+
+      .footer-ribbon {
+        background-color: #E65E04;
+      }
+
+      .footer-three .footer-ribbon {
+        background: linear-gradient(135deg, #F0791F 0%, #E65E04 46%, #C7430A 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer-three .footer-ribbon::before {
+        content:"";
+        position:absolute;
+        inset:0;
+        background:
+          radial-gradient(120% 90% at 100% 0%, rgba(255,255,255,0.18), rgba(255,255,255,0) 58%),
+          radial-gradient(120% 90% at 0% 100%, rgba(72,29,82,0.28), rgba(72,29,82,0) 55%);
+        pointer-events:none;
+        z-index:0;
+      }
+
+      .footer-three .footer-ribbon > .main-container {
+        position:relative;
+        z-index:1;
+      }
+
+      .footer-copyright {
+        color: #481D52;
+      }
+
+      .footer-brand-card {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 24px;
+        box-shadow: 0 16px 28px rgba(18, 9, 30, 0.2);
+      }
+
+      .footer-brand-card figure {
+        margin: 0;
+      }
+
+      .footer-outside-white {
+        color: #ffffff;
+      }
+
+      .footer-outside-white .footer-link-v2,
+      .footer-outside-white .text-secondary,
+      .footer-outside-white .text-secondary\/40,
+      .footer-outside-white .text-secondary\/60,
+      .footer-outside-white .text-secondary\/80 {
+        color: #ffffff;
+      }
+
+      .footer-social-white .stroke-secondary {
+        stroke: #ffffff;
+        fill: none;
+      }
+
+      .footer-social-white .fill-secondary {
+        fill: #ffffff;
+      }
+
+      .footer-social-white .bg-stroke-1 {
+        background-color: rgba(255, 255, 255, 0.45);
+      }
+
+      .footer-social-white {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .footer-social-white .footer-social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+      }
+
+      .footer-social-white svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      .footer-outside-white .footer-link-v2:before {
+        background-color: #ffffff;
+      }
+
+      .footer-heading {
+        position: relative;
+        display: inline-block;
+      }
+
+      .footer-heading::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.25rem;
+        width: 100%;
+        height: 1px;
+        background: currentColor;
+        transform-origin: left;
+        transform: scaleX(0);
+        animation: footer-heading-underline 0.6s ease-out forwards;
+        opacity: 0;
+        will-change: transform, opacity;
+      }
+
+      @keyframes footer-heading-underline {
+        from {
+          transform: scaleX(0);
+          opacity: 0;
+        }
+        to {
+          transform: scaleX(1);
+          opacity: 1;
+        }
+      }
+      .footer-logo-video {
+        display: block;
+        width: clamp(120px, 35vw, 180px);
+        height: auto;
+        margin: 0 auto;
+      }
+
+      .about-viewport-scale {
+        font-size: clamp(14px, 1.15vw, 18px);
+      }
+
+      @media (min-width: 1024px) {
+        .footer-logo-video {
+          width: 27%;
+          margin: 0;
+        }
+      }
+    </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1913777752672489');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1913777752672489&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <style>
+      /* ---- blog: scoped, no invented Tailwind utilities (main.css is pre-compiled) ---- */
+      .blog-shell { max-width: 780px; margin: 0 auto; }
+      .blog-wide { max-width: 1180px; margin: 0 auto; }
+      .blog-hero-media { border-radius: 24px; overflow: hidden; margin-bottom: 2.5rem; background: #f2ecf4; }
+      .blog-hero-media img { width: 100%; height: clamp(220px, 38vw, 460px); object-fit: cover; display: block; }
+      .blog-hero-credit { font-size: 0.78rem; color: #481D52; opacity: 0.55; margin-top: 0.6rem; text-align: right; }
+      .blog-hero-credit a { text-decoration: underline; }
+      .blog-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; color: #481D52; opacity: 0.7; font-size: 0.9rem; margin-bottom: 1.25rem; }
+      .blog-tag { background: #E65E04; color: #fff; border-radius: 999px; padding: 0.22rem 0.8rem; font-size: 0.78rem; letter-spacing: 0.02em; opacity: 1; }
+      .blog-body { color: #481D52; font-size: clamp(1rem, 1.05vw, 1.12rem); line-height: 1.75; }
+      /* main.css ships a "main h2" rule forcing uppercase + centred with
+         !important. That suits the section titles but not article prose.
+         These selectors outrank it, so they need !important too. Scoped to the
+         prose containers only: the closing CTA reuses the home page section
+         styling and must keep the centred uppercase treatment. */
+      main .blog-body h2, main .blog-body h3, main .blog-body h4,
+      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-index-head h2, main .blog-index .blog-card-title {
+        text-align: left !important;
+        text-transform: none !important;
+        font-family: 'Alan Sans', sans-serif !important;
+        font-weight: 500 !important;
+      }
+      main .blog-body .blog-h2, main .blog-faq .blog-h2, main .blog-related .blog-h2 {
+        font-size: clamp(1.45rem, 2.2vw, 1.95rem) !important;
+        line-height: 1.28 !important;
+      }
+      main .blog-body .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem) !important; line-height: 1.35 !important; }
+      main .blog-related .blog-card-title, main .blog-index .blog-card-title {
+        font-size: 1.1rem !important; line-height: 1.35 !important;
+      }
+      .blog-h2 { font-size: clamp(1.45rem, 2.2vw, 1.95rem); font-weight: 500; color: #481D52; margin: 2.6rem 0 0.9rem; line-height: 1.28; }
+      .blog-h3 { font-size: clamp(1.15rem, 1.6vw, 1.35rem); font-weight: 500; color: #481D52; margin: 1.9rem 0 0.6rem; }
+      .blog-h4 { font-size: 1.05rem; font-weight: 500; color: #481D52; margin: 1.4rem 0 0.4rem; }
+      .blog-body p { margin: 0 0 1.15rem; }
+      .blog-list { margin: 0 0 1.3rem 1.15rem; }
+      .blog-list li { margin-bottom: 0.55rem; list-style: disc; }
+      ol.blog-list li { list-style: decimal; }
+      .blog-link { color: #E65E04; text-decoration: underline; text-underline-offset: 3px; }
+      .blog-link:hover { opacity: 0.75; }
+      .blog-quote { border-left: 3px solid #E65E04; background: #faf6fb; border-radius: 0 14px 14px 0; padding: 1.15rem 1.35rem; margin: 1.6rem 0; }
+      .blog-quote p:last-child { margin-bottom: 0; }
+      .blog-hr { border: 0; border-top: 1px solid rgba(72,29,82,0.15); margin: 2.4rem 0; }
+      .blog-code { background: #2b0c3c; color: #f6efe9; border-radius: 14px; padding: 1rem 1.2rem; overflow-x: auto; font-size: 0.88rem; margin: 0 0 1.4rem; }
+      .blog-table-wrap { overflow-x: auto; margin: 0 0 1.6rem; border-radius: 16px; border: 1px solid rgba(72,29,82,0.14); }
+      .blog-table { width: 100%; border-collapse: collapse; font-size: 0.94rem; min-width: 520px; }
+      .blog-table th { background: #481D52; color: #fff; text-align: left; padding: 0.8rem 1rem; font-weight: 500; }
+      .blog-table td { padding: 0.8rem 1rem; border-top: 1px solid rgba(72,29,82,0.12); color: #481D52; vertical-align: top; }
+      .blog-toc { background: #faf6fb; border: 1px solid rgba(72,29,82,0.12); border-radius: 18px; padding: 1.2rem 1.4rem; margin: 0 0 2.2rem; }
+      .blog-toc-title { font-size: 0.8rem; letter-spacing: 0.09em; text-transform: uppercase; color: #E65E04; margin-bottom: 0.65rem; }
+      .blog-toc ol { margin: 0; padding-left: 1.1rem; }
+      .blog-toc li { list-style: decimal; margin-bottom: 0.35rem; color: #481D52; }
+      .blog-toc a:hover { color: #E65E04; }
+      .blog-faq { margin-top: 3rem; }
+      .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
+      .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
+      .blog-faq-item summary::-webkit-details-marker { display: none; }
+      .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
+      .blog-faq-item[open] summary::after { content: "\2013"; }
+      .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
+      .blog-faq-answer p:last-child { margin-bottom: 0; }
+      /* ---- closing CTA: the home page "Don't take our word for it" section.
+         These rules are scoped inside index.html rather than compiled into
+         main.css, so they are duplicated here verbatim. If the home page
+         version changes, change this to match. ---- */
+      .blog-final-cta { margin: 3.5rem 0 0; }
+      .blog-final-cta .combined-card { background: #481D52; border-radius: 26px; overflow: hidden; }
+      .blog-final-cta .section-title-label { color: #E65E04; justify-content: center; }
+      .blog-final-cta .section-title-heading { color: #ffffff; }
+      .blog-final-cta .combined-lede { color: rgba(255, 255, 255, 0.78); }
+      .blog-final-cta .hero-cta-button {
+        position: relative; overflow: hidden; isolation: isolate;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        background: linear-gradient(135deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.62) 48%, rgba(255,255,255,0.9) 100%);
+        background-size: 220% 100%; background-position: 0% 50%;
+        color: #4B1D6A;
+        box-shadow: 0 26px 55px rgba(14,6,26,0.35), inset 0 1px 2px rgba(255,255,255,0.8), inset 0 -10px 25px rgba(255,255,255,0.25);
+        font-size: clamp(1.25rem, 1.8vw, 1.75rem); line-height: 1.1;
+        padding: clamp(0.35rem, 0.75vw, 0.6rem) clamp(1.85rem, 3.2vw, 2.25rem);
+        justify-content: center; gap: clamp(0.75rem, 1.4vw, 1rem);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
+        animation: hero-cta-glass 6s ease-in-out infinite;
+        transition: color .35s ease, border-color .35s ease, box-shadow .35s ease;
+      }
+      .blog-final-cta .hero-cta-button > * { position: relative; z-index: 2; }
+      .blog-final-cta .hero-cta-button::before {
+        content: ""; position: absolute; inset: 0; background: rgba(255,255,255,0.45);
+        opacity: 0; transition: opacity .35s ease; z-index: 1; pointer-events: none;
+      }
+      .blog-final-cta .hero-cta-button:hover { border-color: rgba(255,255,255,0.95); }
+      .blog-final-cta .hero-cta-button:hover::before { opacity: 1; }
+      .blog-final-cta .hero-cta-icon {
+        width: clamp(2.8rem, 4vw, 3.4rem); height: clamp(2.8rem, 4vw, 3.4rem);
+        background: transparent; border: none; box-shadow: none;
+      }
+      .blog-final-cta .hero-cta-icon img { width: clamp(1.9rem, 2.5vw, 2.3rem); height: clamp(1.9rem, 2.5vw, 2.3rem); }
+      .blog-final-cta .combined-subpill {
+        display: inline-flex; align-items: center; justify-content: center;
+        border: 1.5px solid rgba(255, 255, 255, 0.55); color: #ffffff;
+        border-radius: 999px; padding: 0.55rem 1.6rem; font-size: 1.05rem; font-weight: 500;
+        transition: background .25s ease, color .25s ease, border-color .25s ease;
+      }
+      .blog-final-cta .combined-subpill:hover { background: #ffffff; color: #481D52; border-color: #ffffff; }
+      @keyframes hero-cta-glass {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      .blog-related { margin-top: 3.5rem; }
+      .blog-topic-nav { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
+      .blog-topic-nav a { border: 1px solid #481D52; border-radius: 999px; padding: 0.5rem 1rem; color: #481D52; }
+      .blog-topic-nav a:hover, .blog-topic-nav a:focus-visible { background: #faf6fb; text-decoration: underline; }
+      .blog-topic-section { margin-top: 2.5rem; scroll-margin-top: 110px; }
+      .blog-related-grid, .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
+      .blog-card { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(72,29,82,0.12); transition: transform .25s ease, box-shadow .25s ease; }
+      .blog-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(72,29,82,0.13); }
+      .blog-card-media { background: #f2ecf4; }
+      .blog-card-media img { width: 100%; height: 190px; object-fit: cover; display: block; }
+      .blog-card-body { padding: 1.15rem 1.3rem 1.45rem; display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
+      .blog-card-tag { color: #E65E04; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+      .blog-card-title { color: #481D52; font-size: 1.1rem; font-weight: 500; line-height: 1.35; }
+      .blog-card-desc { color: #481D52; opacity: 0.72; font-size: 0.92rem; line-height: 1.55; flex: 1; }
+      .blog-card-date { color: #481D52; opacity: 0.5; font-size: 0.8rem; }
+      .blog-empty { color: #481D52; opacity: 0.7; padding: 2rem 0; }
+      @media (max-width: 640px) {
+        .blog-hero-media img { height: 210px; }
+        .blog-cta { border-radius: 20px; }
+      }
+    </style>
+<meta name="plumcut-content-version" content="1a30efaaa46bba018c5df668f8fd7cc6f7a93fb7b0ef55228822088f01b8b6b2">
+</head>
+  <body class="bg-white dark:bg-background-5 is-loading">
+    <script>
+      // Keep articles usable if the shared animation bundle fails to load.
+      setTimeout(function () {
+        document.body.classList.remove('is-loading');
+        var loader = document.querySelector('.site-loader');
+        if (loader) loader.classList.add('site-loader--hidden');
+      }, 6000);
+    </script>
+    <div class="site-loader" aria-hidden="true">
+      <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
+        <source src="/images/loader.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- =========================
+Top Nav Buttons
+===========================-->
+
+    <!-- =========================
+Header
+===========================-->
+<header class="pc-navbar pc-navbar--sticky is-visible" aria-hidden="false">
+  <div class="pc-navbar-inner">
+    <a class="pc-nav-logo" href="/" aria-label="plumcut home">
+      <img src="/images/index/logo%20with%20wordmark.png" alt="plumcut wordmark" width="1080" height="318" fetchpriority="high">
+    </a>
+    <nav class="pc-nav" aria-label="Primary">
+      <a class="pc-nav-link" href="/" aria-label="Home">
+        <span class="pc-nav-home-text">Home</span>
+        <img class="pc-nav-home-icon" src="/images/shared/new%20icon.png" alt="plumcut home">
+      </a>
+      <a class="pc-nav-link" href="/how-it-works">How it works</a>
+      <a class="pc-nav-link" href="/solutions">Solutions</a>
+      <a class="pc-nav-link" href="/pricing">Pricing</a>
+      <a class="pc-nav-link" href="/about">About</a>
+    </nav>
+  </div>
+</header>
+    <main>
+      <article class="blog-article lg:py-[100px] pt-16 md:pt-20 lg:pb-[140px] md:pb-[100px] pb-16 mt-10 md:mt-16 lg:mt-20">
+        <div class="main-container edge-safe max-w-[1880px]">
+          <div class="blog-shell">
+
+            <div class="space-y-3 mb-8">
+              <p class="section-title-label sm:justify-start justify-center">
+                <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" />
+                <a class="section-title-text" href="/blog/">Field notes</a>
+              </p>
+              <h1 style="color: #481D52;" class="text-heading-4">
+                How to Connect WhatsApp Orders to Your Fleet Management Software
+              </h1>
+              <div class="blog-meta">
+                <span class="blog-tag">plum in practice</span>
+                <span>By <a href="/about">plumcut</a></span>
+                <span>Published <time datetime="2026-09-09">9 September 2026</time></span>
+
+
+                <span>7 min read</span>
+              </div>
+            </div>
+
+            <figure class="blog-hero-media">
+        <img src="/blog/heroes/sealed-box.jpg" alt="A sealed cardboard box ready to ship" width="1600" height="900" fetchpriority="high" decoding="async">
+      </figure>
+      <p class="blog-hero-credit">Photo by <a href="https://www.flickr.com/photos/8212496@N06" target="_blank" rel="noopener nofollow">public.resource.org</a> on Flickr, <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener nofollow">CC0 1.0</a></p>
+
+            
+<nav class="blog-toc" aria-label="On this page">
+  <p class="blog-toc-title">On this page</p>
+  <ol>
+    <li><a href="#the-shape-of-the-integration">The shape of the integration</a></li>
+    <li><a href="#what-your-platform-has-to-expose">What your platform has to expose</a></li>
+    <li><a href="#the-five-fields-that-decide-whether-it-works">The five fields that decide whether it works</a></li>
+    <li><a href="#the-handover-path-is-a-feature-not-a-fallback">The handover path is a feature, not a fallback</a></li>
+    <li><a href="#two-ways-this-gets-bought">Two ways this gets bought</a></li>
+    <li><a href="#what-plumcut-does-here">What plumcut does here</a></li>
+    <li><a href="#what-to-do-this-week">What to do this week</a></li>
+  </ol>
+</nav>
+
+            <div class="blog-body">
+<p>You sell or run software that dispatches drivers. It routes, it assigns, it captures proof of delivery, and it does all of that well. Then an order arrives on WhatsApp and a human opens the dashboard and types it in. The gap is not in your software. It is between the conversation where the order happens and the system where the order lives, and it is the same gap in almost every fleet and delivery platform we have looked at.</p>
+<blockquote class="blog-quote"><p>Closing it takes four pieces: a WhatsApp Business API number, a layer that reads the thread and extracts the order fields, a validation step that refuses to create anything it cannot dispatch, and an authenticated call to your platform's create job endpoint carrying your own reference so nothing gets created twice. The platform's existing status webhooks then push updates back into the same conversation. Nothing here is exotic. Established delivery platforms already document the endpoints and webhooks this needs, because it is the same route their store and ERP integrations use. The hard part is not the API call. It is the validation rules and the handover path for the orders that should not be automatic.</p></blockquote>
+<h2 id="the-shape-of-the-integration" class="blog-h2">The shape of the integration</h2>
+<p>Five steps, in order. Only step four touches your dispatch system.</p>
+<p><strong>1. Receive.</strong> The customer writes. That message reaches your stack through the WhatsApp Business API rather than a phone in someone's hand, which is what makes any of this possible.</p>
+<p><strong>2. Understand.</strong> The layer reads the thread, not just the last message, and pulls out the fields an order needs: who is ordering, the delivery address, what is being sent or bought, the requested time, and how it is being paid. In this region that means reading Arabizi written in Latin script as fluently as English, because that is how a real customer writes.</p>
+<p><strong>3. Validate and complete.</strong> This is the step that decides whether the whole thing is an asset or a liability. Before anything is created, the layer checks each field against rules you can state out loud. Anything missing becomes one specific question in the chat. Anything unusual goes to a person with the conversation attached.</p>
+<p><strong>4. Create.</strong> An authenticated call to your platform's create job endpoint, carrying an idempotency reference derived from the conversation so a customer confirming twice does not produce two dispatches.</p>
+<p><strong>5. Confirm and close the loop.</strong> The order number comes back into the same thread. Then the platform's status webhooks feed dispatch, delivery and failure events back into that conversation, which is the half we covered in <a href="/blog/automate-logistics-delivery-updates" class="blog-link">automating delivery updates and the courier loop</a>.</p>
+<h2 id="what-your-platform-has-to-expose" class="blog-h2">What your platform has to expose</h2>
+<p>Two things, and most established platforms already have both.</p>
+<p><strong>A way to create a job.</strong> An authenticated endpoint that accepts an order and returns an identifier. Onfleet documents a REST API for creating and managing tasks, authenticated with an organization API key (<a href="https://docs.onfleet.com/reference/tasks" class="blog-link" target="_blank" rel="noopener">Onfleet tasks reference</a>). Track-POD documents an order import API alongside its integrations (<a href="https://api.track-pod.com/index.html" class="blog-link" target="_blank" rel="noopener">Track-POD API</a>). Detrack documents a REST API with job creation and proof of delivery data (<a href="https://detrackapiv2.docs.apiary.io/" class="blog-link" target="_blank" rel="noopener">Detrack API</a>). Shipday documents a JSON REST API for orders and drivers (<a href="https://docs.shipday.com/reference/shipday-api" class="blog-link" target="_blank" rel="noopener">Shipday API</a>).</p>
+<p><strong>A way to hear about status changes.</strong> Webhooks that POST to your endpoint when something happens to the job. Onfleet fires webhooks on task events, delivered as POST requests carrying the trigger that caused them (<a href="https://docs.onfleet.com/reference/webhooks" class="blog-link" target="_blank" rel="noopener">Onfleet webhooks</a>). Track-POD documents webhook events including create order, update order status and route events. Detrack and Shipday both document status webhooks, and Shipday's order status webhook supports a validation token sent in the request header.</p>
+<p>Checked September 2026. Vendor capabilities and plan availability change, so confirm against your platform's current documentation rather than this list.</p>
+<p>If your platform is custom built, this is easier rather than harder. The team that owns the database can shape both sides to fit.</p>
+<h2 id="the-five-fields-that-decide-whether-it-works" class="blog-h2">The five fields that decide whether it works</h2>
+<p>Everything else is detail. These five are where a conversational order either becomes dispatchable or becomes a problem for a driver at 4pm.</p>
+<div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Field</th><th>Why it breaks</th><th>What the validation has to do</th></tr></thead><tbody><tr><td>Address</td><td>People give landmarks, not addresses, and in much of the region there is no reliable street numbering</td><td>Require enough specificity to actually route, and ask for the missing piece rather than accepting &quot;near the pharmacy&quot;</td></tr><tr><td>Phone number</td><td>Wrong country code, missing digit, or a number the driver cannot reach</td><td>Normalise to a callable format and confirm it belongs to the recipient, who is often not the person chatting</td></tr><tr><td>Time window</td><td>The customer asks for a slot you do not serve</td><td>Check against the windows dispatch can actually offer before promising one</td></tr><tr><td>Payment and amount</td><td>Cash on delivery means the driver collects, so a wrong amount is a wrong collection</td><td>State amount and currency explicitly in the confirmation, and never infer it</td></tr><tr><td>The item itself</td><td>Ambiguous quantity or a product that needs special handling</td><td>Resolve against your catalogue, and hand over when it cannot be resolved</td></tr></tbody></table></div>
+<p>Write these rules down before building anything. If your team cannot state them, the automation will encode whatever it guesses, and it will do that quickly and consistently, which is the worst possible combination.</p>
+<h2 id="the-handover-path-is-a-feature-not-a-fallback" class="blog-h2">The handover path is a feature, not a fallback</h2>
+<p>An order the layer should not create is a success when it reaches a person cleanly. Design three outcomes rather than two: create it, ask one question, or hand it to a human with the full conversation attached and a note on what was unclear.</p>
+<p>Then watch the handover rate and the reasons behind it. That list is the honest backlog. The first month it will be full of address ambiguity. Fix that, and it moves to something else. An integration with a zero percent handover rate is not a good one, it is one that is quietly creating orders it should have questioned.</p>
+<h2 id="two-ways-this-gets-bought" class="blog-h2">Two ways this gets bought</h2>
+<p>The same integration, two commercial shapes, and it is worth being explicit about which one you are.</p>
+<p><strong>You operate the fleet.</strong> You run a delivery business or a brand with your own drivers, you already pay for a fleet platform, and your team retypes orders into it. The conversational layer connects to the platform you already run. Nothing about your dispatch changes, and the comparison against your current process is laid out in <a href="/blog/manual-order-entry-vs-automated-capture" class="blog-link">manual order entry versus automated capture</a>.</p>
+<p><strong>You sell the software.</strong> You are the vendor. Your clients have their own fleets and their own customers, and every one of them has staff doing manual order entry into your dashboard. That gap is a feature request you keep hearing and a roadmap item you keep deferring, because conversation is not what your product is about.</p>
+<p>For a vendor, the build or partner decision is not really about the API call, which is a week of work. It is about the surface underneath it. Message templates need approval and get rejected. The 24 hour reply window governs what you can send and when. Pricing is per market and changes. Language behaviour has to hold up against customers writing in Arabizi, in fragments, and out of order. That is a product someone has to own continuously, not a feature you ship once. If your roadmap is routing, dispatch and proof of delivery, the fair comparison is between a partner maintaining that surface and the engineering months you would spend maintaining it yourself, forever, alongside everything else.</p>
+<h2 id="what-plumcut-does-here" class="blog-h2">What plumcut does here</h2>
+<p>plum is the conversation layer, not the dashboard. It handles the customer thread on WhatsApp, in English and in Arabizi, captures the order out of the customer's own words, validates it against rules you set, creates it in the fleet or delivery platform you already run through that platform's API, and returns the order number into the same thread. Your dispatch system stays the system of record and your team stops re-keying.</p>
+<p>We work both routes above: directly with operators, and with logistics software vendors who want to offer conversational ordering to their own client base as part of their product rather than building and maintaining a messaging stack. <a href="/solutions" class="blog-link">Solutions</a> covers what plum handles, <a href="/how-it-works" class="blog-link">how it works</a> covers the mechanics, and <a href="/pricing" class="blog-link">pricing</a> covers what running it costs. The messaging cost side, which is separate from what a vendor or operator pays us, is broken down in <a href="/blog/whatsapp-business-api-cost" class="blog-link">what the WhatsApp Business API really costs</a>.</p>
+<h2 id="what-to-do-this-week" class="blog-h2">What to do this week</h2>
+<p>Open your platform's API documentation and answer two questions: can something authenticated create a job, and can something tell me when that job's status changes. That is the whole feasibility study, and it takes fifteen minutes.</p>
+<p>Then, separately, write down the validation rules your best order-entry person applies without thinking about them. What makes an address dispatchable. Which time windows you actually serve. What you do when the cash on delivery amount looks wrong. That document is worth more to this project than any piece of the integration, because it is the part that cannot be bought.</p>
+            </div>
+
+            
+<section class="blog-faq" aria-labelledby="blog-faq-title">
+  <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
+  <details class="blog-faq-item">
+    <summary>What does it take to create an order in fleet software from a WhatsApp message?</summary>
+    <div class="blog-faq-answer"><p>Four things. A WhatsApp Business API number so a system can receive and send messages, a layer that reads the conversation and extracts the order fields, a validation step that refuses to create an order it cannot dispatch, and an authenticated call to your platform's create job endpoint carrying your own reference so the order cannot be duplicated. The platform's status webhooks then close the loop by pushing updates back into the same thread.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>Can this work if my logistics platform is custom built rather than off the shelf?</summary>
+    <div class="blog-faq-answer"><p>Yes, and it is often easier. A custom platform means the team that owns the database can add a create order endpoint and a status webhook shaped exactly the way the conversation layer needs them, instead of you working around a vendor's field names. What matters is that something authenticated exists to write an order and something exists to tell you when its status changes.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>Should a logistics software company build conversational ordering itself or partner?</summary>
+    <div class="blog-faq-answer"><p>It depends on whether conversation is your product. Message handling is not a feature you ship once. It is a live surface with template approvals, a 24 hour reply window, per market pricing, and language behaviour that has to survive real customers writing badly. If your roadmap is routing, dispatch and proof of delivery, the honest comparison is between a partner who maintains that surface and the engineering months you would spend maintaining it yourself.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>What stops a duplicate order being created when a customer repeats themselves?</summary>
+    <div class="blog-faq-answer"><p>An idempotency reference generated from the conversation and sent with the create call, so a second attempt with the same reference updates rather than creates. Delivery platforms generally let you attach your own external identifier to a job for exactly this purpose. Without it, a customer who says &quot;yes, confirm&quot; twice produces two dispatches, and that is the most common way an integration like this loses money.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>Does the customer have to leave WhatsApp at any point?</summary>
+    <div class="blog-faq-answer"><p>No, that is the point of doing it this way. The order is captured in the thread, the order number is returned into the same thread, and status changes arrive there too. Sending the customer to a portal or a form reintroduces exactly the step that made people reply in the chat in the first place.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary>How are order notifications billed on WhatsApp?</summary>
+    <div class="blog-faq-answer"><p>A message you send first, outside an open customer service window, is a template message billed at the rate for that customer's market, while replies inside the 24 hour window the customer opened are not charged. Rates are market specific and Meta has revised its rate card, so check the current card rather than a figure quoted in an article. We covered the detail in our piece on what the WhatsApp Business API really costs.</p></div>
+  </details>
+</section>
+
+            
+<section class="final-combined blog-final-cta" aria-labelledby="blog-cta-title">
+  <div class="combined-card">
+    <div class="relative z-10 px-6 py-12 md:px-10 md:py-16">
+      <div class="text-center max-w-[820px] mx-auto space-y-4 md:space-y-5">
+        <span class="section-title-label">
+          <img class="section-title-bullet" src="/images/index/Bullet-Orange.svg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <span class="section-title-text">Don't take our word for it</span>
+        </span>
+        <h2 id="blog-cta-title" class="section-title-heading">
+          Have a question? Ask plum.<br>See it for yourself
+        </h2>
+        <p class="text-tagline-1 combined-lede max-w-[700px] mx-auto">
+          Run a fleet platform or use one? Ask plum what a conversational order layer on top of it would look like.
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center gap-5 mt-10">
+        <a
+          href="https://wa.me/96181864662?text=Hi%20plum!" data-cta="article-demo" data-article="connect-whatsapp-orders-fleet-software"
+          class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
+        >
+          <span class="hero-cta-icon flex items-center justify-center rounded-full">
+            <img src="/images/shared/new%20icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          </span>
+          <span>Chat with plum</span>
+        </a>
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I%20have%20a%20question." data-cta="article-question" data-article="connect-whatsapp-orders-fleet-software" class="combined-subpill">ask a question</a>
+          <a href="https://wa.me/96181864662?text=Hi%20plum!%20I'd%20like%20to%20book%20a%2015-min%20call." data-cta="article-meeting" data-article="connect-whatsapp-orders-fleet-software" class="combined-subpill">book a meeting</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+            
+<section class="blog-related" aria-labelledby="blog-related-title">
+  <h2 id="blog-related-title" class="blog-h2">Keep reading</h2>
+  <div class="blog-related-grid">
+    <a class="blog-card" href="/blog/manual-order-entry-vs-automated-capture">
+      <div class="blog-card-media">
+        <img src="/blog/heroes/workspace-desk-overhead.jpg" alt="An overhead view of a tidy desk workspace" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Comparison</span>
+        <h3 class="blog-card-title">Manual Order Entry vs Automated Order Capture in Delivery Software</h3>
+        <p class="blog-card-desc">Four ways an order gets from a customer message into your delivery or fleet dashboard, compared on error rate, speed, cost and where each one breaks.</p>
+        <span class="blog-card-date">9 September 2026</span>
+      </div>
+    </a>
+    <a class="blog-card" href="/blog/automate-logistics-delivery-updates">
+      <div class="blog-card-media">
+        <img src="/blog/heroes/wrapped-parcel-plain.jpg" alt="A plainly wrapped parcel tied with string" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Automation guide</span>
+        <h3 class="blog-card-title">Automating Delivery Updates and the Courier Loop</h3>
+        <p class="blog-card-desc">The operations side of order tracking: courier data quality, failed attempts, cash on delivery reattempts, and why a sent message is not a delivered one.</p>
+        <span class="blog-card-date">8 September 2026</span>
+      </div>
+    </a>
+    <a class="blog-card" href="/blog/where-is-my-order-whatsapp">
+      <div class="blog-card-media">
+        <img src="/blog/heroes/sealed-box.jpg" alt="A sealed cardboard box ready to ship" loading="lazy" decoding="async">
+      </div>
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Automation guide</span>
+        <h3 class="blog-card-title">Can AI Answer Where Is My Order on WhatsApp in 2026?</h3>
+        <p class="blog-card-desc">The most common message in commerce is a tracking question. What it takes to answer it automatically on WhatsApp, what it costs, and where it breaks.</p>
+        <span class="blog-card-date">6 September 2026</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- =========================
+Footer
+===========================-->
+<footer class="footer footer-three relative overflow-hidden">
+  <div class="footer-ribbon">
+    <div class="main-container">
+    <div
+      class="grid grid-cols-12 lg:gap-x-8 xl:gap-x-0 gap-x-0 gap-y-16 xl:pt-[80px] xl:pb-[80px] pt-14 pb-14 justify-between"
+    >
+      <div class="lg:col-span-4 col-span-12">
+        <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
+          <div class="footer-brand-card">
+            <figure>
+              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop preload="metadata">
+  <source src="/images/loader compressed.mp4" type="video/mp4" />
+</video>
+            </figure>
+            <p class="mt-4 text-secondary dark:text-accent">
+              plumcut builds and runs the AI that sells on WhatsApp, answering, booking, and turning every conversation into insight you own. Built in Lebanon, made for the brands of the region.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-8 col-span-12 grid grid-cols-12 gap-x-0 gap-y-8 footer-outside-white footer-columns-white justify-items-center md:justify-items-start">
+        <div class="col-span-6 md:col-span-6">
+          <div data-ns-animate data-delay="0.4" class="space-y-8 text-center md:text-left text-white">
+            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
+              Menu
+            </p>
+            <ul class="space-y-5">
+              <li>
+                <a href="/" class="footer-link-v2"> Home </a>
+              </li>
+              <li>
+                <a href="/how-it-works" class="footer-link-v2"> How it works </a>
+              </li>
+              <li>
+                <a href="/solutions" class="footer-link-v2"> Solutions </a>
+              </li>
+              <li>
+                <a href="/pricing" class="footer-link-v2"> Pricing </a>
+              </li>
+              <li>
+                <a href="/about" class="footer-link-v2"> About </a>
+              </li>
+              <li>
+                <a href="/blog/" class="footer-link-v2"> Field notes </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-span-6 md:col-span-6">
+          <div data-ns-animate data-delay="0.6" class="space-y-8 text-center md:text-left text-white">
+            <p class="sm:text-heading-6 text-tagline-1 font-normal text-secondary dark:text-accent footer-heading">
+              Socials
+            </p>
+            <div class="footer-social-white">
+              <a href="https://wa.me/96181864662?text=Hi%20plum!" target="_blank" rel="noopener" class="footer-social-link">
+                <span class="sr-only">WhatsApp</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.8c2.16 0 4.18.84 5.71 2.37a8.04 8.04 0 0 1 2.37 5.74c0 4.48-3.65 8.12-8.12 8.12-1.53 0-3.02-.43-4.31-1.23l-.31-.18-3.2.84.85-3.12-.2-.32a8.06 8.06 0 0 1-1.24-4.32c0-4.48 3.64-8.12 8.12-8.12zm4.6 10.18c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.42-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29z"
+                    class="fill-secondary dark:fill-accent"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.instagram.com/plumcut_/" class="footer-social-link footer-social-instagram">
+                <span class="sr-only">Instagram</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M11 1H5C2.79086 1 1 2.79086 1 5V11C1 13.2091 2.79086 15 5 15H11C13.2091 15 15 13.2091 15 11V5C15 2.79086 13.2091 1 11 1Z"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8 11C6.34315 11 5 9.65685 5 8C5 6.34315 6.34315 5 8 5C9.65685 5 11 6.34315 11 8C11 8.79565 10.6839 9.55871 10.1213 10.1213C9.55871 10.6839 8.79565 11 8 11Z"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <rect
+                    x="11"
+                    y="5"
+                    width="2"
+                    height="2"
+                    rx="1"
+                    transform="rotate(-90 11 5)"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="11.5"
+                    y="4.5"
+                    width="1"
+                    height="1"
+                    rx="0.5"
+                    transform="rotate(-90 11.5 4.5)"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/company/plumcut/" class="footer-social-link">
+                <span class="sr-only">LinkedIn</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="11"
+                  viewBox="0 0 13 11"
+                  fill="none"
+                >
+                  <path
+                    d="M2.25 4C2.25 3.58579 1.91421 3.25 1.5 3.25C1.08579 3.25 0.75 3.58579 0.75 4H2.25ZM0.75 10C0.75 10.4142 1.08579 10.75 1.5 10.75C1.91421 10.75 2.25 10.4142 2.25 10H0.75ZM10.75 10C10.75 10.4142 11.0858 10.75 11.5 10.75C11.9142 10.75 12.25 10.4142 12.25 10H10.75ZM5.5 7H4.75H5.5ZM4.75 10C4.75 10.4142 5.08579 10.75 5.5 10.75C5.91421 10.75 6.25 10.4142 6.25 10H4.75ZM2.25 1C2.25 0.585786 1.91421 0.25 1.5 0.25C1.08579 0.25 0.75 0.585786 0.75 1H2.25ZM0.75 2C0.75 2.41421 1.08579 2.75 1.5 2.75C1.91421 2.75 2.25 2.41421 2.25 2H0.75ZM1.5 4H0.75V10H1.5H2.25V4H1.5ZM11.5 10H12.25V7H11.5H10.75V10H11.5ZM11.5 7H12.25C12.25 4.92893 10.5711 3.25 8.5 3.25V4V4.75C9.74264 4.75 10.75 5.75736 10.75 7H11.5ZM8.5 4V3.25C6.42893 3.25 4.75 4.92893 4.75 7H5.5H6.25C6.25 5.75736 7.25736 4.75 8.5 4.75V4ZM5.5 7H4.75V10H5.5H6.25V7H5.5ZM1.5 1H0.75V2H1.5H2.25V1H1.5Z"
+                    class="fill-secondary dark:fill-accent"
+                  />
+                </svg>
+              </a>
+              <a href="https://www.facebook.com/plumcut" class="footer-social-link">
+                <span class="sr-only">Facebook</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="7"
+                  height="16"
+                  viewBox="0 0 7 16"
+                  fill="none"
+                >
+                  <path
+                    d="M2.25 15C2.25 15.4142 2.58579 15.75 3 15.75C3.41421 15.75 3.75 15.4142 3.75 15H2.25ZM3.75 7C3.75 6.58579 3.41421 6.25 3 6.25C2.58579 6.25 2.25 6.58579 2.25 7H3.75ZM6 1.75C6.41421 1.75 6.75 1.41421 6.75 1C6.75 0.585786 6.41421 0.25 6 0.25V1.75ZM3 4H2.25H3ZM2.25 7C2.25 7.41421 2.58579 7.75 3 7.75C3.41421 7.75 3.75 7.41421 3.75 7H2.25ZM3 6.25C2.58579 6.25 2.25 6.58579 2.25 7C2.25 7.41421 2.58579 7.75 3 7.75V6.25ZM5 7.75C5.41421 7.75 5.75 7.41421 5.75 7C5.75 6.58579 5.41421 6.25 5 6.25V7.75ZM3 7.75C3.41421 7.75 3.75 7.41421 3.75 7C3.75 6.58579 3.41421 6.25 3 6.25V7.75ZM1 6.25C0.585786 6.25 0.25 6.58579 0.25 7C0.25 7.41421 0.585786 7.75 1 7.75V6.25ZM3 15H3.75V7H3H2.25V15H3ZM6 1V0.25C3.92893 0.25 2.25 1.92893 2.25 4H3H3.75C3.75 2.75736 4.75736 1.75 6 1.75V1ZM3 4H2.25V7H3H3.75V4H3ZM3 7V7.75H5V7V6.25H3V7ZM3 7V6.25H1V7V7.75H3V7Z"
+                    class="fill-secondary dark:fill-accent"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="main-container">
+    <div class="pt-8 pb-12 text-center">
+      <p
+        data-ns-animate
+        data-delay="0.7"
+        data-offset="10"
+        data-start="top 105%"
+        class="footer-copyright"
+      >
+        &copy; 2026 plumcut. All rights reserved.
+      </p>
+    </div>
+  </div>
+
+
+
+
+  <script src="/vendor/swiper.min.js"></script>
+<script src="/vendor/vanilla-infinite-marquee.min.js"></script>
+<script src="/vendor/split-text.min.js"></script>
+<script src="/vendor/gsap.min.js"></script>
+<script src="/vendor/scroll-trigger.min.js"></script>
+<script src="/vendor/draw-svg.min.js"></script>
+<script src="/vendor/motionpathplugin.min.js"></script>
+<script src="/vendor/lenis.min.js"></script>
+<script src="/vendor/springer.min.js"></script>
+<script src="/vendor/number-counter.js"></script>
+<script src="/vendor/stack-card.min.js"></script>
+
+
+  <script  src="/assets/main.js"></script>
+  <script>
+    (function() {
+      const navbar = document.querySelector(".pc-navbar:not(.pc-navbar--sticky)");
+      if (!navbar) return;
+
+      let ticking = false;
+
+      const update = () => {
+        ticking = false;
+        const shouldFade = window.scrollY > 120;
+        navbar.classList.toggle("is-faded", shouldFade);
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      update();
+    })();
+  </script>
+  <script>
+    (function() {
+      const stickyNavbar = document.querySelector(".pc-navbar--sticky");
+      const hero = document.querySelector("[data-hero-parallax]");
+      if (!stickyNavbar || !hero) return;
+
+      const setVisible = (isVisible) => {
+        stickyNavbar.classList.toggle("is-visible", isVisible);
+        stickyNavbar.setAttribute("aria-hidden", isVisible ? "false" : "true");
+      };
+
+      let ticking = false;
+
+      const update = () => {
+        ticking = false;
+        const heroBottom = hero.getBoundingClientRect().bottom;
+        const stickyHeight = stickyNavbar.offsetHeight || 0;
+        setVisible(heroBottom <= stickyHeight);
+      };
+
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", onScroll);
+      update();
+    })();
+  </script>
+<!-- Hero Bubble Parallax -->
+<script>
+  (function() {
+    const hero = document.querySelector('[data-hero-parallax]');
+    if (!hero) return;
+
+    const layers = Array.from(hero.querySelectorAll('[data-parallax-layer]'));
+    if (!layers.length) return;
+
+    const layerMeta = new Map();
+
+    layers.forEach((layer) => {
+      const bean = layer.closest('.hero-bean');
+      const speed = 8 + Math.random() * 16;
+      const angle = Math.random() * Math.PI * 2;
+      const driftX = 8 + Math.random() * 18;
+      const driftY = 8 + Math.random() * 18;
+      const driftSpeed = 0.15 + Math.random() * 0.25;
+      const driftPhase = Math.random() * Math.PI * 2;
+
+      layer.dataset.speed = speed.toFixed(2);
+      layer.dataset.angle = angle.toFixed(4);
+      layerMeta.set(layer, { driftX, driftY, driftSpeed, driftPhase });
+
+      if (bean) {
+        const floatRange = 18 + Math.random() * 35;
+        const floatAngle = Math.random() * Math.PI * 2;
+        const floatX = Math.cos(floatAngle) * floatRange;
+        const floatY = Math.sin(floatAngle) * floatRange;
+        const floatDuration = (18 + Math.random() * 18).toFixed(2) + 's';
+        const floatDelay = (-Math.random() * 12).toFixed(2) + 's';
+        const rotate = (Math.random() * 6 - 3).toFixed(2) + 'deg';
+        const blur = (Math.random() * 8 + 3).toFixed(1) + 'px';
+        const spinDuration = (28 + Math.random() * 36).toFixed(2) + 's';
+        const spinDirection = Math.random() > 0.5 ? 'normal' : 'reverse';
+
+        bean.style.setProperty('--float-x', `${floatX}px`);
+        bean.style.setProperty('--float-y', `${floatY}px`);
+        bean.style.setProperty('--float-duration', floatDuration);
+        bean.style.setProperty('--float-delay', floatDelay);
+        bean.style.setProperty('--float-rotate', rotate);
+        bean.style.setProperty('--bean-blur', blur);
+        bean.style.setProperty('--spin-duration', spinDuration);
+        bean.style.setProperty('--spin-direction', spinDirection);
+      }
+    });
+
+    let targetX = 0;
+    let targetY = 0;
+    let currentX = 0;
+    let currentY = 0;
+
+    const update = (time) => {
+      const t = time * 0.001;
+      layers.forEach((layer) => {
+        const meta = layerMeta.get(layer);
+        const speed = parseFloat(layer.dataset.speed || '10');
+        const angle = parseFloat(layer.dataset.angle || '0');
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        const rotatedX = currentX * cos - currentY * sin;
+        const rotatedY = currentX * sin + currentY * cos;
+        const driftT = t * meta.driftSpeed + meta.driftPhase;
+        const driftX = Math.sin(driftT) * meta.driftX;
+        const driftY = Math.cos(driftT * 0.9 + meta.driftPhase) * meta.driftY;
+        const x = rotatedX * speed + driftX;
+        const y = rotatedY * speed + driftY;
+
+        layer.style.setProperty('--bean-parallax-x', `${x}px`);
+        layer.style.setProperty('--bean-parallax-y', `${y}px`);
+      });
+    };
+
+    const tick = (time) => {
+      const ease = 0.04;
+      currentX += (targetX - currentX) * ease;
+      currentY += (targetY - currentY) * ease;
+      update(time);
+      requestAnimationFrame(tick);
+    };
+
+    const handleMove = (event) => {
+      const rect = hero.getBoundingClientRect();
+      const relX = (event.clientX - rect.left) / rect.width - 0.5;
+      const relY = (event.clientY - rect.top) / rect.height - 0.5;
+      const mouseScale = 0.6;
+      targetX = relX * mouseScale;
+      targetY = relY * mouseScale;
+    };
+
+    const reset = () => {
+      targetX = 0;
+      targetY = 0;
+    };
+
+    hero.addEventListener('mousemove', handleMove);
+    hero.addEventListener('mouseleave', reset);
+    hero.addEventListener('touchend', reset);
+    requestAnimationFrame(tick);
+  })();
+</script>
+
+</footer>
+    
+    <script>
+      (function() {
+        const button = document.querySelector(".scroll-top-trigger");
+        const footer = document.querySelector("footer");
+        const header = document.querySelector(".header-one");
+        if (!button) return;
+
+        let locked = false;
+
+        const update = () => {
+          const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+          if (scrollY <= 200) {
+            locked = false;
+          }
+
+          const footerTop = footer ? footer.getBoundingClientRect().top : Number.POSITIVE_INFINITY;
+          const footerVisible = footerTop <= window.innerHeight;
+          const headerActive = header
+            ? header.classList.contains("scrolling-down") || header.classList.contains("scroll-header") || scrollY > 200
+            : scrollY > 200;
+          const shouldShow = headerActive && scrollY > 200 && !footerVisible && !locked;
+          button.classList.toggle("is-visible", shouldShow);
+        };
+
+        button.addEventListener("click", () => {
+          locked = true;
+          button.classList.remove("is-visible");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+      })();
+    </script>
+    <script>
+      (function() {
+        const badges = Array.from(document.querySelectorAll(".section-title-badge"));
+        if (!badges.length) return;
+
+        const maxAlpha = 0.35;
+        const distanceRatio = 0.45;
+        let ticking = false;
+
+        const update = () => {
+          ticking = false;
+          const viewportCenter = window.innerHeight / 2;
+          const maxDistance = window.innerHeight * distanceRatio;
+
+          badges.forEach((badge) => {
+            const rect = badge.getBoundingClientRect();
+            if (rect.width === 0 && rect.height === 0) {
+              badge.style.setProperty("--badge-shadow-alpha", "0");
+              return;
+            }
+
+            const badgeCenter = rect.top + rect.height / 2;
+            const distance = Math.abs(viewportCenter - badgeCenter);
+            const strength = Math.max(0, Math.min(1, 1 - distance / maxDistance));
+            badge.style.setProperty("--badge-shadow-alpha", strength * maxAlpha);
+          });
+        };
+
+        const requestUpdate = () => {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(update);
+          }
+        };
+
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate);
+        requestUpdate();
+      })();
+    </script>
+  </body>
+
+</html>
