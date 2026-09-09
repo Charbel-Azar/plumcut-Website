@@ -11,6 +11,8 @@
 ## Field notes
 - [Field notes](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.
 <!-- BLOG:LIST:START -->
+- [Manual Order Entry vs Automated Order Capture in Delivery Software](https://plumcut.com/blog/manual-order-entry-vs-automated-capture): Four ways an order gets from a customer message into your delivery or fleet dashboard, compared on error rate, speed, cost and where each one breaks.
+- [How to Connect WhatsApp Orders to Your Fleet Management Software](https://plumcut.com/blog/connect-whatsapp-orders-fleet-software): What it takes for an order placed in a WhatsApp conversation to appear in a fleet dashboard by itself, and how logistics vendors can offer it.
 - [What to Automate First in an Ecommerce Business](https://plumcut.com/blog/what-to-automate-first-ecommerce): Automation pays back in a specific order. The sequence that works for a MENA or Gulf online store, what to leave manual, and how to tell which is which.
 - [Does Automating Your Store's Conversations Actually Make Money?](https://plumcut.com/blog/does-conversation-automation-increase-sales): Vendor ROI numbers are unverifiable. Here is the arithmetic to run on your own four numbers, and the three places conversation automation genuinely moves revenue.
 - [Automating Delivery Updates and the Courier Loop](https://plumcut.com/blog/automate-logistics-delivery-updates): The operations side of order tracking: courier data quality, failed attempts, cash on delivery reattempts, and why a sent message is not a delivered one.

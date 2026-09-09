@@ -6,7 +6,21 @@
     <atom:link href="https://plumcut.com/blog/rss.xml" rel="self" type="application/rss+xml" />
     <description>Practical guides on WhatsApp automation, AI that sells, and customer insight you own.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 08 Sep 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 09 Sep 2026 09:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Manual Order Entry vs Automated Order Capture in Delivery Software</title>
+      <link>https://plumcut.com/blog/manual-order-entry-vs-automated-capture</link>
+      <guid isPermaLink="true">https://plumcut.com/blog/manual-order-entry-vs-automated-capture</guid>
+      <description>Four ways an order gets from a customer message into your delivery or fleet dashboard, compared on error rate, speed, cost and where each one breaks.</description>
+      <pubDate>Wed, 09 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Connect WhatsApp Orders to Your Fleet Management Software</title>
+      <link>https://plumcut.com/blog/connect-whatsapp-orders-fleet-software</link>
+      <guid isPermaLink="true">https://plumcut.com/blog/connect-whatsapp-orders-fleet-software</guid>
+      <description>What it takes for an order placed in a WhatsApp conversation to appear in a fleet dashboard by itself, and how logistics vendors can offer it.</description>
+      <pubDate>Wed, 09 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>What to Automate First in an Ecommerce Business</title>
       <link>https://plumcut.com/blog/what-to-automate-first-ecommerce</link>
