@@ -300,3 +300,53 @@ Report: the subject and where it came from, the question you answered, the slug
 and live URL, the verification result, the hero you used, anything you qualified
 or cut in review, and any warning still standing. If the run killed the post or
 found nothing, say that instead, and say why.
+
+---
+
+## How the routine is set up
+
+The scheduled routine is a pointer, nothing more. It lives in the claude.ai
+Routines UI, not in this repo, because a routine's connectors and repo source can
+only be set there. If it ever needs rebuilding, these are the settings.
+
+| | |
+| --- | --- |
+| Name | `plumcut blog` |
+| Schedule | `12 6 * * 1,3,6` — Mon, Wed, Sat at 06:12 UTC, 09:12 Beirut |
+| Environment | Nour, `env_014UaKLuxzeHhyuTpUk5q4r3` |
+| Model | Opus 5 |
+| Source | `github.com/Charbel-Azar/plumcut-Website`, branch `main` |
+| Connector | Notion. **Without it the run cannot read the control page, mine the meetings or log the row.** |
+| Tools | Bash, Read, Write, Edit, Glob, Grep, WebSearch, WebFetch |
+| Notifications | on, so a published post is not a silent event |
+
+The prompt:
+
+> You are the AUTHOR for the plumcut blog. One run, one post, from subject to
+> live.
+>
+> Read `blog/tasks/author.md` in the checked-out repo and follow it exactly. It
+> is the full procedure and the single source of truth for this run; anything you
+> remember about this job is secondary to what that file says today.
+>
+> If the file is missing or unreadable, STOP. Do not improvise a post from
+> memory, do not publish, and do not push anything. Report that the runbook could
+> not be read and exit.
+>
+> Step 1 of that runbook has you read the Blog control page in Notion before
+> anything else. If it says Paused, stop there and write nothing. That is a
+> success.
+>
+> When you are done, report what the runbook asks you to report.
+
+## A known gap: verification is blocked
+
+The sandbox's egress allowlist currently refuses `plumcut.com`, so Step 9 cannot
+reach the live site and `verify-blog.js` fails with an HTTP 403 that has nothing
+to do with the deployment. Until `plumcut.com` is added to the environment's
+network allowlist, every run will fall through to the unverified path in Step 9
+and leave its row at `approved` instead of `published`.
+
+That is the safe behaviour, but it is not the intended one. Adding the domain to
+the allowlist is a one-line environment change and it turns the last step of the
+pipeline back on. Do it and the runbook needs no edit.
