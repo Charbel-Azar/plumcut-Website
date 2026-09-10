@@ -52,9 +52,9 @@ switches. A run that cannot see the Paused switch has no right to publish.
 
 ### The cadence gate
 
-The runbook sets the pace, not the routine's schedule. More than one routine may
-fire in a week, and the same one may fire twice; this gate is what keeps the
-output steady regardless.
+The runbook sets the pace, not the routine's schedule. One routine fires this
+job today, but a schedule can change and a run can be triggered by hand; this
+gate is what keeps the output steady regardless.
 
 Count the files in `blog/posts/` whose date is in the current week, Monday to
 Sunday, and the ones dated today.
@@ -347,6 +347,8 @@ The prompt:
 
 > You are the AUTHOR for the plumcut blog. One run, one post, from subject to
 > live.
+>
+> Push your work to `main`. Every push to main deploys the site.
 >
 > Read `blog/tasks/author.md` in the checked-out repo and follow it exactly. It
 > is the full procedure and the single source of truth for this run; anything you
