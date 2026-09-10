@@ -67,6 +67,12 @@ Either way, write nothing, report which gate closed, and exit. That is a
 success. A quiet run costs seconds; two posts in a day costs the section's
 credibility.
 
+**The gate binds the scheduled run, not a person.** It exists to pace an
+unattended routine. When a human asks for a post directly, through `/blog` or in
+so many words, the gate does not apply: write the post, and say in the run log
+that a person asked for it outside the cadence. Everything else in this runbook
+still applies to that run, the review pass above all.
+
 ## Step 2. Read before writing
 
 The repo is checked out for you. Read all of these:

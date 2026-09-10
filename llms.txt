@@ -11,6 +11,7 @@
 ## Field notes
 - [Field notes](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.
 <!-- BLOG:LIST:START -->
+- [When Is Your Business Ready for AI Customer Service?](https://plumcut.com/blog/when-ready-for-ai-customer-service): Most advice tells you how to automate, never whether you should yet. The three signals that say you are ready, and the honest case for waiting.
 - [Manual Order Entry vs Automated Order Capture in Delivery Software](https://plumcut.com/blog/manual-order-entry-vs-automated-capture): Four ways an order gets from a customer message into your delivery or fleet dashboard, compared on error rate, speed, cost and where each one breaks.
 - [How to Connect WhatsApp Orders to Your Fleet Management Software](https://plumcut.com/blog/connect-whatsapp-orders-fleet-software): What it takes for an order placed in a WhatsApp conversation to appear in a fleet dashboard by itself, and how logistics vendors can offer it.
 - [What to Automate First in an Ecommerce Business](https://plumcut.com/blog/what-to-automate-first-ecommerce): Automation pays back in a specific order. The sequence that works for a MENA or Gulf online store, what to leave manual, and how to tell which is which.

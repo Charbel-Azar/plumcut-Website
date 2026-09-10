@@ -6,7 +6,14 @@
     <atom:link href="https://plumcut.com/blog/rss.xml" rel="self" type="application/rss+xml" />
     <description>Practical guides on WhatsApp automation, AI that sells, and customer insight you own.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 09 Sep 2026 09:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2026 09:00:00 GMT</lastBuildDate>
+    <item>
+      <title>When Is Your Business Ready for AI Customer Service?</title>
+      <link>https://plumcut.com/blog/when-ready-for-ai-customer-service</link>
+      <guid isPermaLink="true">https://plumcut.com/blog/when-ready-for-ai-customer-service</guid>
+      <description>Most advice tells you how to automate, never whether you should yet. The three signals that say you are ready, and the honest case for waiting.</description>
+      <pubDate>Thu, 10 Sep 2026 09:00:00 GMT</pubDate>
+    </item>
     <item>
       <title>Manual Order Entry vs Automated Order Capture in Delivery Software</title>
       <link>https://plumcut.com/blog/manual-order-entry-vs-automated-capture</link>
