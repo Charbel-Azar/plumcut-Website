@@ -50,6 +50,23 @@ that the blog is paused. That is a success.
 If the control page cannot be read at all, stop and report it. Do not guess the
 switches. A run that cannot see the Paused switch has no right to publish.
 
+### The cadence gate
+
+The runbook sets the pace, not the routine's schedule. More than one routine may
+fire in a week, and the same one may fire twice; this gate is what keeps the
+output steady regardless.
+
+Count the files in `blog/posts/` whose date is in the current week, Monday to
+Sunday, and the ones dated today.
+
+- **A post already dated today:** stop. One post a day, never two.
+- **Three or more posts already dated this week:** stop. Three a week is the
+  cadence.
+
+Either way, write nothing, report which gate closed, and exit. That is a
+success. A quiet run costs seconds; two posts in a day costs the section's
+credibility.
+
 ## Step 2. Read before writing
 
 The repo is checked out for you. Read all of these:
