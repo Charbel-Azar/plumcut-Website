@@ -14,6 +14,7 @@ heroLicense: CC BY 2.0
 heroLicenseUrl: https://creativecommons.org/licenses/by/2.0/
 related: [automate-logistics-delivery-updates, where-is-my-order-whatsapp, whatsapp-business-api-cost]
 ctaLine: Deciding how to send delivery updates? Ask plum what a WhatsApp notification loop with an SMS fallback would cost for your order volume.
+notionUrl: https://app.notion.com/p/3d78d6e734f481eaaa54d8f25ffcfd88
 faq:
   - q: Is WhatsApp cheaper than SMS for delivery notifications?
     a: "Usually, but not because the unit price is lower. Both charge you for the message you send first. The difference is everything after it. SMS bills every message including the ones you send to answer a question, while on WhatsApp a customer's reply opens a 24 hour customer service window, and since 1 July 2025 Meta does not charge for service messages inside that window or for utility templates sent in response to a user. If your dispatch notification produces conversations, WhatsApp bills one message per order and SMS bills the whole exchange. If it produces nothing but silence, the two are close and you should compare the current rate cards for your market."
