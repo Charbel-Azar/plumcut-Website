@@ -293,6 +293,45 @@ function markdown(md) {
   return { html: out.join('\n'), headings };
 }
 
+/* The publisher entity every generated page carries. Values are taken from what
+   the hand-written pages already assert; nothing here is invented. foundingDate
+   is deliberately absent until someone supplies the real one. */
+const ORGANIZATION = {
+  '@type': 'Organization',
+  '@id': SITE + '/#organization',
+  name: 'plumcut',
+  url: SITE + '/',
+  logo: { '@type': 'ImageObject', url: SITE + '/images/shared/new%20icon.png' },
+  description:
+    'plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.',
+  areaServed: [
+    { '@type': 'Place', name: 'Lebanon' },
+    { '@type': 'Place', name: 'Saudi Arabia' },
+    { '@type': 'Place', name: 'MENA' },
+  ],
+  knowsAbout: [
+    'WhatsApp Business Platform',
+    'conversational commerce',
+    'AI customer service',
+    'ecommerce automation',
+    'Arabic and Arabizi customer support',
+    'customer conversation insight',
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'sales',
+    email: 'info@plumcut.com',
+    url: SITE + '/',
+    areaServed: ['LB', 'SA'],
+    availableLanguage: ['en', 'ar'],
+  },
+  sameAs: [
+    'https://www.instagram.com/plumcut_/',
+    'https://www.linkedin.com/company/plumcut/',
+    'https://www.facebook.com/plumcut',
+  ],
+};
+
 /* ------------------------------------------------------------------ pieces */
 
 function faqBlock(faq) {
@@ -303,7 +342,7 @@ function faqBlock(faq) {
   ${faq
     .map(
       (f) => `<details class="blog-faq-item">
-    <summary>${esc(f.q)}</summary>
+    <summary><h3 class="blog-faq-q">${esc(f.q)}</h3></summary>
     <div class="blog-faq-answer">${markdown(f.a).html}</div>
   </details>`
     )
@@ -431,7 +470,7 @@ const BLOG_CSS = `    <style>
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -472,6 +511,11 @@ const BLOG_CSS = `    <style>
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -567,12 +611,7 @@ function articleJsonLd(post) {
       author: post.author
         ? { '@type': 'Person', name: post.author, ...(post.authorUrl ? { url: absUrl(post.authorUrl) } : {}) }
         : { '@type': 'Organization', '@id': SITE + '/#organization', name: 'plumcut', url: SITE + '/about' },
-      publisher: {
-        '@type': 'Organization',
-        name: 'plumcut',
-        url: SITE + '/',
-        logo: { '@type': 'ImageObject', url: SITE + '/images/shared/new%20icon.png' },
-      },
+      publisher: ORGANIZATION,
       mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.slug}` },
       isPartOf: { '@type': 'Blog', '@id': `${SITE}/blog/`, name: `plumcut ${SECTION.toLowerCase()}` },
     },
@@ -712,7 +751,7 @@ function renderHub(all, tpl) {
         'Practical guides on WhatsApp automation, AI customer conversations and customer insight for commerce brands in MENA and beyond.',
       url: SITE + '/blog/',
       inLanguage: 'en',
-      publisher: { '@type': 'Organization', name: 'plumcut', url: SITE + '/' },
+      publisher: ORGANIZATION,
       blogPost: all.map((p) => ({
         '@type': 'BlogPosting',
         headline: p.title,
@@ -1021,7 +1060,7 @@ function validatePage(url, html, outputs) {
   if (!html.includes(`rel="canonical" href="${SITE}${url}"`)) throw new Error(`${url}: invalid canonical`);
   const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1]));
   const faq = schemas.find(s => s['@type'] === 'FAQPage');
-  const answers = [...html.matchAll(/<summary>([\s\S]*?)<\/summary>\s*<div class="blog-faq-answer">([\s\S]*?)<\/div>/g)];
+  const answers = [...html.matchAll(/<summary><h3 class="blog-faq-q">([\s\S]*?)<\/h3><\/summary>\s*<div class="blog-faq-answer">([\s\S]*?)<\/div>/g)];
   if ((faq?.mainEntity.length || 0) !== answers.length) throw new Error(`${url}: FAQ count mismatch`);
   answers.forEach((answer, i) => {
     if (esc(faq.mainEntity[i].name) !== answer[1] || faq.mainEntity[i].acceptedAnswer.text !== answer[2])

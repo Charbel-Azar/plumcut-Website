@@ -35,7 +35,10 @@ test('page validator rejects mismatched FAQs and unpublished blog links', () => 
   const html = '<link rel="canonical" href="https://plumcut.com/blog/test"><h1>Test</h1>';
   assert.throws(() => validatePage('/blog/test', html + '<a href="/blog/missing">Missing</a>', new Map()), /missing blog destination/);
   const schema = '<script type="application/ld+json">{"@type":"FAQPage","mainEntity":[{"name":"Why?","acceptedAnswer":{"text":"<p>Right</p>"}}]}</script>';
-  assert.throws(() => validatePage('/blog/test', html + schema + '<summary>Why?</summary><div class="blog-faq-answer"><p>Wrong</p></div>', new Map()), /FAQ text mismatch/);
+  const faqItem = a => `<summary><h3 class="blog-faq-q">Why?</h3></summary><div class="blog-faq-answer">${a}</div>`;
+  assert.throws(() => validatePage('/blog/test', html + schema + faqItem('<p>Wrong</p>'), new Map()), /FAQ text mismatch/);
+  assert.throws(() => validatePage('/blog/test', html + schema + '<summary>Why?</summary><div class="blog-faq-answer"><p>Right</p></div>', new Map()), /FAQ count mismatch/);
+  assert.doesNotThrow(() => validatePage('/blog/test', html + schema + faqItem('<p>Right</p>'), new Map()));
 });
 
 test('deployment verification rejects a stale 200 response and missing sitemap entry', () => {

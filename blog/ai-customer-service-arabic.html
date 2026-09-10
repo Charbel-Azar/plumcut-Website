@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -998,7 +1041,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1039,6 +1082,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1111,7 +1159,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="393d26d8b2e325174ab5f1188f74eeb76a341bf6a2036e191a060f2b1ada7841">
+<meta name="plumcut-content-version" content="a0c0531a1bc228950255f5d60a04d0bc1cb49d5e0e2f34dcf79b7119bd7bc2a9">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1229,23 +1277,23 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>Can AI actually understand Gulf and Levantine dialects, or only Modern Standard Arabic?</summary>
+    <summary><h3 class="blog-faq-q">Can AI actually understand Gulf and Levantine dialects, or only Modern Standard Arabic?</h3></summary>
     <div class="blog-faq-answer"><p>Modern systems handle dialect far better than they did, but capability varies a lot by vendor and by dialect, and no vendor's marketing page will tell you where its limits are. The only reliable answer comes from testing with your own customers' messages, in dialect and Arabizi, with the typos left in. Twenty real messages will tell you more than any demo.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Do I need separate WhatsApp templates for Arabic and English?</summary>
+    <summary><h3 class="blog-faq-q">Do I need separate WhatsApp templates for Arabic and English?</h3></summary>
     <div class="blog-faq-answer"><p>Yes. Meta requires you to assign a language code when creating a template and does not translate template strings or variables for you, so each language is a separate template you submit and get approved. You can give templates in different languages the same name, which keeps them organised, but each one goes through review independently and can be approved or rejected on its own.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What is Arabizi and does it matter for customer service?</summary>
+    <summary><h3 class="blog-faq-q">What is Arabizi and does it matter for customer service?</h3></summary>
     <div class="blog-faq-answer"><p>Arabizi is Arabic written in Latin characters, using numerals for sounds with no Latin equivalent, as in &quot;3andkon&quot; or &quot;kifak&quot;. It is extremely common in messaging across the Levant and the Gulf, particularly among younger customers. It matters because systems that only parse Arabic script or English words treat it as noise, which means a real share of your inbound messages get misunderstood.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Should our automated messages use dialect or Modern Standard Arabic?</summary>
+    <summary><h3 class="blog-faq-q">Should our automated messages use dialect or Modern Standard Arabic?</h3></summary>
     <div class="blog-faq-answer"><p>For templates you send first, plain Modern Standard Arabic is the safer default, because it is understood across every market and does not sound out of place in any of them. Dialect is warmer but localises you, so Levantine phrasing reads as foreign in the Gulf. In live conversation, matching how the customer writes is better than either default.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Does replying in Arabic cost more than replying in English?</summary>
+    <summary><h3 class="blog-faq-q">Does replying in Arabic cost more than replying in English?</h3></summary>
     <div class="blog-faq-answer"><p>No. Meta's rates depend on the template category and the recipient's country calling code, not on the language of the message. What does change your costs is where your customers are, since a campaign spanning Saudi Arabia, the UAE and Lebanon crosses several rate cards. Replies inside the 24 hour customer service window are a different matter and are not template sends.</p></div>
   </details>
 </section>

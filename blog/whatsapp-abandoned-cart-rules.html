@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -1006,7 +1049,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1047,6 +1090,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1119,7 +1167,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="80e7e72a02e87143c050ca319a2b14a5c175279f008dc0005e63dcbbb9e7fd85">
+<meta name="plumcut-content-version" content="9ff91d5dd4ccab9bb8d49f7447b7cf6edeb94b8a308e57fb3f2b5505ac8dbd7b">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1237,27 +1285,27 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>Is an abandoned cart message marketing or utility on WhatsApp?</summary>
+    <summary><h3 class="blog-faq-q">Is an abandoned cart message marketing or utility on WhatsApp?</h3></summary>
     <div class="blog-faq-answer"><p>Marketing. Meta's template categorization documentation lists cart abandonment reminders under Marketing examples, alongside promotions and retargeting. Utility is for following up on a user action, such as an order or delivery update. Filing a cart reminder as utility is a misclassification, not a cost saving, and category is reviewed rather than taken on trust.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Do I need opt in to send a cart reminder?</summary>
+    <summary><h3 class="blog-faq-q">Do I need opt in to send a cart reminder?</h3></summary>
     <div class="blog-faq-answer"><p>Yes. Meta requires opt in before you message anyone on WhatsApp. It does not have to be WhatsApp specific, a general marketing consent is acceptable where local law allows, but it must clearly name your business so the person knows who they agreed to hear from. Having their number from a past order is not opt in.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Can I use the same opt in for order updates and marketing?</summary>
+    <summary><h3 class="blog-faq-q">Can I use the same opt in for order updates and marketing?</h3></summary>
     <div class="blog-faq-answer"><p>No, and this is the most common mistake. They are separate permissions. Someone consenting to delivery updates has not consented to promotional messages, and treating one as the other is what generates blocks and reports. Use two checkboxes at checkout.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How many reminders can I send?</summary>
+    <summary><h3 class="blog-faq-q">How many reminders can I send?</h3></summary>
     <div class="blog-faq-answer"><p>Meta does not publish a number, but the practical answer is one. Repeatedly messaging someone who has not replied is what gets you blocked, and blocks lower your quality rating, which in turn limits how many messages you are allowed to send at all. The cost of over sending is not the message fee, it is your capacity.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Is there a cheaper way to recover carts on WhatsApp?</summary>
+    <summary><h3 class="blog-faq-q">Is there a cheaper way to recover carts on WhatsApp?</h3></summary>
     <div class="blog-faq-answer"><p>Yes, and it is not misclassifying templates. Replies inside the 24 hour customer service window are free, and a customer arriving from a click to WhatsApp ad opens a 72 hour free window. Conversations you are invited into cost nothing; conversations you start cost the marketing rate. Design for the first.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Does a discount have to be in the message?</summary>
+    <summary><h3 class="blog-faq-q">Does a discount have to be in the message?</h3></summary>
     <div class="blog-faq-answer"><p>No, and adding one does not change the category. A reminder is marketing either way, because the objective is commercial. Whether a discount improves recovery is a margin question for your business, not a compliance or pricing one.</p></div>
   </details>
 </section>

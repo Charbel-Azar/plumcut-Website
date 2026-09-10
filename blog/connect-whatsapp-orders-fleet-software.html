@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -1006,7 +1049,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1047,6 +1090,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1119,7 +1167,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="1a30efaaa46bba018c5df668f8fd7cc6f7a93fb7b0ef55228822088f01b8b6b2">
+<meta name="plumcut-content-version" content="91dc9d380c459b3c377c7bc73cd9799f936bee84657604b9aad9439b52dbb255">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1242,27 +1290,27 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>What does it take to create an order in fleet software from a WhatsApp message?</summary>
+    <summary><h3 class="blog-faq-q">What does it take to create an order in fleet software from a WhatsApp message?</h3></summary>
     <div class="blog-faq-answer"><p>Four things. A WhatsApp Business API number so a system can receive and send messages, a layer that reads the conversation and extracts the order fields, a validation step that refuses to create an order it cannot dispatch, and an authenticated call to your platform's create job endpoint carrying your own reference so the order cannot be duplicated. The platform's status webhooks then close the loop by pushing updates back into the same thread.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Can this work if my logistics platform is custom built rather than off the shelf?</summary>
+    <summary><h3 class="blog-faq-q">Can this work if my logistics platform is custom built rather than off the shelf?</h3></summary>
     <div class="blog-faq-answer"><p>Yes, and it is often easier. A custom platform means the team that owns the database can add a create order endpoint and a status webhook shaped exactly the way the conversation layer needs them, instead of you working around a vendor's field names. What matters is that something authenticated exists to write an order and something exists to tell you when its status changes.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Should a logistics software company build conversational ordering itself or partner?</summary>
+    <summary><h3 class="blog-faq-q">Should a logistics software company build conversational ordering itself or partner?</h3></summary>
     <div class="blog-faq-answer"><p>It depends on whether conversation is your product. Message handling is not a feature you ship once. It is a live surface with template approvals, a 24 hour reply window, per market pricing, and language behaviour that has to survive real customers writing badly. If your roadmap is routing, dispatch and proof of delivery, the honest comparison is between a partner who maintains that surface and the engineering months you would spend maintaining it yourself.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What stops a duplicate order being created when a customer repeats themselves?</summary>
+    <summary><h3 class="blog-faq-q">What stops a duplicate order being created when a customer repeats themselves?</h3></summary>
     <div class="blog-faq-answer"><p>An idempotency reference generated from the conversation and sent with the create call, so a second attempt with the same reference updates rather than creates. Delivery platforms generally let you attach your own external identifier to a job for exactly this purpose. Without it, a customer who says &quot;yes, confirm&quot; twice produces two dispatches, and that is the most common way an integration like this loses money.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Does the customer have to leave WhatsApp at any point?</summary>
+    <summary><h3 class="blog-faq-q">Does the customer have to leave WhatsApp at any point?</h3></summary>
     <div class="blog-faq-answer"><p>No, that is the point of doing it this way. The order is captured in the thread, the order number is returned into the same thread, and status changes arrive there too. Sending the customer to a portal or a form reintroduces exactly the step that made people reply in the chat in the first place.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How are order notifications billed on WhatsApp?</summary>
+    <summary><h3 class="blog-faq-q">How are order notifications billed on WhatsApp?</h3></summary>
     <div class="blog-faq-answer"><p>A message you send first, outside an open customer service window, is a template message billed at the rate for that customer's market, while replies inside the 24 hour window the customer opened are not charged. Rates are market specific and Meta has revised its rate card, so check the current card rather than a figure quoted in an article. We covered the detail in our piece on what the WhatsApp Business API really costs.</p></div>
   </details>
 </section>

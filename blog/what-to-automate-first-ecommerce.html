@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -1006,7 +1049,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1047,6 +1090,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1119,7 +1167,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="dbc52831b3527b488a78b854dbb066bc33c9269901e567cdaee9e588f3ef9a2b">
+<meta name="plumcut-content-version" content="484e33ce866fc9b63d72ace92c20c27150bd0dc446b96f466c30fcdc9cc1d464">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1248,27 +1296,27 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>What should a small online store automate first?</summary>
+    <summary><h3 class="blog-faq-q">What should a small online store automate first?</h3></summary>
     <div class="blog-faq-answer"><p>The repeated questions that have exactly one correct answer: opening hours, delivery zones and times, sizing guidance, returns policy and payment methods. They need no integration, no approved template and no per message fee, because a reply sent inside the 24 hour customer service window a customer opens is not charged. Writing those answers down properly is also the specification for every later stage.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Do I need the WhatsApp Business API to start automating?</summary>
+    <summary><h3 class="blog-faq-q">Do I need the WhatsApp Business API to start automating?</h3></summary>
     <div class="blog-faq-answer"><p>Not for the first stage. Fixed answers to inbound questions can start on the free WhatsApp Business app with its built in away messages and quick replies. You need the WhatsApp Business Platform once you want replies that read live data from your store, or once you want to message a customer first outside the 24 hour window, which requires an approved template.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How do I know if a task is worth automating?</summary>
+    <summary><h3 class="blog-faq-q">How do I know if a task is worth automating?</h3></summary>
     <div class="blog-faq-answer"><p>Score it on two axes: how often it happens, and whether a competent new hire with your policy document and read access to your store could get it right every time without asking anyone. High frequency plus one correct answer is worth automating now. Low frequency plus a judgment call is worth leaving with a person indefinitely.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What should never be automated in a store?</summary>
+    <summary><h3 class="blog-faq-q">What should never be automated in a store?</h3></summary>
     <div class="blog-faq-answer"><p>Refunds and goodwill decisions, complaints where your business is at fault, price negotiation, and wholesale or partnership enquiries. These are commercial judgments about a specific relationship. Meta's Business Messaging Policy also requires that automated responses come with prompt, clear and direct escalation paths, so a route to a person is a policy requirement, not an optional extra.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How long does each stage take to set up?</summary>
+    <summary><h3 class="blog-faq-q">How long does each stage take to set up?</h3></summary>
     <div class="blog-faq-answer"><p>Stage one is limited by how fast you can write your policies down, usually days rather than weeks. Stage two depends on your store data being clean, particularly whether the phone number on an order matches the number the customer messages from. Stage three is gated by Meta's template review, which is a queue outside your control, so plan around it rather than against it.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Should I automate marketing messages early?</summary>
+    <summary><h3 class="blog-faq-q">Should I automate marketing messages early?</h3></summary>
     <div class="blog-faq-answer"><p>No. Marketing templates require opt in, cost the marketing rate, and generate blocks faster than any other category when they are sent to people who did not expect them. Blocks lower your quality rating, and a lowered quality rating reduces the number of people you are permitted to message at all. Earn the reactive stages first.</p></div>
   </details>
 </section>

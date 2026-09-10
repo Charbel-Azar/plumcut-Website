@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -990,7 +1033,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1031,6 +1074,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1103,7 +1151,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="7a80946ab56be7be2af857d450d72f9992fa1bddfce405400e0f8524cc37dcbb">
+<meta name="plumcut-content-version" content="7f80d65e4b0ccc536af402f099d0b673df4bed6b0da9f5f1654cf1101fc24a8d">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1222,19 +1270,19 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>How many messages a day do you need before automating is worth it?</summary>
+    <summary><h3 class="blog-faq-q">How many messages a day do you need before automating is worth it?</h3></summary>
     <div class="blog-faq-answer"><p>There is no universal number, because the cost is in the questions rather than the messages. A store answering forty messages a day that are all variations of three questions has more to gain than one answering a hundred messages that are all different. Count your repeated questions before you count your messages.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Does it cost more to reply to customers on WhatsApp once you automate?</summary>
+    <summary><h3 class="blog-faq-q">Does it cost more to reply to customers on WhatsApp once you automate?</h3></summary>
     <div class="blog-faq-answer"><p>Not for replies. Meta made service conversations free on 1 November 2024, and non-template messages sent inside an open customer service window are not charged. Since 1 July 2025 the platform charges per delivered template message, which covers messages you start, not answers you send back inside the window.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Is my business too small for AI customer service?</summary>
+    <summary><h3 class="blog-faq-q">Is my business too small for AI customer service?</h3></summary>
     <div class="blog-faq-answer"><p>If you are pre-launch, selling to friends, or taking orders by phone, then yes, and the honest advice is to wait. Automation removes repetition. Before you have repetition, it removes nothing and adds a system to maintain.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What should I do instead if I am not ready yet?</summary>
+    <summary><h3 class="blog-faq-q">What should I do instead if I am not ready yet?</h3></summary>
     <div class="blog-faq-answer"><p>Write down every question a customer asks you for two weeks. That list is the only real input an automation needs, it costs nothing to build, and it stays useful whether you automate in three months or never.</p></div>
   </details>
 </section>

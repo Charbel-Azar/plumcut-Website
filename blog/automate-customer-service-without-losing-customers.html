@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -1006,7 +1049,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1047,6 +1090,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1119,7 +1167,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="c60b7e07f03adf8db20d844395d32c25e1063de8121b1721148f41e882609983">
+<meta name="plumcut-content-version" content="4d2835f493a26557d146f7df2b5e29bba17cf47139e58ccbd6d5cef75096a287">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1242,27 +1290,27 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>Does Meta allow automated replies on WhatsApp?</summary>
+    <summary><h3 class="blog-faq-q">Does Meta allow automated replies on WhatsApp?</h3></summary>
     <div class="blog-faq-answer"><p>Yes. The WhatsApp Business Messaging Policy permits businesses to use automation when responding during the 24 hour customer service window, but requires that prompt, clear and direct escalation paths are also available. Businesses must also honour requests to opt out or discontinue messages. Automation with no route to a person is a policy problem as well as a service problem.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What should never be handled by automated customer service?</summary>
+    <summary><h3 class="blog-faq-q">What should never be handled by automated customer service?</h3></summary>
     <div class="blog-faq-answer"><p>Refunds, exchanges and goodwill decisions, complaints where your business is at fault, price negotiation, wholesale and partnership enquiries, and anything legal, medical or safety related. The test is not difficulty but whether the correct response depends on who this specific customer is and what you are willing to do for them.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Does automating support cost money per message?</summary>
+    <summary><h3 class="blog-faq-q">Does automating support cost money per message?</h3></summary>
     <div class="blog-faq-answer"><p>Not for replies to customers. Under per message pricing, in force for all businesses since 1 July 2025, Meta does not charge for service messages, which are the replies you send inside the 24 hour customer service window that a customer's message opens. What costs money is messaging a customer first outside that window, which requires an approved template.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How do I stop an AI giving customers wrong information?</summary>
+    <summary><h3 class="blog-faq-q">How do I stop an AI giving customers wrong information?</h3></summary>
     <div class="blog-faq-answer"><p>Ground it and let it refuse. Only automate answers that are deterministic, either from a written policy or from live store data, and write explicit refusal sentences for everything else. A fluent, confident, wrong answer about stock or price costs more than no answer, because it produces an order you cannot fill and a customer who stops trusting anything you say.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What happens if customers block or report my business?</summary>
+    <summary><h3 class="blog-faq-q">What happens if customers block or report my business?</h3></summary>
     <div class="blog-faq-answer"><p>Blocks and reports feed your number's quality rating, and Meta reduces a number's messaging limit by one level immediately if its quality rating has been Flagged for seven days. The messaging limit caps how many unique people you can message outside a customer service window in a moving 24 hour period. Excessive negative feedback can lead to a business being limited or offboarded, so poor automated service directly reduces how many customers you may reach.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Will customers notice they are talking to automation?</summary>
+    <summary><h3 class="blog-faq-q">Will customers notice they are talking to automation?</h3></summary>
     <div class="blog-faq-answer"><p>Usually yes, and that is fine. What damages the relationship is not being automated, it is being trapped, being told something untrue, or having to repeat yourself to the human who takes over. A system that answers instantly, says clearly what it cannot do, and hands over with the full context intact reads as competence rather than as a wall.</p></div>
   </details>
 </section>

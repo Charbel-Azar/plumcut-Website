@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -1006,7 +1049,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1047,6 +1090,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1119,7 +1167,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="e3e2e566f41fe9cbbffb25c76e3fa25eb5eb584989afde61ac092504593b1f36">
+<meta name="plumcut-content-version" content="11f7f3634a88ae7c7adc08fa8ae790ffdf8bb08b9c0089c1e335bf69fd3bcf93">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1246,27 +1294,27 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>Can I get courier tracking data automatically?</summary>
+    <summary><h3 class="blog-faq-q">Can I get courier tracking data automatically?</h3></summary>
     <div class="blog-faq-answer"><p>Usually yes, through the carrier's API. Aramex, for example, publishes a shipments tracking API in its developer solutions centre that accepts a list of waybill numbers and returns their tracking data, requiring a registered account with credentials. Access is typically pull based rather than pushed to you, so how fresh your data is depends on how often you poll, and carriers differ in what they expose.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Does a delivered status on WhatsApp mean the parcel arrived?</summary>
+    <summary><h3 class="blog-faq-q">Does a delivered status on WhatsApp mean the parcel arrived?</h3></summary>
     <div class="blog-faq-answer"><p>No. Meta's status webhook describes your message, not your shipment. Delivered means the message reached at least one of the customer's devices. A message can stay at sent because the customer has not come online, and Meta holds messages for offline customers for a 30 day window. Track parcel state and message state as two separate things.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Should I send an out for delivery message?</summary>
+    <summary><h3 class="blog-faq-q">Should I send an out for delivery message?</h3></summary>
     <div class="blog-faq-answer"><p>Only if your courier updates that status early enough on the delivery day to be useful. A notification that arrives after the parcel has already been delivered is a paid message that makes your business look disorganised. If the carrier's timing is unreliable, send the dispatch notification and skip this one.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How should automation handle a failed delivery attempt?</summary>
+    <summary><h3 class="blog-faq-q">How should automation handle a failed delivery attempt?</h3></summary>
     <div class="blog-faq-answer"><p>By escalating, not by messaging alone. Map the failure status to an internal alert with a named owner and a deadline measured in hours, because whether a reattempt is worth a second leg is a commercial decision, particularly on cash on delivery. Contact the customer with a concrete next option rather than an apology, and log the reason in a fixed vocabulary so the pattern behind repeated failures becomes visible.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Do delivery notifications cost money?</summary>
+    <summary><h3 class="blog-faq-q">Do delivery notifications cost money?</h3></summary>
     <div class="blog-faq-answer"><p>A notification you send first, when no customer service window is open, is a utility template and is billed at the rate for that customer's market. Replies inside the 24 hour window a customer opened are not charged, and neither are utility messages sent in response to a user. Meta revised its rate cards effective 1 July 2026 and rates are market specific, so check the current card rather than a quoted figure.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What changes when orders are cash on delivery?</summary>
+    <summary><h3 class="blog-faq-q">What changes when orders are cash on delivery?</h3></summary>
     <div class="blog-faq-answer"><p>The delivery attempt is also the payment attempt, so a failed attempt is a cancelled sale plus two legs of shipping rather than a rescheduling. Confirm the order and the delivery window before dispatch instead of after, state the amount and the currency the customer will be asked for, and give them a way to change the day before the driver leaves.</p></div>
   </details>
 </section>

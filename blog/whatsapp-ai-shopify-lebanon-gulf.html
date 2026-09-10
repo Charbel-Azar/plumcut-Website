@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -998,7 +1041,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1039,6 +1082,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1111,7 +1159,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="4af53593da12c35293a1aea35746b9b1e501cb25d0d9891a396a8b74d3e3fc90">
+<meta name="plumcut-content-version" content="402febed860c3c30e6165affd5c92e34acbe9a35777dc88c7fc12548f19ae192">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1226,23 +1274,23 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>Does WhatsApp automation work with Shopify?</summary>
+    <summary><h3 class="blog-faq-q">Does WhatsApp automation work with Shopify?</h3></summary>
     <div class="blog-faq-answer"><p>Yes. Shopify exposes products, inventory, orders and fulfilment through its API, so an automation layer can check real stock, show a real product and return a real order status. The quality of the setup depends far more on how clean your catalogue is than on the integration itself.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Will it understand Arabic and Arabizi?</summary>
+    <summary><h3 class="blog-faq-q">Will it understand Arabic and Arabizi?</h3></summary>
     <div class="blog-faq-answer"><p>A modern language model handles Arabic, English and the Latin-script Arabizi that Gulf and Lebanese shoppers actually type, including the number substitutions like 3 for ain and 7 for haa. Keyword and menu based bots do not, because the same word gets spelled six different ways.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Can it take payment inside the chat?</summary>
+    <summary><h3 class="blog-faq-q">Can it take payment inside the chat?</h3></summary>
     <div class="blog-faq-answer"><p>It depends on your market and payment provider. In much of the region cash on delivery is still dominant, so a good setup confirms the order in chat and hands off to your existing fulfilment rather than forcing a card payment the customer did not want.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What about customers who want a human?</summary>
+    <summary><h3 class="blog-faq-q">What about customers who want a human?</h3></summary>
     <div class="blog-faq-answer"><p>They get one. Every setup needs a clean handover to a person, and the customer should be able to trigger it at any time. An automation that traps someone is worse than no automation, because it costs you the sale and the trust at the same time.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How long does setup take for a Shopify store?</summary>
+    <summary><h3 class="blog-faq-q">How long does setup take for a Shopify store?</h3></summary>
     <div class="blog-faq-answer"><p>Two to four weeks in practice. The connection is quick. What takes the time is auditing the catalogue, writing down the policies your team knows but has never documented, getting templates approved, and testing what happens when the AI does not know something.</p></div>
   </details>
 </section>

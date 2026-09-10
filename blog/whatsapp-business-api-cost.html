@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -990,7 +1033,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1031,6 +1074,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1103,7 +1151,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="c5290eb4fa720cbc89b1320a9519c22a002308f5fc7d0e31e44108bde3f4b267">
+<meta name="plumcut-content-version" content="b9ac69603dc0671ac47f14292d3ffe11179af5b057752c7230de0cde5d0e67a2">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1218,19 +1266,19 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>Is the WhatsApp Business API free?</summary>
+    <summary><h3 class="blog-faq-q">Is the WhatsApp Business API free?</h3></summary>
     <div class="blog-faq-answer"><p>Separate Meta messaging charges from the rest of the setup. Some messages have no Meta charge under the free messaging rules, but a provider, software platform or implementation partner may still charge for its service. Free messaging is not the same as free operation.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What is the 24 hour customer service window?</summary>
+    <summary><h3 class="blog-faq-q">What is the 24 hour customer service window?</h3></summary>
     <div class="blog-faq-answer"><p>A customer message opens or resets a 24 hour service window. Service replies inside it have no Meta messaging charge. Utility templates sent during an open window are also free under Meta's current rules. Other categories and provider charges need to be assessed separately.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Are volume discounts a free tier?</summary>
+    <summary><h3 class="blog-faq-q">Are volume discounts a free tier?</h3></summary>
     <div class="blog-faq-answer"><p>No. Utility and authentication volume tiers can reduce eligible message rates. A discounted message can still have a charge. Calculate the applicable tiers and market rates instead of counting discounted traffic as free.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What should I ask a vendor to include in a quote?</summary>
+    <summary><h3 class="blog-faq-q">What should I ask a vendor to include in a quote?</h3></summary>
     <div class="blog-faq-answer"><p>Ask for Meta charges, provider fees, software or AI allowances, one-time setup, maintenance, support, and overage terms. Give vendors the same workload and required integrations so you can compare equivalent scopes.</p></div>
   </details>
 </section>

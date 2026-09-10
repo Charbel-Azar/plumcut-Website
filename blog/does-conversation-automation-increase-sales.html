@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -1006,7 +1049,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1047,6 +1090,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1119,7 +1167,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="456da02dbde1526d3d151869c9e71b7d58e2e483240d84d016128421cec99afa">
+<meta name="plumcut-content-version" content="6b82577e8378f5832a9980c85ed85a62f07315a263b43cec895004348ca3d6e9">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1248,27 +1296,27 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>Does WhatsApp automation actually increase sales?</summary>
+    <summary><h3 class="blog-faq-q">Does WhatsApp automation actually increase sales?</h3></summary>
     <div class="blog-faq-answer"><p>It can, through three mechanisms: answering buying questions while the customer is still deciding, covering the hours your team does not work, and following up on unfinished orders systematically. The size depends on your conversation volume, your current conversion rate, your average order value and your margin, not on the software. If you already reply within minutes at every hour, two of the three mechanisms are already spent.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How do I calculate whether automation would pay for itself?</summary>
+    <summary><h3 class="blog-faq-q">How do I calculate whether automation would pay for itself?</h3></summary>
     <div class="blog-faq-answer"><p>Work out how many additional orders a month would cover the cost at your gross margin, then express that as the change in conversion rate it implies across your current volume of buying conversations. If the required change is a couple of percentage points and you know you lose more than that to slow replies, the case is strong. If it requires conversion to double, it is not.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Why should I distrust vendor ROI figures?</summary>
+    <summary><h3 class="blog-faq-q">Why should I distrust vendor ROI figures?</h3></summary>
     <div class="blog-faq-answer"><p>Because an uplift figure needs a baseline, a period, a population and a control to mean anything, and vendor case studies rarely publish any of them. A store that grew after installing a tool usually also entered a season, ran ads and changed something else. plumcut sells in this category and publishes about it, which is why this article gives you a model instead of a number.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Which parts of conversation automation cost money?</summary>
+    <summary><h3 class="blog-faq-q">Which parts of conversation automation cost money?</h3></summary>
     <div class="blog-faq-answer"><p>Only the messages you send first. Under per message pricing, in force since 1 July 2025, service messages and utility messages sent in response to a user are not charged, so faster replies inside the 24 hour customer service window cost nothing per message. Cart reminders and other outbound follow up are marketing templates, which need opt in and are billed at the marketing rate for that market.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How do I measure recovered orders honestly?</summary>
+    <summary><h3 class="blog-faq-q">How do I measure recovered orders honestly?</h3></summary>
     <div class="blog-faq-answer"><p>With a holdout. Randomly withhold follow up from a share of eligible customers and compare the two groups. Without one you are counting people who would have returned anyway, which is the most common reason recovery figures are overstated. Compare against the holdout rather than against last month, because seasonality and advertising will swamp the effect you are looking for.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>When is conversation automation not worth buying?</summary>
+    <summary><h3 class="blog-faq-q">When is conversation automation not worth buying?</h3></summary>
     <div class="blog-faq-answer"><p>When your buying conversation volume is low enough that a person can genuinely answer all of them, when each sale is a high value negotiated relationship where speed is not the constraint, or when your stock and price data is not reliable enough to quote. In the last case automation will confidently sell things you cannot ship, which is worse than doing nothing.</p></div>
   </details>
 </section>

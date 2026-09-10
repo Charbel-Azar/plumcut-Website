@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -998,7 +1041,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1039,6 +1082,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1111,7 +1159,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="399b940c51b9e79fd51964974701db37e5316822abd14a7d14110d5140f461db">
+<meta name="plumcut-content-version" content="0911456c759ac0ed130410528fafd369386ee87f46c906c2f161fd14f6024e23">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1228,23 +1276,23 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>Does answering &quot;where is my order&quot; on WhatsApp cost anything?</summary>
+    <summary><h3 class="blog-faq-q">Does answering &quot;where is my order&quot; on WhatsApp cost anything?</h3></summary>
     <div class="blog-faq-answer"><p>No, not when you are replying. A customer message opens a 24 hour customer service window, and Meta does not charge for service messages sent inside it. What costs money is messaging first, for example a dispatch notification sent when no window is open, which is billed as a utility template at the rate for that customer's country.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Can I send tracking updates before the customer asks?</summary>
+    <summary><h3 class="blog-faq-q">Can I send tracking updates before the customer asks?</h3></summary>
     <div class="blog-faq-answer"><p>Yes, with an approved utility template and the customer's opt in. Sent outside an open customer service window it is charged at the utility rate. Sent inside one it has been free since 1 July 2025. Most brands find that one dispatch notification per order pays for itself by removing the question entirely.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>What happens when one order ships in two boxes?</summary>
+    <summary><h3 class="blog-faq-q">What happens when one order ships in two boxes?</h3></summary>
     <div class="blog-faq-answer"><p>A Shopify fulfilment carries a single tracking number, so a split shipment is two fulfilments and two events, while your customer is still thinking about one order. Decide the wording in advance. Say which items have shipped and which are still coming, because a plain &quot;your order is on its way&quot; gets discovered at the door.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Do I need the WhatsApp Business API to automate order status?</summary>
+    <summary><h3 class="blog-faq-q">Do I need the WhatsApp Business API to automate order status?</h3></summary>
     <div class="blog-faq-answer"><p>For reactive answers to customers who message you, not necessarily. For proactive updates you send first, yes. The free WhatsApp Business app cannot send a template to a customer outside the 24 hour window and cannot read your store data, so anything that fires automatically on a fulfilment event needs the WhatsApp Business Platform.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How quickly does an order status reply need to arrive?</summary>
+    <summary><h3 class="blog-faq-q">How quickly does an order status reply need to arrive?</h3></summary>
     <div class="blog-faq-answer"><p>Fast enough to land while the customer is still in the app, which in practice means seconds rather than minutes. Speed is also what keeps the reply free, since it happens inside the customer service window the customer just opened. A reply that arrives the next morning costs you the same as no reply.</p></div>
   </details>
 </section>

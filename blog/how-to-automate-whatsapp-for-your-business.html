@@ -90,12 +90,55 @@ Head links
   },
   "publisher": {
     "@type": "Organization",
+    "@id": "https://plumcut.com/#organization",
     "name": "plumcut",
     "url": "https://plumcut.com/",
     "logo": {
       "@type": "ImageObject",
       "url": "https://plumcut.com/images/shared/new%20icon.png"
-    }
+    },
+    "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
+    "areaServed": [
+      {
+        "@type": "Place",
+        "name": "Lebanon"
+      },
+      {
+        "@type": "Place",
+        "name": "Saudi Arabia"
+      },
+      {
+        "@type": "Place",
+        "name": "MENA"
+      }
+    ],
+    "knowsAbout": [
+      "WhatsApp Business Platform",
+      "conversational commerce",
+      "AI customer service",
+      "ecommerce automation",
+      "Arabic and Arabizi customer support",
+      "customer conversation insight"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@plumcut.com",
+      "url": "https://plumcut.com/",
+      "areaServed": [
+        "LB",
+        "SA"
+      ],
+      "availableLanguage": [
+        "en",
+        "ar"
+      ]
+    },
+    "sameAs": [
+      "https://www.instagram.com/plumcut_/",
+      "https://www.linkedin.com/company/plumcut/",
+      "https://www.facebook.com/plumcut"
+    ]
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -990,7 +1033,7 @@ Head links
          prose containers only: the closing CTA reuses the home page section
          styling and must keep the centred uppercase treatment. */
       main .blog-body h2, main .blog-body h3, main .blog-body h4,
-      main .blog-faq h2, main .blog-related h2, main .blog-related h3,
+      main .blog-faq h2, main .blog-faq h3, main .blog-related h2, main .blog-related h3,
       main .blog-index-head h2, main .blog-index .blog-card-title {
         text-align: left !important;
         text-transform: none !important;
@@ -1031,6 +1074,11 @@ Head links
       .blog-faq-item { border-bottom: 1px solid rgba(72,29,82,0.14); padding: 0.35rem 0; }
       .blog-faq-item summary { cursor: pointer; list-style: none; padding: 0.95rem 2rem 0.95rem 0; color: #481D52; font-size: 1.02rem; position: relative; }
       .blog-faq-item summary::-webkit-details-marker { display: none; }
+      main .blog-faq .blog-faq-q {
+        display: inline; margin: 0 !important; padding: 0 !important;
+        font-size: inherit !important; line-height: inherit !important;
+        font-weight: 500 !important; color: inherit !important;
+      }
       .blog-faq-item summary::after { content: "+"; position: absolute; right: 0.2rem; top: 50%; transform: translateY(-50%); color: #E65E04; font-size: 1.35rem; line-height: 1; }
       .blog-faq-item[open] summary::after { content: "\2013"; }
       .blog-faq-answer { padding: 0 0 1.1rem; color: #481D52; opacity: 0.85; }
@@ -1103,7 +1151,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="5fff7662aac74a44cc83af43261fbe35659bc90c75a59c3df076a7bf6dd85a08">
+<meta name="plumcut-content-version" content="069ffae33ecd5a2dc5eef645e7b55607d7736f25d24d8e608b9b63fc5c3395f6">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1221,19 +1269,19 @@ Header
 <section class="blog-faq" aria-labelledby="blog-faq-title">
   <h2 id="blog-faq-title" class="blog-h2">Questions people also ask</h2>
   <details class="blog-faq-item">
-    <summary>Can I automate WhatsApp for free?</summary>
+    <summary><h3 class="blog-faq-q">Can I automate WhatsApp for free?</h3></summary>
     <div class="blog-faq-answer"><p>Partly. The free WhatsApp Business app offers greetings, away messages and saved replies for a person to use. More integrated automation can use the Cloud API. Meta charges for eligible delivered template messages, with specified free messaging conditions; your software or provider may charge separately.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Will automating WhatsApp get my number banned?</summary>
+    <summary><h3 class="blog-faq-q">Will automating WhatsApp get my number banned?</h3></summary>
     <div class="blog-faq-answer"><p>Official tools do not guarantee that an account will never be restricted. Your messaging must still follow Meta's policies, including consent and applicable content rules. Check the current WhatsApp Business Messaging Policy before launching outbound campaigns and monitor account quality after launch.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>Does WhatsApp automation work in Arabic?</summary>
+    <summary><h3 class="blog-faq-q">Does WhatsApp automation work in Arabic?</h3></summary>
     <div class="blog-faq-answer"><p>Yes. The Cloud API is language agnostic, and modern language models handle Arabic, English and the mixed Arabizi that MENA shoppers actually type. What breaks is usually the product catalogue and the policy text behind the bot, not the language itself. plum is built for Arabic and English side by side.</p></div>
   </details>
   <details class="blog-faq-item">
-    <summary>How long does it take to set up?</summary>
+    <summary><h3 class="blog-faq-q">How long does it take to set up?</h3></summary>
     <div class="blog-faq-answer"><p>The free Business app takes an afternoon. A working Cloud API setup with a real catalogue, order lookups and a tested handover to a human is closer to two to four weeks, most of which is writing down what your team already knows. See how we run that in our build process.</p></div>
   </details>
 </section>
