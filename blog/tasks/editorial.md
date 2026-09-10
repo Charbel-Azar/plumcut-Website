@@ -5,10 +5,11 @@ citations in search and AI answers, and introduce plumcut when it fits the
 reader's problem. Citations and recommendations are separate outcomes; neither
 is guaranteed by publishing frequency, schema, or paragraph length.
 
-These rules are shared by the writer, reviewer and publisher. The Notion manual
-may supplement voice and examples; if inaccessible, report that and use this
-file with CLAUDE.md. Notion database access is still required to draft or publish
-its approved rows. Project rules override conflicting imported SEO heuristics.
+These rules govern every run of blog/tasks/author.md, at every stage: choosing
+the subject, writing, reviewing and publishing. The Notion manual may supplement
+voice and examples; if inaccessible, report that and use this file with
+CLAUDE.md. Notion access is still required to read the control page and to log
+the published row. Project rules override conflicting imported SEO heuristics.
 
 ## Select useful questions
 
@@ -52,18 +53,35 @@ when an existing page already answers the question.
   when that person actually reviewed the content; AI review is not a human
   endorsement. Never invent experience, credentials or a reviewer.
 
-## Review before approval
+## Subjects that come out of a room
 
-Run a separate review pass after drafting, in the same agent session if needed.
-Check the title's question is answered; verify changeable claims; check competitor
-assertions; compare the body, FAQ and existing posts for contradictions; check
-internal links, related slugs and the plumcut mention. Resolve unsupported facts
-before submitting. Do not silently rewrite approved claims during publishing;
-return material editorial issues for approval.
+Meetings are the strongest subject source available, because they are the only
+place real buyers say what they are actually stuck on. Use the subject, never the
+conversation. Take what the room was about, find the questions the wider market
+asks about that subject, answer the one plum genuinely helps with, and leave
+every specific behind. Never name a company, a person or a product heard in a
+room, never quote or closely paraphrase a meeting, never describe a deal, and
+never write "a client told us" in any form. The link back to the room belongs in
+the internal Notion row and nowhere else.
 
-Keep a review record outside the article body: source URLs and checked date,
-added value, comparison methodology if applicable, open questions, and whether
-review was automated or human. A human still changes Status to approved.
+## Review before publishing
+
+No human approves a post before it goes live, so the review pass is the only
+gate there is. Run it as a separate pass, reading the finished post as a stranger
+rather than as its author. Check the title's question is answered; verify every
+changeable claim against a primary source; check competitor assertions; compare
+the body, FAQ and existing posts for contradictions; check internal links,
+related slugs and the plumcut mention; and check that nothing traceable to a
+meeting survived into the text.
+
+Anything that cannot be resolved honestly kills the post. Write the row as
+killed with a reason and publish nothing. An empty run is cheap; a wrong post on
+plumcut.com is not. Never weaken a claim just enough to keep the run productive.
+
+Keep a review record in the Notion row, outside the article body: source URLs and
+checked date, added value, comparison methodology if applicable, open questions,
+and a plain statement that review was automated. Never name a person as a
+reviewer.
 
 ## Refresh and measure
 

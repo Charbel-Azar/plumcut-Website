@@ -131,38 +131,52 @@ add a Blog item to `.pc-nav`.
 
 ### The publishing pipeline
 
-Run either job by hand with the project skills: **`/blog-draft [count] [topic]`**
-writes drafts into Notion, **`/blog-publish [slug]`** ships an approved one. Both
-are thin wrappers that read the same runbooks the scheduled routines read, so
-manual and scheduled runs can never drift apart.
+One run does the whole job. Run it by hand with **`/blog [topic]`**, or let the
+scheduled cloud routine `plumcut blog` fire it Mon / Wed / Sat. Both read the
+same runbook, so manual and scheduled runs can never drift apart.
 
-**The runbooks live in this repo**, at `blog/tasks/writer.md` and
-`blog/tasks/publisher.md`. Each scheduled cloud routine is a three-line pointer
-that reads its file and follows it, so changing a runbook changes what the next
-run does. No API call, no routine edit. Fix a bug in a commit.
-
-Content lives in Notion, under **plumcut - HQ / Brand & Identity / Branding /
-cowork - Blog**, in the `Blog` database. That page holds the editorial
-standards: archetypes, voice, what a good post looks like. The runbooks hold the
-procedure. Both scheduled runs read both. `blog/tasks/editorial.md` keeps essential
-topic, promotion and review rules in GitHub, with Notion as supplemental guidance.
+**The runbook lives in this repo**, at `blog/tasks/author.md`. The scheduled
+routine is a three-line pointer that reads that file and follows it, so changing
+the runbook changes what the next run does. No API call, no routine edit. Fix a
+bug in a commit.
 
 ```
-writer run (Tue / Fri)        research, write, review, Status = drafted
-you, in Notion                 read it, edit it, Status = approved
-publisher (Mon/Wed/Fri/Sat)   approved -> .md -> build -> push -> verify -> published
+one run   subject -> question -> write -> review -> build -> push -> verify -> log
 ```
 
-Nothing reaches the site without a human flipping a row to `approved`.
-After pushing, run `node scripts/verify-blog.js <slug>` to check the deployed
-content version, canonical and sitemap. A push alone is not publication proof.
+Subjects come from the **Meetings** database first, `collection://fd9c0e54-8bb3-47f4-bd2e-fd240acfef2f`,
+and from web search when no room yields one. The rule for a meeting subject is
+the subject only: what area the room was about, then what the wider market asks
+about that area, then whether plum honestly helps. Never a name, never a quote,
+never a deal, never "a client told us". The link back to the room lives in the
+internal Notion row and nowhere else.
+
+**You steer it from the [Blog control page](https://app.notion.com/p/3d78d6e734f481298d03e96918155768)**,
+under cowork - Blog. Three switches, no commit needed: `Paused` freezes the whole
+thing, `Focus` points every run at one subject, `Meetings read up to` is the
+watermark that stops a room being mined twice. The run appends to the log there
+each time it fires.
+
+**There is no human approval step.** What replaces it is Step 6 of the runbook, a
+review pass with the authority to delete the post, plus the `Paused` switch and
+`git revert`. A post that cannot be verified honestly is killed, and an empty run
+is a good outcome. Notion is the record of what shipped, not the gate before it.
+
+Content standards live in Notion under **plumcut - HQ / Brand & Identity /
+Branding / cowork - Blog**: archetypes, voice, what a good post looks like.
+`blog/tasks/editorial.md` keeps the essential topic, promotion and review rules
+in GitHub, with Notion as supplemental guidance. Every run reads both.
+
+After pushing, the run must pass `node scripts/verify-blog.js <slug>`, which
+checks the deployed content version, canonical and sitemap. A push alone is not
+publication proof.
 
 ## Hero images
 
-**`blog/heroes/` is the library the scheduled runs use.** Licensed images
+**`blog/heroes/` is the library the scheduled run uses.** Licensed images
 committed to the repo with `manifest.json` describing each one: alt text, tags,
-credit, licence. The writer matches `tags` against the post subject and copies
-the entry into front matter as `hero: /blog/heroes/<file>.jpg`.
+credit, licence. The run matches `tags` against the post subject and copies the
+entry into front matter as `hero: /blog/heroes/<file>.jpg`.
 
 They live in the repo because the cloud sandbox's egress allowlist blocks every
 image host (Unsplash, Pexels, Openverse, Flickr) while still allowing a git
