@@ -10,7 +10,8 @@
  * Runs on the Gemini API free tier, which includes Google Search grounding.
  * Get a key at https://aistudio.google.com/apikey, no card required:
  *
- *   GEMINI_API_KEY=... node scripts/ai-visibility.js
+ *   OPENAI_API_KEY=... node scripts/ai-visibility.js          # grounded, paid
+ *   GEMINI_API_KEY=... node scripts/ai-visibility.js          # free, ungrounded
  *   GEMINI_API_KEY=... node scripts/ai-visibility.js --arabic   # Arabic set only
  *   GEMINI_API_KEY=... node scripts/ai-visibility.js --no-search
  *   node scripts/ai-visibility.js --list                        # print prompts
@@ -36,13 +37,25 @@
 const fs = require('fs');
 const path = require('path');
 
+/*
+ * Two providers. OpenAI is the one that matters, because its web_search tool
+ * reaches the surface our buyers actually use and returns real cited URLs.
+ * Gemini is the free fallback, but free Search grounding is closed to newer
+ * accounts, so an ungrounded Gemini run measures trained knowledge instead.
+ *
+ * Picked automatically from whichever key is present; OPENAI_API_KEY wins.
+ */
+const OPENAI_KEY = process.env.OPENAI_API_KEY || '';
+const GEMINI_KEY = process.env.GEMINI_API_KEY || '';
+const PROVIDER = process.env.PROVIDER || (OPENAI_KEY ? 'openai' : 'gemini');
+const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-5-mini';
 // gemini-2.5-flash is closed to accounts created after late 2025, which is
 // also where the free grounding allowance lived. Override with GEMINI_MODEL.
 const MODEL = process.env.GEMINI_MODEL || 'gemini-3.6-flash';
 // The free tier allows only a few requests per minute. Pacing costs a minute
 // of wall clock and avoids spending the daily allowance on 429s.
 const PACE_MS = Number(process.env.PACE_MS || 4000);
-const KEY = process.env.GEMINI_API_KEY || '';
+const KEY = GEMINI_KEY;
 const OUT_DIR = path.join(__dirname, '..', 'blog', 'tasks', 'ai-visibility');
 
 /*
@@ -104,7 +117,7 @@ function flatten(sets) {
   return sets.flatMap((name) => PROMPTS[name].map((text) => ({ set: name, text })));
 }
 
-async function ask(prompt, grounded, attempt = 0) {
+async function askGemini(prompt, grounded, attempt = 0) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${KEY}`;
   const res = await fetch(url, {
     method: 'POST',
@@ -118,7 +131,7 @@ async function ask(prompt, grounded, attempt = 0) {
     // 503 means the shared free pool is busy, not that the prompt is bad.
     if (res.status === 503 && attempt < 3) {
       await sleep(2000 * (attempt + 1));
-      return ask(prompt, grounded, attempt + 1);
+      return askGemini(prompt, grounded, attempt + 1);
     }
     const body = await res.text();
     // A 429 carries the quota it broke. Reporting "quota exceeded" without the
@@ -144,6 +157,53 @@ async function ask(prompt, grounded, attempt = 0) {
   return { answer, cited: [...new Set(cited)], queries, rivals: rivalsIn(answer) };
 }
 
+/*
+ * OpenAI Responses API. url_citation annotations carry the actual pages the
+ * model read, so unlike Gemini's grounding chunks we can record hostnames and
+ * see which domains own our buyer questions.
+ */
+async function askOpenAI(prompt, grounded, attempt = 0) {
+  const res = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: { authorization: `Bearer ${OPENAI_KEY}`, 'content-type': 'application/json' },
+    body: JSON.stringify({
+      model: OPENAI_MODEL,
+      input: prompt,
+      ...(grounded ? { tools: [{ type: 'web_search' }] } : {}),
+    }),
+  });
+  if (!res.ok) {
+    if ((res.status === 429 || res.status >= 500) && attempt < 3) {
+      await sleep(3000 * (attempt + 1));
+      return askOpenAI(prompt, grounded, attempt + 1);
+    }
+    throw new Error(`${res.status} ${(await res.text()).slice(0, 200)}`);
+  }
+  const data = await res.json();
+  const msgs = (data.output || []).filter((o) => o.type === 'message');
+  const answer = msgs.flatMap((m) => (m.content || []).map((c) => c.text || '')).join('');
+  const cited = msgs
+    .flatMap((m) => (m.content || []).flatMap((c) => c.annotations || []))
+    .filter((a) => a.type === 'url_citation')
+    .map((a) => {
+      try {
+        return new URL(a.url).hostname.replace(/^www\./, '');
+      } catch {
+        return a.url;
+      }
+    });
+  // The searches the model ran on its way to the answer: our query fan-out.
+  const queries = (data.output || [])
+    .filter((o) => o.type === 'web_search_call')
+    .map((o) => o.action?.query)
+    .filter(Boolean);
+  return { answer, cited: [...new Set(cited)], queries, rivals: rivalsIn(answer) };
+}
+
+function ask(prompt, grounded) {
+  return PROVIDER === 'openai' ? askOpenAI(prompt, grounded) : askGemini(prompt, grounded);
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const sets = args.includes('--arabic')
@@ -157,14 +217,19 @@ async function main() {
     for (const p of prompts) console.log(`[${p.set}] ${p.text}`);
     return;
   }
-  if (!KEY) {
-    console.error('Set GEMINI_API_KEY. Free key: https://aistudio.google.com/apikey');
+  const activeKey = PROVIDER === 'openai' ? OPENAI_KEY : KEY;
+  const activeModel = PROVIDER === 'openai' ? OPENAI_MODEL : MODEL;
+  if (!activeKey) {
+    console.error('Set OPENAI_API_KEY (grounded, paid) or GEMINI_API_KEY (free tier).');
+    console.error('  OpenAI:  https://platform.openai.com/api-keys');
+    console.error('  Gemini:  https://aistudio.google.com/apikey');
     process.exit(1);
   }
+  console.log(`provider: ${PROVIDER} (${activeModel})`);
 
   const grounded = !args.includes('--no-search');
   let quotaStop = false;
-  if (!grounded) console.log('running without Google Search grounding');
+  if (!grounded) console.log('running WITHOUT web search: reads trained knowledge, not citations');
 
   const results = [];
   for (const p of prompts) {
@@ -216,7 +281,7 @@ async function main() {
   fs.writeFileSync(
     file,
     JSON.stringify(
-      { model: MODEL, grounded, partial: quotaStop, date: new Date().toISOString(), hits, total: ok.length, results },
+      { provider: PROVIDER, model: activeModel, grounded, partial: quotaStop, date: new Date().toISOString(), hits, total: ok.length, results },
       null,
       2
     )

@@ -150,8 +150,17 @@ separate question, answered by running unbranded buyer questions and recording
 who gets named. That is also free, on the Gemini API free tier:
 
 ```
-GEMINI_API_KEY=... node scripts/ai-visibility.js
+OPENAI_API_KEY=... node scripts/ai-visibility.js     # grounded, paid, pennies
+GEMINI_API_KEY=... node scripts/ai-visibility.js     # free, ungrounded
 ```
+
+Prefer the OpenAI run. Its web_search tool returns the pages the model actually
+read, so a run records the domains that own our buyer questions and the
+searches the engine ran to get there. The engine's own queries are the most
+useful output: they show how it rewrites a buyer's wording, and therefore what
+a page has to be about to be found. An ungrounded run only reads whether
+plumcut already sits in a model's trained knowledge, which for a young brand
+is a slower and much blunter signal.
 
 The prompt set lives in that script and includes Arabic and Arabizi questions,
 which no off-the-shelf tracker ships. Never name plumcut in a prompt, and keep
