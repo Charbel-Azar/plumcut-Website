@@ -5,10 +5,10 @@ description: Why MENA Shopify stores sell in WhatsApp instead of the checkout, w
 type: direct
 date: 2026-09-06
 keywords: [WhatsApp AI Shopify, WhatsApp automation Lebanon, WhatsApp chatbot Gulf, Shopify WhatsApp integration MENA, Arabic WhatsApp chatbot]
-hero: https://live.staticflickr.com/65535/47955063506_9ee4337660_b.jpg
-heroAlt: A rail of clothes on hangers inside a bright fashion store
-heroCredit: Artem Beliaikin
-heroCreditUrl: https://www.flickr.com/photos/artem_beliaikin
+hero: /blog/heroes/market-stall.jpg
+heroAlt: A busy market stall with goods on display
+heroCredit: mikecogh
+heroCreditUrl: https://www.flickr.com/photos/89165847@N00
 heroSource: Flickr
 heroLicense: CC BY 2.0
 heroLicenseUrl: https://creativecommons.org/licenses/by/2.0/

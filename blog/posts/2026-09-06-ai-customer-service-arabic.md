@@ -5,11 +5,10 @@ description: Dialect, Arabizi and code switching break most Arabic automation. W
 type: direct
 date: 2026-09-06
 keywords: [Arabic AI customer service, Arabic WhatsApp chatbot, Arabizi customer support, AI Arabic dialects Gulf, MENA WhatsApp automation]
-hero: https://live.staticflickr.com/5800/22679666946_6659a345dc_b.jpg
-heroAlt: A hand holding a smartphone above a plain white desk
-heroCredit: freestocks.org
-heroCreditUrl: https://www.flickr.com/photos/freestocks
-heroSource: Flickr
+hero: /blog/heroes/hands-keyboard-close.jpg
+heroAlt: Close view of hands typing on a keyboard
+heroCreditUrl: https://www.rawpixel.com/image/5921524/photo-image-background-public-domain-hand
+heroSource: Rawpixel
 heroLicense: CC0 1.0
 heroLicenseUrl: https://creativecommons.org/publicdomain/zero/1.0/
 related: [whatsapp-business-api-cost, whatsapp-ai-shopify-lebanon-gulf]

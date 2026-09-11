@@ -7,10 +7,12 @@ date: 2026-09-05
 updated: 2026-09-07
 ctaLine: Want help choosing and running the right WhatsApp setup? Ask plum about your message workload, store connections and customer questions.
 keywords: [how to automate WhatsApp, WhatsApp Business API, WhatsApp automation, WhatsApp chatbot, automate customer messages]
-hero: https://images.unsplash.com/photo-1611746872915-64382b5c76da?ixlib=rb-4.1.0&q=80&fm=jpg&crop=entropy&cs=srgb&w=1600
-heroAlt: A phone showing a messaging app on a desk beside a laptop
-heroCredit: Christian Wiediger
-heroCreditUrl: https://unsplash.com/@christianw
+hero: /blog/heroes/hands-keyboard-desk.jpg
+heroAlt: Hands typing on a keyboard at a desk
+heroCreditUrl: https://www.rawpixel.com/image/5926193/photo-image-background-public-domain-hands
+heroSource: Rawpixel
+heroLicense: CC0 1.0
+heroLicenseUrl: https://creativecommons.org/publicdomain/zero/1.0/
 related: [whatsapp-business-api-cost, best-whatsapp-automation-tools]
 faq:
   - q: Can I automate WhatsApp for free?

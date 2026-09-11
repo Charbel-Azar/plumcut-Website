@@ -6,13 +6,13 @@ type: general
 date: 2026-09-06
 updated: 2026-09-07
 keywords: [WhatsApp Business API cost, WhatsApp API pricing, WhatsApp per message pricing, WhatsApp Business API price]
-hero: https://live.staticflickr.com/664/21713977623_7d69d4e6a8_b.jpg
-heroAlt: Hands typing on a laptop keyboard on a desk in low light
-heroCredit: Image Catalog
-heroCreditUrl: https://www.flickr.com/photos/imagecatalog
+hero: /blog/heroes/coin-counting-tray.jpg
+heroAlt: Coins sorted into a counting tray
+heroCredit: portableantiquities
+heroCreditUrl: https://www.flickr.com/photos/10257668@N04
 heroSource: Flickr
-heroLicense: CC0 1.0
-heroLicenseUrl: https://creativecommons.org/publicdomain/zero/1.0/
+heroLicense: CC BY 2.0
+heroLicenseUrl: https://creativecommons.org/licenses/by/2.0/
 related: [how-to-automate-whatsapp-for-your-business, best-whatsapp-automation-tools, whatsapp-abandoned-cart-rules]
 ctaLine: Want to understand the full cost for your brand? Ask plum about setup, monthly operation and the WhatsApp workflows you actually need.
 faq:

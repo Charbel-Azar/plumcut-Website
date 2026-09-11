@@ -6,10 +6,10 @@ type: comparison
 date: 2026-09-06
 updated: 2026-09-07
 keywords: [best WhatsApp automation tools, WhatsApp chatbot software, WhatsApp Business API providers, WhatsApp BSP comparison, WhatsApp CRM]
-hero: https://live.staticflickr.com/838/43461365082_2c79e330a3_b.jpg
-heroAlt: A person holding a phone in one hand and typing a message with the other
-heroCredit: ShebleyCL
-heroCreditUrl: https://www.flickr.com/photos/shebleycl
+hero: /blog/heroes/notebook-pen-glasses.jpg
+heroAlt: A notebook, a pen and a pair of glasses on a desk
+heroCredit: Generationbass.com
+heroCreditUrl: https://www.flickr.com/photos/46959536@N04
 heroSource: Flickr
 heroLicense: CC BY 2.0
 heroLicenseUrl: https://creativecommons.org/licenses/by/2.0/
