@@ -19,7 +19,10 @@ test('editorial links preserve query parameters and reject executable URLs', () 
 test('FAQ schema preserves visible formatted answers and cannot close its script', () => {
   const faq = [{ q: 'Why?', a: '**Read** [this](/pricing). </script>' }];
   const markup = articleJsonLd({ title: 'Test', date: '2026-09-07', slug: 'test', faq });
-  assert.equal((markup.match(/<\/script>/g) || []).length, 3);
+  // One closer per emitted block (BlogPosting, Organization, WebSite,
+  // BreadcrumbList, FAQPage) and not one more: a sixth would mean the
+  // </script> inside the answer escaped the string it belongs to.
+  assert.equal((markup.match(/<\/script>/g) || []).length, 5);
   const schema = [...markup.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
     .map(m => JSON.parse(m[1])).find(s => s['@type'] === 'FAQPage');
   assert.equal(schema.mainEntity[0].acceptedAnswer.text, markdown(faq[0].a).html);

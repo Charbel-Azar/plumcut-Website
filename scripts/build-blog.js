@@ -332,6 +332,24 @@ const ORGANIZATION = {
   ],
 };
 
+/*
+ * Emitted as their own top-level JSON-LD blocks on every generated page, with
+ * everything else referring to them by @id. Nesting the publisher inside the
+ * article instead makes the same entity invisible to parsers that only read
+ * top-level types, and repeats the whole object on every page.
+ */
+const ORGANIZATION_BLOCK = { '@context': 'https://schema.org', ...ORGANIZATION };
+const ORG_REF = { '@id': SITE + '/#organization' };
+const WEBSITE_BLOCK = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': SITE + '/#website',
+  name: 'plumcut',
+  url: SITE + '/',
+  inLanguage: 'en',
+  publisher: ORG_REF,
+};
+
 /* ------------------------------------------------------------------ pieces */
 
 function faqBlock(faq) {
@@ -611,10 +629,12 @@ function articleJsonLd(post) {
       author: post.author
         ? { '@type': 'Person', name: post.author, ...(post.authorUrl ? { url: absUrl(post.authorUrl) } : {}) }
         : { '@type': 'Organization', '@id': SITE + '/#organization', name: 'plumcut', url: SITE + '/about' },
-      publisher: ORGANIZATION,
+      publisher: ORG_REF,
       mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.slug}` },
       isPartOf: { '@type': 'Blog', '@id': `${SITE}/blog/`, name: `plumcut ${SECTION.toLowerCase()}` },
     },
+    ORGANIZATION_BLOCK,
+    WEBSITE_BLOCK,
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
@@ -751,7 +771,7 @@ function renderHub(all, tpl) {
         'Practical guides on WhatsApp automation, AI customer conversations and customer insight for commerce brands in MENA and beyond.',
       url: SITE + '/blog/',
       inLanguage: 'en',
-      publisher: ORGANIZATION,
+      publisher: ORG_REF,
       blogPost: all.map((p) => ({
         '@type': 'BlogPosting',
         headline: p.title,
@@ -768,19 +788,8 @@ function renderHub(all, tpl) {
         { '@type': 'ListItem', position: 2, name: SECTION, item: SITE + '/blog/' },
       ],
     },
-    // The hub is often the first page a crawler reaches, so it names the site
-    // entity here rather than relying on the home page being fetched. The
-    // publisher itself is ORGANIZATION above, referenced by @id so there is
-    // exactly one definition of plumcut across every page.
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      '@id': SITE + '/#website',
-      name: 'plumcut',
-      url: SITE + '/',
-      inLanguage: 'en',
-      publisher: { '@id': SITE + '/#organization' },
-    },
+    ORGANIZATION_BLOCK,
+    WEBSITE_BLOCK,
   ]
     .map((b) => `<script type="application/ld+json">\n${JSON.stringify(b, null, 2)}\n</script>`)
     .join('\n');
