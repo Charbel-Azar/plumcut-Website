@@ -1022,27 +1022,52 @@ function writeLlmsFull(all) {
 
 /* ------------------------------------------------ llms.txt blog listing */
 
+/*
+ * Replaces one <!-- NAME:START --> ... <!-- NAME:END --> region in place.
+ * Everything outside the markers is hand-written and must survive a build.
+ * Index arithmetic rather than a regex: the markers are fixed strings, and
+ * escaping them into a pattern is how this kind of helper grows bugs.
+ */
+function replaceRegion(txt, name, body) {
+  const START = `<!-- ${name}:START -->`;
+  const END = `<!-- ${name}:END -->`;
+  const from = txt.indexOf(START);
+  const to = txt.indexOf(END, from + START.length);
+  if (from === -1 || to === -1) return txt;
+  return txt.slice(0, from + START.length) + (body ? '\n' + body : '') + '\n' + txt.slice(to);
+}
+
 function updateLlmsTxt(all) {
   const file = path.join(ROOT, 'llms.txt');
   if (!fs.existsSync(file)) return false;
-  let txt = fs.readFileSync(file, 'utf8');
-  const START = '<!-- BLOG:LIST:START -->';
-  const END = '<!-- BLOG:LIST:END -->';
-  if (!txt.includes(START)) return false;
+  const txt = fs.readFileSync(file, 'utf8');
 
-  const lines = all
+  const posts = all
     .slice(0, 25)
     .map((p) => `- [${p.title}](${SITE}/blog/${p.slug}): ${p.description}`)
     .join('\n');
 
-  const next = txt.replace(
-    new RegExp(
-      START.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') +
-        '[\\s\\S]*?' +
-        END.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    ),
-    START + (lines ? '\n' + lines : '') + '\n' + END
-  );
+  /*
+   * Every published FAQ, grouped under the article that answers it. This is
+   * the quick-answer layer: llms-full.txt carries the articles themselves, so
+   * an engine that only needs one answer does not have to read 24,000 words
+   * to find it. Answers are reproduced verbatim, so the text an engine quotes
+   * is the text a reader sees on the page.
+   */
+  const faqs = all
+    .filter((p) => (p.faq || []).length)
+    .map((p) =>
+      [
+        `### ${p.title}`,
+        `Source: ${SITE}/blog/${p.slug}`,
+        '',
+        ...(p.faq || []).flatMap((f) => [`**${String(f.q).trim()}**`, '', String(f.a).trim(), '']),
+      ].join('\n')
+    )
+    .join('\n');
+
+  let next = replaceRegion(txt, 'BLOG:LIST', posts);
+  next = replaceRegion(next, 'FAQ:LIST', faqs);
   if (next === txt) return false;
   if (!DRY) fs.writeFileSync(file, next);
   return true;

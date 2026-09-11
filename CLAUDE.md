@@ -77,7 +77,9 @@ Reads `blog/posts/*.md` (files starting with `_` are ignored) and writes:
 - `blog/index.html`, the hub
 - `blog/rss.xml`
 - `sitemap.xml`, regenerated whole
-- the blog listing inside `llms.txt`
+- two generated regions inside `llms.txt`: the blog listing between the
+  `BLOG:LIST` markers, and every published FAQ between the `FAQ:LIST`
+  markers. Text outside the markers is hand-written and survives a build.
 - `llms-full.txt`, the full text of every post in one file
 - `ai/summary.json`, `ai/service.json`, `ai/faq.json`
 - `.well-known/ai.txt`
