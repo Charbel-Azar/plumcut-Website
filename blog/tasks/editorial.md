@@ -145,9 +145,18 @@ brand entity with no API key and no scraping subscription. Record the score and
 band per post when publishing, and re-run after a refresh. On Windows set
 PYTHONUTF8=1, and install pip-system-certs if a corporate proxy breaks TLS.
 
-Separately, run the fixed unbranded buyer questions against ChatGPT, Claude and
-Perplexity and record which URLs each one cited. The audit measures whether a
-page can be cited; only the buyer questions measure whether it is.
+The audit measures whether a page *can* be cited. Whether it *is* cited is a
+separate question, answered by running unbranded buyer questions and recording
+who gets named. That is also free, on the Gemini API free tier:
+
+```
+GEMINI_API_KEY=... node scripts/ai-visibility.js
+```
+
+The prompt set lives in that script and includes Arabic and Arabizi questions,
+which no off-the-shelf tracker ships. Never name plumcut in a prompt, and keep
+the set stable between runs or the comparison means nothing. Each run is saved
+to blog/tasks/ai-visibility/ so the trend survives staff changes.
 
 Primary guidance to verify when changing these rules:
 - https://developers.google.com/search/docs/fundamentals/ai-optimization-guide
