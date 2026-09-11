@@ -12,7 +12,15 @@
  *
  *   GEMINI_API_KEY=... node scripts/ai-visibility.js
  *   GEMINI_API_KEY=... node scripts/ai-visibility.js --arabic   # Arabic set only
+ *   GEMINI_API_KEY=... node scripts/ai-visibility.js --no-search
  *   node scripts/ai-visibility.js --list                        # print prompts
+ *
+ * Free Search grounding is attached to gemini-2.5-flash, but Google has been
+ * reported to withhold it from newer accounts. If a run fails on grounding
+ * quota, --no-search drops the tool and asks the model cold. That measures
+ * something different and weaker, whether we exist in the model's trained
+ * knowledge rather than whether we get retrieved and cited, but it is free
+ * everywhere and still worth trending.
  *
  * Writes a timestamped JSON run to blog/tasks/ai-visibility/ so scores can be
  * compared over time. Zero dependencies, same as the blog builder.
@@ -61,14 +69,14 @@ function flatten(sets) {
   return sets.flatMap((name) => PROMPTS[name].map((text) => ({ set: name, text })));
 }
 
-async function ask(prompt) {
+async function ask(prompt, grounded) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${KEY}`;
   const res = await fetch(url, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
-      tools: [{ google_search: {} }],
+      ...(grounded ? { tools: [{ google_search: {} }] } : {}),
     }),
   });
   if (!res.ok) throw new Error(`${res.status} ${(await res.text()).slice(0, 300)}`);
@@ -102,17 +110,23 @@ async function main() {
     process.exit(1);
   }
 
+  const grounded = !args.includes('--no-search');
+  if (!grounded) console.log('running without Google Search grounding');
+
   const results = [];
   for (const p of prompts) {
     process.stdout.write(`[${p.set}] ${p.text.slice(0, 58)}... `);
     try {
-      const { answer, cited, queries } = await ask(p.text);
+      const { answer, cited, queries } = await ask(p.text, grounded);
       const mentioned = BRAND.test(answer);
       results.push({ ...p, mentioned, cited, queries });
       console.log(mentioned ? 'MENTIONED' : 'absent');
     } catch (err) {
       results.push({ ...p, error: String(err.message) });
       console.log('ERROR ' + err.message.slice(0, 80));
+      if (grounded && /grounding|google_search|quota|billing/i.test(err.message)) {
+        console.log('  grounding looks unavailable on this key: retry with --no-search');
+      }
     }
   }
 
@@ -133,7 +147,11 @@ async function main() {
   const file = path.join(OUT_DIR, `${stamp}.json`);
   fs.writeFileSync(
     file,
-    JSON.stringify({ model: MODEL, date: new Date().toISOString(), hits, total: ok.length, results }, null, 2)
+    JSON.stringify(
+      { model: MODEL, grounded, date: new Date().toISOString(), hits, total: ok.length, results },
+      null,
+      2
+    )
   );
   console.log(`\nsaved ${path.relative(process.cwd(), file)}`);
 }
