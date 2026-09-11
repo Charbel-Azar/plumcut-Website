@@ -15,6 +15,11 @@
  *   GEMINI_API_KEY=... node scripts/ai-visibility.js --no-search
  *   node scripts/ai-visibility.js --list                        # print prompts
  *
+ * Free tier is roughly 20 requests per day per model, so one full 13 prompt
+ * run per day fits with room to spare. The allowance is per model, so a second
+ * run the same day can use GEMINI_MODEL=gemini-3.1-flash-lite, at the cost of
+ * comparing two models rather than trending one.
+ *
  * Free Search grounding is attached to gemini-2.5-flash, but Google has been
  * reported to withhold it from newer accounts. If a run fails on grounding
  * quota, --no-search drops the tool and asks the model cold. That measures
@@ -31,7 +36,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+// gemini-2.5-flash is closed to accounts created after late 2025, which is
+// also where the free grounding allowance lived. Override with GEMINI_MODEL.
+const MODEL = process.env.GEMINI_MODEL || 'gemini-3.6-flash';
+// The free tier allows only a few requests per minute. Pacing costs a minute
+// of wall clock and avoids spending the daily allowance on 429s.
+const PACE_MS = Number(process.env.PACE_MS || 4000);
 const KEY = process.env.GEMINI_API_KEY || '';
 const OUT_DIR = path.join(__dirname, '..', 'blog', 'tasks', 'ai-visibility');
 
@@ -65,11 +75,36 @@ const PROMPTS = {
 
 const BRAND = /\bplum ?cut\b|\bplumcut\.com\b/i;
 
+/*
+ * Who gets named when we do not. This is the actionable half: a list of the
+ * brands an engine reaches for on our own buyer questions. Add names as they
+ * show up rather than guessing at a definitive market map.
+ */
+const RIVALS = [
+  'Wati', 'respond.io', 'Interakt', 'Twilio', '360dialog', 'Gupshup', 'Zoko',
+  'SleekFlow', 'Infobip', 'Yalo', 'Charles', 'Trengo', 'ManyChat', 'Tidio',
+  'Zendesk', 'Freshchat', 'Intercom', 'Chatfuel', 'Landbot', 'Botpress',
+  'AiSensy', 'DoubleTick', 'Periskope', 'Limechat', 'Verloop', 'Haptik',
+  'Yellow.ai', 'Unifonic', 'Clickatell', 'MessageBird', 'Sinch', 'BotSpace',
+  'Kanal', 'Flowcart', 'GetGabs', 'TextYess', 'Alhena', 'eGrow',
+  // Surfaced by the first baseline run rather than guessed at. Rasayel is
+  // the one to watch: the model already describes it as the MENA-native
+  // option, which is the position plumcut is arguing for.
+  'Rasayel', 'LimeChat', 'BiteSpeed', 'Chatarmin', 'Bitespeed', 'Delightchat', 'Gallabox',
+];
+
+function rivalsIn(text) {
+  const t = String(text).toLowerCase();
+  return RIVALS.filter((n) => t.includes(n.toLowerCase()));
+}
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
 function flatten(sets) {
   return sets.flatMap((name) => PROMPTS[name].map((text) => ({ set: name, text })));
 }
 
-async function ask(prompt, grounded) {
+async function ask(prompt, grounded, attempt = 0) {
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${KEY}`;
   const res = await fetch(url, {
     method: 'POST',
@@ -79,7 +114,24 @@ async function ask(prompt, grounded) {
       ...(grounded ? { tools: [{ google_search: {} }] } : {}),
     }),
   });
-  if (!res.ok) throw new Error(`${res.status} ${(await res.text()).slice(0, 300)}`);
+  if (!res.ok) {
+    // 503 means the shared free pool is busy, not that the prompt is bad.
+    if (res.status === 503 && attempt < 3) {
+      await sleep(2000 * (attempt + 1));
+      return ask(prompt, grounded, attempt + 1);
+    }
+    const body = await res.text();
+    // A 429 carries the quota it broke. Reporting "quota exceeded" without the
+    // number sends the reader to a dashboard to learn what the response said.
+    let detail = body.slice(0, 200);
+    try {
+      const d = JSON.parse(body);
+      const v = (d.error?.details || []).flatMap((x) => x.violations || [])[0];
+      const wait = (d.error?.details || []).find((x) => x.retryDelay)?.retryDelay;
+      if (v) detail = `${v.quotaId} = ${v.quotaValue}${wait ? `, retry in ${wait}` : ''}`;
+    } catch {}
+    throw new Error(`${res.status} ${detail}`);
+  }
   const data = await res.json();
   const cand = (data.candidates || [])[0] || {};
   const answer = (cand.content?.parts || []).map((p) => p.text || '').join('');
@@ -89,7 +141,7 @@ async function ask(prompt, grounded) {
     .map((c) => c.web?.title || '')
     .filter(Boolean);
   const queries = cand.groundingMetadata?.webSearchQueries || [];
-  return { answer, cited: [...new Set(cited)], queries };
+  return { answer, cited: [...new Set(cited)], queries, rivals: rivalsIn(answer) };
 }
 
 async function main() {
@@ -111,21 +163,29 @@ async function main() {
   }
 
   const grounded = !args.includes('--no-search');
+  let quotaStop = false;
   if (!grounded) console.log('running without Google Search grounding');
 
   const results = [];
   for (const p of prompts) {
     process.stdout.write(`[${p.set}] ${p.text.slice(0, 58)}... `);
     try {
-      const { answer, cited, queries } = await ask(p.text, grounded);
+      const { answer, cited, queries, rivals } = await ask(p.text, grounded);
       const mentioned = BRAND.test(answer);
-      results.push({ ...p, mentioned, cited, queries });
-      console.log(mentioned ? 'MENTIONED' : 'absent');
+      results.push({ ...p, mentioned, cited, queries, rivals, answer });
+      console.log(`${mentioned ? 'MENTIONED' : 'absent'}${rivals.length ? '  (' + rivals.slice(0, 4).join(', ') + ')' : ''}`);
+      await sleep(PACE_MS);
     } catch (err) {
       results.push({ ...p, error: String(err.message) });
       console.log('ERROR ' + err.message.slice(0, 80));
-      if (grounded && /grounding|google_search|quota|billing/i.test(err.message)) {
-        console.log('  grounding looks unavailable on this key: retry with --no-search');
+      if (err.message.startsWith('429')) {
+        // The daily free allowance is spent. Every remaining prompt fails the
+        // same way, and a wall of identical errors reads like a broken tool.
+        quotaStop = true;
+        console.log('  free allowance spent for today. Partial run saved, continue tomorrow,');
+        console.log('  or set GEMINI_MODEL to another model for a fresh per-model allowance.');
+        if (grounded) console.log('  if that was the grounding quota, retry with --no-search');
+        break;
       }
     }
   }
@@ -135,7 +195,15 @@ async function main() {
   const domains = {};
   for (const r of ok) for (const c of r.cited) domains[c] = (domains[c] || 0) + 1;
 
-  console.log(`\nvisibility: ${hits}/${ok.length} prompts mentioned plumcut`);
+  console.log(`\nvisibility: ${hits}/${ok.length} prompts mentioned plumcut${quotaStop ? ' (partial run)' : ''}`);
+  const rivalCount = {};
+  for (const r of ok) for (const n of r.rivals || []) rivalCount[n] = (rivalCount[n] || 0) + 1;
+  const board = Object.entries(rivalCount).sort((a, b) => b[1] - a[1]);
+  if (board.length) {
+    console.log('\nnamed instead of plumcut:');
+    board.slice(0, 15).forEach(([n, c]) => console.log(`  ${String(c).padStart(2)}x  ${n}`));
+  }
+
   console.log('\nmost cited sources:');
   Object.entries(domains)
     .sort((a, b) => b[1] - a[1])
@@ -148,7 +216,7 @@ async function main() {
   fs.writeFileSync(
     file,
     JSON.stringify(
-      { model: MODEL, grounded, date: new Date().toISOString(), hits, total: ok.length, results },
+      { model: MODEL, grounded, partial: quotaStop, date: new Date().toISOString(), hits, total: ok.length, results },
       null,
       2
     )
