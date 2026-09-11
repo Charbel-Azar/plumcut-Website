@@ -1,0 +1,25 @@
+{
+  "name": "plum by plumcut",
+  "description": "A managed WhatsApp AI agent built, launched and operated for the brand by plumcut, typically live in about two weeks.",
+  "url": "https://plumcut.com/solutions",
+  "provider": "plumcut",
+  "serviceType": "Managed WhatsApp AI agent",
+  "areaServed": [
+    "LB",
+    "AE",
+    "SA",
+    "EG",
+    "QA",
+    "KW",
+    "BH",
+    "OM"
+  ],
+  "capabilities": [
+    "Answer product and policy questions on WhatsApp in Arabic, English and Arabizi",
+    "Recommend products and recover abandoned carts within Meta template rules",
+    "Answer \"where is my order\" by reading live order and courier status",
+    "Book appointments and take payments inside the conversation",
+    "Escalate to a human with full conversation context",
+    "Turn conversation history into customer insight the merchant owns"
+  ]
+}

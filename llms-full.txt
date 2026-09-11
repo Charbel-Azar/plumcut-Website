@@ -1,0 +1,1425 @@
+# plumcut — full text of every Field note
+
+> plumcut builds and runs plum, a managed AI agent that sells, answers, books and tracks orders on WhatsApp for commerce brands in Lebanon, the Gulf and the wider MENA region, and turns those conversations into customer insight the merchant owns.
+
+Source: https://plumcut.com/blog/  ·  16 articles  ·  regenerated on every build.
+Each article below is reproduced in full. Cite the canonical URL given in its Source line.
+
+---
+
+# When Is Your Business Ready for AI Customer Service?
+
+Source: https://plumcut.com/blog/when-ready-for-ai-customer-service
+Published: 2026-09-10
+
+Every founder asking whether to automate their customer conversations gets sold to instead of answered. The vendor says yes. The article says yes, here are eleven tools. Nobody says the thing that is true for a lot of businesses, which is that you are not there yet and buying now would cost you time you do not have.
+
+> You are ready when the same questions arrive often enough that answering them is a job, and late enough that answering them is costing you sales. Not when you have a certain number of messages, and not when you can afford it. The trigger is repetition you can predict, plus messages you are visibly failing to answer in time.
+
+This post is the version of that answer we give in the room, including the part where the answer is no.
+
+## The three signals that say you are ready
+
+None of these is about size. A two-person brand can hit all three, and a company with thirty staff can hit none.
+
+**Your unanswered messages have started outrunning you.** Not that you are busy. That there is a queue you know you will not clear today, and it is still there tomorrow. When a customer waiting on an answer is a routine event rather than a bad day, the cost has already moved from your time to your revenue.
+
+**The same questions keep coming back.** Where is my order. Do you deliver to my area. Is this in stock. Can I pay on delivery. If you can predict most of what people will ask you next week, you have found the thing automation is actually good at. Repetition is the raw material.
+
+**Answers exist and are agreed.** Somebody in the business knows the delivery timelines, the return policy and the payment options, and they are the same answers every time. If the answers are still being argued about, you are not automating a process, you are freezing an unresolved one.
+
+Two out of three is usually enough to start. One is not.
+
+## Cost is not the reason to wait
+
+This is the misunderstanding that delays the decision most often, so it is worth being precise, because the pricing changed and a lot of the advice online has not caught up.
+
+On the WhatsApp Business Platform, [Meta made service conversations free for all businesses on 1 November 2024](https://developers.facebook.com/docs/whatsapp/pricing/), and non-template messages sent inside an open customer service window are not charged. Since 1 July 2025, pricing is per delivered message and charges apply when a template message is delivered.
+
+The practical shape of that: **answering a customer who messaged you is not what costs money. Starting a conversation is.**
+
+The same split shows up in the volume limits. New business phone numbers begin at 250 delivered messages, and the path to a higher tier is measured in delivered template messages to unique recipients outside customer service windows, over a rolling 30-day period, with a good quality rating. Replying to people who wrote to you first is not what the ceiling counts.
+
+So if your problem is that you cannot keep up with incoming questions, the platform is not charging you per answer and not capping your answers. Cost belongs in the conversation about marketing and re-engagement campaigns. It does not belong in the decision about whether to answer your customers faster.
+
+Verify the current rates for your own country code before you budget, because they are set per country and they move. Our own breakdown of the [real cost of the WhatsApp Business API](/blog/whatsapp-business-api-cost) goes through the categories in detail.
+
+## The test worth running before you buy anything
+
+Take two weeks. Every time a customer asks something, write the question down in a list. Not the answer, just the question, in their words.
+
+At the end, group them. You are looking for two numbers.
+
+| What you count | What it tells you |
+| --- | --- |
+| How many questions in total | Whether the volume is real or whether it feels bigger than it is |
+| How many distinct questions | Whether the volume is repetitive enough to be worth automating |
+
+If forty messages a week collapse into four questions, you have a strong case, and the four answers you write are most of the work already done. If forty messages stay forty different problems, automation will not help much yet, and the honest recommendation is to wait and keep the list going.
+
+This is also the cheapest possible diligence. It costs nothing, it needs no vendor, and the list it produces is the actual input any automation needs. Nobody who runs this test wastes the fortnight, including the people who conclude no.
+
+## What not ready looks like
+
+The most common version of not ready is not a business that is failing. It is a good business at an early stage, where the fit is right and only the timing is wrong. Being told to wait is useful information, and it is the answer more often than the industry admits.
+
+Four patterns worth recognising:
+
+- **Pre-launch or barely launched.** Your problem is demand, not throughput. Automating a queue that does not exist is a way of feeling productive.
+- **Low volume, high variety.** Every conversation is genuinely different, often because you are still discovering what you sell. That variety is valuable data and a bad automation candidate.
+- **Answers still moving.** Prices, delivery areas or policies changing weekly means every change becomes a maintenance job.
+- **One channel, one person, and it is working.** If the owner answers everything within the hour and enjoys it, the customer experience is already better than most automations produce.
+
+None of those are permanent conditions. They are just not today.
+
+## What to do this week
+
+If you recognised the three signals, start narrow. Pick the single question you answer most, write the answer you would want to receive, and automate that one alone. Our guide to [what to automate first](/blog/what-to-automate-first-ecommerce) sets out the order, and the [handover rules](/blog/automate-customer-service-without-losing-customers) matter more than the answers do, because that is where automated service actually loses people.
+
+If you recognised the not-ready list instead, start the two-week question log. Keep selling. Come back to this when the queue stops clearing.
+
+And if you are genuinely unsure which one you are, that is a fifteen-minute conversation rather than a purchase. plum works on WhatsApp for commerce businesses in Lebanon and the Gulf, handles Arabic and Arabizi alongside English, and you can see what it [costs](/pricing) before anyone talks to you. We would rather tell you to wait and be right than sell you a system you have to maintain before it has anything to do.
+
+---
+
+# SMS or WhatsApp for Delivery Notifications: Which Should You Use?
+
+Source: https://plumcut.com/blog/sms-vs-whatsapp-delivery-notifications
+Published: 2026-09-10
+
+You are about to send a dispatch notification to a customer in Beirut or Dubai. The parcel is with the courier, the tracking reference exists, and the only question left is which channel carries the message. Most stores answer it on price per message, then discover the real cost three days later, when the customer replies "can you make it Thursday instead" and nobody sees it.
+
+> For a store selling in Lebanon and the Gulf, WhatsApp should be the default channel for delivery updates and SMS should be the fallback, and the reason is the reply rather than the price. Branded notification SMS is sent from an alphanumeric sender name, which is one way by design: the customer cannot answer it, so every question your notification provokes lands somewhere else, or nowhere. On WhatsApp the notification and the answer live in the same thread, and the cost model rewards that. Both channels bill the message you send first. After that they diverge: SMS charges for every message you send, while a customer reply on WhatsApp opens a 24 hour customer service window in which Meta has not charged for service messages since 1 July 2025. Keep SMS for what it is genuinely better at, which is reaching a phone with no WhatsApp, no data, and no need to reply.
+
+## The comparison that actually decides it
+
+Delivery notifications are not broadcasts. They are the most reply provoking messages a store sends, because they carry a time, a place and an amount, and all three are things a customer might need to change. So compare the channels on what happens after the send, not on the send.
+
+| | Notification SMS | WhatsApp Business Platform |
+| --- | --- | --- |
+| Can the customer reply | No, from an alphanumeric sender name. Yes only from a registered number, which is a separate setup | Yes, in the same thread |
+| Who sees the reply | Whoever owns the reply number, if one exists | The same inbox that sent the update |
+| What you pay for | Every message you send | The template you send first, plus nothing for service replies inside the window the customer opened |
+| Opening the conversation | Free text, subject to sender ID rules | An approved template, in a category, with opt in on file |
+| Setup before message one | Sender ID registration per country, with documents and recurring fees | A WhatsApp Business account, a number, an approved template, and opt in |
+| What it can carry | 160 characters per segment, a link if you must | Formatted text, a tracking link, buttons the customer can press |
+| Best at | One way, no reply expected, no data connection | Anything the customer might answer |
+
+The row that matters is the first one. Providers are explicit that alphanumeric sender IDs support one way messaging only and that recipients cannot reply, to the point that customers cannot even send STOP, so you have to supply a separate opt out mechanism. That is fine for a one time password. For a message that says a driver is coming to your house tomorrow between two and six and will ask you for 90 dollars, it is a design flaw.
+
+## What each one costs, honestly
+
+Both channels charge you to start the conversation. The published numbers below are one provider's public list prices for a market, checked on 10 September 2026, not what a store pays at volume and not a quote. Check the current pages before you build a budget on them.
+
+**SMS.** Twilio's public rate card lists outbound SMS to the United Arab Emirates at 0.1092 dollars per message across Etisalat, du and other carriers, with Saudi Arabia listed lower, around 0.087. There is also a failed message processing fee of 0.001 dollars on messages that end in a failed status, which is small until a bad list makes it not small. On top of the per message price sits the sender ID: from 1 January 2025 the UAE regulator applied new fees for international alphanumeric sender IDs, and Twilio passes these on as a one time setup fee of 225 dollars per international sender ID and 115 dollars a month to keep it. That is a fixed cost you pay whether you send ten messages or ten thousand.
+
+**WhatsApp.** Meta bills per message, by template category and by the recipient's country calling code, and the current rate cards took effect on 1 July 2026, with further pricing updates announced for 1 August and 1 October 2026. Delivery updates fall in the utility category. Two rules do most of the work on your bill: since 1 July 2025 Meta does not charge for utility templates delivered in response to a user, and service messages sent inside the 24 hour customer service window a customer opens are not charged either. We went through the full picture in [what the WhatsApp Business API really costs](/blog/whatsapp-business-api-cost).
+
+Put those together and the comparison stops being about unit price. A dispatch notification that gets a reply costs you one paid message on WhatsApp and the entire back and forth on SMS, on a channel where the back and forth cannot happen in the first place. A dispatch notification that gets no reply costs roughly the same on both, and you should read the two current rate cards for your own markets rather than trust a ratio from an article.
+
+## What it takes to switch either one on
+
+Neither is instant, and the work is different in kind.
+
+SMS is paperwork. UAE operators require registration documents that vary with where your company is registered and where the traffic originates, and there is a per country process behind each market you want to reach. Saudi Arabia runs its own registration, and Mobily stopped supporting promotional sender ID registration in April 2024, which is the sort of change that arrives without warning and reshapes what you can send. None of this is hard. It is just slow, repeated per country, and never finished.
+
+WhatsApp is policy and product. You need a WhatsApp Business account and a number, an opt in that names your business, collected anywhere as long as local law allows, and a template approved in advance for anything you send first. Meta validates the category you chose against what the template actually says. The template is the part stores underestimate: it is a fixed shape with variables, so the wording of your dispatch notification is a decision you make once and live with, not a string you edit per order.
+
+## The failed delivery attempt is the case that settles it
+
+Every logistics operation has a happy path that either channel handles. The channel is chosen by the bad path.
+
+A delivery attempt fails. The driver marks it, your system sees it, and now something has to happen within hours or the parcel goes back and, on cash on delivery, the sale goes with it. The message you need to send is not a notification, it is a question: is tomorrow morning better, or should we hold it at the branch. On SMS from a sender name, that question has no return path, so it becomes a phone call somebody has to make. On WhatsApp it is a message with two buttons, and the answer arrives in the same thread, inside a window where your follow up costs nothing.
+
+That is the whole argument compressed into one event. We covered the operational side of that loop, including why courier status data is the weak link, in [automating delivery updates and the courier loop](/blog/automate-logistics-delivery-updates), and the customer facing half in [can AI answer where is my order on WhatsApp](/blog/where-is-my-order-whatsapp).
+
+## Where SMS still earns its place
+
+This is not a case for deleting SMS, and a comparison that ends with one channel winning everything is usually selling something. Keep SMS for:
+
+- **One time passwords and codes.** No reply needed, and the customer wants it in the notification shade, not in a chat.
+- **Customers with no WhatsApp.** They exist in every market and they still bought something.
+- **Fallback when a WhatsApp template is not delivered.** If a utility template sits undelivered past a threshold you set, an SMS with the same information is a reasonable second attempt.
+- **Hard operational notices that must not invite a conversation.** Occasionally the absence of a reply path is the feature.
+
+Most stores that get this right run both, with WhatsApp as the default and SMS behind it, rather than picking a winner. The decision you are actually making is which one is the default.
+
+## Where plum fits
+
+plumcut is a conversation layer for commerce brands on WhatsApp, so treat this section as an interested party describing its own category. We publish comparisons that feature us, and the honest boundary is this: if your notifications genuinely need no reply, an SMS provider is the simpler purchase and you do not need us for it.
+
+What plum handles is the case above, where the update and the conversation are the same thing. Order events come in from your store or your delivery software, the update goes out as a utility template, and the reply it produces is read and answered in the same thread, in Arabizi and English as customers actually write, with a handover to a human on anything that should not be automatic. That is the [solutions](/solutions) page in one paragraph.
+
+## What to do this week
+
+1. Count how many replies your delivery notifications currently produce, and where they land. If the answer is "we do not know", that is the finding.
+2. Open the current rate card for your two biggest markets on both channels and write down the utility rate and the SMS rate side by side. Use today's numbers, not a figure from an article, this one included.
+3. Add up your fixed SMS cost, the sender ID setup and monthly fees per country, and put it next to your monthly message spend. For low volume senders it is often the larger number.
+4. Pick the single event most likely to need a reply, which is almost always the failed delivery attempt, and move that one message to WhatsApp first. Leave everything else where it is until that one works.
+
+---
+
+# Manual Order Entry vs Automated Order Capture in Delivery Software
+
+Source: https://plumcut.com/blog/manual-order-entry-vs-automated-capture
+Published: 2026-09-09
+
+Someone on your team is reading a WhatsApp message and typing what it says into a delivery dashboard. The order was already agreed in the chat. The typing adds no information, it only moves the order from one system into another, and it is where addresses get mangled, phone numbers lose a digit and the delivery window quietly changes. If your fleet or delivery software is good and your team is still doing this all day, the software is not the problem.
+
+> There are four common ways an order gets from a customer message into a delivery dashboard: an agent retypes it, you send the customer a form or link, the customer places it themselves in a portal, or a conversational layer captures it in the chat and writes it into the platform through its API. They are not ranked. Retyping is the right answer at low volume and for negotiated orders. Portals win for repeat business customers who will log in. Forms are cheap but push work onto a customer who was happy in the chat. Automated capture wins when the same order shape repeats many times a day, and its real advantage is not speed but that validation runs on every single order instead of on the ones a tired agent happens to check twice. The blocker is rarely the conversation. It is whether your delivery platform exposes an API to create a job.
+
+## Disclosure before the comparison
+
+plumcut builds the fourth option in this list, so we have a commercial interest in it. We have tried to write the other three the way their best users would describe them, including the cases where they beat us. If your volume is low, option one is genuinely cheaper than anything we would sell you, and the last section says so plainly.
+
+## The four routes, compared
+
+| | Agent retypes | Form or link sent in chat | Customer self-serve portal | Conversational capture into the API |
+| --- | --- | --- | --- | --- |
+| Who does the typing | Your team | The customer, again | The customer, once, in your system | Nobody types twice |
+| Where errors come from | Mis-hearing, mis-reading, fatigue late in the day | Customer fills fields wrong, no one checks | Customer fills fields wrong, but the form can validate | Bad input from the customer, unless the capture validates it |
+| Time from message to dispatchable order | Minutes to hours, depending on the queue | Depends entirely on when the customer clicks | Immediate, if they use it | Seconds, if the order is complete |
+| Main failure mode | Backlog at peak, and the peak is when it matters | Customers ignore the link and reply in the chat instead | Adoption, most consumer customers will not create an account | Silent creation of a wrong order, if validation is thin |
+| Cost shape | Scales with headcount | Low, mostly setup | Usually part of your platform licence | Build or subscription, flat against volume |
+| Best fit | Low volume, negotiated or unusual orders | Occasional overflow, one off requests | Repeat business customers with accounts | The same order shape, many times a day |
+
+Read the bottom row first. Most operations are running one of these because of history, not because it fits, and the fix is often to move a slice of orders rather than all of them.
+
+## Why retyping survives longer than it should
+
+It survives because it always works. There is no integration to break, no edge case that cannot be handled, and the person doing it can read intent, spot that a customer means the office address and not the home one, and catch the order that says two boxes but means two hundred.
+
+That flexibility is real, and it is why the honest recommendation at low volume is to leave it alone. The cost is not the minute of typing. It is three things that only appear at scale.
+
+**The peak is when you are worst.** Order entry queues exactly when order volume spikes, which is exactly when a delayed dispatch costs a delivery slot.
+
+**The knowledge lives in one head.** The person who knows that a particular customer always means the back entrance is the reason your error rate looks acceptable. When they leave, the error rate is the truth about your process.
+
+**Nobody measures it.** Retyping is not a line in any system, so no report says what it costs. The failed deliveries it causes are recorded as courier problems.
+
+## Why forms and portals lose to the chat
+
+Both are technically better than retyping and both lose ground for the same reason: they ask the customer to move.
+
+A customer who is already writing to you on WhatsApp has chosen their channel. Sending them a link is asking them to leave a conversation for a form, and a meaningful share will simply reply with the order in the chat anyway, which puts you back at retyping with an extra step. Portals work, genuinely well, with repeat business customers who order weekly and will keep a login. They rarely work with consumers.
+
+This is the whole argument for capturing in the conversation: not that forms are bad, but that the order is already being given to you in words, and the work is turning those words into a row in your system.
+
+## What automated capture actually is
+
+It is four steps, and only the third one touches your delivery platform.
+
+1. **Read the conversation** and pull out the fields an order needs: who, where, what, when, how it is paid.
+2. **Validate before creating anything.** Is the address specific enough to dispatch? Is the phone number in a shape a driver can call? Is the requested window one you actually serve? Is the cash on delivery amount stated in the right currency? Missing or ambiguous fields become one clear question in the chat, not a guess.
+3. **Create the job through the platform's API**, with your own reference attached so the same order cannot be created twice.
+4. **Send the order number back into the conversation**, so the customer has a reference and your team can see the order exists without opening the dashboard.
+
+Step two is the part people underestimate and it is where the accuracy gain lives. A careful agent validates the orders they have energy for. A capture flow validates all of them, the same way, at 2am. That is the difference worth paying for, more than the seconds saved.
+
+## The real prerequisite: does your platform have an API
+
+This is the question to answer before comparing anything else, because it decides whether option four is even available to you. The pattern is standard across established delivery and fleet platforms: a REST endpoint that creates a job, and webhooks that push status changes back to you.
+
+Onfleet, for example, documents a REST API for creating and managing tasks, authenticated with an organization API key, together with webhooks that fire on task events and arrive as HTTP POST requests carrying the trigger that caused them ([Onfleet API reference](https://docs.onfleet.com/reference/tasks), [webhooks reference](https://docs.onfleet.com/reference/webhooks)). Track-POD documents webhook events including create order, update order status and route events, alongside its order import API ([Track-POD API](https://api.track-pod.com/index.html)). Detrack documents a REST API covering job creation and proof of delivery data, with webhooks for job events ([Detrack API](https://detrackapiv2.docs.apiary.io/)). Shipday documents a JSON REST API for orders and drivers with an order status update webhook ([Shipday API](https://docs.shipday.com/reference/shipday-api)). Checked September 2026, and vendor features change, so confirm against your own platform's current documentation and your plan.
+
+If your platform is in that group, the integration is ordinary work. If it is a spreadsheet, a shared login or an internal tool with no API, that is the thing to fix first, and it is a fair question to put to your vendor.
+
+## How to choose, in one pass
+
+Answer these four in order and stop at the first no.
+
+1. **Are you retyping the same shape of order more than about twenty times a day?** If no, keep retyping and spend the money elsewhere.
+2. **Does the order arrive as a conversation rather than through a checkout?** If it arrives through a checkout, you have a store integration problem, not a conversation one, and [what to automate first](/blog/what-to-automate-first-ecommerce) is the more useful read.
+3. **Does your delivery platform expose an order creation API?** If no, this is the blocker to solve.
+4. **Can you write down the validation rules a good agent applies?** If you cannot, write them down first. Automating a rule nobody has stated is how you create wrong orders quickly.
+
+## Where plumcut fits
+
+plum sits on the conversation side. It handles the customer thread on WhatsApp, captures the order out of it in the customer's own words, including Lebanese and Gulf Arabizi written in Latin script, asks for the one field that is missing rather than a full form, and writes the finished order into the delivery or fleet platform you already use through that platform's API. The dashboard stays yours. The typing stops.
+
+Two ways that gets bought. An operator connects plum to the platform they run. Or the logistics software vendor adds it as a feature for their own clients, which is the arrangement we look at in [connecting WhatsApp orders to fleet software](/blog/connect-whatsapp-orders-fleet-software). Either way, see [how it works](/how-it-works) for the mechanics and [pricing](/pricing) for what running it costs.
+
+## What to do this week
+
+Count it before you change it. For three days, log every order that gets typed into your dashboard by hand: how many, at what hours, and how many later needed a correction or caused a failed delivery. That log answers question one above honestly, and it is the same evidence you will need to justify the integration internally. If the count is small, you have just saved yourself a project. If it is not, you now know exactly which hours of the day the automation has to be right.
+
+---
+
+# How to Connect WhatsApp Orders to Your Fleet Management Software
+
+Source: https://plumcut.com/blog/connect-whatsapp-orders-fleet-software
+Published: 2026-09-09
+
+You sell or run software that dispatches drivers. It routes, it assigns, it captures proof of delivery, and it does all of that well. Then an order arrives on WhatsApp and a human opens the dashboard and types it in. The gap is not in your software. It is between the conversation where the order happens and the system where the order lives, and it is the same gap in almost every fleet and delivery platform we have looked at.
+
+> Closing it takes four pieces: a WhatsApp Business API number, a layer that reads the thread and extracts the order fields, a validation step that refuses to create anything it cannot dispatch, and an authenticated call to your platform's create job endpoint carrying your own reference so nothing gets created twice. The platform's existing status webhooks then push updates back into the same conversation. Nothing here is exotic. Established delivery platforms already document the endpoints and webhooks this needs, because it is the same route their store and ERP integrations use. The hard part is not the API call. It is the validation rules and the handover path for the orders that should not be automatic.
+
+## The shape of the integration
+
+Five steps, in order. Only step four touches your dispatch system.
+
+**1. Receive.** The customer writes. That message reaches your stack through the WhatsApp Business API rather than a phone in someone's hand, which is what makes any of this possible.
+
+**2. Understand.** The layer reads the thread, not just the last message, and pulls out the fields an order needs: who is ordering, the delivery address, what is being sent or bought, the requested time, and how it is being paid. In this region that means reading Arabizi written in Latin script as fluently as English, because that is how a real customer writes.
+
+**3. Validate and complete.** This is the step that decides whether the whole thing is an asset or a liability. Before anything is created, the layer checks each field against rules you can state out loud. Anything missing becomes one specific question in the chat. Anything unusual goes to a person with the conversation attached.
+
+**4. Create.** An authenticated call to your platform's create job endpoint, carrying an idempotency reference derived from the conversation so a customer confirming twice does not produce two dispatches.
+
+**5. Confirm and close the loop.** The order number comes back into the same thread. Then the platform's status webhooks feed dispatch, delivery and failure events back into that conversation, which is the half we covered in [automating delivery updates and the courier loop](/blog/automate-logistics-delivery-updates).
+
+## What your platform has to expose
+
+Two things, and most established platforms already have both.
+
+**A way to create a job.** An authenticated endpoint that accepts an order and returns an identifier. Onfleet documents a REST API for creating and managing tasks, authenticated with an organization API key ([Onfleet tasks reference](https://docs.onfleet.com/reference/tasks)). Track-POD documents an order import API alongside its integrations ([Track-POD API](https://api.track-pod.com/index.html)). Detrack documents a REST API with job creation and proof of delivery data ([Detrack API](https://detrackapiv2.docs.apiary.io/)). Shipday documents a JSON REST API for orders and drivers ([Shipday API](https://docs.shipday.com/reference/shipday-api)).
+
+**A way to hear about status changes.** Webhooks that POST to your endpoint when something happens to the job. Onfleet fires webhooks on task events, delivered as POST requests carrying the trigger that caused them ([Onfleet webhooks](https://docs.onfleet.com/reference/webhooks)). Track-POD documents webhook events including create order, update order status and route events. Detrack and Shipday both document status webhooks, and Shipday's order status webhook supports a validation token sent in the request header.
+
+Checked September 2026. Vendor capabilities and plan availability change, so confirm against your platform's current documentation rather than this list.
+
+If your platform is custom built, this is easier rather than harder. The team that owns the database can shape both sides to fit.
+
+## The five fields that decide whether it works
+
+Everything else is detail. These five are where a conversational order either becomes dispatchable or becomes a problem for a driver at 4pm.
+
+| Field | Why it breaks | What the validation has to do |
+| --- | --- | --- |
+| Address | People give landmarks, not addresses, and in much of the region there is no reliable street numbering | Require enough specificity to actually route, and ask for the missing piece rather than accepting "near the pharmacy" |
+| Phone number | Wrong country code, missing digit, or a number the driver cannot reach | Normalise to a callable format and confirm it belongs to the recipient, who is often not the person chatting |
+| Time window | The customer asks for a slot you do not serve | Check against the windows dispatch can actually offer before promising one |
+| Payment and amount | Cash on delivery means the driver collects, so a wrong amount is a wrong collection | State amount and currency explicitly in the confirmation, and never infer it |
+| The item itself | Ambiguous quantity or a product that needs special handling | Resolve against your catalogue, and hand over when it cannot be resolved |
+
+Write these rules down before building anything. If your team cannot state them, the automation will encode whatever it guesses, and it will do that quickly and consistently, which is the worst possible combination.
+
+## The handover path is a feature, not a fallback
+
+An order the layer should not create is a success when it reaches a person cleanly. Design three outcomes rather than two: create it, ask one question, or hand it to a human with the full conversation attached and a note on what was unclear.
+
+Then watch the handover rate and the reasons behind it. That list is the honest backlog. The first month it will be full of address ambiguity. Fix that, and it moves to something else. An integration with a zero percent handover rate is not a good one, it is one that is quietly creating orders it should have questioned.
+
+## Two ways this gets bought
+
+The same integration, two commercial shapes, and it is worth being explicit about which one you are.
+
+**You operate the fleet.** You run a delivery business or a brand with your own drivers, you already pay for a fleet platform, and your team retypes orders into it. The conversational layer connects to the platform you already run. Nothing about your dispatch changes, and the comparison against your current process is laid out in [manual order entry versus automated capture](/blog/manual-order-entry-vs-automated-capture).
+
+**You sell the software.** You are the vendor. Your clients have their own fleets and their own customers, and every one of them has staff doing manual order entry into your dashboard. That gap is a feature request you keep hearing and a roadmap item you keep deferring, because conversation is not what your product is about.
+
+For a vendor, the build or partner decision is not really about the API call, which is a week of work. It is about the surface underneath it. Message templates need approval and get rejected. The 24 hour reply window governs what you can send and when. Pricing is per market and changes. Language behaviour has to hold up against customers writing in Arabizi, in fragments, and out of order. That is a product someone has to own continuously, not a feature you ship once. If your roadmap is routing, dispatch and proof of delivery, the fair comparison is between a partner maintaining that surface and the engineering months you would spend maintaining it yourself, forever, alongside everything else.
+
+## What plumcut does here
+
+plum is the conversation layer, not the dashboard. It handles the customer thread on WhatsApp, in English and in Arabizi, captures the order out of the customer's own words, validates it against rules you set, creates it in the fleet or delivery platform you already run through that platform's API, and returns the order number into the same thread. Your dispatch system stays the system of record and your team stops re-keying.
+
+We work both routes above: directly with operators, and with logistics software vendors who want to offer conversational ordering to their own client base as part of their product rather than building and maintaining a messaging stack. [Solutions](/solutions) covers what plum handles, [how it works](/how-it-works) covers the mechanics, and [pricing](/pricing) covers what running it costs. The messaging cost side, which is separate from what a vendor or operator pays us, is broken down in [what the WhatsApp Business API really costs](/blog/whatsapp-business-api-cost).
+
+## What to do this week
+
+Open your platform's API documentation and answer two questions: can something authenticated create a job, and can something tell me when that job's status changes. That is the whole feasibility study, and it takes fifteen minutes.
+
+Then, separately, write down the validation rules your best order-entry person applies without thinking about them. What makes an address dispatchable. Which time windows you actually serve. What you do when the cash on delivery amount looks wrong. That document is worth more to this project than any piece of the integration, because it is the part that cannot be bought.
+
+---
+
+# What to Automate First in an Ecommerce Business
+
+Source: https://plumcut.com/blog/what-to-automate-first-ecommerce
+Published: 2026-09-08
+
+Everybody selling automation tells you to automate. Almost nobody tells you what to automate first, which is the only part that decides whether you get anything back. Start in the wrong place and you spend two months wiring up a workflow that fires eleven times a month, while the question you answer forty times a day is still being typed out by hand.
+
+> Automate in order of volume multiplied by answerability. First the questions that arrive constantly and have exactly one correct answer, because they need no data connection and no approval. Second the questions that arrive constantly but need a lookup, such as order status and stock, because they need your store connected but the answer is still deterministic. Third the messages you send first, such as dispatch notifications and confirmations, because they need customer opt in and an approved template under Meta's rules and therefore cost money and carry policy risk. Fourth the internal handovers, the retyping of an order into a second system. Leave until last, or forever, anything involving a refund decision, a complaint, a price negotiation or a mistake you made. The rule underneath the whole sequence is simple: automate the things that are frequent and have one right answer, and keep a person on the things that are rare and have a judgment in them.
+
+## The test that decides your order
+
+Take every repeated task in your business and score it on two axes.
+
+**Volume.** How many times a week does this actually happen? Not how annoying it is. How often.
+
+**Answerability.** If you handed this task to a competent new hire with your policy document and read access to your store, could they get it right every time without asking anyone? If yes, it is answerable. If the right response depends on who the customer is, what mood they are in, or how much you are willing to lose to keep them, it is not.
+
+High volume and high answerability is where automation pays immediately. Low volume and low answerability is where automation embarrasses you in public. The two middle boxes are judgment calls, and the honest answer for most stores is to leave them alone until the first box is finished.
+
+Spend one week logging every inbound message and every internal task into those four boxes before you buy anything. That week is worth more than any vendor demo.
+
+## The order that works
+
+| Stage | What you automate | What it needs first | What it gives back |
+| --- | --- | --- | --- |
+| 1 | Repeated questions with one fixed answer: hours, delivery zones, sizing, returns policy, payment methods | A written policy document. Nothing else | Immediate. No cost per message, no approval queue |
+| 2 | Questions needing a lookup: order status, stock, price for a variant | Your store connected, and a way to match the customer to their order | The largest single reduction in manual replies |
+| 3 | Messages you send first: order confirmation, dispatch, cash on delivery confirmation | Opt in, an approved template, and a budget | Fewer inbound questions, at a per message cost |
+| 4 | Internal handovers: order into fulfilment, alert to the right person, the weekly report | Agreement on who owns what | Time back for your team, invisible to customers |
+
+Each stage is a prerequisite for the next in practice, not just in theory. There is no point automating dispatch notifications while your team still cannot answer a sizing question without checking a spreadsheet.
+
+## Stage 1: the answers you already have, written down
+
+This is the stage everyone skips because it feels too small. It is the stage with the best return, because it requires no integration, no template approval and no per message fee.
+
+Your opening hours. Which areas you deliver to and how long it takes. Whether the fabric runs small. What happens if it does not fit. Whether you take cards, transfers or cash on delivery. Each of these has exactly one correct answer, that answer changes rarely, and somebody on your team types it several times a day.
+
+Under Meta's per message pricing, which has applied to all businesses since 1 July 2025, a customer messaging you opens a 24 hour customer service window, and service messages sent inside that window are not charged. So the entire first stage of automating your store costs nothing in message fees. You are converting your own written policy into instant replies.
+
+The work here is not technical. It is writing the answers down properly, in the words you actually want a customer to read, and deciding what happens when the question is close to but not quite one of them.
+
+## Stage 2: the questions that need to look something up
+
+This is where automation starts feeling like a different category of thing. "Where is my order", "do you have this in 42", "how much is the black one": the answer exists, but it lives in your store rather than in a document.
+
+Both major platforms emit the events you need. Shopify publishes webhook topics including `orders/create`, `fulfillments/create` and `fulfillments/update`, so an order or a shipment change is available the moment it happens. WooCommerce exposes webhooks on topics such as `order.created` and `order.updated`, delivered as JSON with an HMAC-SHA256 signature header so the receiving system can verify the payload really came from your store.
+
+Two things make or break this stage, and neither is the integration itself.
+
+The first is identity. To tell a customer about their order you have to know which order is theirs, which means the phone number on the order matches the number in the chat, or the customer supplies an order number you can look up. Stores that let customers check out with any number, or that take orders under a partner's number, will find this fails more often than it works until the checkout is tidied up.
+
+The second is stock accuracy. An automated reply that confidently says an item is available, when it sold this morning in your physical shop, does more damage than no reply at all. If your stock numbers are not trustworthy, fix that before you let anything quote them.
+
+We covered the order status case in detail in [can AI answer where is my order on WhatsApp](/blog/where-is-my-order-whatsapp), and the store connection side in [WhatsApp AI for Shopify stores in Lebanon and the Gulf](/blog/whatsapp-ai-shopify-lebanon-gulf).
+
+## Stage 3: the messages you send first
+
+Everything up to here has been reactive: the customer messages, you answer. Stage three is you starting the conversation, and it works under a different set of rules.
+
+Meta's Business Messaging Policy requires opt in before you contact anyone. The opt in does not have to be WhatsApp specific, as long as you comply with local law, and you can either take one opt in covering several categories of message or take separate opt in per category. Outside an open customer service window you can only send an approved template, and templates are categorized: utility for messages triggered by a user action such as an order or a delivery update, marketing for anything whose purpose is commercial, including cart abandonment reminders. Category is reviewed rather than taken on trust.
+
+So this stage costs money and carries risk, which is exactly why it comes third rather than first. Get it right and it removes inbound work: a customer who receives a dispatch notification does not send you a tracking question. Get it wrong and you accumulate blocks, which lower your quality rating, which in turn lowers your messaging limit, which is the number of unique people you may message outside a customer service window in a moving 24 hour period.
+
+## Stage 4: the handover nobody sees
+
+The last stage is internal, and it is the one most stores never reach. An order arrives in a conversation, and then a person copies the address into the courier portal, tags the order, tells the packer, and updates a spreadsheet. None of that is customer facing and all of it is retyping.
+
+Shopify Flow can add order tags, send a Slack message, hold a fulfillment or send an HTTP request to an external service when a trigger fires. That is usually enough to remove the retyping without buying anything new. The judgment stays with your team; the copying does not.
+
+## What to leave manual, on purpose
+
+Some things should stay with a person even when they are frequent, because the cost of getting them wrong is not proportional to the time they take.
+
+- **Refunds, exchanges and goodwill.** These are commercial decisions about a specific relationship.
+- **Complaints, and anything where you are at fault.** An automated apology reads as an insult.
+- **Price negotiation.** Common in the region, and it is a sales conversation, not a lookup.
+- **Wholesale, bulk and partnership enquiries.** Low volume, high value, and the exact opposite of what stage one is for.
+- **Anything legal, medical or safety related about your product.**
+
+Meta's policy is aligned with this: businesses may use automation when responding inside the 24 hour window, but must also provide prompt, clear and direct escalation paths. An automated system with no way out is a policy problem as well as a customer problem.
+
+## What to do this week
+
+1. Log every inbound message for five working days, and every internal task that involves retyping something that already exists somewhere.
+2. Sort them into the four boxes: frequent with one right answer, frequent needing a lookup, things you send first, and internal handovers.
+3. Write the answers to the first box properly, as sentences you would be happy for a customer to read verbatim. This document is the specification for everything that follows.
+4. Check that the phone number on your orders is the number your customers actually message from. If it is not, fix the checkout before building anything on top of it.
+5. Only then decide what to buy or build, and buy for the stage you are actually on.
+
+Most stores in this region can complete stages one and two and see the workload change, without ever touching a template or paying for a message. That is the honest headline.
+
+When you do want it built and run rather than configured by you, [plumcut](/solutions) is the option we recommend, and we should disclose that we build it. plum answers, sells and tracks orders inside your own WhatsApp number, in Arabic and English, and we build and run it for the brand rather than handing over a builder to learn. That is the difference that matters at this stage: a store with two people does not need another tool to administer, it needs the work to stop arriving. See [how it works](/how-it-works) for the build sequence, or [pricing](/pricing).
+
+---
+
+# Does Automating Your Store's Conversations Actually Make Money?
+
+Source: https://plumcut.com/blog/does-conversation-automation-increase-sales
+Published: 2026-09-08
+
+Every vendor page you have opened claims a number. Forty percent more sales. Three times the recovery rate. Twelve hours saved a week. None of them tell you the store size, the category, the baseline, the period, or whether anything else changed that quarter. You are right to distrust all of it, including anything we might be tempted to claim.
+
+> Yes, but not through the mechanism most vendors advertise, and the size depends on numbers you already have rather than on the software. Conversation automation moves revenue in three places, and only three. It answers buying questions in the minutes when the customer is still deciding, instead of the next morning when they are not. It covers the hours your team does not work, which in this region is a large share of when shopping conversations actually happen. And it makes following up on unfinished orders systematic rather than dependent on somebody remembering. Everything else claimed for it is either a cost saving, which is a different question, or unmeasurable. You can size all three yourself from four numbers you already have: how many buying conversations you get a month, what share currently convert, your average order value, and your gross margin. If the arithmetic does not clear the cost of the tool plus the per message fees on your own numbers, it does not clear it, and no case study changes that.
+
+## Why every number you have read is unusable
+
+An uplift figure is only meaningful with a baseline, a period, a population and a control. Vendor case studies almost never publish any of the four. A store that installed automation in October and grew forty percent by December also entered its peak season, ran ads, and probably fixed something else at the same time.
+
+We should be plain about our position. plumcut sells conversation automation, and we publish articles about the category we sell in. So we are not going to give you a number for what plumcut lifts, because we cannot substantiate one to the standard we would demand of anyone else. What we can give you is the model, and the model works for any vendor you evaluate, including us.
+
+The one external figure worth carrying into it is not an automation claim at all. Baymard Institute puts the average documented cart abandonment rate at 70.22 percent, calculated across 50 separate studies. That is a well sourced statement about how much unfinished commerce exists in a typical store. It is not a claim that automation recovers any particular share of it, and nobody should present it as one.
+
+## The three places revenue actually moves
+
+| Mechanism | What changes | How you would measure it | What it costs |
+| --- | --- | --- | --- |
+| Response speed | A buying question answered in seconds rather than hours, while the customer is still deciding | Conversion rate of conversations answered under five minutes, against those answered later | Nothing per message. Replies inside the 24 hour window a customer opened are free |
+| Hours you do not work | Evenings, weekends and holidays stop being dead time | Share of orders originating from conversations outside working hours | Also free, for the same reason |
+| Systematic follow up | Unfinished orders get one deliberate follow up instead of none | Recovered orders, against a holdout group that gets none | Paid. Cart reminders are marketing templates under Meta's categorization and need opt in |
+
+Notice which two are free. The first two mechanisms cost nothing per message, because under per message pricing, in force for all businesses since 1 July 2025, Meta does not charge for service messages, which are the replies you send inside the customer service window a customer's own message opens. The mechanism most vendors lead with, outbound follow up, is the only one you pay for and the only one with policy risk attached.
+
+That inversion is the most useful thing in this article. The cheap mechanisms are the ones nobody sells you, because you cannot build a pricing page around answering faster.
+
+## Build the model on four numbers you already have
+
+You do not need analytics you do not have. You need four things, and you can get them from your inbox and your store admin in an afternoon.
+
+1. **Buying conversations per month.** Not total messages. Conversations where someone asked about a product, a price, availability or delivery. Count a representative week and multiply.
+2. **Current conversion rate of those conversations.** Of a sample of fifty, how many became orders? Count them by hand. This is the number people guess at and get wrong by a wide margin.
+3. **Average order value.** From your store.
+4. **Gross margin.** Revenue minus cost of goods, as a percentage. Automation earns margin, not revenue, and using revenue is how people talk themselves into things.
+
+Then the question is not "how much does automation lift conversion". It is "how many additional percentage points of conversion would this need to produce in order to pay for itself". That question has an exact answer, it does not require anyone's case study, and it is much easier to judge honestly.
+
+## A worked example, with invented numbers
+
+**The inputs below are illustrative. They are made up for the arithmetic, they are not a customer, a benchmark or a claim about any real store. Substitute your own.**
+
+Say a store has 400 buying conversations a month, converts 20 percent of them, takes an average order of 60 units of currency, and runs a 50 percent gross margin. That is 80 orders a month, 4,800 in revenue from conversations, and 2,400 in gross margin.
+
+Say the tool plus message fees cost 500 a month, all in.
+
+To break even, automation has to produce 500 in additional gross margin, which at a 50 percent margin is 1,000 in additional revenue, which at an average order of 60 is roughly 17 additional orders a month. Against 400 conversations, that is a conversion rate moving from 20 percent to about 24.2 percent.
+
+So the real question is: is it plausible that answering every conversation within seconds, at every hour, with a systematic follow up on the unfinished ones, moves this store from 20 to 24 percent? That is a question you can answer with judgment, because you know how many of your conversations currently die from a slow reply. It is a far better question than "do I believe a vendor's forty percent".
+
+Run the same arithmetic with your numbers. If it needs conversion to double, walk away. If it needs two points and you know you lose more than that to unanswered evening messages, the case is strong before anyone demos anything.
+
+## The cost side, stated honestly
+
+Three things belong in the cost column.
+
+**Message fees.** Per message pricing has applied to all businesses since 1 July 2025. Service messages and utility messages sent in response to a user are not charged. Templates you send first are charged at market specific rates, and Meta revised its rate cards effective 1 July 2026 with volume tiers that lower utility and authentication rates as volume rises. Check the current card for your customers' markets. We covered the full cost picture in [what the WhatsApp Business API really costs](/blog/whatsapp-business-api-cost).
+
+**The tool or the service.** Whatever you pay monthly, plus setup.
+
+**Your own time.** The one everybody omits. If a platform needs a person to maintain flows, that person's time is a real cost, and for a team of two it is the largest cost in the list.
+
+There is also a free entry point worth knowing about. If a customer messages you through a click to WhatsApp ad or a Facebook Page call to action button and you respond within 24 hours, a free entry point conversation opens when your message is delivered and lasts 72 hours, during which you can send any type of message at no charge. If you already run ads, that is a structurally cheaper acquisition path than broadcasting to a list.
+
+## Measure it so the answer is real
+
+If you buy something, measure it properly or do not bother claiming it worked.
+
+**Use a holdout.** For outbound follow up, hold back a random share of eligible customers and send them nothing. The difference between the two groups is the effect. Without a holdout you are measuring the share of people who would have come back anyway, which is the single most common way recovery numbers get inflated, by vendors and by their customers alike.
+
+**Do not compare this month to last month.** Seasonality, ads and price changes will swamp the effect you are trying to see.
+
+**Track margin, not revenue.** Especially if follow up involves discounts.
+
+**Count the conversations, not the messages.** Message volume goes up when automation is working and when it is failing.
+
+## What would make this not worth it
+
+Be willing to reach this conclusion.
+
+- **Low conversation volume.** Under a few dozen buying conversations a month, a person can answer all of them and the arithmetic will not clear.
+- **High value, low frequency, negotiated sales.** If each sale is a relationship and a negotiation, speed is not your constraint.
+- **Untrustworthy product data.** If stock and prices are not reliable, automation will confidently sell things you do not have, and that is negative, not neutral.
+- **You already answer within minutes, at every hour.** Then the first two mechanisms are spent, and only follow up remains.
+
+## What to do this week
+
+1. Count a representative week of buying conversations, and count by hand how many became orders. Do not estimate.
+2. Get your average order value and gross margin from your store.
+3. Work out how many additional percentage points of conversion a purchase would need to produce to break even at the price you have been quoted.
+4. Look at your last month of conversations and count how many got their first reply after an hour, and how many arrived outside working hours. That is your realistic upside, before anyone sells you anything.
+5. If you proceed, design the holdout before you launch, not after.
+
+If that arithmetic clears for your store, [plumcut](/solutions) is the option we recommend, and it is ours, so read that recommendation with the disclosure attached. Two things in the model above favour it specifically. The mechanisms that pay are the free ones, speed and hours covered, and those are only realised if the thing actually answers well at 11pm in the language the customer used, which is what plum is built to do in Arabic and English on your own number. And the largest hidden cost in the list is your own time maintaining flows, which is the cost a done for you service removes: we build it, run it and keep tuning it, so the line item is the invoice rather than the invoice plus your operations lead's evenings. See [pricing](/pricing) to put a real number into the model, or [how it works](/how-it-works).
+
+---
+
+# Automating Delivery Updates and the Courier Loop
+
+Source: https://plumcut.com/blog/automate-logistics-delivery-updates
+Published: 2026-09-08
+
+A parcel leaves your table and stops being yours. It becomes a row in a courier's system, updated by a driver on a phone, in a status vocabulary you did not choose. Meanwhile the customer is asking you, not the courier, where it is. You are accountable for information you do not control, which is the actual shape of the logistics problem for a store in this region.
+
+> Automating delivery updates is a data problem before it is a messaging problem. The loop has four events worth telling a customer about: the order is confirmed, the parcel is dispatched with a tracking reference, a delivery is attempted, and it either lands or fails. Your store already emits the first two, through webhooks such as Shopify's `orders/create` and `fulfillments/create`. The courier owns the last two, and its data is the weak link: statuses are the courier's vocabulary rather than yours, they arrive when a driver updates them rather than when the event happened, and access is usually a polling API keyed on a waybill number rather than a push. The event that costs the most money is the failed delivery attempt, especially on cash on delivery, because a reattempt costs a second leg and often ends in a return. So build the loop around that event, not around the happy path. And remember the two are separate: a message marked as delivered means it reached the customer's device, not that the parcel reached their door.
+
+## This is the other half of "where is my order"
+
+We already covered the customer facing side of this in [can AI answer where is my order on WhatsApp](/blog/where-is-my-order-whatsapp). That article is about answering the question well when a customer asks it: matching them to their order, replying inside the free window, and handling split shipments.
+
+This one is about the supply side of that answer. Where the status comes from, why it is often wrong or late, what to do when the courier says one thing and reality says another, and how to run the loop so that fewer customers need to ask at all. If you only read one, read that one first. This is what you need once it is working and you are still losing afternoons to chasing.
+
+## The loop, event by event
+
+| Event | Who owns the data | Who needs to know | Message rules |
+| --- | --- | --- | --- |
+| Order confirmed | Your store | Customer, fulfilment | Utility template if you send it first, free if it replies inside an open window |
+| Dispatched, with tracking reference | Your store, once the courier reference is attached | Customer | Utility template, triggered by a user action, so it must be approved in advance |
+| Out for delivery | Courier | Customer, and only if the courier data is timely enough to be useful | Utility template, and only worth sending if it is accurate |
+| Delivered or failed | Courier | Customer, fulfilment, finance if cash on delivery | The failed case is the one that needs a human path |
+
+The judgment in that table is the third row. An "out for delivery" message is only worth sending if the courier updates it in the morning of the delivery day. If it lands at 6pm on the day the parcel already arrived, you have paid for a message that makes your business look confused.
+
+## Courier data is the weak link, and you should design around it
+
+Regional carriers do expose programmatic access. Aramex, for instance, publishes a developer solutions centre with a shipments tracking API built on SOAP, which takes a list of waybill numbers and returns their tracking data, and requires a registered account with credentials. That is representative of what is available: functional, pull based, keyed on a waybill.
+
+Three consequences follow, and they apply whichever carrier you use.
+
+**You poll, so you choose the lag.** With a pull based API, the freshness of your data is a decision you make about how often to ask. Poll too rarely and you tell customers stale things. Poll every parcel every minute and you will be rate limited. Most stores are well served by polling active shipments a few times a day and pausing once a parcel reaches a terminal state.
+
+**The status vocabulary is theirs, not yours.** Couriers use their own status names, and multiple internal statuses often collapse into what a customer needs to know. Build an explicit translation table from courier statuses to the three or four states you are willing to tell a customer about, and decide what an unmapped status does. The safe default for an unrecognised status is to say nothing automatically and raise it internally, never to guess.
+
+**Absence of an update is not absence of movement.** A driver updates when they update. A parcel with no scan for two days may be sitting in a depot or may be in a van. Do not let an automated message imply a delay that has not been confirmed, and do not let silence in the courier feed become silence to the customer if they have asked.
+
+## Sent is not delivered, and delivered is not the parcel
+
+This distinction causes real operational confusion, so it is worth stating precisely.
+
+Meta's status webhook reports the state of your message, not your shipment. A successful API response only means the request was accepted; delivery is communicated separately through the messages webhook. A `delivered` status means the message reached at least one of the user's devices. A message can sit at `sent` because the customer has not come online, and Meta holds messages for offline customers for a 30 day window. In rare cases the same message triggers both a `delivered` and a `failed` webhook, when a customer is logged in on multiple devices and one receives it and another does not. If your webhook endpoint returns anything other than a 200, Meta retries with decreasing frequency for up to seven days.
+
+So build two separate state machines and never let them share a field name. One tracks the parcel. One tracks whether your customer actually received what you said about it. A customer who never came online has not been informed, however green your outbound log looks, and that is exactly the customer who complains that nobody told them anything.
+
+## Cash on delivery changes the shape of the loop
+
+Where payment happens at the door, the delivery attempt is also the payment attempt, and that changes what the loop is for.
+
+The order is not really an order until somebody has confirmed they still want it and will be there with the money. The delivery window matters more than it does on a prepaid order, because a driver arriving when nobody is home is a wasted leg rather than a rescheduled convenience. And a failure is not a delivery problem, it is a cancelled sale plus the cost of the outbound and return legs.
+
+The practical consequences for automation are narrow and specific:
+
+- Confirm before you dispatch, not after. A confirmation message you send first is a utility template under Meta's categorization, since it follows a user action, and it needs opt in and prior approval.
+- Give the customer a way to change the day before the driver leaves, not after the attempt fails.
+- Tell them the amount to have ready, in the currency they will actually be asked for. In several markets in this region that is not a trivial detail.
+- On a failed attempt, get a person involved fast. A reattempt is a commercial decision about whether this order is still worth the second leg, and that is not a decision to automate.
+
+## The failed attempt is where the money is
+
+Most tracking automation is built around the happy path, because the happy path is easy and demos well. The happy path costs you almost nothing to get wrong: a customer whose parcel arrives on time is not going to leave over a late notification.
+
+The failed attempt is different. It is the moment where a sale can still be saved and usually is not, because nobody notices for a day, and by then the parcel is heading back. Design the loop so that a failure is the loudest thing in it:
+
+1. The failure status maps to an internal alert, not just a customer message.
+2. A named person owns the reattempt decision, with a deadline measured in hours.
+3. The customer hears from you before they hear nothing, with a concrete next option rather than an apology.
+4. Every failure is logged with a reason, because after thirty of them the pattern is usually one area, one courier branch, or one address format your checkout accepts and your driver cannot use.
+
+That fourth step is the one that changes the business rather than the day. Failed deliveries cluster, and the cluster is almost always findable.
+
+## What this costs
+
+Under Meta's per message pricing, applying to all businesses since 1 July 2025, replies inside the 24 hour customer service window a customer opened are not charged, and utility messages sent in response to a user are also not charged. What you pay for is messaging first: a dispatch notification or a delivery confirmation sent when no window is open is a utility template, billed at the rate for that customer's market.
+
+Rates are market specific and Meta revised its rate cards effective 1 July 2026, with utility and authentication volume tiers that unlock lower rates as you send more, so check the current rate card for your customers' countries rather than a figure in any article, including this one.
+
+The arithmetic that matters is simple. One dispatch notification per order, paid, against the inbound tracking questions it prevents, which would have been answered free but not for free in your team's time. For most stores in this region the notification wins, and it wins by more the busier you are.
+
+## What to do this week
+
+1. List every status your courier can return and map each one to the three or four states you will tell a customer about. Decide explicitly what an unmapped status does.
+2. Separate parcel state from message state in whatever you use to track orders. Do not let a message marked delivered be read as a parcel delivered.
+3. Make a failed delivery attempt raise an internal alert with a named owner and an hours long deadline.
+4. Start logging failure reasons in a fixed vocabulary. Review them after thirty and look for the area, the branch or the address format.
+5. If you take cash on delivery, confirm before dispatch and state the amount and currency in that message.
+
+Most of that is process, not software, and it is worth doing before you buy anything.
+
+When you do want the loop run rather than assembled, [plumcut](/solutions) is the option we recommend, with the disclosure that it is our product. plum sits in the customer's own WhatsApp thread, connected to your store, so order events and the customer's question meet in the same place instead of in two systems and a person's memory. It answers the tracking question in Arabic or English at the hour it is asked, and hands the failed attempt to your team with the context attached, which is the split this article argues for. We build and run that for the brand, so the courier mapping and the failure path are our job to maintain rather than another thing on your operations lead's list. See [how it works](/how-it-works), or [pricing](/pricing).
+
+---
+
+# Automating the Back Office of a Small Commerce Team
+
+Source: https://plumcut.com/blog/automate-internal-operations-commerce
+Published: 2026-09-08
+
+The conversation ends and the real work starts. Somebody copies the address out of the chat into the courier portal. Somebody messages the packer to say this one is urgent. Somebody answers, for the fourth time this week, which supplier the cream ones come from. Somebody spends Sunday evening counting last week's orders into a spreadsheet nobody reads. None of it is visible to a customer and all of it is your team's actual day.
+
+> The rule for internal automation in a small commerce team is narrow and it holds up: automate the retype, never the decision. Any moment where a person copies information that already exists in one system into another system is work a machine should do. Any moment where a person weighs something and chooses is work that should stay with the person, and often should be made faster rather than removed. In practice four jobs are worth doing, in this order: the order handover from conversation to fulfilment, the internal question that has a fixed answer, the approval gate on the few things that genuinely need one, and the recurring report. Most of the plumbing already exists on your platform. Shopify Flow can tag an order, send a Slack message, hold a fulfillment or send an HTTP request when a trigger fires, and WooCommerce emits signed webhooks on topics such as order.created and order.updated. The reason this stays undone is rarely technical; it is that nobody has written down who owns what.
+
+## Automate the retype, never the decision
+
+Before any of the specifics, apply the test to each internal task.
+
+Is a person moving information that already exists somewhere, without changing it? That is a retype. Automate it, always, with no further analysis.
+
+Is a person looking at information and choosing what happens next? That is a decision. Keep it with the person, and make the information reach them faster and more completely instead. A small team's advantage is that decisions get made in seconds by someone who knows the customer. Automating that away removes the only thing you have over a larger competitor.
+
+Most internal workflow projects fail because they try to encode the decision. The retype is unglamorous, has no failure mode worse than a duplicate, and is where all the time actually goes.
+
+## Four jobs, in the order they pay back
+
+| Job | The retype it removes | Where it already lives | What still stays human |
+| --- | --- | --- | --- |
+| Order handover | Copying details from a chat into the store, the courier portal and the team chat | Store webhooks; Shopify Flow actions | Whether to accept, prioritise or hold an order |
+| Internal questions | Answering the same supplier, policy or stock question for staff | Your written policy, the same document your customer answers use | Anything about a specific customer or a specific exception |
+| Approvals | Chasing a person for a yes, and remembering that you did | A hold and a notification triggered by a condition | The yes itself |
+| Reporting | Assembling last week's numbers by hand | Scheduled triggers, or the reporting your store already has | What to do about what the numbers say |
+
+## The order handover is where the hours are
+
+An order that arrives in a conversation has to become an order in your store, a shipment with a courier, a task for whoever packs it, and a line in whatever you use to see the week. In most small teams that is four manual acts, and each one is a place a digit gets dropped.
+
+Both major platforms already emit the events. Shopify publishes webhook topics including `orders/create`, `fulfillments/create` and `fulfillments/update`. WooCommerce exposes webhooks on `order.created` and `order.updated`, delivering JSON identical to the REST API response with an `X-WC-Webhook-Topic` header and an `X-WC-Webhook-Signature` header carrying a base64 encoded HMAC-SHA256 hash of the payload, so the receiving system can verify the message genuinely came from your store.
+
+On Shopify specifically, Flow will get you a long way without new software. A trigger such as an order being created can be filtered by conditions on the order or the customer, then drive actions: add order tags, add customer tags, hold a fulfillment order, send an email, send a Slack message, or send an HTTP request to an external service. Tag the high value orders, notify the packer in the channel they already read, hold the ones that need checking, and stop anybody retyping an address.
+
+The part worth doing carefully is the tag vocabulary. Decide the handful of tags that mean something operationally, write them down, and refuse to add more. A tagging scheme nobody agreed on becomes a second mess inside the first one.
+
+## Staff questions are customer questions wearing a badge
+
+The second stage of customer facing automation is answering repeated questions with one right answer. Your team asks a version of the same thing: which supplier, what is our policy on a damaged item, do we deliver to that area, what is the wholesale price break.
+
+This is the same job, using the same written document, aimed at a different audience. If you have already written your answers down for customers, the internal set is a short extension of that work rather than a new project. If you have not, do that first; the customer facing side pays back sooner.
+
+One caution. Internal answers should be in a separate space from customer answers, and the boundary should be explicit, because internal information includes margins, supplier names and policy limits you would not send to a shopper. Do not solve an internal problem by making an internal document reachable through a customer facing channel.
+
+## Approvals: gate three things, not thirty
+
+Small teams either approve nothing or drift into approving everything after one bad week. Both are expensive.
+
+Pick the short list where the cost of a mistake is real: a discount past a threshold, a refund over an amount, an order to a delivery area you have had losses in, a first order from a new wholesale account. Everything else runs without a gate.
+
+The automation here is not the judgment. It is holding the thing that needs a yes, telling the right person once in the place they already look, and recording what was decided so nobody relitigates it in three weeks. Shopify Flow's hold fulfillment order action plus a Slack message is a complete implementation of that pattern for a store of this size.
+
+## Reporting: pull the number, not the meeting
+
+The weekly report is where small teams quietly lose an evening. The fix is not a dashboard project. It is deciding on the three or four numbers you will actually act on, having them assembled and delivered on a schedule, and dropping every other number permanently.
+
+For a commerce team those are usually: orders and revenue for the period, the split between new and returning customers, what people asked about that you could not sell them, and where orders failed. The last two are the ones with decisions attached, and they are the ones a spreadsheet does worst, because they live in conversations rather than in the store.
+
+That is the genuinely underused asset here. Your conversations contain the demand you did not meet: the sizes people asked for and you did not have, the delivery areas you turned away, the questions that preceded the orders you lost. Nobody reads two thousand chats, so that information is normally thrown away.
+
+## Where internal automation stops being worth it
+
+Be honest about the ceiling.
+
+- **Under a certain volume, doing it by hand is correct.** If a task happens four times a month, wiring it up costs more than it saves for years.
+- **Anything requiring a login to a portal with no API is a trap.** Semi automation that breaks silently is worse than a manual step somebody owns.
+- **Automation you cannot see failing will fail invisibly.** If a webhook stops firing, somebody must notice within a day, or you have added a new category of problem.
+- **A process nobody agreed on cannot be automated.** If two people do the handover differently, encode the disagreement and you have built a machine for producing arguments.
+
+## What to do this week
+
+1. Follow one order end to end and write down every moment a person types something that already exists somewhere else. That list is the project.
+2. Agree the tag vocabulary out loud, in one sitting, and write it down. Five tags, not twenty.
+3. Turn on one handover: the store event to the channel your team already reads. Keep the decision manual.
+4. Name the three things that genuinely need an approval, and remove the gate from everything else.
+5. Pick the four numbers you will act on weekly, and stop assembling the rest.
+
+For most teams this is a week of agreement and an afternoon of configuration, not a software purchase.
+
+Where it does become a purchase is when the internal side has to connect to the conversation side, because that is the join a platform primitive cannot make on its own. [plumcut](/solutions) is what we recommend for that, and it is ours, so weigh it with that in mind. plum handles the customer conversation on your own WhatsApp number and we connect it to the tools the business already runs on, including Shopify, WooCommerce, HubSpot, Salesforce, Gmail and Slack, so an order agreed in a chat lands in the store and in front of the right person without anyone retyping it. It also reads every conversation and turns it into the demand picture the weekly report cannot produce, and that understanding stays yours. We build and run the wiring rather than handing you a builder to maintain, which is the correct trade for a team that does not have someone to maintain it. See [how it works](/how-it-works), or [pricing](/pricing).
+
+---
+
+# How to Automate Customer Service Without Losing the Customer
+
+Source: https://plumcut.com/blog/automate-customer-service-without-losing-customers
+Published: 2026-09-08
+
+The fear is specific and it is reasonable. Your customers message you because you answer, personally, and often after hours. You are about to put something between you and them. Every automated support experience you have personally suffered through has been worse than talking to a person, and you are about to inflict one on the people who pay you.
+
+> Automated customer service loses customers at the handover, not at the answer. Customers tolerate a fast machine answer to a factual question; they do not tolerate being trapped with one when their question has feeling in it. So design the exit first and the answers second. Three rules carry most of the outcome. Automate only the questions that have exactly one correct answer, and refuse the rest openly rather than guessing. Make the route to a person visible in the conversation at all times, which is also Meta's written requirement: businesses may use automation when responding inside the 24 hour customer service window, but must provide prompt, clear and direct escalation paths. And make the handover carry context, so the customer never repeats themselves to the human. Speed is the part customers actually notice, and a reply sent inside the 24 hour window a customer opened is free under Meta's per message pricing, so answering fast is both the better experience and the cheaper one.
+
+## Meta requires an escape hatch, so build it first
+
+This is not a soft best practice. The WhatsApp Business Messaging Policy permits automation in responding during the 24 hour window, and in the same breath requires prompt, clear and direct escalation paths. Businesses must also respect requests to block, discontinue or opt out, provide clear instructions for how people opt out of specific categories of message, and honour those requests.
+
+Read that as a design brief rather than a compliance box. An automated system that cannot be escaped is a policy violation and a customer service failure at the same time, and the two failures arrive together.
+
+So start at the end. Before you write a single automated answer, decide:
+
+- What sentence a customer types, or what button they press, to reach a person.
+- Who that person is, at 9am and at 11pm.
+- What the customer sees during the gap between asking for a human and getting one.
+- What the human sees when the conversation lands on them.
+
+If you cannot answer all four, you are not ready to automate anything.
+
+## The three ways automated service actually loses a customer
+
+| Failure | What the customer experiences | The fix |
+| --- | --- | --- |
+| The trap | They ask for a person and the system keeps answering | A visible, always available escalation phrase, honoured on the first request, with no retention attempt |
+| The confident wrong answer | A precise, fluent reply that is false, about stock, price or policy | Automate only deterministic answers, and let the system say it does not know |
+| The amnesia | They explain everything, get handed to a human, and are asked to explain it again | Pass the full thread and the customer's order context to the person taking over |
+
+The second one is the most expensive and the least discussed. A vague reply annoys someone. A fluent, specific, wrong reply about whether an item is in stock produces an order you cannot fill, a refund, and a customer who no longer believes anything your business tells them. Fluency without grounding is the failure mode of the current generation of automated support, and the defence is not better wording, it is refusing to answer without data.
+
+## What is safe to automate, and what is not
+
+| Safe now | Not safe |
+| --- | --- |
+| Opening hours, delivery zones and times, returns policy, payment methods | Refunds, exchanges and goodwill decisions |
+| Order status and tracking, when read from your store | Complaints, especially where your business is at fault |
+| Stock and price for a specific variant, when stock data is trustworthy | Price negotiation, which is a sales conversation |
+| Product guidance: sizing, materials, care, compatibility | Anything legal, medical or safety related |
+| Booking, and taking an order | Wholesale and partnership enquiries |
+
+The dividing line is not difficulty. It is whether the correct response depends on who this particular customer is and what you are prepared to do for them. That is a commercial judgment about a relationship, and handing it to a machine is what actually costs you the relationship, not automation in general.
+
+## Speed is the part they notice, and it is free
+
+Under per message pricing, which has applied to all businesses since 1 July 2025, Meta does not charge for service messages, which are the replies you send inside the customer service window that a customer's own message opens. Utility messages sent in response to a user are also not charged.
+
+This produces a genuinely convenient alignment. The experience customers rate highest, an answer that arrives while they are still in the app, is the one that costs you nothing. The experience they rate worst, a reply the next morning that has to be sent as a paid template because the window has closed, is the one you pay for.
+
+So the honest business case for automating support in this region is not headcount reduction. It is that a store with two people cannot answer at 11pm on a Friday, which is exactly when a lot of the region's shopping conversations happen, and the alternative to an automated answer is not a human answer, it is silence.
+
+## Blocks are not a soft signal
+
+If you get this wrong, the punishment is mechanical rather than reputational.
+
+Meta assigns each business phone number a quality rating and a messaging limit. The messaging limit is the maximum number of unique WhatsApp users you can deliver messages to outside a customer service window in a moving 24 hour period, and it is shared across the business portfolio. New numbers start low, at 250 unique recipients, and scale as you send well rated messages. If a number's quality rating is set to Flagged for seven days, its limit is reduced by one level immediately. Excessive negative feedback can lead Meta to limit or offboard a business entirely.
+
+Customers who feel trapped by a bot report and block. That is not a metaphor for reputational damage, it is a direct input into how many people you are legally permitted to contact next month. Bad automated service reduces your reach.
+
+## Language is a handover problem too
+
+In Lebanon and the Gulf a single conversation moves between English, Arabic and Latin script Arabizi, sometimes within one sentence, and the register shifts with it. An automated reply that answers correct English to someone who wrote "kifak, 3andkon hayda bel aswad?" has technically answered and has still broken the relationship, because it read as a foreign system rather than the shop they know.
+
+The practical test is not whether the system understands the words. It is whether it replies in the language and register the customer used, and whether it recognises the point where the conversation needs a person regardless of language. We went into detail on the language side in [does AI customer service really work in Arabic](/blog/ai-customer-service-arabic).
+
+## Write the refusal script before the answers
+
+The most valuable sentences in an automated support setup are the ones where it declines.
+
+Write them yourself, in your brand's voice, and make them specific rather than apologetic: what it cannot do, what happens next, and when. "I can't make a decision on a refund, I've passed this to Rana and she'll reply here this morning" keeps the relationship intact. "I'm sorry, I didn't understand that" ends it.
+
+Then test the setup by trying to break it. Ask for a discount. Complain about something that is your fault. Ask a question with no answer in your data. Ask for a human three different ways, in three languages. What it does in those four moments is the whole product; the correct answers to easy questions are table stakes.
+
+## What to do this week
+
+1. Write the escalation route down: the phrase or button that reaches a person, who that person is at each hour, and what the customer sees while they wait.
+2. Split your last two hundred conversations into two piles, one right answer versus a judgment about this customer. Automate only the first pile.
+3. Write your refusal sentences in your own voice, including the one for refunds and the one for complaints.
+4. Check where your stock and order data actually comes from, and stop the system quoting anything you would not personally guarantee.
+5. Test it adversarially yourself before a customer does, in every language your customers use.
+
+If you want this built and run rather than assembled by you, [plumcut](/solutions) is the option we recommend, and we build it, which you should weigh accordingly. plum answers in your brand's voice on your own WhatsApp number, in Arabic and English together, and we design the handover and the refusals with you before launch rather than leaving them as a setting you discover later. We also run it after launch, watching where it should have escalated and fixing that, which is the part a self service builder cannot do for a team of two. See [how it works](/how-it-works), or [pricing](/pricing).
+
+---
+
+# Can AI Answer Where Is My Order on WhatsApp in 2026?
+
+Source: https://plumcut.com/blog/where-is-my-order-whatsapp
+Published: 2026-09-06
+
+Roughly the same message arrives every day, in a dozen spellings. "Where is my order." "Any update on my parcel." "Wein el order?" It is the highest volume question in commerce, it carries no new information, and somebody on your team is typing the answer by hand while a customer with money in their hand waits behind it in the queue.
+
+> Order status is the one customer question that automates cleanly, because the answer already exists inside your store and only needs fetching. Three things have to be true. Your store has to emit the event: Shopify fires `fulfillments/create`, `fulfillments/update` and `orders/fulfilled` webhooks carrying the tracking number, so the status is available the moment it changes. The message has to be matched to the right customer, which means the phone number on the order and the number in the chat agree, or the customer gives you an order number to look up. And the reply has to fit Meta's rules. A reply sent inside the 24 hour customer service window needs no template and costs nothing. A status update you send first is a utility template that must be approved in advance, and since 1 July 2025 utility templates sent inside an open window are free. Answer fast and the answer is usually free.
+
+## "Where is my order" is three questions wearing one coat
+
+The same seven words mean different things depending on when they arrive, and an automation that returns one canned reply to all three feels broken even when the data is correct.
+
+| When it arrives | What they actually want | Where the answer lives |
+| --- | --- | --- |
+| An hour after paying | Proof the order exists and the payment landed | Your store, at order creation |
+| Two days later | Has it shipped, and what is the tracking number | The fulfilment record |
+| Five days later | When will it arrive, and can I change the address | The courier, and often only by phone |
+| After the promised date | Reassurance, or a refund conversation | Nowhere automatic, this one is human |
+
+The first two automate completely. The third automates partially, because most couriers give you a status and a scan location, not a promise. The fourth should never be automated, and the useful design decision is making sure it reaches a person quickly instead of looping the customer through the same status line a third time.
+
+## What your store has to hand over
+
+On Shopify the plumbing is the easy part, and it is worth knowing the shape of it before you buy anything.
+
+Shopify exposes webhook topics including `fulfillments/create`, `fulfillments/update` and `orders/fulfilled`. When a fulfilment is created with a tracking number, Shopify can resolve the tracking company and tracking URL automatically from the number format. That gives you a push event rather than a polling loop, which is the difference between a reply that arrives in two seconds and one that arrives when a cron job next runs.
+
+There is one limit that catches people. A Shopify fulfilment carries a single tracking number. If an order ships in two boxes, that is two fulfilments, two tracking numbers and two events, while the customer is still thinking about one order. Any automation you build has to decide what to say when an order is half shipped, because "your order is on its way" is a lie the customer will discover at the door. Say two of three items shipped, and name the ones still coming.
+
+WooCommerce, Salla and Zid all expose comparable order and shipment events. The pattern is the same everywhere: the store knows, the courier knows, and the customer is the last to find out.
+
+## What it costs to answer, honestly
+
+This is where most order status projects get their budget wrong, in both directions.
+
+Meta bills per message delivered, not per conversation, since 1 July 2025. Two rules matter more than the rate card:
+
+- **Service messages are free.** When a customer messages you, a 24 hour customer service window opens. Replies inside that window are not templates and Meta does not charge for them. A customer asking "where is my order" has just opened that window themselves.
+- **Utility templates sent inside an open customer service window are free too**, as of 1 July 2025. Sent outside a window, they are charged at the utility rate for the recipient's country.
+
+So a reactive answer costs nothing. A proactive shipping notification, the one you send at three in the afternoon when the courier scans the parcel, costs the utility rate, because no window is open. That is still usually the better trade, since the notification you send prevents the question you would otherwise answer, but price it deliberately rather than by accident.
+
+Rates move, and they move regionally. Meta's 1 August 2026 pricing update raised utility and authentication rates in several markets including Kuwait, Morocco and Oman, and a further update to service and utility pricing is scheduled for 1 October 2026. Check the [current rate card](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing) for your markets before you model anything, and read our breakdown of [what the WhatsApp Business API really costs](/blog/whatsapp-business-api-cost) for the four line items nobody warns you about.
+
+### A rough shape of the trade
+
+For a store shipping 600 orders a month, the arithmetic below is an illustration of the structure of the cost, not a benchmark. Put your own volumes and your own market rate into it.
+
+| Approach | Messages Meta bills | What the customer experiences |
+| --- | --- | --- |
+| Answer only when asked | Zero, all replies fall inside the window | Fast answers, but every customer still has to ask |
+| Notify on dispatch, then answer | One utility template per order | Most people never ask, the rest get a free reply |
+| Notify on dispatch, out for delivery, and delivered | Up to three utility templates per order | Fewer questions again, and a real risk of feeling like spam |
+
+The middle row is where most commerce brands land. The third row earns its keep for high value or fragile goods and irritates everybody else.
+
+## Where this breaks in the Gulf and the Levant
+
+Three regional realities decide whether the automation feels premium or feels cheap.
+
+**Courier data quality.** A tracking number from a regional carrier is not always machine readable, and last mile subcontracting means the scan you receive can be hours behind the driver. If you cannot get a reliable status, say what you do know and the time you knew it, rather than inventing precision you do not have.
+
+**Cash on delivery changes the question.** For a customer paying cash, "where is my order" is often really "when do I need to have the money ready and be at home". A status line that ignores the amount due answers the wrong question. Include the amount and the expected day.
+
+**The message will not arrive in clean English.** Real inbound is dialect, Arabizi and code switching, sometimes in one sentence. A system that only parses English and Modern Standard Arabic will treat "wein sar el order tabaee" as noise and hand it to a human, which puts you back where you started. We go through this properly in [does AI customer service really work in Arabic](/blog/ai-customer-service-arabic).
+
+## What to do this week
+
+1. Pull last month's WhatsApp messages and count how many were tracking questions. That number is the size of the prize, and it is usually larger than anyone guesses.
+2. Check whether your store actually emits a fulfilment event with a usable tracking number today. If fulfilments are marked by hand at the end of the day, fix that before buying any automation, because no tool can send an event that never fires.
+3. Write the three replies by hand: order received, order shipped, order half shipped. If you cannot write the half shipped one clearly, your automation cannot either.
+4. Decide your escalation rule now. Ours is simple: after the promised delivery date, a tracking question goes to a person, not to a status lookup.
+
+Answering "where is my order" is not a chatbot problem, it is a data plumbing problem with a conversation on the end of it. [plum](/solutions) is the AI that sells on WhatsApp, and it reads your store so tracking questions get answered in the same thread where the next sale happens. See [how it works](/how-it-works), or start with [how to automate WhatsApp for your business](/blog/how-to-automate-whatsapp-for-your-business).
+
+---
+
+# What the WhatsApp Business API Really Costs in 2026
+
+Source: https://plumcut.com/blog/whatsapp-business-api-cost
+Published: 2026-09-06  ·  Updated: 2026-09-11
+
+A WhatsApp quote can combine messaging charges, a software subscription and implementation work. Comparing only the price of a message leaves out much of what your team will pay or maintain.
+
+> Budget for Meta messaging charges, any provider or software fees, and the work needed to implement and operate your workflow. Meta uses delivered-message pricing, with rates and free messaging conditions depending on category and market. Volume discounts are reduced rates, not free messages. A complete estimate also includes integrations, human handovers, monitoring and changes to your catalogue or policies. Ask each vendor to price the same workload and separate recurring charges from one-time setup.
+
+## What Meta charges
+
+Meta's [current pricing page](https://whatsappbusiness.com/products/platform-pricing/) describes delivered-message charges by category and recipient market. Its pricing structure replaced conversation billing in July 2025. Use the current rate card when preparing a budget; a historical rate in a blog is not a quote.
+
+Service messages inside the 24 hour customer service window have no Meta charge. Utility templates inside an open window are also free under the current rules. A qualifying entry from an ad or Facebook Page button can open a separate 72 hour free window, subject to eligibility conditions. Utility and authentication volume tiers offer discounts rather than making all those messages free.
+
+The official pricing page and linked documentation are the source for these rules, checked on 7 September 2026.
+
+## Which market your customers are billed under
+
+This is the part most cost guides skip, and it decides your bill. Meta charges by
+the recipient's country calling code, not by where your business is registered. A
+Beirut brand selling into Riyadh pays the Saudi rate, not a Lebanese one.
+
+More importantly, not every market has its own rate. Meta's rate card lists some
+countries individually and folds the rest into regional buckets. In the Middle
+East the split runs like this, per Meta's
+[pricing documentation](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing),
+checked on 11 September 2026:
+
+| Market | How Meta prices it |
+| --- | --- |
+| Saudi Arabia | Standalone market with its own rate |
+| United Arab Emirates | Standalone market with its own rate |
+| Egypt | Standalone market with its own rate |
+| Qatar | Standalone market with its own rate |
+| Israel | Standalone market with its own rate |
+| Turkey | Standalone market with its own rate |
+| Lebanon | Priced under "Rest of Middle East" |
+| Jordan | Priced under "Rest of Middle East" |
+| Kuwait | Priced under "Rest of Middle East" |
+| Bahrain | Priced under "Rest of Middle East" |
+| Oman | Priced under "Rest of Middle East" |
+| Iraq | Priced under "Rest of Middle East" |
+| Yemen | Priced under "Rest of Middle East" |
+
+Two practical consequences. First, if you sell across the Gulf and the Levant,
+your blended cost per message depends on your customer mix, so a single headline
+rate tells you very little. Model it per market against your actual order
+distribution. Second, a "Rest of Middle East" bucket moves as a unit: a change to
+that regional rate changes Lebanon, Jordan and Kuwait together, and it will not
+appear in a vendor blog post about Saudi pricing.
+
+We are not reproducing per-message figures here. Meta revises the rate card on a
+schedule, local-currency billing has been rolling out through 2026, and a number
+copied into an article ages badly. Pull the current rate card for the specific
+markets in the table above, on the day you build the budget.
+
+
+## What a provider or platform charges
+
+Meta's bill is only one part of the cost. A provider may charge separately for access or traffic, and a platform may charge for seats, contacts, AI usage or features.
+
+For example, [Twilio publishes its WhatsApp fees separately from Meta charges](https://www.twilio.com/en-us/whatsapp/pricing). A message that has no Meta charge may still create a provider charge. Ask your vendor to explain both parts.
+
+Use the vendor's actual plan and contract. A generic monthly software range does not tell you whether your required users, integration or AI allowance are included.
+
+## What implementation and operation cost
+
+Someone needs to connect your store, prepare policies, test answers, arrange handovers and monitor failures. That work can be done by your team, a contractor or a managed partner.
+
+| Cost item | Question to ask |
+| --- | --- |
+| Meta messages | Which categories, recipient markets and free conditions apply? |
+| Provider | Is there a subscription, traffic fee or markup? |
+| Platform and AI | Which users, features and usage allowances are included? |
+| Setup | Which integrations and testing are in scope? |
+| Operation | Who monitors failures and updates knowledge? |
+| Overage | What triggers extra charges, and how are you notified? |
+
+At plumcut, the [pricing model](/pricing) includes setup and ongoing operation sized to the agreed scope. Ask which messaging and usage costs are included in your proposed plan; do not assume every quote includes the same components.
+
+## A worked budget structure
+
+Use your own values in this illustrative calculation:
+
+Monthly operating cost = Meta message charges + provider charges + software and AI charges + managed-service fees + internal operating time.
+
+Track the one-time setup separately. For a first-year comparison, add setup to twelve months of the recurring estimate, including any expected seasonal change in workload. Avoid counting a charge twice if a managed quote already includes it.
+
+For internal time, record hours spent on routine replies, escalations and maintenance. Compare the workflow before and after automation using the same definitions. A lower message price does not establish a lower cost per resolved inquiry or a better sales outcome.
+
+## Where estimates go wrong
+
+Common omissions include exception handling, catalogue updates and the time needed to investigate incorrect replies. Ask how the workflow behaves if the store is unavailable or a customer asks for an exception to your return policy.
+
+Plan number onboarding and migration with your provider before promising a launch date. Account eligibility and supported onboarding routes should be checked for the actual setup.
+
+For outbound reminders, verify consent and template category as well as price. Our guide to [WhatsApp abandoned-cart messages](/blog/whatsapp-abandoned-cart-rules) explains why the intended message matters.
+
+## What to do this week
+
+Collect message volume, recipient markets, outbound use cases and the integrations you need. Separate support replies from marketing, utility and authentication traffic. Ask vendors to return a quote against that same scope, with allowances and overage rules visible.
+
+Then compare the operating approaches in our [WhatsApp tools guide](/blog/best-whatsapp-automation-tools). A clear scope makes it easier to decide whether to configure a platform yourself or ask plumcut to build and run it.
+
+---
+
+# WhatsApp AI for Shopify Stores in Lebanon and the Gulf
+
+Source: https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf
+Published: 2026-09-06
+
+A Shopify store in Beirut, Dubai or Riyadh usually has a checkout that works perfectly and a WhatsApp number doing most of the actual selling. That is not a failure of the store. It is how the region buys, and the stores that win are the ones that stop fighting it.
+
+> WhatsApp AI for a MENA Shopify store means connecting a language model to your Shopify catalogue, inventory and orders, so it can answer product questions, check real stock, recommend and sell, and return order status in Arabic, English or Arabizi, inside the 24 hour window where replies are free. It matters more here than in Europe or the US because Gulf and Levantine shoppers routinely start and finish a purchase in chat rather than at the checkout, and because cash on delivery keeps a human in the loop. The work is mostly not technical: it is cleaning the catalogue, writing down undocumented policies, and building a clean handover to a person. Expect two to four weeks.
+
+## Why the checkout is not where the sale happens
+
+In most of the region, a product page is the start of a conversation, not the end of one. The pattern is consistent enough to plan around:
+
+- **Trust is transacted through people.** A shopper wants confirmation from someone before paying, especially at higher basket values. Cash on delivery, still dominant across much of the Levant and parts of the Gulf, makes that instinct rational rather than sentimental.
+- **Sizing and fit are negotiated.** "Is this true to size", "I am usually a 38 in Zara", "will this fit my mum". These are not FAQ entries. They are judgement calls, and they are where the sale is won.
+- **The phone is the storefront.** Instagram and TikTok drive discovery, WhatsApp closes. The website is often just where the product photos live.
+- **Delivery is the real question.** Not whether you deliver, but when, to which area, and what happens if nobody is home.
+
+None of this is a problem to be solved. It is a channel that converts better than your checkout, staffed by people who cannot answer at midnight.
+
+## What actually breaks
+
+Stores that automate this badly break in the same four ways.
+
+### The catalogue lies
+
+Your automation is only as truthful as the data behind it. If Shopify says a size is in stock because someone forgot to decrement it after a market stall weekend, the AI will confidently sell it. That is worse than silence, because now you are cancelling an order that a person promised.
+
+Fix the catalogue first. Variant names, stock accuracy, and the difference between out of stock and discontinued.
+
+### Arabizi is treated as a typo
+
+A large share of messages arrive in Latin-script Arabic. *3ande*, *shu ha*, *keefak*, *bade hayda bel aswad*. The number substitutions are not noise, they are the writing system: 3 for ain, 7 for haa, 2 for hamza.
+
+Keyword matching cannot survive this, because there is no single correct spelling to match against. A menu based bot handles it by refusing to, and pushing everyone to buttons. Language models handle it natively, which is the single strongest technical argument for that approach in this region specifically.
+
+### The handover is an afterthought
+
+The moment a customer says something the automation cannot handle, three things must happen: a person is notified, that person can see the entire conversation, and the customer knows a person has arrived. Miss any of the three and you have built a very fast way to annoy people.
+
+### Nobody reads what came back
+
+The least visible failure and the most expensive. A month of conversations tells you which products people ask about and do not buy, which sizes you are constantly out of, what they think you sell that you do not, and which objection kills the most baskets. Almost every store throws this away.
+
+## What a working setup looks like
+
+| Piece | What it does | What it needs from you |
+| --- | --- | --- |
+| Catalogue sync | Real products, real variants, real stock | An accurate Shopify catalogue |
+| Order lookup | Status and tracking without a human | Order and fulfilment access |
+| Product Q and A | Sizing, materials, care, comparisons | Your actual product knowledge, written down |
+| Policy answers | Delivery, returns, areas, timings | Policies written down once, properly |
+| Language | Arabic, English, Arabizi in one thread | Nothing, this is the model's job |
+| Handover | A clean exit to a person, any time | Someone who is actually there |
+| Insight | What customers ask, in their words | Someone who reads it monthly |
+
+## What it is not right for
+
+Worth saying plainly, because the wrong fit wastes everyone's time.
+
+If you get a handful of messages a day, you do not need this. A fast human is better and free. If your catalogue is a mess and nobody has time to fix it, automation will amplify the mess rather than hide it. And if you want to configure everything yourself tonight, an off the shelf shared inbox from [the comparison of tool categories](/blog/best-whatsapp-automation-tools) will suit you better than a managed build.
+
+## Where to start this week
+
+Export a week of your WhatsApp messages and sort them into three piles: questions with exactly one right answer, questions that need a lookup, and questions that need a person's judgement.
+
+The first pile is what you automate first, and it is usually larger than anyone expects. The second is what makes the Shopify connection worth building. The third is what your team should have been spending its whole day on.
+
+That sorted list is the specification, and it is the same thing we start from when we build [what plum handles](/solutions) for a store. If you want to see how it behaves before committing to anything, message it and ask it something difficult.
+
+---
+
+# Can You Send Abandoned Cart Messages on WhatsApp?
+
+Source: https://plumcut.com/blog/whatsapp-abandoned-cart-rules
+Published: 2026-09-06
+
+Someone filled a cart, got as far as the delivery step, and vanished. You have their number from a previous order. Sending them a nudge on WhatsApp feels obvious, and it is one of the fastest ways to get your number blocked if you do it wrong.
+
+> You can send abandoned cart messages on WhatsApp, but only to people who opted in, and only through a template Meta has approved as **marketing**. Meta lists cart abandonment reminders under Marketing in its own template categorization docs, alongside promotions and retargeting, so any advice to file them as Utility to get a cheaper rate is simply wrong. Utility means following up on a user action, like an order or delivery update. Opt in is required before you message anyone at all, it does not have to be WhatsApp specific, but it must name your business. Having someone's number from a past purchase is not opt in, and neither is a pre-ticked box. Get the consent, submit the template as marketing, and pay the marketing rate.
+
+## The two rules that actually matter
+
+Everything else about cart recovery on WhatsApp is tactics. These two are the ones that get accounts restricted.
+
+### 1. Opt in comes first, always
+
+Meta requires opt in before you message anyone on WhatsApp. Two details people get wrong:
+
+- **It does not have to be WhatsApp specific.** A general marketing consent works, as long as you comply with local law.
+- **It must name your business.** The person has to know who they are agreeing to hear from. "Receive updates" on an unbranded checkbox does not clear this.
+
+What is not opt in: having the number from a past order, a pre-ticked box, scraping, or a list someone sold you. Every one of those is how numbers get reported and blocked.
+
+### 2. A cart reminder is a marketing template
+
+This is where most of the internet gets it wrong, including several guides published this year.
+
+Meta's own [template categorization documentation](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-categorization) lists the categories like this:
+
+| Category | What it covers | Meta's own examples |
+| --- | --- | --- |
+| **Marketing** | Awareness, sales, retargeting | New product announcements, targeted promotions and offers, **cart abandonment reminders** |
+| **Utility** | Following up on a user action or request | Opt in confirmation, order and delivery updates, payment reminders, feedback surveys |
+| **Authentication** | Verifying identity | One time passcodes, login verification |
+
+Cart abandonment is named explicitly under Marketing. Not implied, listed.
+
+So when a guide tells you to send the first reminder without a discount so it stays Utility and costs less, it is advising you to misclassify a template. That is not a clever optimisation. It is a category dispute waiting to happen, and template categorisation is reviewed rather than taken on trust.
+
+The honest version is simpler: **a cart reminder is marketing, budget for the marketing rate.**
+
+## Why the distinction is worth real money
+
+Marketing is the most expensive category, and Meta bills per message delivered rather than per conversation since July 2025. If cart recovery is a meaningful part of your volume, that line grows quickly, which is exactly why people go looking for a way to file it as something cheaper.
+
+There is a legitimate way to spend less, and it is not misclassification.
+
+**The 24 hour customer service window.** When a customer messages you, a window opens for 24 hours during which service replies cost nothing. A customer who abandons a cart and then messages you a question is already inside that window. Answering them well, immediately, costs nothing and converts better than any template you could have sent.
+
+**Free entry points.** Someone arriving from a click to WhatsApp ad opens a 72 hour window where messages are not charged. If you run paid social, routing that traffic into WhatsApp changes the arithmetic of cart recovery entirely, because the recovery conversation happens inside the free window rather than as a paid template.
+
+The pattern is the same in both cases. **Conversations you are invited into are cheap. Conversations you start are expensive.** Build for the first.
+
+## What a defensible setup looks like
+
+1. **A real opt in at checkout**, separate from your order updates consent, naming your business. Two checkboxes, not one. Order updates and marketing are different permissions and conflating them is the most common mistake.
+2. **A marketing template**, submitted as marketing, approved before you need it. Approval takes time and rejections cost days, so do not build the campaign first.
+3. **One reminder, not a sequence.** Repeatedly messaging someone who did not reply is what generates blocks, and blocks damage your quality rating, which limits how much you can send at all.
+4. **A reply path that goes to a person or something that behaves like one.** Most abandoned carts are a question the customer never asked out loud: does this fit, when does it arrive, can I return it. A reminder that just says "you left something" answers none of them.
+5. **Somewhere to read what came back.** The replies to cart reminders are the cheapest customer research you will ever get, and almost everyone deletes them.
+
+## The part most brands skip
+
+Cart recovery is usually treated as a sending problem. It is a conversation problem.
+
+The reminder is easy. What decides whether the sale closes is what happens in the ninety seconds after the customer replies, which is often at eleven at night when nobody is watching the inbox. A recovered cart is not a delivered template, it is an answered question.
+
+That is the same reason [answering fast matters more than messaging more](/blog/how-to-automate-whatsapp-for-your-business), and it is why the cost of the template is rarely the number that decides whether this is worth doing. Work out what a recovered basket is worth to you first, then read [what the API actually costs](/blog/whatsapp-business-api-cost).
+
+## What to do this week
+
+Check your checkout for a marketing opt in that names your business and is separate from order updates. If it is not there, nothing else on this page is available to you legally, and that is the whole project this week.
+
+Then count how many carts you abandon in a month and multiply by your average basket. That number tells you whether to build this at all, and most brands have never calculated it.
+
+---
+
+# The Best WhatsApp Automation Tools in 2026, Honestly Compared
+
+Source: https://plumcut.com/blog/best-whatsapp-automation-tools
+Published: 2026-09-06  ·  Updated: 2026-09-11
+
+Choosing WhatsApp automation involves two decisions: what the software can do, and who will configure and maintain it. A team inbox, flow builder and AI conversation feature can exist in the same product. Treating them as mutually exclusive categories makes a comparison misleading.
+
+> The best WhatsApp automation option depends on your workflow and the work your team wants to own. API services suit teams building their own application. Shared inbox platforms can combine team messaging, structured flows and AI capabilities. Managed services add implementation and ongoing operation. Compare the actual plan, store connections, language handling, escalation process and total operating cost. AI capability is not exclusive to managed services, and a low software price does not include the time needed to configure and maintain a working setup.
+
+## How this comparison was prepared
+
+This is a documentation-based buying guide, checked on 7 September 2026. It is not a hands-on test or a numbered vendor ranking. plumcut publishes it and sells a managed service, so we explain where that approach fits as well as its limitations.
+
+The dimensions below are editorial selection criteria. Vendor documentation supports the specific product statements linked beside them; it does not establish comparative performance.
+
+Every price below was read from the vendor's own public pricing page on 11
+September 2026. Prices change and plans get renamed, so treat these as a starting
+point and confirm on the vendor's page before you buy. Where a vendor does not
+state something publicly, we say so rather than guess. In particular we do not
+assert official Meta Business Solution Provider status for any vendor that does
+not claim it on the page we checked.
+
+## The tools, named
+
+| Tool | Shape | Public entry price | Notable in the plan | Arabic interface |
+| --- | --- | --- | --- | --- |
+| [Twilio](https://www.twilio.com/en-us/whatsapp/pricing) | API / CPaaS | Per message, Twilio fee on top of Meta | You build the application | Not stated |
+| [360dialog](https://www.360dialog.com/pricing) | API access, addons available | EUR 49 per number per month | States no markup on Meta fees | Not stated |
+| [Gupshup](https://www.gupshup.ai/pricing) | CPaaS and agents, enterprise leaning | Not fully public | Enterprise conversational stack | Not stated |
+| [Wati](https://www.wati.io/pricing/) | Self serve platform | Published tiers, Growth to Business | 5 users included, AI copilot credits | Yes, Arabic site |
+| [Interakt](https://www.interakt.shop/pricing/) | Self serve platform | Free tier, Growth USD 55 per month | Shopify order and cart flows | Not stated |
+| [respond.io](https://respond.io/pricing) | Self serve platform | Starter USD 79 per month | Monthly active contacts, AI credits | Not stated |
+| [SleekFlow](https://sleekflow.io/pricing) | Self serve platform | Pro USD 109 per month | 10 seats, AI agents, Arabic site | Yes, Arabic site |
+| [Zoko](https://www.zoko.io/pricing) | Shopify focused platform | Starter USD 49.99 per month | AI priced per outcome, see below | Not stated |
+| [plumcut](/solutions) | Managed service | Scoped quote, see [pricing](/pricing) | We build and operate it for you | Yes, including Arabizi |
+
+### Twilio and 360dialog: infrastructure, not a product
+
+Both give you WhatsApp access and expect you to bring the application. Twilio
+separates its own fee from Meta's charge on its pricing page, and 360dialog
+publishes a flat EUR 49 per number per month while stating it adds no markup to
+Meta fees. That flat-fee model is unusually easy to model in a budget. Neither
+replaces the work of building, hosting and monitoring the thing that actually
+talks to your customer.
+
+Choose one of these when you have engineers and a reason to control behaviour
+that a packaged product will not give you.
+
+### Wati, Interakt, respond.io and SleekFlow: buy a seat, do the work
+
+These are the mainstream self serve platforms: a shared inbox, flow automation,
+some AI, and a monthly subscription. The differences that actually change your
+bill are in how each one meters you.
+
+Wati includes 5 users and a monthly allowance of AI copilot credits. respond.io
+meters monthly active contacts, with published overage per 100 contacts, and
+sells AI credits separately. SleekFlow includes 10 user accounts and lists AI
+agents in its Pro tier. Interakt is the cheapest way in, with a free tier and a
+Growth plan at USD 55 per month, and documents Shopify order and abandoned
+checkout flows.
+
+Read the metering model before the headline price. A platform billed per active
+contact behaves very differently in a campaign month than one billed per seat,
+and a store with a large but quiet customer list can pay more on the cheaper
+looking plan.
+
+Wati and SleekFlow both publish Arabic language versions of their own sites,
+which is a reasonable signal of regional intent. It is not the same thing as an
+agent that reliably reads Gulf dialect or Arabizi in a customer message. Test
+that yourself, using the method in our guide to
+[Arabic customer service](/blog/ai-customer-service-arabic).
+
+### Zoko: priced per outcome
+
+Zoko is Shopify first and prices its AI differently from the rest: its FAQ agent
+is billed per resolution and its selling agent takes a percentage of order value,
+alongside a monthly platform fee from USD 49.99. Outcome pricing is genuinely
+attractive when volumes are unpredictable, and genuinely expensive when they are
+not. Model it against your real order count before assuming either.
+
+### plumcut: the managed option, and when not to pick it
+
+We build and run the agent, so the configuration, catalogue preparation, testing
+and ongoing changes sit with us rather than your staff. That is the whole
+proposition, and it is the right trade only if the constraint in your business is
+people rather than money.
+
+If you have someone in house who enjoys this work and has time for it, a
+platform from the table above will cost you less. If you need something live next
+week with no dependency on a partner, self serve is faster to start. We are worth
+a conversation when the workflow spans Arabic and English, touches your order
+system, and nobody on your team owns it.
+
+
+## API services for teams that want to build
+
+With an API service, your team can build the conversation workflow and connect it to your own systems. This can be attractive when you have engineering capacity and need control over application behavior.
+
+For example, [Twilio's WhatsApp pricing](https://www.twilio.com/en-us/whatsapp/pricing) distinguishes Twilio fees from Meta charges. Do not assume that choosing an API provider automatically gives you the lowest total cost. Include the application, hosting, monitoring and people required to run it.
+
+Ask who will own failures, template changes and support when the developer who built the integration is unavailable.
+
+## Platforms with an inbox, flows and AI
+
+A platform can combine a shared team inbox with automation. It is incorrect to assume that everything in this group is limited to predefined menus.
+
+[Respond.io documents AI capabilities](https://respond.io/ai-agents) including product recommendations, lead qualification and human escalation. Those are vendor-described features, not results from a plumcut test. Evaluate them in the plan and configuration you would actually buy.
+
+A platform may suit a team that wants direct control over its inbox and automation. The practical question is how much setup, catalogue preparation, testing and maintenance your staff must handle.
+
+## Flow builders for structured jobs
+
+A structured flow can work well when a task has predictable inputs, such as asking for an order identifier and retrieving a delivery status after appropriate verification. A flow alone does not handle every unexpected question, but a product may combine flows with AI or human handoff.
+
+Evaluate the complete workflow. Can a shopper leave the menu, ask a product question and reach a person without losing the conversation? A flow editor's appearance does not answer that.
+
+## Managed implementation and operation
+
+plumcut builds and runs WhatsApp automation around a brand's catalogue, policies and customer conversations. Our service is intended for brands that want help implementing and maintaining the workflow, including [selling and customer insights](/solutions).
+
+The relevant distinction is operating responsibility. A managed service can reduce the work your team performs, but introduces setup work, an ongoing fee and dependence on a partner. It is not automatically more capable than every self-serve product.
+
+Ask for the scope in writing: connected systems, launch requirements, human handoff, monitoring, changes included in the fee and what you can export if you leave. Our [build process](/how-it-works) and [pricing model](/pricing) explain how plumcut approaches that work.
+
+## Compare the same workload
+
+| Decision | API application | Configurable platform | Managed implementation |
+| --- | --- | --- | --- |
+| Who implements the workflow? | Your developers or contractor | Your team, vendor or partner | The implementation partner |
+| Can it use AI? | Depends on what is built | Depends on product and plan | Depends on agreed scope |
+| Store connection | Built or selected by your team | Check the actual connector and actions | Agree the integration scope |
+| Ongoing changes | Your responsibility | Usually shared with your team | Defined in the service agreement |
+| Cost to compare | Provider, hosting and engineering | Subscription, usage and staff time | Setup, service and usage terms |
+
+## Test the questions that matter to your store
+
+Use the same small set of anonymized questions for each option. Include an available product, an unavailable size, a delivery question, a return-policy exception and a request for a person. Add Arabic, Arabizi and mixed-language messages if those appear in your real inbox.
+
+Record whether the answer is correct, whether it uses current store data and whether escalation works. A small test identifies issues to investigate; it does not prove a vendor works equally well for every customer.
+
+For a language-focused evaluation, see our guide to [Arabic customer service](/blog/ai-customer-service-arabic).
+
+## What to do this week
+
+List your required workflows and who will maintain them. Request quotes for that same scope, including Meta charges and any AI or provider fees. Use the test questions above before committing.
+
+If your team wants to operate the tool directly, investigate a configurable platform. If you have developers and need custom behavior, investigate an API build. If you want someone to build and run the process with you, ask plumcut about a managed setup.
+
+---
+
+# Does AI Customer Service Really Work in Arabic in 2026?
+
+Source: https://plumcut.com/blog/ai-customer-service-arabic
+Published: 2026-09-06
+
+A customer in Jeddah asks how much delivery costs, typed in Arabic script, and gets back a polite paragraph of Modern Standard Arabic that reads like a government circular. Another writes "3andkon delivery la Beirut?" in Latin letters and gets nothing useful at all. If you sell across the Gulf and the Levant, this is the daily reality of Arabic customer service, and it is the part most automation demos quietly skip.
+
+> Arabic AI customer service works, but not the way English does, and the difference is not translation quality. Arabic customers do not write in one language. They write in Modern Standard Arabic, in their own regional dialect, in Latin-script Arabizi, and in code-switched Arabic and English, often inside a single message. A system that only handles Modern Standard Arabic will answer formal questions correctly and miss most real ones. On WhatsApp there is a second, separate problem: Meta requires you to assign a language code when you create a message template, and Meta does not translate template strings or variables for you. You supply every language yourself. So Arabic support is really two jobs, understanding messy input in the conversation, and maintaining a parallel set of approved Arabic templates for anything you send first. Businesses that do only the first half still sound foreign the moment they initiate.
+
+## The input problem is dialect, not translation
+
+Machine translation of Arabic has been decent for years. That is not what breaks.
+
+What breaks is that "Arabic" is not one written register in customer messages. A shopper in Kuwait, a shopper in Casablanca and a shopper in Beirut asking the same question about delivery will produce three visibly different strings, and none of them will look like the Modern Standard Arabic in a textbook. Add Arabizi, where Arabic is typed in Latin characters with numerals standing in for sounds that have no Latin equivalent, and you have a fourth form that many systems treat as gibberish because it is neither Arabic script nor an English word.
+
+Then there is code-switching. A Gulf customer who opens in Arabic script to say the order has not arrived, then finishes the same sentence with "can you check please", is not being unusual. That is a normal sentence.
+
+So the real question to ask a vendor is not "do you support Arabic". Every vendor says yes. The question is what happens to a code-switched Arabizi message with a spelling mistake in it, because that is what actually arrives on a Tuesday afternoon.
+
+### How to test it honestly
+
+You can evaluate this in an hour with no technical work. Collect twenty real customer messages from your own WhatsApp history, unedited, keeping the typos and the mixed script. Make sure the set includes:
+
+- At least five in dialect rather than Modern Standard Arabic
+- At least three in Arabizi
+- At least three that switch between Arabic and English mid-sentence
+- Two with a genuine spelling mistake
+- Two asking about something you do not sell, to see how it handles a miss
+
+Then run them and read the replies as a customer, not as the person who bought the tool. A system that gets fifteen of twenty right on your own messages is worth more than any demo.
+
+## The output problem is templates
+
+This is the half that catches people after they have already chosen a tool, because it is not a language capability at all. It is a WhatsApp platform rule.
+
+On the WhatsApp Business Platform you must assign a template language code when you create a template. Meta is explicit that template strings and variables are not translated for you, so you are responsible for supplying the strings and example parameters in their appropriate language. Templates are stored in language packs, one bundle per language or locale you support.
+
+Practically, that means:
+
+| What you want | What you actually have to build |
+| --- | --- |
+| Order confirmation in English and Arabic | Two separate templates, each submitted and approved on its own |
+| A campaign across the Gulf and the Levant | One template per language, plus per-market compliance checks |
+| A new offer message | The Arabic version submitted for approval too, not translated at send time |
+
+Meta does let you create multiple templates that share a name in different languages, which keeps this manageable rather than chaotic. But the approval queue is per template, so an Arabic version can be rejected while the English one sails through, and you will not find out until you try to send.
+
+The operational consequence is simple. Every template you add is really two templates, and your Arabic set needs the same review discipline as your English set. If your Arabic templates are machine translated once and never read by a native speaker, your customers will notice long before your dashboard does.
+
+## Getting the register right
+
+Even correct Arabic can be wrong Arabic for a brand.
+
+Modern Standard Arabic is understood everywhere and belongs to nobody. It is right for formal notices, legal wording and anything a customer might screenshot. It is wrong for a friendly nudge about a cart, where it reads stiff and slightly official.
+
+Dialect is warmer and lands better in conversation, but it localises you. Levantine phrasing in a Riyadh campaign is noticeable in the way a British ad reads in Texas. It is not offensive, it is just visibly not from here.
+
+The workable pattern for most brands selling across MENA is to keep sent templates in clear, plain Modern Standard Arabic that no market will find strange, and let live conversation adapt to how the customer writes. If they open in Emirati dialect, meet them there. If they open in Arabizi, reply in Arabizi. That is what a human employee in the shop would do.
+
+## What this means for a Gulf or Levant brand
+
+Two other things matter regionally and are easy to forget.
+
+Meta charges per message delivered on a rate that depends on the template category and the country calling code of the recipient. A single Arabic campaign that spans Saudi Arabia, the UAE and Lebanon is spanning several different rate cards, so budget by market rather than by campaign. We break the pricing model down in [what the WhatsApp Business API really costs](/blog/whatsapp-business-api-cost).
+
+And the free part of the channel is language-agnostic. When a customer messages you, a 24 hour customer service window opens, and inside it you can reply without a template at all. That is where dialect handling earns its money, and where a fast, natural Arabic reply converts. Everything outside that window is a template you had to get approved in advance.
+
+## What to do this week
+
+1. Pull twenty real Arabic customer messages from your own WhatsApp and build the test set described above. Do not clean them up.
+2. Count how many of your existing templates exist in Arabic. If the answer is none, that is your first project, not your Arabic chatbot.
+3. Have a native speaker from your main market read your Arabic templates out loud. Anything that makes them pause is costing you.
+4. Check Meta's [supported template languages](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/supported-languages/) and [template fundamentals](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview) before you plan a multi-market rollout.
+
+Arabic support is not a feature you switch on. It is a test set, a second template library, and a decision about register. [plum](/solutions) is the AI that sells on WhatsApp, and it works in Arabic and English natively because MENA brands are who it was built for. If you want to see the setup end to end, read [how it works](/how-it-works), or start with our guide to [WhatsApp AI for Shopify stores in Lebanon and the Gulf](/blog/whatsapp-ai-shopify-lebanon-gulf).
+
+---
+
+# How to Automate WhatsApp for Your Business in 2026
+
+Source: https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business
+Published: 2026-09-05  ·  Updated: 2026-09-07
+
+Most brands do not have a WhatsApp problem. They have a first reply problem. The messages arrive, someone answers them eventually, and by then the customer has bought elsewhere. Automation is how you close that gap, and there are exactly three levels of it worth knowing.
+
+> Start with the tasks you want to automate and who will maintain them. The WhatsApp Business app offers greetings, away messages and saved replies. An API-based platform can add store connections, structured flows and, depending on the product, AI conversations. A managed service adds implementation and ongoing operation. Choose from your workload, required actions and team capacity. There is no universal messages-per-day threshold, and AI selling is not exclusive to managed services.
+
+## The three levels, and who each one is for
+
+### Level 1: the free WhatsApp Business app
+
+This is the green app you download on a phone. It is free, it takes an afternoon, and it gives you three real things:
+
+- **A greeting message** that fires the first time someone messages you
+- **An away message** for outside working hours
+- **Up to 50 quick replies**, saved answers you fire with a shortcut
+
+Those basic messaging features help a person handle repeated inquiries. They do not, by themselves, retrieve live stock from your store. Check the current [Business app features](https://business.whatsapp.com/products/business-app) for your account and market before deciding what extra integration is needed.
+
+**Use it if** a person can keep up and you do not yet need automated store lookups or more complex workflows.
+
+### Level 2: a chatbot builder on the Cloud API
+
+The [WhatsApp Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api) is Meta's official programmatic access to WhatsApp. Meta charges for eligible delivered messages under its current pricing rules, and your provider or software may charge separately.
+
+At this level you get button and menu driven flows. Customer taps "Track my order", the bot asks for an order number, calls your store, returns a status. Real automation, and a large jump from level 1.
+
+With a rules-only flow, an unexpected question needs another route, often a person. However, some platforms combine flows with AI conversations. [Respond.io documents AI product recommendations and escalation](https://respond.io/ai-agents), for example. Test the actual plan and configuration; a self-serve product is not necessarily limited to menus.
+
+**Use it if** your incoming messages are genuinely repetitive and mostly transactional.
+
+### Level 3: a managed AI layer on the Cloud API
+
+Same official plumbing, different brain. Instead of a decision tree, a language model reads the message, understands intent, and has real tools behind it: your catalogue, your stock, your order system, your booking calendar.
+
+This is the level where automation stops being deflection and starts being **selling**. The customer asks a question, gets a real answer, gets shown the product, and checks out without a human touching it.
+
+A conversation record and useful reporting can exist in either a platform or a custom build. For a managed service, agree what insight you receive, how you can act on it and how you can export your data.
+
+## What it actually costs
+
+Meta moved from conversation pricing to per-message pricing on 1 July 2025. Rates and free messaging conditions depend on category and market. Service replies inside an open 24 hour customer service window are free of Meta messaging charges. Provider or software fees are separate. The planning ranges below are illustrative, not vendor commitments:
+
+| Level | Setup effort | Meta cost | Tooling cost |
+| --- | --- | --- | --- |
+| Business app | An afternoon | Free | Free |
+| Chatbot builder | Days | Per message | Monthly SaaS fee |
+| Managed AI layer | 2 to 4 weeks | Per message | Setup plus monthly |
+
+Meta publishes current rates on its [platform pricing page](https://whatsappbusiness.com/products/platform-pricing/), and they change, so check before you budget. We broke the whole bill down in [what the WhatsApp Business API really costs](/blog/whatsapp-business-api-cost).
+
+## The five things that break WhatsApp automation
+
+These are five practical issues to check before launching a commerce workflow:
+
+1. **No handover.** Every automation needs a clean exit to a human, and the customer needs to know it exists. Without it, one bad answer costs you the sale and the trust.
+2. **A stale catalogue.** The bot confidently sells something you stopped stocking in March. Your automation is only as current as the feed behind it.
+3. **Ignoring Arabic.** In MENA a large share of messages arrive in Arabic or Arabizi. An English only bot fails the customers most likely to buy from you.
+4. **No opt in.** Review consent and outbound messages against the current [WhatsApp Business Messaging Policy](https://business.whatsapp.com/policy). Using the official API does not remove those obligations.
+5. **Nobody reads the transcripts.** The conversations are the most honest customer research you will ever own, and almost everyone throws them away.
+
+## Choosing your level in one question
+
+Who will keep the workflow working as your store changes?
+
+- **You can keep up manually:** start with the Business app and measure where replies are missed.
+- **Your team wants to configure automation:** evaluate an API platform and its actual integration and AI capabilities.
+- **You want implementation and ongoing operation included:** compare managed services against the cost and time of doing that work internally.
+
+Message volume matters, but complexity, staffing and missed selling opportunities matter too. Use a week of real workload data to decide what is worth automating rather than treating a fixed volume threshold as a rule.
+
+## Where to start this week
+
+Set up the free Business app today, even if you plan to outgrow it. Then spend a week logging every question you get and sorting it into three piles: questions with one right answer, questions that need a lookup, and questions that need a person. That list is the specification for whatever you build next, and it is the same thing we build from when we set up [what plum handles](/solutions) for a brand.

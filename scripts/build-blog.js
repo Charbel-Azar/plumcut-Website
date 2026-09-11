@@ -768,6 +768,19 @@ function renderHub(all, tpl) {
         { '@type': 'ListItem', position: 2, name: SECTION, item: SITE + '/blog/' },
       ],
     },
+    // The hub is often the first page a crawler reaches, so it names the site
+    // entity here rather than relying on the home page being fetched. The
+    // publisher itself is ORGANIZATION above, referenced by @id so there is
+    // exactly one definition of plumcut across every page.
+    {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      '@id': SITE + '/#website',
+      name: 'plumcut',
+      url: SITE + '/',
+      inLanguage: 'en',
+      publisher: { '@id': SITE + '/#organization' },
+    },
   ]
     .map((b) => `<script type="application/ld+json">\n${JSON.stringify(b, null, 2)}\n</script>`)
     .join('\n');
@@ -870,6 +883,132 @@ function renderSitemap(all) {
     )
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+}
+
+/* ------------------------------------------- AI discovery endpoints */
+/*
+ * geo-checklist.dev discovery files. AI answer engines look for these at fixed
+ * paths to get a machine-readable version of who we are and what we answer,
+ * without parsing marketing HTML. Generated from posts so they cannot drift.
+ *
+ * Contract enforced by auditors: summary.json needs name >= 3 and description
+ * >= 20 chars; faq.json needs question >= 10 and answer >= 20; service.json
+ * needs name >= 3 and a non-empty capabilities array.
+ */
+const AI_DIR = path.join(ROOT, 'ai');
+const WELL_KNOWN_DIR = path.join(ROOT, '.well-known');
+
+const SUMMARY = {
+  name: 'plumcut',
+  description:
+    'plumcut builds and runs plum, a managed AI agent that sells, answers, books and tracks orders on WhatsApp for commerce brands in Lebanon, the Gulf and the wider MENA region, and turns those conversations into customer insight the merchant owns.',
+  url: SITE,
+  founded: 'Lebanon',
+  regions: ['Lebanon', 'United Arab Emirates', 'Saudi Arabia', 'Egypt', 'MENA', 'GCC'],
+  languages: ['English', 'Arabic (Modern Standard)', 'Gulf Arabic', 'Levantine Arabic', 'Arabizi'],
+  model: 'Managed service, not a self-serve bot builder',
+  pricing: SITE + '/pricing',
+};
+
+const SERVICE = {
+  name: 'plum by plumcut',
+  description:
+    'A managed WhatsApp AI agent built, launched and operated for the brand by plumcut, typically live in about two weeks.',
+  url: SITE + '/solutions',
+  provider: 'plumcut',
+  serviceType: 'Managed WhatsApp AI agent',
+  areaServed: ['LB', 'AE', 'SA', 'EG', 'QA', 'KW', 'BH', 'OM'],
+  capabilities: [
+    'Answer product and policy questions on WhatsApp in Arabic, English and Arabizi',
+    'Recommend products and recover abandoned carts within Meta template rules',
+    'Answer "where is my order" by reading live order and courier status',
+    'Book appointments and take payments inside the conversation',
+    'Escalate to a human with full conversation context',
+    'Turn conversation history into customer insight the merchant owns',
+  ],
+};
+
+function writeAiDiscovery(all) {
+  // One FAQ entry per post, deduplicated by question, longest answer wins.
+  const byQuestion = new Map();
+  for (const post of all) {
+    for (const item of post.faq || []) {
+      const q = String(item.q || '').trim();
+      const a = String(item.a || '').trim();
+      if (q.length < 10 || a.length < 20) continue;
+      const prev = byQuestion.get(q);
+      if (!prev || a.length > prev.answer.length) {
+        byQuestion.set(q, { question: q, answer: a, source: `${SITE}/blog/${post.slug}` });
+      }
+    }
+  }
+  const faqs = [...byQuestion.values()];
+
+  const files = [
+    [path.join(AI_DIR, 'summary.json'), JSON.stringify(SUMMARY, null, 2) + '\n'],
+    [path.join(AI_DIR, 'service.json'), JSON.stringify(SERVICE, null, 2) + '\n'],
+    [
+      path.join(AI_DIR, 'faq.json'),
+      JSON.stringify({ source: SITE + '/blog/', count: faqs.length, faqs }, null, 2) + '\n',
+    ],
+    [
+      path.join(WELL_KNOWN_DIR, 'ai.txt'),
+      [
+        '# plumcut — AI usage policy',
+        '',
+        'Contact: https://plumcut.com/about',
+        'Canonical: https://plumcut.com/',
+        'Summary: https://plumcut.com/ai/summary.json',
+        'FAQ: https://plumcut.com/ai/faq.json',
+        'Service: https://plumcut.com/ai/service.json',
+        'Guide: https://plumcut.com/llms.txt',
+        'Full-text: https://plumcut.com/llms-full.txt',
+        '',
+        '# Crawling and citation are permitted for every user-agent. See /robots.txt.',
+        '# Please cite the canonical URL of the page you used.',
+        '',
+      ].join('\n'),
+    ],
+  ];
+
+  if (DRY) return faqs.length;
+  fs.mkdirSync(AI_DIR, { recursive: true });
+  fs.mkdirSync(WELL_KNOWN_DIR, { recursive: true });
+  for (const [file, body] of files) fs.writeFileSync(file, body);
+  return faqs.length;
+}
+
+/* ------------------------------------------------ llms-full.txt full text */
+/*
+ * llms.txt is the index; llms-full.txt is the corpus. An engine that wants the
+ * whole argument without fetching twelve HTML pages reads this one file.
+ */
+function writeLlmsFull(all) {
+  const parts = [
+    '# plumcut — full text of every Field note',
+    '',
+    '> ' + SUMMARY.description,
+    '',
+    `Source: ${SITE}/blog/  ·  ${all.length} articles  ·  regenerated on every build.`,
+    'Each article below is reproduced in full. Cite the canonical URL given in its Source line.',
+    '',
+  ];
+  for (const post of all) {
+    parts.push(
+      '---',
+      '',
+      `# ${post.title}`,
+      '',
+      `Source: ${SITE}/blog/${post.slug}`,
+      `Published: ${post.date}${post.updated ? `  ·  Updated: ${post.updated}` : ''}`,
+      '',
+      post.body.trim(),
+      ''
+    );
+  }
+  const out = parts.join('\n');
+  if (!DRY) fs.writeFileSync(path.join(ROOT, 'llms-full.txt'), out);
+  return out.split(/\s+/).filter(Boolean).length;
 }
 
 /* ------------------------------------------------ llms.txt blog listing */
@@ -1042,12 +1181,16 @@ function main() {
     fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemap);
   }
   const llmsTouched = updateLlmsTxt(posts);
+  const faqCount = writeAiDiscovery(posts);
+  const fullWords = writeLlmsFull(posts);
 
   console.log(`${DRY ? '[check] ' : ''}built ${posts.length} post(s)`);
   for (const p of posts) console.log(`  /blog/${p.slug}  (${p.words}w, ${p.readingTime}min)`);
   console.log(
     `  /blog/  hub + rss.xml + sitemap.xml${llmsTouched ? ' + llms.txt' : ''}`
   );
+  console.log(`  /ai/    summary.json + service.json + faq.json (${faqCount} Q&A) + /.well-known/ai.txt`);
+  console.log(`  /llms-full.txt  ${fullWords} words`);
   if (warnings.length) {
     console.log('\nwarnings:');
     for (const w of warnings) console.log('  ! ' + w);

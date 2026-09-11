@@ -30,6 +30,12 @@ Head links
 <link rel="canonical" href="https://plumcut.com/blog/whatsapp-business-api-cost" />
 <link rel="alternate" hreflang="en" href="https://plumcut.com/blog/whatsapp-business-api-cost" />
 <link rel="alternate" hreflang="x-default" href="https://plumcut.com/blog/whatsapp-business-api-cost" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title="plumcut Field notes"
+  href="https://plumcut.com/blog/rss.xml"
+/>
 
 <!-- Additional SEO Meta Tags -->
 <meta name="distribution" content="Global" />
@@ -80,7 +86,7 @@ Head links
   "description": "Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.",
   "image": "https://plumcut.com/blog/heroes/coin-counting-tray.jpg",
   "datePublished": "2026-09-06",
-  "dateModified": "2026-09-07",
+  "dateModified": "2026-09-11",
   "inLanguage": "en",
   "author": {
     "@type": "Organization",
@@ -204,6 +210,14 @@ Head links
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "\u003cp>No. Utility and authentication volume tiers can reduce eligible message rates. A discounted message can still have a charge. Calculate the applicable tiers and market rates instead of counting discounted traffic as free.\u003c/p>"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Lebanon have its own WhatsApp message rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "\u003cp>No. Meta's rate card prices Lebanon under the &quot;Rest of Middle East&quot; grouping, together with Jordan, Kuwait, Bahrain, Oman, Iraq and Yemen. Saudi Arabia, the United Arab Emirates, Egypt and Qatar are each priced as standalone markets. Because Meta charges by the recipient's country calling code rather than your business location, a Lebanese brand selling into Saudi Arabia is billed at the Saudi rate.\u003c/p>"
       }
     },
     {
@@ -1142,7 +1156,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="cd21a7d2467d7291c36115f05a37c5ece39caebd213007e541d3b4249ecba9c7">
+<meta name="plumcut-content-version" content="652a567e9e2017598be39b3b50d0a06eeeb3aa61031cd5d68b7d2e7d4549cfc8">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1200,9 +1214,9 @@ Header
                 <span class="blog-tag">Automation guide</span>
                 <span>By <a href="/about">plumcut</a></span>
                 <span>Published <time datetime="2026-09-06">6 September 2026</time></span>
-<span>Updated <time datetime="2026-09-07">7 September 2026</time></span>
+<span>Updated <time datetime="2026-09-11">11 September 2026</time></span>
 
-                <span>3 min read</span>
+                <span>5 min read</span>
               </div>
             </div>
 
@@ -1216,6 +1230,7 @@ Header
   <p class="blog-toc-title">On this page</p>
   <ol>
     <li><a href="#what-meta-charges">What Meta charges</a></li>
+    <li><a href="#which-market-your-customers-are-billed-under">Which market your customers are billed under</a></li>
     <li><a href="#what-a-provider-or-platform-charges">What a provider or platform charges</a></li>
     <li><a href="#what-implementation-and-operation-cost">What implementation and operation cost</a></li>
     <li><a href="#a-worked-budget-structure">A worked budget structure</a></li>
@@ -1231,6 +1246,12 @@ Header
 <p>Meta's <a href="https://whatsappbusiness.com/products/platform-pricing/" class="blog-link" target="_blank" rel="noopener">current pricing page</a> describes delivered-message charges by category and recipient market. Its pricing structure replaced conversation billing in July 2025. Use the current rate card when preparing a budget; a historical rate in a blog is not a quote.</p>
 <p>Service messages inside the 24 hour customer service window have no Meta charge. Utility templates inside an open window are also free under the current rules. A qualifying entry from an ad or Facebook Page button can open a separate 72 hour free window, subject to eligibility conditions. Utility and authentication volume tiers offer discounts rather than making all those messages free.</p>
 <p>The official pricing page and linked documentation are the source for these rules, checked on 7 September 2026.</p>
+<h2 id="which-market-your-customers-are-billed-under" class="blog-h2">Which market your customers are billed under</h2>
+<p>This is the part most cost guides skip, and it decides your bill. Meta charges by the recipient's country calling code, not by where your business is registered. A Beirut brand selling into Riyadh pays the Saudi rate, not a Lebanese one.</p>
+<p>More importantly, not every market has its own rate. Meta's rate card lists some countries individually and folds the rest into regional buckets. In the Middle East the split runs like this, per Meta's <a href="https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing" class="blog-link" target="_blank" rel="noopener">pricing documentation</a>, checked on 11 September 2026:</p>
+<div class="blog-table-wrap"><table class="blog-table"><thead><tr><th>Market</th><th>How Meta prices it</th></tr></thead><tbody><tr><td>Saudi Arabia</td><td>Standalone market with its own rate</td></tr><tr><td>United Arab Emirates</td><td>Standalone market with its own rate</td></tr><tr><td>Egypt</td><td>Standalone market with its own rate</td></tr><tr><td>Qatar</td><td>Standalone market with its own rate</td></tr><tr><td>Israel</td><td>Standalone market with its own rate</td></tr><tr><td>Turkey</td><td>Standalone market with its own rate</td></tr><tr><td>Lebanon</td><td>Priced under &quot;Rest of Middle East&quot;</td></tr><tr><td>Jordan</td><td>Priced under &quot;Rest of Middle East&quot;</td></tr><tr><td>Kuwait</td><td>Priced under &quot;Rest of Middle East&quot;</td></tr><tr><td>Bahrain</td><td>Priced under &quot;Rest of Middle East&quot;</td></tr><tr><td>Oman</td><td>Priced under &quot;Rest of Middle East&quot;</td></tr><tr><td>Iraq</td><td>Priced under &quot;Rest of Middle East&quot;</td></tr><tr><td>Yemen</td><td>Priced under &quot;Rest of Middle East&quot;</td></tr></tbody></table></div>
+<p>Two practical consequences. First, if you sell across the Gulf and the Levant, your blended cost per message depends on your customer mix, so a single headline rate tells you very little. Model it per market against your actual order distribution. Second, a &quot;Rest of Middle East&quot; bucket moves as a unit: a change to that regional rate changes Lebanon, Jordan and Kuwait together, and it will not appear in a vendor blog post about Saudi pricing.</p>
+<p>We are not reproducing per-message figures here. Meta revises the rate card on a schedule, local-currency billing has been rolling out through 2026, and a number copied into an article ages badly. Pull the current rate card for the specific markets in the table above, on the day you build the budget.</p>
 <h2 id="what-a-provider-or-platform-charges" class="blog-h2">What a provider or platform charges</h2>
 <p>Meta's bill is only one part of the cost. A provider may charge separately for access or traffic, and a platform may charge for seats, contacts, AI usage or features.</p>
 <p>For example, <a href="https://www.twilio.com/en-us/whatsapp/pricing" class="blog-link" target="_blank" rel="noopener">Twilio publishes its WhatsApp fees separately from Meta charges</a>. A message that has no Meta charge may still create a provider charge. Ask your vendor to explain both parts.</p>
@@ -1267,6 +1288,10 @@ Header
   <details class="blog-faq-item">
     <summary><h3 class="blog-faq-q">Are volume discounts a free tier?</h3></summary>
     <div class="blog-faq-answer"><p>No. Utility and authentication volume tiers can reduce eligible message rates. A discounted message can still have a charge. Calculate the applicable tiers and market rates instead of counting discounted traffic as free.</p></div>
+  </details>
+  <details class="blog-faq-item">
+    <summary><h3 class="blog-faq-q">Does Lebanon have its own WhatsApp message rate?</h3></summary>
+    <div class="blog-faq-answer"><p>No. Meta's rate card prices Lebanon under the &quot;Rest of Middle East&quot; grouping, together with Jordan, Kuwait, Bahrain, Oman, Iraq and Yemen. Saudi Arabia, the United Arab Emirates, Egypt and Qatar are each priced as standalone markets. Because Meta charges by the recipient's country calling code rather than your business location, a Lebanese brand selling into Saudi Arabia is billed at the Saudi rate.</p></div>
   </details>
   <details class="blog-faq-item">
     <summary><h3 class="blog-faq-q">What should I ask a vendor to include in a quote?</h3></summary>
@@ -1332,7 +1357,7 @@ Header
       <div class="blog-card-body">
         <span class="blog-card-tag">Comparison</span>
         <h3 class="blog-card-title">The Best WhatsApp Automation Tools in 2026, Honestly Compared</h3>
-        <p class="blog-card-desc">Compare WhatsApp platforms and managed services by AI capability, setup responsibility, integration needs and cost, with current vendor sources.</p>
+        <p class="blog-card-desc">Twilio, 360dialog, Gupshup, Wati, Interakt, respond.io, SleekFlow, Zoko and plumcut compared on shape, public price, metering and Arabic support.</p>
         <span class="blog-card-date">6 September 2026</span>
       </div>
     </a>

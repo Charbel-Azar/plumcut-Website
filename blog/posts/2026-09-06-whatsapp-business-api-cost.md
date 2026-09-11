@@ -4,7 +4,7 @@ slug: whatsapp-business-api-cost
 description: Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.
 type: general
 date: 2026-09-06
-updated: 2026-09-07
+updated: 2026-09-11
 keywords: [WhatsApp Business API cost, WhatsApp API pricing, WhatsApp per message pricing, WhatsApp Business API price]
 hero: /blog/heroes/coin-counting-tray.jpg
 heroAlt: Coins sorted into a counting tray
@@ -22,6 +22,8 @@ faq:
     a: A customer message opens or resets a 24 hour service window. Service replies inside it have no Meta messaging charge. Utility templates sent during an open window are also free under Meta's current rules. Other categories and provider charges need to be assessed separately.
   - q: Are volume discounts a free tier?
     a: No. Utility and authentication volume tiers can reduce eligible message rates. A discounted message can still have a charge. Calculate the applicable tiers and market rates instead of counting discounted traffic as free.
+  - q: Does Lebanon have its own WhatsApp message rate?
+    a: No. Meta's rate card prices Lebanon under the "Rest of Middle East" grouping, together with Jordan, Kuwait, Bahrain, Oman, Iraq and Yemen. Saudi Arabia, the United Arab Emirates, Egypt and Qatar are each priced as standalone markets. Because Meta charges by the recipient's country calling code rather than your business location, a Lebanese brand selling into Saudi Arabia is billed at the Saudi rate.
   - q: What should I ask a vendor to include in a quote?
     a: Ask for Meta charges, provider fees, software or AI allowances, one-time setup, maintenance, support, and overage terms. Give vendors the same workload and required integrations so you can compare equivalent scopes.
 ---
@@ -37,6 +39,47 @@ Meta's [current pricing page](https://whatsappbusiness.com/products/platform-pri
 Service messages inside the 24 hour customer service window have no Meta charge. Utility templates inside an open window are also free under the current rules. A qualifying entry from an ad or Facebook Page button can open a separate 72 hour free window, subject to eligibility conditions. Utility and authentication volume tiers offer discounts rather than making all those messages free.
 
 The official pricing page and linked documentation are the source for these rules, checked on 7 September 2026.
+
+## Which market your customers are billed under
+
+This is the part most cost guides skip, and it decides your bill. Meta charges by
+the recipient's country calling code, not by where your business is registered. A
+Beirut brand selling into Riyadh pays the Saudi rate, not a Lebanese one.
+
+More importantly, not every market has its own rate. Meta's rate card lists some
+countries individually and folds the rest into regional buckets. In the Middle
+East the split runs like this, per Meta's
+[pricing documentation](https://developers.facebook.com/documentation/business-messaging/whatsapp/pricing),
+checked on 11 September 2026:
+
+| Market | How Meta prices it |
+| --- | --- |
+| Saudi Arabia | Standalone market with its own rate |
+| United Arab Emirates | Standalone market with its own rate |
+| Egypt | Standalone market with its own rate |
+| Qatar | Standalone market with its own rate |
+| Israel | Standalone market with its own rate |
+| Turkey | Standalone market with its own rate |
+| Lebanon | Priced under "Rest of Middle East" |
+| Jordan | Priced under "Rest of Middle East" |
+| Kuwait | Priced under "Rest of Middle East" |
+| Bahrain | Priced under "Rest of Middle East" |
+| Oman | Priced under "Rest of Middle East" |
+| Iraq | Priced under "Rest of Middle East" |
+| Yemen | Priced under "Rest of Middle East" |
+
+Two practical consequences. First, if you sell across the Gulf and the Levant,
+your blended cost per message depends on your customer mix, so a single headline
+rate tells you very little. Model it per market against your actual order
+distribution. Second, a "Rest of Middle East" bucket moves as a unit: a change to
+that regional rate changes Lebanon, Jordan and Kuwait together, and it will not
+appear in a vendor blog post about Saudi pricing.
+
+We are not reproducing per-message figures here. Meta revises the rate card on a
+schedule, local-currency billing has been rolling out through 2026, and a number
+copied into an article ages badly. Pull the current rate card for the specific
+markets in the table above, on the day you build the budget.
+
 
 ## What a provider or platform charges
 

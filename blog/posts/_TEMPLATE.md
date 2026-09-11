@@ -22,6 +22,8 @@ related: [whatsapp-business-api-cost, how-to-automate-whatsapp-for-your-business
 ctaLine: Ask plum how this WhatsApp workflow could work for your brand.
 # notionUrl: The source Notion row URL
 # Omit faq if it adds nothing. Wording is shared by visible content and schema.
+# Each answer is also compiled into /ai/faq.json and served to crawlers on its
+# own, so it must stand alone: no "as described above", no missing context.
 faq:
   - q: A related question a reader would actually ask?
     a: A useful independent answer, consistent with the article and its sources.
@@ -37,6 +39,14 @@ Name the reader's actual problem, then answer it.
 Follow blog/tasks/editorial.md and CLAUDE.md.
 
 - Use verified specifics, primary-source citations and useful examples.
+- Name real products and link each to the vendor's own page, with the date
+  checked. A comparison names eight or more competing tools, never categories.
+- Hero image credits are not citations. Link at least one primary source.
+- Where the topic allows, include one sourced Lebanon, Gulf or MENA specific
+  that a global vendor would not publish. Never invent one to fill the slot.
+- Every changeable number needs a source beside it, or explain the structure
+  and tell the reader to pull the current figure instead.
+- Answer the title's question in the first screen, quotable on its own.
 - Distinguish documented features, hands-on tests and editorial judgment.
 - Explain the connection to plumcut where it fits, linking to a relevant page.
 - Use clean internal URLs: /solutions, /how-it-works, /pricing, /blog/<slug>.

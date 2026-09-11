@@ -1,0 +1,441 @@
+{
+  "source": "https://plumcut.com/blog/",
+  "count": 87,
+  "faqs": [
+    {
+      "question": "How many messages a day do you need before automating is worth it?",
+      "answer": "There is no universal number, because the cost is in the questions rather than the messages. A store answering forty messages a day that are all variations of three questions has more to gain than one answering a hundred messages that are all different. Count your repeated questions before you count your messages.",
+      "source": "https://plumcut.com/blog/when-ready-for-ai-customer-service"
+    },
+    {
+      "question": "Does it cost more to reply to customers on WhatsApp once you automate?",
+      "answer": "Not for replies. Meta made service conversations free on 1 November 2024, and non-template messages sent inside an open customer service window are not charged. Since 1 July 2025 the platform charges per delivered template message, which covers messages you start, not answers you send back inside the window.",
+      "source": "https://plumcut.com/blog/when-ready-for-ai-customer-service"
+    },
+    {
+      "question": "Is my business too small for AI customer service?",
+      "answer": "If you are pre-launch, selling to friends, or taking orders by phone, then yes, and the honest advice is to wait. Automation removes repetition. Before you have repetition, it removes nothing and adds a system to maintain.",
+      "source": "https://plumcut.com/blog/when-ready-for-ai-customer-service"
+    },
+    {
+      "question": "What should I do instead if I am not ready yet?",
+      "answer": "Write down every question a customer asks you for two weeks. That list is the only real input an automation needs, it costs nothing to build, and it stays useful whether you automate in three months or never.",
+      "source": "https://plumcut.com/blog/when-ready-for-ai-customer-service"
+    },
+    {
+      "question": "Is WhatsApp cheaper than SMS for delivery notifications?",
+      "answer": "Usually, but not because the unit price is lower. Both charge you for the message you send first. The difference is everything after it. SMS bills every message including the ones you send to answer a question, while on WhatsApp a customer's reply opens a 24 hour customer service window, and since 1 July 2025 Meta does not charge for service messages inside that window or for utility templates sent in response to a user. If your dispatch notification produces conversations, WhatsApp bills one message per order and SMS bills the whole exchange. If it produces nothing but silence, the two are close and you should compare the current rate cards for your market.",
+      "source": "https://plumcut.com/blog/sms-vs-whatsapp-delivery-notifications"
+    },
+    {
+      "question": "Can a customer reply to an SMS delivery notification?",
+      "answer": "Not when it comes from an alphanumeric sender name, which is how most branded notification SMS is sent in this region. Alphanumeric sender IDs are one way by design and recipients cannot reply to them. Providers note that because customers cannot even send STOP, you have to give them another way to opt out. If you want replies you need a real number, which is a separate registration with its own rules per country.",
+      "source": "https://plumcut.com/blog/sms-vs-whatsapp-delivery-notifications"
+    },
+    {
+      "question": "What does it take to start sending notification SMS in the UAE or Saudi Arabia?",
+      "answer": "A registered sender ID, and it is paperwork rather than code. UAE operators require registration documents that depend on where your company is based and where the traffic originates, and the UAE regulator applied new fees for international alphanumeric sender IDs from 1 January 2025, which providers pass on. Twilio, for example, lists a one time setup fee of 225 dollars per international sender ID and 115 dollars per month to keep it. Saudi Arabia has its own registration, and Mobily stopped supporting promotional sender ID registration in April 2024.",
+      "source": "https://plumcut.com/blog/sms-vs-whatsapp-delivery-notifications"
+    },
+    {
+      "question": "Do I need customer opt in for WhatsApp delivery updates?",
+      "answer": "Yes. Meta's business messaging policy requires an opt in before you message someone, it has to name your business, and it can be collected outside WhatsApp as long as you follow local law. You also cannot open the conversation with free text: a business initiated message has to use a template approved in advance, categorised by what it does, with delivery updates falling under utility.",
+      "source": "https://plumcut.com/blog/sms-vs-whatsapp-delivery-notifications"
+    },
+    {
+      "question": "When is SMS still the right channel for an order update?",
+      "answer": "When the message has to arrive whether or not the person uses WhatsApp, when it needs no reply, and when a data connection cannot be assumed. One time passwords, a hard cutoff notice, and the fallback for a customer whose WhatsApp template did not get delivered are all good SMS. Most stores end up running both rather than choosing, with WhatsApp as the default and SMS behind it.",
+      "source": "https://plumcut.com/blog/sms-vs-whatsapp-delivery-notifications"
+    },
+    {
+      "question": "Does a delivered notification mean the parcel arrived?",
+      "answer": "No, on either channel. A delivery receipt describes your message, not your shipment. Track parcel state from your courier's data and message state from your messaging provider, and never let one stand in for the other in a customer facing reply.",
+      "source": "https://plumcut.com/blog/sms-vs-whatsapp-delivery-notifications"
+    },
+    {
+      "question": "What is manual order entry in delivery software?",
+      "answer": "It is a person reading an order from somewhere else, usually a WhatsApp thread, a phone call or an email, and typing it into the delivery or fleet platform as a new job. The order already exists as a decision between you and the customer. Manual entry is the step that turns it into a row the system can dispatch, and it is pure re-keying, because no new information is created by the typing.",
+      "source": "https://plumcut.com/blog/manual-order-entry-vs-automated-capture"
+    },
+    {
+      "question": "Is automated order capture more accurate than a person typing?",
+      "answer": "Not automatically, and the honest answer is that it moves the errors rather than removing them. A person mis-hears a street name; an automated capture accepts an address the customer wrote badly. The real gain is that validation runs on every order instead of on the ones an agent happens to double check, and the rules are written once rather than living in one experienced person's head. An automated capture with no validation layer is worse than a careful agent.",
+      "source": "https://plumcut.com/blog/manual-order-entry-vs-automated-capture"
+    },
+    {
+      "question": "Do I need to replace my delivery software to automate order entry?",
+      "answer": "No, in most cases. Established delivery and fleet platforms expose a REST API for creating jobs and webhooks for status changes, which is the same route their own integrations use. If your platform has that, the conversational layer sits in front of it and writes into the system you already run. If it has no API at all, that is a real blocker and worth asking your vendor about before changing anything else.",
+      "source": "https://plumcut.com/blog/manual-order-entry-vs-automated-capture"
+    },
+    {
+      "question": "When is manual order entry still the right choice?",
+      "answer": "When volume is low enough that the typing costs less than the integration, when nearly every order is negotiated rather than repeated, or when your platform genuinely has no API. A few orders a day handled by someone who knows the customers does not need automating. The case changes when the same order shape is being retyped dozens of times a day and mistakes start costing you failed deliveries.",
+      "source": "https://plumcut.com/blog/manual-order-entry-vs-automated-capture"
+    },
+    {
+      "question": "What happens to orders the automation cannot handle?",
+      "answer": "They should go to a person, with the conversation attached, and that path is not a failure of the design. A good capture flow decides between a complete order it can create, an incomplete one it should ask about, and an unusual one it should hand over. The number worth watching is how often handover happens and why, because that list tells you what to fix next.",
+      "source": "https://plumcut.com/blog/manual-order-entry-vs-automated-capture"
+    },
+    {
+      "question": "What does it take to create an order in fleet software from a WhatsApp message?",
+      "answer": "Four things. A WhatsApp Business API number so a system can receive and send messages, a layer that reads the conversation and extracts the order fields, a validation step that refuses to create an order it cannot dispatch, and an authenticated call to your platform's create job endpoint carrying your own reference so the order cannot be duplicated. The platform's status webhooks then close the loop by pushing updates back into the same thread.",
+      "source": "https://plumcut.com/blog/connect-whatsapp-orders-fleet-software"
+    },
+    {
+      "question": "Can this work if my logistics platform is custom built rather than off the shelf?",
+      "answer": "Yes, and it is often easier. A custom platform means the team that owns the database can add a create order endpoint and a status webhook shaped exactly the way the conversation layer needs them, instead of you working around a vendor's field names. What matters is that something authenticated exists to write an order and something exists to tell you when its status changes.",
+      "source": "https://plumcut.com/blog/connect-whatsapp-orders-fleet-software"
+    },
+    {
+      "question": "Should a logistics software company build conversational ordering itself or partner?",
+      "answer": "It depends on whether conversation is your product. Message handling is not a feature you ship once. It is a live surface with template approvals, a 24 hour reply window, per market pricing, and language behaviour that has to survive real customers writing badly. If your roadmap is routing, dispatch and proof of delivery, the honest comparison is between a partner who maintains that surface and the engineering months you would spend maintaining it yourself.",
+      "source": "https://plumcut.com/blog/connect-whatsapp-orders-fleet-software"
+    },
+    {
+      "question": "What stops a duplicate order being created when a customer repeats themselves?",
+      "answer": "An idempotency reference generated from the conversation and sent with the create call, so a second attempt with the same reference updates rather than creates. Delivery platforms generally let you attach your own external identifier to a job for exactly this purpose. Without it, a customer who says \"yes, confirm\" twice produces two dispatches, and that is the most common way an integration like this loses money.",
+      "source": "https://plumcut.com/blog/connect-whatsapp-orders-fleet-software"
+    },
+    {
+      "question": "Does the customer have to leave WhatsApp at any point?",
+      "answer": "No, that is the point of doing it this way. The order is captured in the thread, the order number is returned into the same thread, and status changes arrive there too. Sending the customer to a portal or a form reintroduces exactly the step that made people reply in the chat in the first place.",
+      "source": "https://plumcut.com/blog/connect-whatsapp-orders-fleet-software"
+    },
+    {
+      "question": "How are order notifications billed on WhatsApp?",
+      "answer": "A message you send first, outside an open customer service window, is a template message billed at the rate for that customer's market, while replies inside the 24 hour window the customer opened are not charged. Rates are market specific and Meta has revised its rate card, so check the current card rather than a figure quoted in an article. We covered the detail in our piece on what the WhatsApp Business API really costs.",
+      "source": "https://plumcut.com/blog/connect-whatsapp-orders-fleet-software"
+    },
+    {
+      "question": "What should a small online store automate first?",
+      "answer": "The repeated questions that have exactly one correct answer: opening hours, delivery zones and times, sizing guidance, returns policy and payment methods. They need no integration, no approved template and no per message fee, because a reply sent inside the 24 hour customer service window a customer opens is not charged. Writing those answers down properly is also the specification for every later stage.",
+      "source": "https://plumcut.com/blog/what-to-automate-first-ecommerce"
+    },
+    {
+      "question": "Do I need the WhatsApp Business API to start automating?",
+      "answer": "Not for the first stage. Fixed answers to inbound questions can start on the free WhatsApp Business app with its built in away messages and quick replies. You need the WhatsApp Business Platform once you want replies that read live data from your store, or once you want to message a customer first outside the 24 hour window, which requires an approved template.",
+      "source": "https://plumcut.com/blog/what-to-automate-first-ecommerce"
+    },
+    {
+      "question": "How do I know if a task is worth automating?",
+      "answer": "Score it on two axes: how often it happens, and whether a competent new hire with your policy document and read access to your store could get it right every time without asking anyone. High frequency plus one correct answer is worth automating now. Low frequency plus a judgment call is worth leaving with a person indefinitely.",
+      "source": "https://plumcut.com/blog/what-to-automate-first-ecommerce"
+    },
+    {
+      "question": "What should never be automated in a store?",
+      "answer": "Refunds and goodwill decisions, complaints where your business is at fault, price negotiation, and wholesale or partnership enquiries. These are commercial judgments about a specific relationship. Meta's Business Messaging Policy also requires that automated responses come with prompt, clear and direct escalation paths, so a route to a person is a policy requirement, not an optional extra.",
+      "source": "https://plumcut.com/blog/what-to-automate-first-ecommerce"
+    },
+    {
+      "question": "How long does each stage take to set up?",
+      "answer": "Stage one is limited by how fast you can write your policies down, usually days rather than weeks. Stage two depends on your store data being clean, particularly whether the phone number on an order matches the number the customer messages from. Stage three is gated by Meta's template review, which is a queue outside your control, so plan around it rather than against it.",
+      "source": "https://plumcut.com/blog/what-to-automate-first-ecommerce"
+    },
+    {
+      "question": "Should I automate marketing messages early?",
+      "answer": "No. Marketing templates require opt in, cost the marketing rate, and generate blocks faster than any other category when they are sent to people who did not expect them. Blocks lower your quality rating, and a lowered quality rating reduces the number of people you are permitted to message at all. Earn the reactive stages first.",
+      "source": "https://plumcut.com/blog/what-to-automate-first-ecommerce"
+    },
+    {
+      "question": "Does WhatsApp automation actually increase sales?",
+      "answer": "It can, through three mechanisms: answering buying questions while the customer is still deciding, covering the hours your team does not work, and following up on unfinished orders systematically. The size depends on your conversation volume, your current conversion rate, your average order value and your margin, not on the software. If you already reply within minutes at every hour, two of the three mechanisms are already spent.",
+      "source": "https://plumcut.com/blog/does-conversation-automation-increase-sales"
+    },
+    {
+      "question": "How do I calculate whether automation would pay for itself?",
+      "answer": "Work out how many additional orders a month would cover the cost at your gross margin, then express that as the change in conversion rate it implies across your current volume of buying conversations. If the required change is a couple of percentage points and you know you lose more than that to slow replies, the case is strong. If it requires conversion to double, it is not.",
+      "source": "https://plumcut.com/blog/does-conversation-automation-increase-sales"
+    },
+    {
+      "question": "Why should I distrust vendor ROI figures?",
+      "answer": "Because an uplift figure needs a baseline, a period, a population and a control to mean anything, and vendor case studies rarely publish any of them. A store that grew after installing a tool usually also entered a season, ran ads and changed something else. plumcut sells in this category and publishes about it, which is why this article gives you a model instead of a number.",
+      "source": "https://plumcut.com/blog/does-conversation-automation-increase-sales"
+    },
+    {
+      "question": "Which parts of conversation automation cost money?",
+      "answer": "Only the messages you send first. Under per message pricing, in force since 1 July 2025, service messages and utility messages sent in response to a user are not charged, so faster replies inside the 24 hour customer service window cost nothing per message. Cart reminders and other outbound follow up are marketing templates, which need opt in and are billed at the marketing rate for that market.",
+      "source": "https://plumcut.com/blog/does-conversation-automation-increase-sales"
+    },
+    {
+      "question": "How do I measure recovered orders honestly?",
+      "answer": "With a holdout. Randomly withhold follow up from a share of eligible customers and compare the two groups. Without one you are counting people who would have returned anyway, which is the most common reason recovery figures are overstated. Compare against the holdout rather than against last month, because seasonality and advertising will swamp the effect you are looking for.",
+      "source": "https://plumcut.com/blog/does-conversation-automation-increase-sales"
+    },
+    {
+      "question": "When is conversation automation not worth buying?",
+      "answer": "When your buying conversation volume is low enough that a person can genuinely answer all of them, when each sale is a high value negotiated relationship where speed is not the constraint, or when your stock and price data is not reliable enough to quote. In the last case automation will confidently sell things you cannot ship, which is worse than doing nothing.",
+      "source": "https://plumcut.com/blog/does-conversation-automation-increase-sales"
+    },
+    {
+      "question": "Can I get courier tracking data automatically?",
+      "answer": "Usually yes, through the carrier's API. Aramex, for example, publishes a shipments tracking API in its developer solutions centre that accepts a list of waybill numbers and returns their tracking data, requiring a registered account with credentials. Access is typically pull based rather than pushed to you, so how fresh your data is depends on how often you poll, and carriers differ in what they expose.",
+      "source": "https://plumcut.com/blog/automate-logistics-delivery-updates"
+    },
+    {
+      "question": "Does a delivered status on WhatsApp mean the parcel arrived?",
+      "answer": "No. Meta's status webhook describes your message, not your shipment. Delivered means the message reached at least one of the customer's devices. A message can stay at sent because the customer has not come online, and Meta holds messages for offline customers for a 30 day window. Track parcel state and message state as two separate things.",
+      "source": "https://plumcut.com/blog/automate-logistics-delivery-updates"
+    },
+    {
+      "question": "Should I send an out for delivery message?",
+      "answer": "Only if your courier updates that status early enough on the delivery day to be useful. A notification that arrives after the parcel has already been delivered is a paid message that makes your business look disorganised. If the carrier's timing is unreliable, send the dispatch notification and skip this one.",
+      "source": "https://plumcut.com/blog/automate-logistics-delivery-updates"
+    },
+    {
+      "question": "How should automation handle a failed delivery attempt?",
+      "answer": "By escalating, not by messaging alone. Map the failure status to an internal alert with a named owner and a deadline measured in hours, because whether a reattempt is worth a second leg is a commercial decision, particularly on cash on delivery. Contact the customer with a concrete next option rather than an apology, and log the reason in a fixed vocabulary so the pattern behind repeated failures becomes visible.",
+      "source": "https://plumcut.com/blog/automate-logistics-delivery-updates"
+    },
+    {
+      "question": "Do delivery notifications cost money?",
+      "answer": "A notification you send first, when no customer service window is open, is a utility template and is billed at the rate for that customer's market. Replies inside the 24 hour window a customer opened are not charged, and neither are utility messages sent in response to a user. Meta revised its rate cards effective 1 July 2026 and rates are market specific, so check the current card rather than a quoted figure.",
+      "source": "https://plumcut.com/blog/automate-logistics-delivery-updates"
+    },
+    {
+      "question": "What changes when orders are cash on delivery?",
+      "answer": "The delivery attempt is also the payment attempt, so a failed attempt is a cancelled sale plus two legs of shipping rather than a rescheduling. Confirm the order and the delivery window before dispatch instead of after, state the amount and the currency the customer will be asked for, and give them a way to change the day before the driver leaves.",
+      "source": "https://plumcut.com/blog/automate-logistics-delivery-updates"
+    },
+    {
+      "question": "What internal work should a small store automate first?",
+      "answer": "The order handover: the moment an agreed order becomes a record in your store, a shipment with a courier, a task for whoever packs, and a line in your weekly view. It is the highest frequency retype in a commerce business and the one where a dropped digit costs a real delivery. Keep the decision to accept, prioritise or hold an order with a person.",
+      "source": "https://plumcut.com/blog/automate-internal-operations-commerce"
+    },
+    {
+      "question": "Can I automate internal operations without buying new software?",
+      "answer": "Often yes. Shopify Flow can trigger on store events, filter on conditions about the order or customer, and then add order tags, hold a fulfillment order, send an email, send a Slack message or send an HTTP request to an external service. WooCommerce emits webhooks on topics such as order.created and order.updated with a signed payload. Most small team handovers fit inside those primitives.",
+      "source": "https://plumcut.com/blog/automate-internal-operations-commerce"
+    },
+    {
+      "question": "How do I know a task is worth automating internally?",
+      "answer": "Ask whether a person is moving information that already exists without changing it, or weighing information and choosing. The first is a retype and should always be automated. The second is a decision and should stay with a person, with the information reaching them faster instead. Below roughly weekly frequency, doing it by hand is usually still the right answer.",
+      "source": "https://plumcut.com/blog/automate-internal-operations-commerce"
+    },
+    {
+      "question": "Should staff questions and customer questions use the same system?",
+      "answer": "The same written answers, in separate spaces, with an explicit boundary. Internal answers include margins, supplier names and policy limits that must never be reachable from a customer facing channel. Build the customer facing set first, because it pays back sooner, then extend it internally.",
+      "source": "https://plumcut.com/blog/automate-internal-operations-commerce"
+    },
+    {
+      "question": "What should we still approve manually?",
+      "answer": "A short list where a mistake costs real money: discounts past a threshold, refunds over an amount, orders to delivery areas that have lost you money, and first orders from new wholesale accounts. Automate the holding, the notification and the record of what was decided. Never automate the yes itself.",
+      "source": "https://plumcut.com/blog/automate-internal-operations-commerce"
+    },
+    {
+      "question": "Why does internal automation fail in small teams?",
+      "answer": "Usually because the process was never agreed. If two people perform the same handover differently, automating it encodes the disagreement instead of resolving it. The other common cause is silent failure: a webhook stops firing and nobody notices for a week, which is worse than a manual step somebody owns.",
+      "source": "https://plumcut.com/blog/automate-internal-operations-commerce"
+    },
+    {
+      "question": "Does Meta allow automated replies on WhatsApp?",
+      "answer": "Yes. The WhatsApp Business Messaging Policy permits businesses to use automation when responding during the 24 hour customer service window, but requires that prompt, clear and direct escalation paths are also available. Businesses must also honour requests to opt out or discontinue messages. Automation with no route to a person is a policy problem as well as a service problem.",
+      "source": "https://plumcut.com/blog/automate-customer-service-without-losing-customers"
+    },
+    {
+      "question": "What should never be handled by automated customer service?",
+      "answer": "Refunds, exchanges and goodwill decisions, complaints where your business is at fault, price negotiation, wholesale and partnership enquiries, and anything legal, medical or safety related. The test is not difficulty but whether the correct response depends on who this specific customer is and what you are willing to do for them.",
+      "source": "https://plumcut.com/blog/automate-customer-service-without-losing-customers"
+    },
+    {
+      "question": "Does automating support cost money per message?",
+      "answer": "Not for replies to customers. Under per message pricing, in force for all businesses since 1 July 2025, Meta does not charge for service messages, which are the replies you send inside the 24 hour customer service window that a customer's message opens. What costs money is messaging a customer first outside that window, which requires an approved template.",
+      "source": "https://plumcut.com/blog/automate-customer-service-without-losing-customers"
+    },
+    {
+      "question": "How do I stop an AI giving customers wrong information?",
+      "answer": "Ground it and let it refuse. Only automate answers that are deterministic, either from a written policy or from live store data, and write explicit refusal sentences for everything else. A fluent, confident, wrong answer about stock or price costs more than no answer, because it produces an order you cannot fill and a customer who stops trusting anything you say.",
+      "source": "https://plumcut.com/blog/automate-customer-service-without-losing-customers"
+    },
+    {
+      "question": "What happens if customers block or report my business?",
+      "answer": "Blocks and reports feed your number's quality rating, and Meta reduces a number's messaging limit by one level immediately if its quality rating has been Flagged for seven days. The messaging limit caps how many unique people you can message outside a customer service window in a moving 24 hour period. Excessive negative feedback can lead to a business being limited or offboarded, so poor automated service directly reduces how many customers you may reach.",
+      "source": "https://plumcut.com/blog/automate-customer-service-without-losing-customers"
+    },
+    {
+      "question": "Will customers notice they are talking to automation?",
+      "answer": "Usually yes, and that is fine. What damages the relationship is not being automated, it is being trapped, being told something untrue, or having to repeat yourself to the human who takes over. A system that answers instantly, says clearly what it cannot do, and hands over with the full context intact reads as competence rather than as a wall.",
+      "source": "https://plumcut.com/blog/automate-customer-service-without-losing-customers"
+    },
+    {
+      "question": "Does answering \"where is my order\" on WhatsApp cost anything?",
+      "answer": "No, not when you are replying. A customer message opens a 24 hour customer service window, and Meta does not charge for service messages sent inside it. What costs money is messaging first, for example a dispatch notification sent when no window is open, which is billed as a utility template at the rate for that customer's country.",
+      "source": "https://plumcut.com/blog/where-is-my-order-whatsapp"
+    },
+    {
+      "question": "Can I send tracking updates before the customer asks?",
+      "answer": "Yes, with an approved utility template and the customer's opt in. Sent outside an open customer service window it is charged at the utility rate. Sent inside one it has been free since 1 July 2025. Most brands find that one dispatch notification per order pays for itself by removing the question entirely.",
+      "source": "https://plumcut.com/blog/where-is-my-order-whatsapp"
+    },
+    {
+      "question": "What happens when one order ships in two boxes?",
+      "answer": "A Shopify fulfilment carries a single tracking number, so a split shipment is two fulfilments and two events, while your customer is still thinking about one order. Decide the wording in advance. Say which items have shipped and which are still coming, because a plain \"your order is on its way\" gets discovered at the door.",
+      "source": "https://plumcut.com/blog/where-is-my-order-whatsapp"
+    },
+    {
+      "question": "Do I need the WhatsApp Business API to automate order status?",
+      "answer": "For reactive answers to customers who message you, not necessarily. For proactive updates you send first, yes. The free WhatsApp Business app cannot send a template to a customer outside the 24 hour window and cannot read your store data, so anything that fires automatically on a fulfilment event needs the WhatsApp Business Platform.",
+      "source": "https://plumcut.com/blog/where-is-my-order-whatsapp"
+    },
+    {
+      "question": "How quickly does an order status reply need to arrive?",
+      "answer": "Fast enough to land while the customer is still in the app, which in practice means seconds rather than minutes. Speed is also what keeps the reply free, since it happens inside the customer service window the customer just opened. A reply that arrives the next morning costs you the same as no reply.",
+      "source": "https://plumcut.com/blog/where-is-my-order-whatsapp"
+    },
+    {
+      "question": "Is the WhatsApp Business API free?",
+      "answer": "Separate Meta messaging charges from the rest of the setup. Some messages have no Meta charge under the free messaging rules, but a provider, software platform or implementation partner may still charge for its service. Free messaging is not the same as free operation.",
+      "source": "https://plumcut.com/blog/whatsapp-business-api-cost"
+    },
+    {
+      "question": "What is the 24 hour customer service window?",
+      "answer": "A customer message opens or resets a 24 hour service window. Service replies inside it have no Meta messaging charge. Utility templates sent during an open window are also free under Meta's current rules. Other categories and provider charges need to be assessed separately.",
+      "source": "https://plumcut.com/blog/whatsapp-business-api-cost"
+    },
+    {
+      "question": "Are volume discounts a free tier?",
+      "answer": "No. Utility and authentication volume tiers can reduce eligible message rates. A discounted message can still have a charge. Calculate the applicable tiers and market rates instead of counting discounted traffic as free.",
+      "source": "https://plumcut.com/blog/whatsapp-business-api-cost"
+    },
+    {
+      "question": "Does Lebanon have its own WhatsApp message rate?",
+      "answer": "No. Meta's rate card prices Lebanon under the \"Rest of Middle East\" grouping, together with Jordan, Kuwait, Bahrain, Oman, Iraq and Yemen. Saudi Arabia, the United Arab Emirates, Egypt and Qatar are each priced as standalone markets. Because Meta charges by the recipient's country calling code rather than your business location, a Lebanese brand selling into Saudi Arabia is billed at the Saudi rate.",
+      "source": "https://plumcut.com/blog/whatsapp-business-api-cost"
+    },
+    {
+      "question": "What should I ask a vendor to include in a quote?",
+      "answer": "Ask for Meta charges, provider fees, software or AI allowances, one-time setup, maintenance, support, and overage terms. Give vendors the same workload and required integrations so you can compare equivalent scopes.",
+      "source": "https://plumcut.com/blog/whatsapp-business-api-cost"
+    },
+    {
+      "question": "Does WhatsApp automation work with Shopify?",
+      "answer": "Yes. Shopify exposes products, inventory, orders and fulfilment through its API, so an automation layer can check real stock, show a real product and return a real order status. The quality of the setup depends far more on how clean your catalogue is than on the integration itself.",
+      "source": "https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf"
+    },
+    {
+      "question": "Will it understand Arabic and Arabizi?",
+      "answer": "A modern language model handles Arabic, English and the Latin-script Arabizi that Gulf and Lebanese shoppers actually type, including the number substitutions like 3 for ain and 7 for haa. Keyword and menu based bots do not, because the same word gets spelled six different ways.",
+      "source": "https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf"
+    },
+    {
+      "question": "Can it take payment inside the chat?",
+      "answer": "It depends on your market and payment provider. In much of the region cash on delivery is still dominant, so a good setup confirms the order in chat and hands off to your existing fulfilment rather than forcing a card payment the customer did not want.",
+      "source": "https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf"
+    },
+    {
+      "question": "What about customers who want a human?",
+      "answer": "They get one. Every setup needs a clean handover to a person, and the customer should be able to trigger it at any time. An automation that traps someone is worse than no automation, because it costs you the sale and the trust at the same time.",
+      "source": "https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf"
+    },
+    {
+      "question": "How long does setup take for a Shopify store?",
+      "answer": "Two to four weeks in practice. The connection is quick. What takes the time is auditing the catalogue, writing down the policies your team knows but has never documented, getting templates approved, and testing what happens when the AI does not know something.",
+      "source": "https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf"
+    },
+    {
+      "question": "Is an abandoned cart message marketing or utility on WhatsApp?",
+      "answer": "Marketing. Meta's template categorization documentation lists cart abandonment reminders under Marketing examples, alongside promotions and retargeting. Utility is for following up on a user action, such as an order or delivery update. Filing a cart reminder as utility is a misclassification, not a cost saving, and category is reviewed rather than taken on trust.",
+      "source": "https://plumcut.com/blog/whatsapp-abandoned-cart-rules"
+    },
+    {
+      "question": "Do I need opt in to send a cart reminder?",
+      "answer": "Yes. Meta requires opt in before you message anyone on WhatsApp. It does not have to be WhatsApp specific, a general marketing consent is acceptable where local law allows, but it must clearly name your business so the person knows who they agreed to hear from. Having their number from a past order is not opt in.",
+      "source": "https://plumcut.com/blog/whatsapp-abandoned-cart-rules"
+    },
+    {
+      "question": "Can I use the same opt in for order updates and marketing?",
+      "answer": "No, and this is the most common mistake. They are separate permissions. Someone consenting to delivery updates has not consented to promotional messages, and treating one as the other is what generates blocks and reports. Use two checkboxes at checkout.",
+      "source": "https://plumcut.com/blog/whatsapp-abandoned-cart-rules"
+    },
+    {
+      "question": "How many reminders can I send?",
+      "answer": "Meta does not publish a number, but the practical answer is one. Repeatedly messaging someone who has not replied is what gets you blocked, and blocks lower your quality rating, which in turn limits how many messages you are allowed to send at all. The cost of over sending is not the message fee, it is your capacity.",
+      "source": "https://plumcut.com/blog/whatsapp-abandoned-cart-rules"
+    },
+    {
+      "question": "Is there a cheaper way to recover carts on WhatsApp?",
+      "answer": "Yes, and it is not misclassifying templates. Replies inside the 24 hour customer service window are free, and a customer arriving from a click to WhatsApp ad opens a 72 hour free window. Conversations you are invited into cost nothing; conversations you start cost the marketing rate. Design for the first.",
+      "source": "https://plumcut.com/blog/whatsapp-abandoned-cart-rules"
+    },
+    {
+      "question": "Does a discount have to be in the message?",
+      "answer": "No, and adding one does not change the category. A reminder is marketing either way, because the objective is commercial. Whether a discount improves recovery is a margin question for your business, not a compliance or pricing one.",
+      "source": "https://plumcut.com/blog/whatsapp-abandoned-cart-rules"
+    },
+    {
+      "question": "Is a shared inbox limited to rule based automation?",
+      "answer": "No. A shared inbox describes how a team manages conversations, not the intelligence of its automation. Some platforms also offer AI replies and actions. Check the features in the specific plan and test them with your own catalogue and customer questions before deciding.",
+      "source": "https://plumcut.com/blog/best-whatsapp-automation-tools"
+    },
+    {
+      "question": "Which WhatsApp tool is cheapest?",
+      "answer": "There is no universal cheapest option. Compare Meta charges, provider fees, software subscriptions, AI usage, setup work and ongoing staff time for the same workload. An API service can suit a developer team, while a platform or managed service can reduce the work your team must perform.",
+      "source": "https://plumcut.com/blog/best-whatsapp-automation-tools"
+    },
+    {
+      "question": "Can I use the WhatsApp Business app?",
+      "answer": "It can be a useful starting point when a person can keep up with conversations using greetings, away messages and saved replies. Decide from missed messages, workload and integration needs, rather than a universal messages-per-day threshold.",
+      "source": "https://plumcut.com/blog/best-whatsapp-automation-tools"
+    },
+    {
+      "question": "Which WhatsApp automation tools are compared here?",
+      "answer": "Twilio and 360dialog as API and infrastructure options, Gupshup as an enterprise leaning stack, Wati, Interakt, respond.io and SleekFlow as self serve platforms, Zoko as a Shopify focused platform with outcome based AI pricing, and plumcut as a managed service. Each entry links to the vendor's own public pricing page, read on 11 September 2026.",
+      "source": "https://plumcut.com/blog/best-whatsapp-automation-tools"
+    },
+    {
+      "question": "Which WhatsApp platforms offer an Arabic interface?",
+      "answer": "Of the tools we checked on 11 September 2026, Wati and SleekFlow publish Arabic language versions of their own websites. That signals regional intent but does not demonstrate that the agent reads Gulf dialect or Arabizi correctly in a customer message. Test dialect and Arabizi handling yourself with real messages from your inbox before committing.",
+      "source": "https://plumcut.com/blog/best-whatsapp-automation-tools"
+    },
+    {
+      "question": "Does plumcut publish this comparison?",
+      "answer": "Yes. plumcut offers a managed WhatsApp service and has a commercial interest in this topic. This guide compares operating approaches using public documentation and editorial judgment. It is not a hands-on benchmark or a claim that plumcut outperforms every named vendor.",
+      "source": "https://plumcut.com/blog/best-whatsapp-automation-tools"
+    },
+    {
+      "question": "Can AI actually understand Gulf and Levantine dialects, or only Modern Standard Arabic?",
+      "answer": "Modern systems handle dialect far better than they did, but capability varies a lot by vendor and by dialect, and no vendor's marketing page will tell you where its limits are. The only reliable answer comes from testing with your own customers' messages, in dialect and Arabizi, with the typos left in. Twenty real messages will tell you more than any demo.",
+      "source": "https://plumcut.com/blog/ai-customer-service-arabic"
+    },
+    {
+      "question": "Do I need separate WhatsApp templates for Arabic and English?",
+      "answer": "Yes. Meta requires you to assign a language code when creating a template and does not translate template strings or variables for you, so each language is a separate template you submit and get approved. You can give templates in different languages the same name, which keeps them organised, but each one goes through review independently and can be approved or rejected on its own.",
+      "source": "https://plumcut.com/blog/ai-customer-service-arabic"
+    },
+    {
+      "question": "What is Arabizi and does it matter for customer service?",
+      "answer": "Arabizi is Arabic written in Latin characters, using numerals for sounds with no Latin equivalent, as in \"3andkon\" or \"kifak\". It is extremely common in messaging across the Levant and the Gulf, particularly among younger customers. It matters because systems that only parse Arabic script or English words treat it as noise, which means a real share of your inbound messages get misunderstood.",
+      "source": "https://plumcut.com/blog/ai-customer-service-arabic"
+    },
+    {
+      "question": "Should our automated messages use dialect or Modern Standard Arabic?",
+      "answer": "For templates you send first, plain Modern Standard Arabic is the safer default, because it is understood across every market and does not sound out of place in any of them. Dialect is warmer but localises you, so Levantine phrasing reads as foreign in the Gulf. In live conversation, matching how the customer writes is better than either default.",
+      "source": "https://plumcut.com/blog/ai-customer-service-arabic"
+    },
+    {
+      "question": "Does replying in Arabic cost more than replying in English?",
+      "answer": "No. Meta's rates depend on the template category and the recipient's country calling code, not on the language of the message. What does change your costs is where your customers are, since a campaign spanning Saudi Arabia, the UAE and Lebanon crosses several rate cards. Replies inside the 24 hour customer service window are a different matter and are not template sends.",
+      "source": "https://plumcut.com/blog/ai-customer-service-arabic"
+    },
+    {
+      "question": "Can I automate WhatsApp for free?",
+      "answer": "Partly. The free WhatsApp Business app offers greetings, away messages and saved replies for a person to use. More integrated automation can use the Cloud API. Meta charges for eligible delivered template messages, with specified free messaging conditions; your software or provider may charge separately.",
+      "source": "https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business"
+    },
+    {
+      "question": "Will automating WhatsApp get my number banned?",
+      "answer": "Official tools do not guarantee that an account will never be restricted. Your messaging must still follow Meta's policies, including consent and applicable content rules. Check the current WhatsApp Business Messaging Policy before launching outbound campaigns and monitor account quality after launch.",
+      "source": "https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business"
+    },
+    {
+      "question": "Does WhatsApp automation work in Arabic?",
+      "answer": "Yes. The Cloud API is language agnostic, and modern language models handle Arabic, English and the mixed Arabizi that MENA shoppers actually type. What breaks is usually the product catalogue and the policy text behind the bot, not the language itself. plum is built for Arabic and English side by side.",
+      "source": "https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business"
+    },
+    {
+      "question": "How long does it take to set up?",
+      "answer": "The free Business app takes an afternoon. A working Cloud API setup with a real catalogue, order lookups and a tested handover to a human is closer to two to four weeks, most of which is writing down what your team already knows. See how we run that in our build process.",
+      "source": "https://plumcut.com/blog/how-to-automate-whatsapp-for-your-business"
+    }
+  ]
+}

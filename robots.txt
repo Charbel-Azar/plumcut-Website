@@ -1,19 +1,48 @@
 User-agent: *
 Allow: /
 
+# Citation crawlers: these fetch a page to cite it in an AI answer.
+# Named explicitly so the permission is unambiguous, not inherited from *.
 User-agent: OAI-SearchBot
 Allow: /
 
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# On-demand fetchers: triggered by a user asking about us in a chat.
 User-agent: ChatGPT-User
 Allow: /
 
+User-agent: Claude-User
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Search and assistant indexes.
+User-agent: Bingbot
+Allow: /
+
+User-agent: xAI-Bot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+# Training crawlers.
 User-agent: GPTBot
 Allow: /
 
 User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
 Allow: /
 
 User-agent: Google-Extended

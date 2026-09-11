@@ -1,0 +1,23 @@
+{
+  "name": "plumcut",
+  "description": "plumcut builds and runs plum, a managed AI agent that sells, answers, books and tracks orders on WhatsApp for commerce brands in Lebanon, the Gulf and the wider MENA region, and turns those conversations into customer insight the merchant owns.",
+  "url": "https://plumcut.com",
+  "founded": "Lebanon",
+  "regions": [
+    "Lebanon",
+    "United Arab Emirates",
+    "Saudi Arabia",
+    "Egypt",
+    "MENA",
+    "GCC"
+  ],
+  "languages": [
+    "English",
+    "Arabic (Modern Standard)",
+    "Gulf Arabic",
+    "Levantine Arabic",
+    "Arabizi"
+  ],
+  "model": "Managed service, not a self-serve bot builder",
+  "pricing": "https://plumcut.com/pricing"
+}

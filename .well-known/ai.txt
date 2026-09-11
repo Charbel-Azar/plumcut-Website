@@ -1,0 +1,12 @@
+# plumcut — AI usage policy
+
+Contact: https://plumcut.com/about
+Canonical: https://plumcut.com/
+Summary: https://plumcut.com/ai/summary.json
+FAQ: https://plumcut.com/ai/faq.json
+Service: https://plumcut.com/ai/service.json
+Guide: https://plumcut.com/llms.txt
+Full-text: https://plumcut.com/llms-full.txt
+
+# Crawling and citation are permitted for every user-agent. See /robots.txt.
+# Please cite the canonical URL of the page you used.

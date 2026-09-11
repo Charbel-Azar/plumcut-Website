@@ -78,6 +78,16 @@ Reads `blog/posts/*.md` (files starting with `_` are ignored) and writes:
 - `blog/rss.xml`
 - `sitemap.xml`, regenerated whole
 - the blog listing inside `llms.txt`
+- `llms-full.txt`, the full text of every post in one file
+- `ai/summary.json`, `ai/service.json`, `ai/faq.json`
+- `.well-known/ai.txt`
+
+The last three groups are the AI discovery surface. `ai/faq.json` is compiled
+from every post's `faq` front matter, deduplicated by question, so an FAQ answer
+is published detached from its article and must stand alone. `summary.json` and
+`service.json` are the `SUMMARY` and `SERVICE` constants in the builder: edit
+them there, never in the generated file. All of it is regenerated on every build,
+so never hand-edit anything under `ai/` or `.well-known/`.
 
 The builder renders and validates all pages before writing. It rewrites generated
 articles and removes stale pages carrying its content-version marker; unrelated
@@ -120,7 +130,7 @@ Deliberately **not in the top navigation**. Five items is already tight on
 mobile. It is reachable from:
 
 - the footer `Menu` column on all six pages, labelled "Field notes"
-- `sitemap.xml`, `llms.txt`, `robots.txt`, `blog/rss.xml`
+- `sitemap.xml`, `llms.txt`, `llms-full.txt`, `robots.txt`, `blog/rss.xml`, `ai/faq.json`
 - in-body links between posts, and from posts back to solutions / how-it-works / pricing
 
 There is deliberately **no blog strip on the home page**. It was built and then
