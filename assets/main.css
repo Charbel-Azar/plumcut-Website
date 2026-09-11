@@ -203,7 +203,7 @@
 
 @font-face {
   font-family: next-sass;
-  src: url("../fonts/next-sass8d53.woff?obdk3g") format("woff"), url("../fonts/next-sass8d53.ttf?obdk3g") format("truetype");
+  src: url("../fonts/next-sass8d53.woff2?obdk3g") format("woff2"), url("../fonts/next-sass8d53.woff?obdk3g") format("woff"), url("../fonts/next-sass8d53.ttf?obdk3g") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

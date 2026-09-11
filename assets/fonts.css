@@ -1,0 +1,49 @@
+/* Self-hosted Alan Sans. Replaces three render-blocking Google Fonts
+   stylesheets, which cost 1,350 ms on mobile and caused a late font swap
+   that reflowed the whole page (CLS 0.848).
+
+   Alan Sans ships as a single variable file per subset, so weights 300 to 500
+   all come from one download. Subset to latin and latin-ext: the site is
+   English only, so the Arabic, Cyrillic, Greek and Vietnamese subsets Google
+   served are never needed.
+
+   Inter Tight used to be loaded here too. Every page carries
+   `body * { font-family: 'Alan Sans', ... !important }`, so Inter Tight never
+   rendered and its font file was never downloaded. It is gone. */
+
+@font-face {
+  font-family: "Alan Sans";
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url("../fonts/alan-sans-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Alan Sans";
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url("../fonts/alan-sans-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Metric-matched fallback, sits between Alan Sans and the generic sans-serif.
+
+   Alan Sans reserves a much taller line box than any system sans: ascent 99%
+   and descent 31% of the em, against roughly 90% and 21% for Arial or Roboto.
+   That 17% difference in line height, applied to every line on the page, is
+   what moved the body when the real font finally arrived. Overriding the
+   fallback's metrics makes the swap occupy identical space.
+
+   Values read from fonts/alan-sans-latin.woff2 itself: hhea ascent 990,
+   descent -310, lineGap 0, unitsPerEm 1000. Advance widths already measure
+   within 0.4% of the system sans at weight 300, so no size-adjust is needed. */
+@font-face {
+  font-family: "Alan Sans Fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("Helvetica"), local("Roboto"), local("Liberation Sans"), local("DejaVu Sans");
+  ascent-override: 99%;
+  descent-override: 31%;
+  line-gap-override: 0%;
+}

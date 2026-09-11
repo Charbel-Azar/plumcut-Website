@@ -95,7 +95,7 @@ Head links
   "@id": "https://plumcut.com/#organization",
   "name": "plumcut",
   "url": "https://plumcut.com/",
-  "logo": "https://plumcut.com/images/shared/new%20icon.png",
+  "logo": "https://plumcut.com/images/shared/icon-96.png",
   "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
   "founder": [
     {
@@ -169,32 +169,16 @@ Head links
 />
 <meta name="msapplication-starturl" content="/" />
 <!-- Favicon and Icons -->
-<link rel="icon" type="image/png" href="images/shared/new%20icon.png" sizes="96x96" />
-<link rel="icon" type="image/png" href="images/shared/new%20icon.png" />
-<link rel="shortcut icon" href="images/shared/new%20icon.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="images/shared/new%20icon.png" />
+<link rel="icon" type="image/png" href="images/shared/icon-96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="images/shared/icon-96.png" />
+<link rel="shortcut icon" href="images/shared/icon-96.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/shared/icon-192.png" />
 <link rel="manifest" href="site.webmanifest" />
-<link rel="preconnect" href="https://fonts.googleapis.com/" />
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
-<link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+<link rel="preload" href="fonts/alan-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts.css" />
+<link rel="preload" href="images/index/plumcut-wordmark.png" as="image" fetchpriority="high" />
 <link rel="preload" href="assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" href="images/loader.mp4" as="video" type="video/mp4" />
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap" as="style" />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&amp;display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@500&display=swap"
-  rel="stylesheet"
-/>
-
-    <title>WhatsApp AI Agent That Sells & Understands Every Customer | plumcut</title>
+<title>WhatsApp AI Agent That Sells & Understands Every Customer | plumcut</title>
     
     <noscript><link rel="stylesheet" href="assets/main.css"></noscript>
     <style id="critical-loader-style">
@@ -211,7 +195,7 @@ Head links
       }
 
       body * {
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
       }
 
       .section-title-label {
@@ -249,7 +233,7 @@ Head links
         line-height: var(--tw-leading, var(--text-heading-6--line-height));
         color: #4B1D6A;
         text-transform: uppercase;
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
         font-weight: 500 !important;
       }
 
@@ -785,7 +769,7 @@ Head links
       }
 
       .hero-mantra {
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
         font-weight: 700;
         letter-spacing: 0;
       }
@@ -1405,13 +1389,20 @@ Head links
 
     <!-- Meta Pixel Code -->
     <script>
+    // fbevents.js is 111 KB and was fetched during the initial page load, where
+    // it was one of the largest contributors to blocking time. The fbq stub and
+    // its queue are still created here immediately, so init and PageView below
+    // are recorded at the right moment; only the network fetch is deferred.
+    // main.js calls window.__pcLoadPixel on the first user interaction, or once
+    // the page has settled, and the queue flushes then. Nothing is lost.
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
+    n.queue=[];f.__pcLoadPixel=function(){if(f.__pcPixelLoaded)return;
+    f.__pcPixelLoaded=!0;t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    s.parentNode.insertBefore(t,s)}}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1913777752672489');
     fbq('track', 'PageView');
@@ -1424,7 +1415,7 @@ Head links
   <body class="bg-white home-bw-buttons is-loading">
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
-        <source src="images/loader.mp4" type="video/mp4">
+        <source src="images/loader-840.mp4" type="video/mp4">
       </video>
     </div>
 
@@ -1440,7 +1431,7 @@ Header
     <nav class="pc-nav" aria-label="Primary">
       <a class="pc-nav-link is-active" href="/" aria-label="Home">
         <span class="pc-nav-home-text">Home</span>
-        <img class="pc-nav-home-icon" src="images/shared/21-%20icon%20white.png" alt="plumcut home">
+        <img width="96" height="96" class="pc-nav-home-icon" src="images/shared/21-%20icon%20white.png" alt="plumcut home">
       </a>
       <a class="pc-nav-link" href="/how-it-works">How it works</a>
       <a class="pc-nav-link" href="/solutions">Solutions</a>
@@ -1459,7 +1450,7 @@ Header
     <nav class="pc-nav" aria-label="Primary">
       <a class="pc-nav-link is-active" href="/" aria-label="Home">
         <span class="pc-nav-home-text">Home</span>
-        <img class="pc-nav-home-icon" src="images/shared/new%20icon.png" alt="plumcut home">
+        <img width="96" height="96" class="pc-nav-home-icon" src="images/shared/icon-96.png" alt="plumcut home">
       </a>
       <a class="pc-nav-link" href="/how-it-works">How it works</a>
       <a class="pc-nav-link" href="/solutions">Solutions</a>
@@ -1490,12 +1481,12 @@ Header
     <div class="main-container hero-content relative z-20 pt-10 pb-14 sm:pt-12 lg:pt-14 lg:pb-20">
       <div class="hero-top-row-wrapper w-full">
         <div class="hero-top-row flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between max-w-[1800px] mx-auto px-[clamp(1rem,2vw,2rem)]">
-          <img
+          <img width="1041" height="318"
             src="images/index/plumcut-wordmark.png"
             alt="plumcut"
             class="hero-wordmark"
-            loading="lazy"
-          decoding="async">
+            fetchpriority="high"
+            decoding="async">
       
       </div>
       <div class="mt-10 grid grid-cols-1 gap-7 lg:mt-16 lg:grid-cols-12  px-[clamp(1rem,2vw,2rem)]">
@@ -1520,8 +1511,8 @@ Header
               class="hero-cta-button hero-cta-button--hero inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
             >
               <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
-                <img
-                  src="images/shared/new%20icon.png"
+                <img width="96" height="96"
+                  src="images/shared/icon-96.png"
                   alt=""
                   aria-hidden="true"
                   class="size-10"
@@ -1593,7 +1584,7 @@ The Problem section
     <div class="grid grid-cols-12 gap-6 lg:gap-8">
       <div data-ns-animate data-delay="0.2" data-direction="left" class="col-span-12 md:col-span-6">
         <div class="problem-card relative rounded-3xl overflow-hidden">
-          <img
+          <img width="1086" height="1448"
             src="images/index/problem-sales-slipping.webp"
             alt="A customer's phone lighting up with unanswered shop messages at midnight"
             class="absolute inset-0 w-full h-full object-cover select-none"
@@ -1610,7 +1601,7 @@ The Problem section
       </div>
       <div data-ns-animate data-delay="0.3" data-direction="right" class="col-span-12 md:col-span-6">
         <div class="problem-card relative rounded-3xl overflow-hidden">
-          <img
+          <img width="1122" height="1402"
             src="images/index/problem-customers-unseen.webp"
             alt="A busy city street full of people, the demand you can't see"
             class="absolute inset-0 w-full h-full object-cover select-none"
@@ -1647,7 +1638,7 @@ How plum sells section
     <div class="grid grid-cols-12 gap-x-0 gap-y-10 lg:gap-x-14 items-center">
       <!-- chat card image (left) -->
       <div data-ns-animate data-delay="0.2" data-direction="left" class="col-span-12 lg:col-span-6">
-        <img
+        <img width="1080" height="1350"
           src="images/index/how-plum-sells-chat.webp"
           alt="Sample plum chat: a customer asks if the beige linen set is available; plum confirms, adds the matching pillow covers, and closes the order"
           class="mx-auto w-full max-w-[520px] h-auto select-none"
@@ -1709,7 +1700,7 @@ The Insight Layer section
 
     <!-- dashboard laptop (sample) -->
     <figure data-ns-animate data-delay="0.3" class="max-w-[1080px] mx-auto">
-      <img
+      <img width="1600" height="900"
         src="images/index/insights-dashboard-laptop.webp"
         alt="plum's SaaS analytics dashboard shown on a laptop: sales closed in chat, top questions customers ask, and busiest buying hour"
         class="w-full h-auto rounded-3xl"
@@ -1762,7 +1753,7 @@ Services section
           <figure
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
-            <img
+            <img width="768" height="1376"
               src="images/index/services-answers.webp"
               alt="A customer relaxing at home with a coffee while plum answers her questions"
               class="w-full h-full object-cover"
@@ -1792,7 +1783,7 @@ Services section
           <figure
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
-            <img
+            <img width="1085" height="1450"
               src="images/index/services-order-tracking.webp"
               alt="A delivery being handed to a happy customer at her door"
               class="w-full h-full object-cover"
@@ -1822,7 +1813,7 @@ Services section
           <figure
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
-            <img
+            <img width="1023" height="1537"
               src="images/index/services-sells.webp"
               alt="A neatly styled linen bed set, the kind of product plum recommends and upsells"
               class="w-full h-full object-cover object-center"
@@ -1856,7 +1847,7 @@ Services section
           <figure
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
-            <img
+            <img width="900" height="1600"
               src="images/index/services-books.webp"
               alt="A hand writing appointments in a planner while plum fills the calendar"
               class="w-full h-full object-cover"
@@ -1887,7 +1878,7 @@ Services section
           <figure
             class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
           >
-            <img
+            <img width="900" height="1600"
               src="images/index/services-payments.webp"
               alt="A phone showing a confirmed in-chat payment beside a card reader"
               class="w-full h-full object-cover"
@@ -1917,7 +1908,7 @@ Services section
     <figure
       class="h-[360px] md:h-full max-w-[905px] w-full mx-auto col-span-12 rounded-lg md:rounded-[20px] overflow-hidden md:col-span-6"
     >
-      <img
+      <img width="900" height="1600"
         src="images/index/services-insights.webp"
         alt="A business owner reviewing plum's customer insights on a tablet at home"
         class="w-full h-full object-cover"
@@ -1993,7 +1984,7 @@ How It's Work section
         data-offset="80"
         class="col-span-12 md:col-span-4 how-it-works-card"
       >
-        <img src="images/index/how-it-works-card-1.webp" class="w-full h-auto rounded-3xl" alt="Step 01 — We learn your brand: your voice, your products, your policies, and the questions you get asked a hundred times a week. It's the only real time you'll spend." loading="lazy" decoding="async">
+        <img width="932" height="1080" src="images/index/how-it-works-card-1.webp" class="w-full h-auto rounded-3xl" alt="Step 01 — We learn your brand: your voice, your products, your policies, and the questions you get asked a hundred times a week. It's the only real time you'll spend." loading="lazy" decoding="async">
 
       </div>
 
@@ -2005,7 +1996,7 @@ How It's Work section
         data-duration="0.5"
         class="col-span-12 md:col-span-4 how-it-works-card"
       >
-        <img src="images/index/how-it-works-card-2.webp" class="w-full h-auto rounded-3xl" alt="Step 02 — We build &amp; launch: plum goes live on WhatsApp in about two weeks, answering, selling, and booking. You don't touch a tool, write a flow, or configure a thing." loading="lazy" decoding="async">
+        <img width="932" height="1080" src="images/index/how-it-works-card-2.webp" class="w-full h-auto rounded-3xl" alt="Step 02 — We build &amp; launch: plum goes live on WhatsApp in about two weeks, answering, selling, and booking. You don't touch a tool, write a flow, or configure a thing." loading="lazy" decoding="async">
 
       </div>
 
@@ -2017,7 +2008,7 @@ How It's Work section
         data-duration="0.7"
         class="col-span-12 md:col-span-4 how-it-works-card"
       >
-        <img src="images/index/how-it-works-card-3.webp" class="w-full h-auto rounded-3xl" alt="Step 03 — We run, sell &amp; improve: we monitor and tune plum daily as it learns your customers. You watch the sales, and the insight, grow. It gets sharper every week." loading="lazy" decoding="async">
+        <img width="932" height="1080" src="images/index/how-it-works-card-3.webp" class="w-full h-auto rounded-3xl" alt="Step 03 — We run, sell &amp; improve: we monitor and tune plum daily as it learns your customers. You watch the sales, and the insight, grow. It gets sharper every week." loading="lazy" decoding="async">
 
       </div>
     </div>
@@ -2074,7 +2065,7 @@ Combined final CTA + proof section
           class="hero-cta-button inline-flex min-w-[300px] sm:min-w-[420px] items-center justify-center gap-5 rounded-full px-9 py-4 font-semibold transition"
         >
           <span class="hero-cta-icon flex items-center justify-center rounded-full">
-            <img src="images/shared/new%20icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+            <img width="96" height="96" src="images/shared/icon-96.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
           </span>
           <span>Chat with plum</span>
         </a>
@@ -2096,7 +2087,7 @@ Combined final CTA + proof section
         <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-6">
           <div class="proof-card proof-card--muted p-8 md:p-10 space-y-3">
             <a href="https://tiadib.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Tia Dib's store at tiadib.com" class="inline-block">
-              <img src="images/partners/Tia%20Dib.webp" alt="Tia Dib" class="h-20 w-auto mb-1" loading="lazy" decoding="async">
+              <img width="1419" height="1671" src="images/partners/Tia%20Dib.webp" alt="Tia Dib" class="h-20 w-auto mb-1" loading="lazy" decoding="async">
             </a>
             <p class="case-study-description">
               First client: Tia Dib. Done for her, start to finish: plum answers and sells on WhatsApp, and our virtual try-on lets shoppers tap "See it on you" to try any piece on themselves before they buy.
@@ -2124,8 +2115,8 @@ Footer
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
           <div class="footer-brand-card">
             <figure>
-              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop preload="metadata">
-  <source src="images/loader compressed.mp4" type="video/mp4" />
+              <video class="logo-responsive footer-logo-video" muted playsinline loop preload="none" poster="images/footer-logo-poster.webp" data-lazy-video>
+  <source src="images/footer-logo.mp4" type="video/mp4" />
 </video>
             </figure>
             <p class="mt-4 text-secondary dark:text-accent">

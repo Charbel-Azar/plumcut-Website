@@ -254,42 +254,20 @@ Head links
 
 <!-- Favicon and Icons -->
 
-<link rel="icon" type="image/png" href="images/shared/new%20icon.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="images/shared/icon-96.png" sizes="96x96" />
 
-<link rel="icon" type="image/png" href="images/shared/new%20icon.png" />
+<link rel="icon" type="image/png" href="images/shared/icon-96.png" />
 
-<link rel="shortcut icon" href="images/shared/new%20icon.png" />
+<link rel="shortcut icon" href="images/shared/icon-96.png" />
 
-<link rel="apple-touch-icon" sizes="180x180" href="images/shared/new%20icon.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/shared/icon-192.png" />
 
 <link rel="manifest" href="site.webmanifest" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com/" />
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
-<link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+<link rel="preload" href="fonts/alan-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts.css" />
 <link rel="preload" href="assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" href="images/loader.mp4" as="video" type="video/mp4" />
-
-<link
-
-  href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&amp;display=swap"
-
-  rel="stylesheet"
-
-/>
-
-<link
-
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400;500&display=swap"
-
-  rel="stylesheet"
-
-/>
-
-
-
-    <title>WhatsApp AI sales solutions | plumcut</title>
+<title>WhatsApp AI sales solutions | plumcut</title>
 
     
 
@@ -315,7 +293,7 @@ Head links
 
       body * {
 
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
 
       }
 
@@ -323,7 +301,7 @@ Head links
         font-size: var(--text-heading-6) !important;
         line-height: var(--tw-leading, var(--text-heading-6--line-height)) !important;
         text-transform: uppercase !important;
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
         font-weight: 500 !important;
         text-align: center !important;
       }
@@ -395,7 +373,7 @@ Head links
 
         text-transform: uppercase;
 
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
 
         font-weight: 500 !important;
 
@@ -1853,13 +1831,20 @@ Head links
 
     <!-- Meta Pixel Code -->
     <script>
+    // fbevents.js is 111 KB and was fetched during the initial page load, where
+    // it was one of the largest contributors to blocking time. The fbq stub and
+    // its queue are still created here immediately, so init and PageView below
+    // are recorded at the right moment; only the network fetch is deferred.
+    // main.js calls window.__pcLoadPixel on the first user interaction, or once
+    // the page has settled, and the queue flushes then. Nothing is lost.
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
+    n.queue=[];f.__pcLoadPixel=function(){if(f.__pcPixelLoaded)return;
+    f.__pcPixelLoaded=!0;t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    s.parentNode.insertBefore(t,s)}}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1913777752672489');
     fbq('track', 'PageView');
@@ -1877,7 +1862,7 @@ Head links
 
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
 
-        <source src="images/loader.mp4" type="video/mp4">
+        <source src="images/loader-840.mp4" type="video/mp4">
 
       </video>
 
@@ -1913,7 +1898,7 @@ Header
 
       <a class="pc-nav-link" href="/" aria-label="Home">
         <span class="pc-nav-home-text">Home</span>
-        <img class="pc-nav-home-icon" src="images/shared/new%20icon.png" alt="plumcut home">
+        <img width="96" height="96" class="pc-nav-home-icon" src="images/shared/icon-96.png" alt="plumcut home">
       </a>
 
       <a class="pc-nav-link" href="/how-it-works">How it works</a>
@@ -2097,7 +2082,7 @@ Flagship: Customer understanding (insight) â€” the hero of this page
   }
   .insight-flagship .section-title-label { justify-content: center; }
   .insight-headline {
-    font-family: 'Alan Sans', sans-serif;
+    font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif;
     font-weight: 500;
     text-transform: uppercase;
     line-height: 1.04;
@@ -2153,7 +2138,7 @@ Flagship: Customer understanding (insight) â€” the hero of this page
   .ic-card--tall .ic-card__icon img { width: 1.9rem; height: 1.9rem; }
   .ic-card__body { min-width: 0; }
   .ic-card__label {
-    font-family: 'Alan Sans', sans-serif;
+    font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif;
     font-weight: 500;
     font-size: clamp(0.92rem, 1.05vw, 1.05rem);
     line-height: 1.18;
@@ -2704,14 +2689,14 @@ Solutions bundle section
     line-height:1;
   }
   .sb-card__num {
-    font-family:'Alan Sans', sans-serif;
+    font-family:'Alan Sans', 'Alan Sans Fallback', sans-serif;
     font-weight:500;
     font-size:clamp(2.4rem, 4vw, 3.1rem);
     line-height:1;
     color:#E65E04;
   }
   .sb-card__title {
-    font-family:'Alan Sans', sans-serif;
+    font-family:'Alan Sans', 'Alan Sans Fallback', sans-serif;
     font-weight:500;
     font-size:clamp(1.2rem, 1.5vw, 1.45rem);
     color:#ffffff;
@@ -2953,7 +2938,7 @@ Solutions bundle section
             class="hero-cta-button hero-cta-button--hero inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
           >
             <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
-              <img
+              <img width="96" height="96"
                 src="images/shared/21-%20icon%20white.png"
                 alt=""
                 aria-hidden="true"
@@ -3057,8 +3042,8 @@ Footer
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
           <div class="footer-brand-card">
             <figure>
-              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop preload="metadata">
-  <source src="images/loader compressed.mp4" type="video/mp4" />
+              <video class="logo-responsive footer-logo-video" muted playsinline loop preload="none" poster="images/footer-logo-poster.webp" data-lazy-video>
+  <source src="images/footer-logo.mp4" type="video/mp4" />
 </video>
             </figure>
             <p class="mt-4 text-secondary dark:text-accent">

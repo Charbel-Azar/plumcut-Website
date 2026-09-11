@@ -99,7 +99,7 @@ Head links
   "@id": "https://plumcut.com/#organization",
   "name": "plumcut",
   "url": "https://plumcut.com/",
-  "logo": "https://plumcut.com/images/shared/new%20icon.png",
+  "logo": "https://plumcut.com/images/shared/icon-96.png",
   "description": "plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.",
   "sameAs": [
     "https://www.instagram.com/plumcut_/",
@@ -139,31 +139,15 @@ Head links
 />
 <meta name="msapplication-starturl" content="/" />
 <!-- Favicon and Icons -->
-<link rel="icon" type="image/png" href="images/shared/new%20icon.png" sizes="96x96" />
-<link rel="icon" type="image/png" href="images/shared/new%20icon.png" />
-<link rel="shortcut icon" href="images/shared/new%20icon.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="images/shared/new%20icon.png" />
+<link rel="icon" type="image/png" href="images/shared/icon-96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="images/shared/icon-96.png" />
+<link rel="shortcut icon" href="images/shared/icon-96.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/shared/icon-192.png" />
 <link rel="manifest" href="site.webmanifest" />
-<link rel="preconnect" href="https://fonts.googleapis.com/" />
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
-<link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+<link rel="preload" href="fonts/alan-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts.css" />
 <link rel="preload" href="assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" href="images/loader.mp4" as="video" type="video/mp4" />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&amp;display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@500&display=swap"
-  rel="stylesheet"
-/>
-
-    <title>How plumcut works | done-for-you AI sales agent</title>
+<title>How plumcut works | done-for-you AI sales agent</title>
     
     <noscript><link rel="stylesheet" href="assets/main.css"></noscript>
     <style id="critical-loader-style">
@@ -180,14 +164,14 @@ Head links
       }
 
       body * {
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
       }
 
       main h2 {
         font-size: var(--text-heading-6) !important;
         line-height: var(--tw-leading, var(--text-heading-6--line-height)) !important;
         text-transform: uppercase !important;
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
         font-weight: 500 !important;
         text-align: center !important;
       }
@@ -228,7 +212,7 @@ Head links
         line-height: var(--tw-leading, var(--text-heading-6--line-height));
         color: #4B1D6A;
         text-transform: uppercase;
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
         font-weight: 500 !important;
       }
 
@@ -1042,13 +1026,20 @@ Head links
 
     <!-- Meta Pixel Code -->
     <script>
+    // fbevents.js is 111 KB and was fetched during the initial page load, where
+    // it was one of the largest contributors to blocking time. The fbq stub and
+    // its queue are still created here immediately, so init and PageView below
+    // are recorded at the right moment; only the network fetch is deferred.
+    // main.js calls window.__pcLoadPixel on the first user interaction, or once
+    // the page has settled, and the queue flushes then. Nothing is lost.
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
+    n.queue=[];f.__pcLoadPixel=function(){if(f.__pcPixelLoaded)return;
+    f.__pcPixelLoaded=!0;t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    s.parentNode.insertBefore(t,s)}}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1913777752672489');
     fbq('track', 'PageView');
@@ -1061,7 +1052,7 @@ Head links
   <body class="bg-white dark:bg-background-5 is-loading about-viewport-scale">
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
-        <source src="images/loader.mp4" type="video/mp4">
+        <source src="images/loader-840.mp4" type="video/mp4">
       </video>
     </div>
 
@@ -1080,7 +1071,7 @@ Header
     <nav class="pc-nav" aria-label="Primary">
       <a class="pc-nav-link" href="/" aria-label="Home">
         <span class="pc-nav-home-text">Home</span>
-        <img class="pc-nav-home-icon" src="images/shared/new%20icon.png" alt="plumcut home">
+        <img width="96" height="96" class="pc-nav-home-icon" src="images/shared/icon-96.png" alt="plumcut home">
       </a>
       <a class="pc-nav-link is-active" href="/how-it-works">How it works</a>
       <a class="pc-nav-link" href="/solutions">Solutions</a>
@@ -1124,7 +1115,7 @@ The three steps
   .hiw-step-img img { display: block; width: 100%; max-width: 320px; height: auto; margin: 0 auto; }
   .hiw-step-num, .hiw-step-title, .hiw-step-desc { width: 100%; max-width: 360px; }
   .hiw-step-num {
-    font-family: 'Alan Sans', sans-serif;
+    font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif;
     font-weight: 700;
     font-size: 2.75rem;
     line-height: 1;
@@ -1132,7 +1123,7 @@ The three steps
     margin-bottom: 0.4rem;
   }
   .hiw-step-title {
-    font-family: 'Alan Sans', sans-serif;
+    font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif;
     font-weight: 600;
     font-size: 1.375rem;
     line-height: 1.25;
@@ -1161,19 +1152,19 @@ The three steps
     </div>
     <div class="grid grid-cols-12 gap-6 lg:gap-10 hiw-steps">
       <div data-ns-animate data-delay="0.2" class="col-span-12 md:col-span-4 hiw-step">
-        <div class="hiw-step-img"><img src="images/index/how-it-works-step-1.webp" alt="We learn your brand" loading="lazy" decoding="async"></div>
+        <div class="hiw-step-img"><img width="640" height="640" src="images/index/how-it-works-step-1.webp" alt="We learn your brand" loading="lazy" decoding="async"></div>
         <div class="hiw-step-num">01</div>
         <h3 class="hiw-step-title">We learn your brand</h3>
         <p class="hiw-step-desc">We sit down with you once and learn how you talk, what you sell, your policies, your prices, and the questions you get asked a hundred times a week. That's the only real time you'll spend. Everything plum says afterward sounds like you, not a robot.</p>
       </div>
       <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-4 hiw-step">
-        <div class="hiw-step-img"><img src="images/index/how-it-works-step-2.webp" alt="We build and launch" loading="lazy" decoding="async"></div>
+        <div class="hiw-step-img"><img width="640" height="640" src="images/index/how-it-works-step-2.webp" alt="We build and launch" loading="lazy" decoding="async"></div>
         <div class="hiw-step-num">02</div>
         <h3 class="hiw-step-title">We build &amp; launch</h3>
         <p class="hiw-step-desc">We build plum around what we learned and connect it to the channels your customers already use, WhatsApp and your store. In about two weeks plum is live on WhatsApp, answering, selling, and booking. You don't touch a tool, write a flow, or configure anything.</p>
       </div>
       <div data-ns-animate data-delay="0.4" class="col-span-12 md:col-span-4 hiw-step">
-        <div class="hiw-step-img"><img src="images/index/how-it-works-step-3.webp" alt="We run, sell and improve" loading="lazy" decoding="async"></div>
+        <div class="hiw-step-img"><img width="640" height="640" src="images/index/how-it-works-step-3.webp" alt="We run, sell and improve" loading="lazy" decoding="async"></div>
         <div class="hiw-step-num">03</div>
         <h3 class="hiw-step-title">We run, sell &amp; improve</h3>
         <p class="hiw-step-desc">plum keeps working day and night. We watch it, fix what needs fixing, and sharpen how it sells as it learns your customers, week after week. You get the results, and a clear picture of what your customers actually want. It gets better the longer it runs.</p>
@@ -1290,7 +1281,7 @@ You barely lift a finger — split + timeline (purple)
           </ul>
         </div>
         <div data-ns-animate data-delay="0.4" class="liftfng-card liftfng-card-bal flex-1 p-7 md:p-8 flex items-center justify-center">
-          <img class="liftfng-bal-img" src="images/index/how-it-works-imbalance-scale.webp" alt="A balance scale tipped to one side" loading="lazy" decoding="async">
+          <img width="1200" height="896" class="liftfng-bal-img" src="images/index/how-it-works-imbalance-scale.webp" alt="A balance scale tipped to one side" loading="lazy" decoding="async">
           <p class="liftfng-bal-text text-xl md:text-2xl text-center">That imbalance<br>is the whole point.</p>
         </div>
       </div>
@@ -1472,7 +1463,7 @@ Where plum works (meets your customer + plugs into tools)
 
     <!-- app-icon strip (designer asset: how 6.png) -->
     <figure data-ns-animate data-delay="0.3" class="intg-strip-fig">
-      <img
+      <img width="1584" height="672"
         src="images/index/how-it-works-integrations.webp"
         alt="The apps your plum connects with: WhatsApp, Shopify, WooCommerce, Stripe, PayPal, Google Calendar, Calendly, HubSpot, Salesforce, Gmail, and Slack"
         class="intg-strip-img"
@@ -1531,7 +1522,7 @@ Two things grow. Both are yours. (what you get back + own your data)
       <!-- More sales -->
       <div data-ns-animate data-delay="0.2" data-direction="left" class="col-span-12 md:col-span-6">
         <div class="grow-card">
-          <img class="grow-card__img" src="images/index/how-it-works-more-sales.webp" alt="A shop owner smiling behind the counter with a stack of wrapped orders ready to go out" loading="lazy" decoding="async">
+          <img width="720" height="900" class="grow-card__img" src="images/index/how-it-works-more-sales.webp" alt="A shop owner smiling behind the counter with a stack of wrapped orders ready to go out" loading="lazy" decoding="async">
           <div class="grow-card__veil" style="background:linear-gradient(to top, #E65E04 0%, rgba(230,94,4,0.92) 16%, rgba(230,94,4,0.2) 42%, transparent 62%);"></div>
           <div class="grow-card__body">
             <h3 class="grow-card__title text-heading-5 md:text-heading-4" style="color:#ffffff;">More sales</h3>
@@ -1543,7 +1534,7 @@ Two things grow. Both are yours. (what you get back + own your data)
       <!-- Real understanding -->
       <div data-ns-animate data-delay="0.3" data-direction="right" class="col-span-12 md:col-span-6">
         <div class="grow-card" style="background:#ffffff;">
-          <img class="grow-card__img" src="images/index/how-it-works-real-understanding.webp" alt="A business owner calmly reviewing what plum learned about his customers on a tablet" loading="lazy" decoding="async">
+          <img width="928" height="1152" class="grow-card__img" src="images/index/how-it-works-real-understanding.webp" alt="A business owner calmly reviewing what plum learned about his customers on a tablet" loading="lazy" decoding="async">
           <div class="grow-card__veil" style="background:linear-gradient(to top, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.82) 16%, rgba(255,255,255,0.15) 40%, transparent 60%);"></div>
           <div class="grow-card__body">
             <h3 class="grow-card__title text-heading-5 md:text-heading-4" style="color:#4B1D6A;">Real understanding</h3>
@@ -1577,7 +1568,7 @@ Still have questions? Ask plum (FAQ + talk-to-plum CTA)
       <div class="flex flex-col items-center gap-5">
         <a href="https://wa.me/96181864662?text=Hi%20plum!" data-ns-animate data-delay="0.4" data-direction="up" data-offset="40" class="hero-cta-button hero-cta-button--faq inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition">
           <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
-            <img src="images/shared/21- icon white.png" alt="" aria-hidden="true" class="size-10" loading="lazy" decoding="async">
+            <img width="96" height="96" src="images/shared/21- icon white.png" alt="" aria-hidden="true" class="size-10" loading="lazy" decoding="async">
           </span>
           <span>Chat with plum</span>
         </a>
@@ -1605,8 +1596,8 @@ Footer
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
           <div class="footer-brand-card">
             <figure>
-              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop preload="metadata">
-  <source src="images/loader compressed.mp4" type="video/mp4" />
+              <video class="logo-responsive footer-logo-video" muted playsinline loop preload="none" poster="images/footer-logo-poster.webp" data-lazy-video>
+  <source src="images/footer-logo.mp4" type="video/mp4" />
 </video>
             </figure>
             <p class="mt-4 text-secondary dark:text-accent">

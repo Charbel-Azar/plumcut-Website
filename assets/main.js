@@ -2,20 +2,53 @@
 // Google Analytics Configuration
 // =========================
 // Google tag (gtag.js) - Configured for G-5HBN957GV9
+// gtag.js is 167 KB and fbevents.js is 111 KB. Fetched during the initial page
+// load they were the two largest contributors to main-thread blocking time.
+// Both are now requested on the first real user interaction, or once the page
+// has gone idle, whichever comes first.
+//
+// The gtag and fbq stubs are still created straight away and both queue, so
+// 'js', 'config' and PageView are recorded at the normal moment and are sent
+// as soon as the scripts arrive. No event is dropped, it just leaves a second
+// or two later.
 (function() {
   const GA_MEASUREMENT_ID = 'G-5HBN957GV9';
-
-  // Load Google Analytics script dynamically
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
-  document.head.appendChild(script);
+  const IDLE_TIMEOUT_MS = 3000;
+  const WAKE_EVENTS = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
 
   // Initialize Google Analytics
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
   window.gtag('js', new Date());
   window.gtag('config', GA_MEASUREMENT_ID);
+
+  let started = false;
+
+  const loadTagsNow = () => {
+    if (started) return;
+    started = true;
+    WAKE_EVENTS.forEach((name) => window.removeEventListener(name, loadTagsNow, true));
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    document.head.appendChild(script);
+
+    // Meta Pixel base code sets this up in the HTML <head>
+    if (typeof window.__pcLoadPixel === 'function') {
+      window.__pcLoadPixel();
+    }
+  };
+
+  WAKE_EVENTS.forEach((name) => {
+    window.addEventListener(name, loadTagsNow, { once: true, passive: true, capture: true });
+  });
+
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(loadTagsNow, { timeout: IDLE_TIMEOUT_MS });
+  } else {
+    setTimeout(loadTagsNow, IDLE_TIMEOUT_MS);
+  }
 })();
 
 // =========================
@@ -3763,9 +3796,55 @@ if (typeof window !== "undefined") {
 
   setTimeout(hideLoader, MAX_TOTAL_WAIT_MS);
 
-  if (document.readyState === "complete") {
+  // Hide on DOMContentLoaded rather than window.load. Waiting for load meant
+  // waiting for every image and video on the page, so a single heavy asset in
+  // the footer could hold the whole site behind a white screen for ten
+  // seconds. main.js is the last script on the page, so GSAP and the reveal
+  // animations are already wired up by the time this fires, and MIN_DISPLAY_MS
+  // still keeps the loader on screen long enough to read as deliberate.
+  if (document.readyState !== "loading") {
     scheduleHide();
   } else {
-    window.addEventListener("load", scheduleHide, { once: true });
+    document.addEventListener("DOMContentLoaded", scheduleHide, { once: true });
   }
+})();
+
+// Videos marked data-lazy-video load and start only once they scroll into
+// view. The footer logo used to carry `autoplay`, which made the browser
+// download the whole clip during page load and kept window.load pending.
+(() => {
+  const videos = document.querySelectorAll("video[data-lazy-video]");
+  if (!videos.length) {
+    return;
+  }
+
+  const start = (video) => {
+    if (video.dataset.lazyVideoStarted) {
+      return;
+    }
+    video.dataset.lazyVideoStarted = "1";
+    video.preload = "auto";
+    video.load();
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {});
+    }
+  };
+
+  if (typeof IntersectionObserver !== "function") {
+    videos.forEach(start);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+      start(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: "200px" });
+
+  videos.forEach((video) => observer.observe(video));
 })();

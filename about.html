@@ -99,14 +99,14 @@ Head links
   "@id": "https://plumcut.com/#organization",
   "name": "plumcut",
   "url": "https://plumcut.com/",
-  "logo": "https://plumcut.com/images/shared/new%20icon.png",
+  "logo": "https://plumcut.com/images/shared/icon-96.png",
   "description": "plumcut is built by a MENA-native founding team. We build and run AI sales agents for WhatsApp, then turn conversations into customer insight merchants own.",
   "founder": [
     {
       "@type": "Person",
       "name": "Nour",
       "jobTitle": "AI Engineering",
-      "image": "https://plumcut.com/images/team/nour.jfif"
+      "image": "https://plumcut.com/images/team/nour.webp"
     },
     {
       "@type": "Person",
@@ -164,31 +164,15 @@ Head links
 />
 <meta name="msapplication-starturl" content="/" />
 <!-- Favicon and Icons -->
-<link rel="icon" type="image/png" href="images/shared/new%20icon.png" sizes="96x96" />
-<link rel="icon" type="image/png" href="images/shared/new%20icon.png" />
-<link rel="shortcut icon" href="images/shared/new%20icon.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="images/shared/new%20icon.png" />
+<link rel="icon" type="image/png" href="images/shared/icon-96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="images/shared/icon-96.png" />
+<link rel="shortcut icon" href="images/shared/icon-96.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="images/shared/icon-192.png" />
 <link rel="manifest" href="site.webmanifest" />
-<link rel="preconnect" href="https://fonts.googleapis.com/" />
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-<link rel="dns-prefetch" href="https://fonts.googleapis.com/" />
-<link rel="dns-prefetch" href="https://fonts.gstatic.com/" />
+<link rel="preload" href="fonts/alan-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts.css" />
 <link rel="preload" href="assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
-<link rel="preload" href="images/loader.mp4" as="video" type="video/mp4" />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&amp;display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300;400&display=swap"
-  rel="stylesheet"
-/>
-<link
-  href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@500&display=swap"
-  rel="stylesheet"
-/>
-
-    <title>About plumcut | MENA-native AI sales team</title>
+<title>About plumcut | MENA-native AI sales team</title>
     
     <noscript><link rel="stylesheet" href="assets/main.css"></noscript>
     <style id="critical-loader-style">
@@ -205,14 +189,14 @@ Head links
       }
 
       body * {
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
       }
 
       main h2 {
         font-size: var(--text-heading-6) !important;
         line-height: var(--tw-leading, var(--text-heading-6--line-height)) !important;
         text-transform: uppercase !important;
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
         font-weight: 500 !important;
         text-align: center !important;
       }
@@ -253,7 +237,7 @@ Head links
         line-height: var(--tw-leading, var(--text-heading-6--line-height));
         color: #4B1D6A;
         text-transform: uppercase;
-        font-family: 'Alan Sans', sans-serif !important;
+        font-family: 'Alan Sans', 'Alan Sans Fallback', sans-serif !important;
         font-weight: 500 !important;
       }
 
@@ -931,13 +915,20 @@ Head links
 
     <!-- Meta Pixel Code -->
     <script>
+    // fbevents.js is 111 KB and was fetched during the initial page load, where
+    // it was one of the largest contributors to blocking time. The fbq stub and
+    // its queue are still created here immediately, so init and PageView below
+    // are recorded at the right moment; only the network fetch is deferred.
+    // main.js calls window.__pcLoadPixel on the first user interaction, or once
+    // the page has settled, and the queue flushes then. Nothing is lost.
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
+    n.queue=[];f.__pcLoadPixel=function(){if(f.__pcPixelLoaded)return;
+    f.__pcPixelLoaded=!0;t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    s.parentNode.insertBefore(t,s)}}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1913777752672489');
     fbq('track', 'PageView');
@@ -950,7 +941,7 @@ Head links
   <body class="bg-white dark:bg-background-5 is-loading about-viewport-scale">
     <div class="site-loader" aria-hidden="true">
       <video class="site-loader__video" autoplay muted playsinline loop preload="auto">
-        <source src="images/loader.mp4" type="video/mp4">
+        <source src="images/loader-840.mp4" type="video/mp4">
       </video>
     </div>
 
@@ -969,7 +960,7 @@ Header
     <nav class="pc-nav" aria-label="Primary">
       <a class="pc-nav-link" href="/" aria-label="Home">
         <span class="pc-nav-home-text">Home</span>
-        <img class="pc-nav-home-icon" src="images/shared/new%20icon.png" alt="plumcut home">
+        <img width="96" height="96" class="pc-nav-home-icon" src="images/shared/icon-96.png" alt="plumcut home">
       </a>
       <a class="pc-nav-link" href="/how-it-works">How it works</a>
       <a class="pc-nav-link" href="/solutions">Solutions</a>
@@ -999,7 +990,7 @@ Header
               class="our-story-figure lg:hidden block max-w-[500px] mx-auto w-full"
             >
               <img
-                src="images/our%20story.png"
+                src="images/our-story.webp"
                 alt="plumcut founders' online-store experience before building plum"
                 width="1024"
                 height="1536"
@@ -1052,14 +1043,14 @@ Header
           class="our-story-figure lg:max-w-[669px] max-w-[500px] lg:mx-0 mx-auto w-full hidden lg:block"
         >
           <img
-            src="images/our%20story.png"
+            src="images/our-story.webp"
             alt="plumcut founders' online-store experience before building plum"
             width="1024"
             height="1536"
             class="rounded-2xl dark:hidden"
           loading="lazy" decoding="async">
           <img
-            src="images/our%20story.png"
+            src="images/our-story.webp"
             alt="plumcut founders' online-store experience before building plum"
             width="1024"
             height="1536"
@@ -1087,7 +1078,7 @@ Header
       <!-- Nour -->
       <div data-ns-animate data-delay="0.4" class="col-span-12 md:col-span-4">
         <div class="rounded-2xl p-8 h-full text-center" style="background:#ffffff;border:2px solid #E65E04;">
-          <img src="images/team/nour.jfif" alt="Nour, plumcut AI engineering founder" width="1254" height="1254" class="mx-auto rounded-full object-cover" style="width:9rem;height:9rem;box-shadow:0 10px 24px rgba(72,29,82,0.28);" loading="lazy" decoding="async">
+          <img src="images/team/nour.webp" alt="Nour, plumcut AI engineering founder" width="1254" height="1254" class="mx-auto rounded-full object-cover" style="width:9rem;height:9rem;box-shadow:0 10px 24px rgba(72,29,82,0.28);" loading="lazy" decoding="async">
           <h3 class="text-heading-5 mt-4" style="color:#481D52;">Nour</h3>
           <p class="text-tagline-2 font-semibold" style="color:#E65E04;">The intelligence</p>
           <p class="text-tagline-1 mt-2" style="color:#4B1D6A;">Builds and runs what makes plum smart, and the infrastructure behind it.</p>
@@ -1188,7 +1179,7 @@ Header
       </div>
 
       <div class="col-span-12 md:col-span-6 lg:col-span-4">
-        <img
+        <img width="1536" height="1024"
           src="images/problems.webp"
           alt="The everyday selling problems plumcut solves for WhatsApp brands: late-night messages, cold leads, and missed orders"
           class="w-full h-full max-h-[520px] rounded-2xl object-cover"
@@ -1274,7 +1265,7 @@ Header
           class="hero-cta-button hero-cta-button--faq inline-flex min-w-[280px] sm:min-w-[340px] items-center justify-center gap-5 rounded-full px-9 py-4 text-2xl sm:text-3xl font-semibold backdrop-blur-md transition"
         >
           <span class="hero-cta-icon flex size-16 items-center justify-center rounded-full">
-            <img
+            <img width="96" height="96"
               src="images/shared/21- icon white.png"
               alt=""
               aria-hidden="true"
@@ -1304,8 +1295,8 @@ Footer
         <div data-ns-animate data-delay="0.3" class="xl:max-w-[306px]">
           <div class="footer-brand-card">
             <figure>
-              <video class="logo-responsive footer-logo-video" autoplay muted playsinline loop preload="metadata">
-  <source src="images/loader compressed.mp4" type="video/mp4" />
+              <video class="logo-responsive footer-logo-video" muted playsinline loop preload="none" poster="images/footer-logo-poster.webp" data-lazy-video>
+  <source src="images/footer-logo.mp4" type="video/mp4" />
 </video>
             </figure>
             <p class="mt-4 text-secondary dark:text-accent">
