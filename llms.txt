@@ -5,7 +5,7 @@
 - [Home](https://plumcut.com/): The AI that answers, sells, books, and reads customer conversations for insight.
 - [How it works](https://plumcut.com/how-it-works): The done-for-you process: learn the brand, build and launch plum, then run and improve it.
 - [Solutions](https://plumcut.com/solutions): AI selling, instant answers, booking, order tracking, payments, and customer insights for WhatsApp.
-- [Pricing](https://plumcut.com/pricing): Custom pricing based on real message volume, setup scope, and selected solutions.
+- [Pricing](https://plumcut.com/pricing): A one-time setup fee, then a fixed monthly fee set by the scope of the solution.
 - [About](https://plumcut.com/about): plumcut's MENA-native founding team and origin story.
 
 ## Field notes
