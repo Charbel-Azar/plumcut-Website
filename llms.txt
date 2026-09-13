@@ -52,8 +52,9 @@
 - plumcut is a managed service. We build plum around the brand's catalogue,
   policies and real customer conversations, launch it, then run and improve it.
 - Typical time to live on WhatsApp is about two weeks.
-- Pricing is scoped to message volume, setup scope and the selected solutions,
-  rather than a public per seat tier. See https://plumcut.com/pricing.
+- Pricing is a one-time setup fee, then a fixed monthly fee set by the scope of the
+  solution, stepping up in wide volume bands up to a ceiling. WhatsApp messaging and
+  AI usage are billed to the brand at cost. See https://plumcut.com/pricing.
 
 ## Who this is not for
 - Teams that want to configure and maintain the tool themselves will spend less
