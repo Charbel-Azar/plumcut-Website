@@ -2,8 +2,288 @@
 
 > plumcut builds and runs plum, a managed AI agent that sells, answers, books and tracks orders on WhatsApp for commerce brands in Lebanon, the Gulf and the wider MENA region, and turns those conversations into customer insight the merchant owns.
 
-Source: https://plumcut.com/blog/  ·  16 articles  ·  regenerated on every build.
+Source: https://plumcut.com/blog/  ·  19 articles  ·  regenerated on every build.
 Each article below is reproduced in full. Cite the canonical URL given in its Source line.
+
+---
+
+# How to Upsell and Cross-Sell Inside a Customer Conversation
+
+Source: https://plumcut.com/blog/upsell-cross-sell-in-conversation
+Published: 2026-09-13
+
+Most retail upselling happens on a page where nobody is talking. A widget under the product image, a cart drawer, an offer wedged between order confirmation and the thank you page. It works well enough. But if a real share of your orders starts with someone messaging you to ask a question, then the place your customer actually said what they want is a conversation, and almost nothing on the market sells there.
+
+> There are four moments in a conversation worth an offer, and they are not equally good. Best is after the customer states a need but before they pick a product, because a recommendation is literally what they asked for. Second is right after they confirm, where a genuinely complementary item adds to a decision instead of questioning it. Third is when an objection appears that a different product actually answers. Fourth is after delivery, once the thing arrived and they are happy. One offer per moment, and a no ends it. The moment that always backfires is offering anything while a question of theirs is still unanswered.
+
+## The four moments, ranked
+
+| Moment | Offer type | Why it works | What kills it |
+| --- | --- | --- | --- |
+| Need stated, product not yet chosen | A recommendation, including a better option | You were asked for advice, so advice is not an interruption | Recommending something that ignores the stated need or budget |
+| Just confirmed the purchase | A complementary item | Adds to the decision rather than reopening it | Offering something more expensive, which reads as second guessing |
+| An objection appears | A different product that answers the objection | Solves the actual blocker instead of arguing with it | Pushing the original item harder |
+| After delivery, order went well | A refill, a matching piece, a reorder | Goodwill is at its highest point and the product proved itself | Sending it before you know the delivery went well |
+
+The ranking is the useful part. Most stores put all their effort into moment two, the classic add on at checkout, because that is where the tooling lives. Moment one converts better and needs no tooling at all, only someone who reads what the customer wrote.
+
+## What to say, concretely
+
+Vague advice about being helpful is useless, so here are the shapes.
+
+**Moment one, a need stated.** The customer says what they are looking for and roughly what they want to spend. The reply names two or three real options within that range, says plainly what separates them, and includes one slightly better option with the reason attached. Not "we also have a premium version" but "the larger one is 20 percent more and lasts about twice as long, which people buying it for daily use usually prefer". The offer is the reason, not the product.
+
+**Moment two, just confirmed.** One item, obviously related, mentioned once. "Most people order the refill with this so they do not run out in a month, want me to add it?" If the answer is no, it is closed. Do not restate it in the confirmation message.
+
+**Moment three, an objection.** The customer says it is too expensive, or the size is wrong, or delivery is too slow to their area. Each of those is answerable with a different product rather than with persuasion. A cheaper model, a different size, an item that ships from closer. Treating an objection as a product question rather than a sales obstacle is the whole technique.
+
+**Moment four, after delivery.** This one has a rule attached. Only send it once you know the order actually arrived and nothing went wrong, which means it has to read your order and courier data. Sending a reorder prompt to someone whose parcel was lost is worse than sending nothing at all.
+
+## Where helpful turns into pushy
+
+Three limits, and two of them are other people's rules rather than our opinion.
+
+**A declined offer ends the sequence.** Not later in the same conversation, not in the confirmation message. Once.
+
+**Three consecutive offers is the documented ceiling, and a conversation should stay well under it.** Shopify's own developer guidance for [post-purchase product offers](https://shopify.dev/docs/apps/build/checkout/product-offers/ux-for-post-purchase-product-offers) is to display a maximum of three consecutive upsell offers and to tailor them to the customer's actual behaviour. That is guidance for a page, where the customer is clicking rather than talking. In a live conversation there is a person on the other side and the practical limit is one.
+
+**Reaching back out later is a different thing with different rules.** An offer inside a live conversation the customer started sits in the 24 hour customer service window, and non-template service messages there are not charged. Messaging someone after that window closes, a cart reminder or a reorder prompt, is a marketing message on the WhatsApp Business Platform. It needs opt-in and an approved marketing template, and it is charged per delivered message. We went through exactly where that line sits in [the rules on WhatsApp cart reminders](/blog/whatsapp-abandoned-cart-rules).
+
+The cost consequence is worth sitting with. The offer made during a live conversation is the free one and the one that converts best. The one you pay for is the one you send to someone who already left.
+
+## The tools, and the surface each one sells on
+
+plumcut sells in this category, so read this as a comparison published by a participant. Details are from each vendor's own pages, checked on 13 September 2026.
+
+| Tool | Where the offer appears | What you are billed on |
+| --- | --- | --- |
+| [Rebuy](https://www.rebuyengine.com/pricing) | Product page, cart, checkout, post-purchase | Orders per month |
+| [LimeSpot](https://limespot.com/pricing) | Product page, cart, checkout bundles | Store revenue tier |
+| [ReConvert](https://apps.shopify.com/reconvert-upsell-cross-sell) | Cart, post-purchase, thank you page | Tiered plans |
+| [Selleasy](https://apps.shopify.com/upsell-cross-sell-kit-1) | Product page, cart | Tiered plans, free to install |
+| [Aftersell](https://apps.shopify.com/aftersell) | Checkout, thank you page | Tiered plans |
+| [Shopify post-purchase extensions](https://shopify.dev/docs/apps/build/checkout/product-offers) | Between order confirmation and the thank you page | Build it yourself, beta access needed for live stores |
+| [Manychat](https://manychat.com/pricing) | In the conversation, through flows and AI replies | Active contacts |
+| [plumcut](/solutions) | In the conversation, reading what the customer actually said | A fixed monthly fee, in bands |
+
+Two things fall out of that table.
+
+**Almost every upsell tool is billed on a proxy for your size.** Orders per month, store revenue, plan tier by volume. That is defensible, and it also means the better the tool works the more it costs, at a rate set by your growth rather than by its contribution.
+
+**Only the bottom two rows put the offer where the customer is talking**, and the difference between them is what decides the offer. A flow fires a preset offer when a preset condition is met, which is page logic moved into a chat window. Choosing the offer from what the customer actually wrote, including the budget they named and the objection they raised, is a different thing, and it is the reason a conversation is worth more than a page view in the first place.
+
+## How to automate it, and what it has to be connected to
+
+An offer is only as good as what the system knows when it makes it. Four connections, in order of how much they matter.
+
+**Live stock.** Offering something out of stock is worse than not offering. This is the one that breaks most often.
+
+**The product catalogue with real attributes.** Size, price, what goes with what. Without relationships between products, a recommendation is a guess dressed up as advice.
+
+**Order history.** It turns moment four from a broadcast into a reorder that makes sense, and it lets you stop offering someone the thing they already bought.
+
+**Courier status.** The gate on moment four. No confirmed delivery, no offer.
+
+On Shopify, WooCommerce and BigCommerce these connections are well trodden. If you run on Salla or Zid, both publish merchant APIs, but neither appeared on the Gorgias, Zendesk, Intercom, Siena or Tidio integration listings when we checked on 13 September 2026, so plan for a custom connection.
+
+This is the part plumcut treats as the job rather than the setup, since [it runs the build and the connections for you](/how-it-works) and the selling is the headline rather than a side effect of support deflection. Worth saying plainly: if you want to configure flows yourself and your traffic is small, a rule based tool is cheaper and you should take it.
+
+## What to do this week
+
+1. Read your last fifty conversations and mark where an offer would have been natural. You will find moment one is the most common and the least used.
+2. Write down five product pairs. What genuinely goes with what, in your catalogue, in your customers' words rather than your category names.
+3. Check whether your stock data is live. If it is not, fix that before you automate a single offer.
+4. Count how many of your orders started with a message rather than a click. That number is how much of your upsell opportunity your current tooling cannot reach.
+
+---
+
+# What Happens When Your Store Gets More Messages Than Your Team Can Read
+
+Source: https://plumcut.com/blog/too-many-customer-messages-retail
+Published: 2026-09-13
+
+There is a point every growing retail shop passes without noticing. Not the day you get busy. The day the messages stop being a queue you clear and start being a queue you triage. You still answer, and you still feel productive, but you are now choosing which customers to answer and the choice is made by whoever shouted most recently.
+
+> Four things fail, and they fail in a fixed order. Reply speed goes first. Then answer consistency, when two people give the same question two different answers. Then coverage, when evening and weekend buyers get nothing. Then the one nobody notices: you stop reading your own messages, which means you lose the only unfiltered record you have of what customers want, object to and keep asking for. Revenue damage starts at stage two, not stage one. And hiring does not fix it, because headcount added to absorb volume grows in a straight line with volume, which is the one cost curve a growing shop cannot afford.
+
+## The four failures, in the order they arrive
+
+**One: speed.** The first symptom, and the least damaging, which is why it misleads people. A reply that takes four hours instead of four minutes still gets sent. The customer who is only browsing waits. The customer who was ready to buy does not.
+
+**Two: consistency.** This is where it starts costing money. Two staff answer the same delivery question differently, or the same person answers differently on Tuesday than on Saturday, because the answer lives in somebody's head rather than in a document. Now you are handling the fallout of your own answers: a customer holding a screenshot of a promise you did not intend to make. Consistency failures cost more than slow ones, because a slow reply annoys and a wrong reply obliges.
+
+**Three: coverage.** Your shop is open when your customers are on their phones, which is evenings and weekends. Your team is not. Every message that arrives at ten at night and gets answered at nine the next morning is a purchase decision that had eleven hours to cool.
+
+**Four: the signal.** This one has no symptom, which is why it goes unnoticed for years. When you were small you read every message, so you knew what people kept asking for, what they hesitated over, and which objection killed the most sales. At volume nobody reads them. The conversations still contain all of that. They just pass through unread, and you start making decisions on what you assume instead.
+
+Failure four is the expensive one and the invisible one. It is also the only one that does not get better when you hire.
+
+## The number that tells you where you are
+
+Message count per day is the wrong measure, and it is the one everybody uses. Two numbers tell you more.
+
+**Distinct questions per hundred messages.** Take a hundred consecutive messages and count how many genuinely different questions they represent. If a hundred messages are six questions, you are doing lookup work. If a hundred messages are seventy questions, you are doing real work and automation has much less to remove.
+
+**Share answered within an hour, on an ordinary day.** Not your best day. When that share drops below roughly half, you have already crossed the line, whatever your headcount says.
+
+Both take an afternoon to measure and neither requires buying anything. Run them before you talk to a vendor, because they determine whether you have an automation problem or a staffing problem, and those have different answers.
+
+## Why hiring does not solve it
+
+Support headcount added to absorb volume scales linearly. Twice the messages needs twice the people. That is fine for a business whose revenue also doubles per person, and ruinous for a retail shop whose margin per order is fixed.
+
+Worse, each hire has to be trained on answers that are not written down, which is the same consistency problem from failure two, now multiplied by the number of people in the room.
+
+Here is the honest comparison of the five ways to absorb volume. The cost shapes are structural and checkable. The prices are from each vendor's own pricing pages, checked on 13 September 2026, and plumcut sells in this category, so read it as a comparison published by a participant.
+
+| How you absorb it | What it costs you | Shape as volume grows | The catch |
+| --- | --- | --- | --- |
+| Hire more people | A salary per person | Straight line, forever | Training, turnover, and answers still unwritten |
+| Outsource to a call centre | A rate per agent or per contact | Straight line | They do not know your products, and the signal leaves your building |
+| Seat priced software | Per seat, for example [Intercom](https://www.intercom.com/pricing) at 19 to 132 US dollars per seat per month | Steps up with headcount | You are still hiring, just with better tooling |
+| Resolution priced automation | Per resolved conversation, for example [Gorgias](https://www.gorgias.com/pricing) at 0.90 or [Zendesk](https://www.zendesk.com/pricing/) at 1.50 US dollars | Roughly linear with volume | The meter counts closed support tickets, never a sale |
+| Contact priced automation | Per monthly active contact, for example [respond.io](https://respond.io/pricing) with 1,000 included then billed per additional 100 | Linear with customer growth | Growing your customer base is the thing being taxed |
+| Fixed fee, banded | [A monthly fee](/pricing) set by what the system does, stepping up in wide bands to a capped top band | Flat inside a band, then a step | Higher commitment up front, and you are buying a service rather than a tool |
+
+The point of the table is not that one row wins. It is that the first five rows all share a property: your bill is a function of how busy you are. For a shop trying to get busier, that is a strange thing to sign up for without noticing you did.
+
+Note the honest exception. Resolution and contact pricing genuinely suit a low volume or seasonal shop, because a quiet month costs almost nothing. If your traffic is spiky and small, those rows beat a fixed fee and you should take them.
+
+## How to scale the shop without scaling the team
+
+The sequence matters more than the tool. We covered the general version in [what to automate first](/blog/what-to-automate-first-ecommerce). The retail specific order is this.
+
+**Write the answers down first.** Every automation project that fails, fails here. Delivery zones and timelines, payment methods, return policy, hours, what happens when something is out of stock. If these are not written and agreed, you are not automating a process, you are freezing an argument.
+
+**Connect the data before the conversation.** Live stock and order records are what separate a useful answer from a confident guess. A machine that reads last week's spreadsheet will tell a customer something is in stock and produce an order you cannot fill, which costs more than not answering. Most tools cover Shopify, WooCommerce and BigCommerce well. If you are on Salla or Zid, both publish merchant APIs but neither appeared on the Gorgias, Zendesk, Intercom, Siena or Tidio integration listings when we checked on 13 September 2026, so expect a custom connection rather than an app install.
+
+**Automate the deterministic questions only.** The ones with exactly one correct answer. Everything else gets an honest refusal and a fast route to a person. That route is not optional: Meta's WhatsApp Business Messaging Policy permits automation inside the 24 hour customer service window and requires prompt, clear and direct escalation paths alongside it. The full design is in [automating customer service without losing the customer](/blog/automate-customer-service-without-losing-customers).
+
+**Then let the volume arrive.** Replies to customers who messaged you first are not what costs money on the WhatsApp Business Platform, because service messages sent inside the 24 hour window a customer opened are not charged. The ceiling on answering people who wrote to you is not a pricing ceiling.
+
+**Keep your people for the judgment.** The refund, the complaint, the wholesale enquiry, the regular who deserves a human. You are not removing your team, you are removing the lookup work that was stopping them doing this.
+
+## The failure you cannot see, and what to do about it
+
+Failure four is worth its own answer, because absorbing volume can quietly make it worse. Send every message to a machine, close every conversation, and you have solved the queue and kept the blindness.
+
+The fix is to treat the conversations as a record rather than as a queue. Every message contains something: the product people keep asking for that you do not stock, the objection that appears right before the conversation dies, the delivery area you keep saying no to, the question your product page should have answered. At ten messages a day you knew all of that. At five hundred, only a system that reads every conversation can tell you.
+
+That is the part plumcut treats as the point rather than a feature. It answers, and it reads across every conversation and reports what customers actually asked for, hesitated over and objected to, with the insights priced into the monthly fee rather than sold as an upgrade. You can see the list of what it reads on the [solutions page](/solutions).
+
+Whether or not you use us for it, do not let the queue get solved and the signal stay lost. Solving the queue is the easy half.
+
+## What to do this week
+
+1. Take a hundred consecutive messages and count the distinct questions. That ratio decides everything that follows.
+2. Measure the share you answer within an hour on an ordinary day, not a good one.
+3. Write down the five answers you give most often. If two people in your business write them differently, you have found your first real problem and it is not a software problem.
+4. Before you compare vendors, project each one's bill at three times your current volume. The tool that is cheapest today is often the one that punishes you for growing.
+
+---
+
+# Can AI Actually Handle Retail Customer Service in 2026?
+
+Source: https://plumcut.com/blog/ai-customer-service-retail
+Published: 2026-09-13
+
+Your store gets the same eleven questions every day. Is this in stock, do you deliver to my area, how much is shipping, can I pay on delivery, where is my order. You answer them at nine in the morning and again at eleven at night, and somewhere in there a customer who was ready to buy got bored and left. So the question is not really whether a machine can answer those eleven questions. It is whether it can answer them without costing you the relationship, and what you will be billed for when it does.
+
+> Yes, for the questions that have exactly one correct answer, and in a retail store that is most of your volume. Stock, price, delivery, payment methods, hours, returns policy and order status all come from a written policy or from live store data, so a machine can answer them accurately and instantly. It should refuse everything where the right answer depends on what you are willing to do for this particular customer: refunds, goodwill, complaints you caused, negotiation, wholesale. The harder decision is not capability, it is the billing unit. Ten platforms will sell you the same outcome and charge you in five different units, and at retail volumes the unit decides your bill far more than the price does.
+
+## The eleven questions, and what each one needs
+
+Capability is not one question, it is eleven. Most of what a retail store gets asked is deterministic, which is the word that matters here. A deterministic question has one correct answer that exists somewhere already, in a policy document or in your store database. A judgment question does not.
+
+The second column is the one people skip, and it is where automation projects actually fail. An answer is only as good as the thing it is reading from.
+
+| What the customer asks | Should a machine answer it | What it has to be connected to |
+| --- | --- | --- |
+| Is this in stock | Yes | Live inventory, not a spreadsheet from last week |
+| How much is it, is there a discount | Yes | Product catalogue and current promotions |
+| Do you deliver to my area | Yes | Your delivery zone list |
+| How long does delivery take | Yes | Written policy, per zone |
+| Can I pay on delivery | Yes | Written policy |
+| Are you open now | Yes | Written hours |
+| What is your return policy | Yes | Written policy |
+| Where is my order | Yes, with care | Order records and courier status |
+| Does this suit what I need | Yes, as a recommendation | Catalogue plus the customer's stated need |
+| I want a refund, or an exception | No | A person |
+| Something went wrong and it was your fault | No | A person, fast |
+
+Rows one to nine are roughly where the volume is in a typical store. That is the honest case for automating retail service: not that a machine is clever, but that most of what you are being asked is lookup work you are doing by hand.
+
+Row eight deserves a flag. Order status is answerable only if the courier data is actually good, and in this region it often is not. We went through where that breaks in [answering where is my order on WhatsApp](/blog/where-is-my-order-whatsapp).
+
+Rows ten and eleven are not a limitation to engineer around. They are the part you keep. A machine that guesses at a refund decision produces an outcome you have to undo and a customer who stops believing anything you say.
+
+## The ten platforms, compared on what they bill you for
+
+plumcut sells in this category, so treat this as a comparison published by a participant. Everything below is taken from each vendor's own pricing or documentation pages, checked on 13 September 2026, and judged on the same criterion. Prices move, so pull the current number from the linked page before you budget. The structure is the durable part.
+
+The criterion is the one that decides your invoice at volume: what does the meter count?
+
+| Platform | What you are billed for | What happens when volume doubles |
+| --- | --- | --- |
+| [Gorgias](https://www.gorgias.com/blog/ai-agent-pricing) | Per resolved interaction, listed at 0.90 US dollars on most plans, with a higher overage rate past the plan limit | Bill roughly doubles |
+| [Intercom](https://www.intercom.com/pricing) | Per outcome, listed at 0.99 US dollars, plus per seat for the helpdesk | Resolution cost doubles, seats step up |
+| [Zendesk](https://www.zendesk.com/pricing/) | Per [automated resolution](https://support.zendesk.com/hc/en-us/articles/8357756668186-About-automated-resolutions-for-AI-agents), listed at 1.50 US dollars, with a baseline included in Suite and Support plans | Bill roughly doubles past the baseline |
+| [Siena](https://www.siena.cx/pricing) | Platform fee plus a per automated ticket rate | Ticket portion roughly doubles |
+| [Tidio](https://www.tidio.com/pricing/) | Per Lyro conversation, counted once however many replies it takes | Bill roughly doubles |
+| [respond.io](https://respond.io/pricing) | Per monthly active contact, 1,000 included on Growth and Advanced, then billed per additional 100 | Grows with your contact count |
+| [Wati](https://www.wati.io/pricing/) | Plan tier plus monthly active contacts | Steps up with contacts |
+| [Manychat](https://manychat.com/pricing) | Per [active contact](https://help.manychat.com/hc/en-us/articles/25800323349020-Active-Contacts), meaning people you actually interacted with that period | Grows with your contact count |
+| [Meta Business Agent](https://about.fb.com/news/2026/06/meta-business-agent/) | Messages priced separately from other WhatsApp message types, per Meta's own rate card | Grows with message volume |
+| [plumcut](/pricing) | A fixed monthly fee set by what your solution does, stepping up in wide bands to a capped top band. Meta messaging and AI usage billed to you at cost on your own accounts, with no markup | Usually nothing, until you cross a band |
+
+Two observations that are worth more than any single price.
+
+**Most of the market now bills you for closed support tickets.** Resolution pricing is the current consensus, and it is genuinely fairer than the old per seat model, because you pay when the thing works. But look at what the meter counts. A resolution is a support conversation that ended without a human. Intercom counts it when the customer confirms the answer helped or leaves without asking more. Zendesk counts a request handled with no escalation. That number can only ever measure work you avoided. There is no row in it for a sale.
+
+**Siena publicly argues against the model the rest of the category adopted**, on the grounds that [paying only for fully resolved cases](https://www.siena.cx/blog/conversation-vs-outcome-based-pricing-ai-agent) gives the vendor a reason to avoid hard conversations. You do not have to agree with a vendor's argument about its own pricing to notice that it is a real question, and that it is asked from inside the category.
+
+## Why the unit matters more than the price at retail volume
+
+Run it with round numbers. These are illustrative, not measured.
+
+A store handling 1,000 automated conversations a month at 0.99 US dollars per resolution pays about 990 US dollars. Traffic triples in a good season and the same store pays about 2,970. Nothing improved. The store simply got busier, which is the thing you were trying to achieve.
+
+Contact-based pricing has the same shape with a different trigger. You grow your customer base, which is the goal, and the meter reads your growth back to you as cost.
+
+A fixed fee in bands inverts that. Busy months inside your band cost nothing extra, and the top band is a ceiling. That is [how plumcut prices](/pricing), and it is a deliberate answer to this exact problem: the fee is set by what the solution does rather than by how busy it gets, and the metered costs that genuinely do scale, Meta messaging and AI usage, are billed to you at cost on your own accounts with nothing added.
+
+Neither model is universally correct. Per resolution pricing is better if your volume is low, spiky, or you want to pay nothing in a quiet month. A fixed band is better if you are growing and want the invoice to stop being a function of your success. Pick the one that matches which of those you are.
+
+## How you actually connect it to your shop
+
+"Can it integrate" gets a yes from every vendor, so ask the sharper version: integrate with what, and how deep.
+
+**Shopify, WooCommerce and BigCommerce** are well covered across the category. The apps exist, the order lookups work, and setup is measured in hours.
+
+**Salla and Zid**, the store platforms a lot of Gulf retailers actually run on, are a different story. Both publish merchant APIs and both support WhatsApp integration through their own app stores. Neither appeared on the Gorgias, Zendesk, Intercom, Siena or Tidio integration listings when we checked them on 13 September 2026. A store on Salla or Zid is usually looking at a custom connection rather than installing an app, which changes the project from a purchase into a build.
+
+That gap is not an accident. It is what happens when the category is built for a market that is not this one, and it is the practical reason a done for you setup often beats a self serve tool here. [How plumcut works](/how-it-works) covers what connecting to your existing stack looks like when someone else does it.
+
+Depth matters as much as coverage. A tool that reads order status but cannot read live stock will answer "where is my order" and guess at "is this in stock", and the second answer is the one that produces an order you cannot fill.
+
+## Where something else fits better than plum
+
+Stated plainly, because a comparison that never says this is an advert.
+
+If you are a low volume shop with spiky, unpredictable traffic and you want to pay nothing in a quiet month, per resolution pricing suits you better than any fixed fee, and Tidio's per conversation model is the gentlest entry point in the table.
+
+If you are already running a mature support operation on Zendesk or Gorgias with a trained team, ticket history and macros, adding their own automation on top is less disruptive than replacing the stack.
+
+If you want to configure and own the system yourself rather than have someone run it, self serve tooling is the right shape and plumcut is the wrong one, because it is a managed service by design.
+
+And if you are not sure you have enough repetition to justify any of this, the honest answer might be to wait. We wrote the case for waiting in [when your business is ready for AI customer service](/blog/when-ready-for-ai-customer-service).
+
+## What to do this week
+
+1. Write down every question a customer asked you in the last seven days. Do not summarise them, copy them.
+2. Mark each one deterministic or judgment. Count the split. That ratio is the real size of your automation opportunity, and it takes an hour to find.
+3. For every deterministic question, write down the source of the correct answer. Anything you cannot point at is not automatable yet, whatever you buy.
+4. Then, and only then, compare vendors. Start with the billing unit, project it at three times your current volume, and compare the numbers you get at that volume rather than today's.
 
 ---
 
