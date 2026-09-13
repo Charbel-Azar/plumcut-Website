@@ -2093,7 +2093,9 @@ Combined final CTA + proof section
         <div data-ns-animate data-delay="0.3" class="col-span-12 md:col-span-6">
           <div class="proof-card proof-card--muted p-8 md:p-10 space-y-3">
             <a href="https://tiadib.com" target="_blank" rel="noopener noreferrer" aria-label="Visit Tia Dib's store at tiadib.com" class="inline-block">
-              <img width="1419" height="1671" src="images/partners/Tia%20Dib.webp" alt="Tia Dib" class="h-20 w-auto mb-1" loading="lazy" decoding="async">
+              <!-- w-auto is not in the pre-compiled main.css, so the width attribute
+                   won and the logo stretched to 1419px. Width is set inline instead. -->
+              <img width="1419" height="1671" src="images/partners/Tia%20Dib.webp" alt="Tia Dib" class="h-20 mb-1" style="width:auto;max-width:100%;" loading="lazy" decoding="async">
             </a>
             <p class="case-study-description">
               First client: Tia Dib. Done for her, start to finish: plum answers and sells on WhatsApp, and our virtual try-on lets shoppers tap "See it on you" to try any piece on themselves before they buy.
