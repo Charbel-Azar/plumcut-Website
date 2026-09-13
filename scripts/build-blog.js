@@ -60,6 +60,91 @@ const fmtDate = (iso) =>
 // og:image and JSON-LD both require an absolute URL, so promote local paths.
 const absUrl = (u) => (!u ? '' : u.startsWith('/') ? SITE + u : u);
 
+/* Intrinsic image dimensions, read from the file itself.
+ *
+ * width and height on an <img> let the browser reserve the right box before
+ * the bytes arrive, which is what stops the page jumping as heroes load. They
+ * have to be the real numbers: a wrong ratio reserves a wrong box and is worse
+ * than none at all.
+ *
+ * Read from disk rather than from heroes/manifest.json so the two can never
+ * drift. A hero added without a manifest entry still gets correct dimensions,
+ * and a stale manifest cannot put a wrong ratio on the page. Remote heroes and
+ * unreadable files return null and the attributes are simply omitted.
+ *
+ * Zero dependencies, so the formats are parsed by hand: JPEG, PNG and WebP.
+ */
+const sizeCache = new Map();
+
+function imageSize(heroPath) {
+  if (!heroPath || !heroPath.startsWith('/')) return null;
+  if (sizeCache.has(heroPath)) return sizeCache.get(heroPath);
+
+  let size = null;
+  try {
+    const buf = fs.readFileSync(path.join(ROOT, heroPath.replace(/^\/+/, '')));
+    size = readJpeg(buf) || readPng(buf) || readWebp(buf);
+  } catch {
+    size = null;
+  }
+  sizeCache.set(heroPath, size);
+  return size;
+}
+
+function readJpeg(b) {
+  if (b.length < 4 || b[0] !== 0xff || b[1] !== 0xd8) return null;
+  let i = 2;
+  while (i + 9 < b.length) {
+    if (b[i] !== 0xff) {
+      i++;
+      continue;
+    }
+    const marker = b[i + 1];
+    // SOF0..SOF15 carry the frame header. C4, C8 and CC are not frame markers.
+    if (marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc) {
+      return { height: b.readUInt16BE(i + 5), width: b.readUInt16BE(i + 7) };
+    }
+    if (marker === 0xd8 || marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) {
+      i += 2;
+      continue;
+    }
+    i += 2 + b.readUInt16BE(i + 2);
+  }
+  return null;
+}
+
+function readPng(b) {
+  if (b.length < 24 || b.toString('ascii', 1, 4) !== 'PNG') return null;
+  return { width: b.readUInt32BE(16), height: b.readUInt32BE(20) };
+}
+
+function readWebp(b) {
+  if (b.length < 30 || b.toString('ascii', 0, 4) !== 'RIFF' || b.toString('ascii', 8, 12) !== 'WEBP') {
+    return null;
+  }
+  const chunk = b.toString('ascii', 12, 16);
+  if (chunk === 'VP8X') {
+    return {
+      width: (b.readUIntLE(24, 3) & 0xffffff) + 1,
+      height: (b.readUIntLE(27, 3) & 0xffffff) + 1,
+    };
+  }
+  if (chunk === 'VP8 ') {
+    return { width: b.readUInt16LE(26) & 0x3fff, height: b.readUInt16LE(28) & 0x3fff };
+  }
+  if (chunk === 'VP8L' && b[20] === 0x2f) {
+    const bits = b.readUInt32LE(21);
+    return { width: (bits & 0x3fff) + 1, height: ((bits >> 14) & 0x3fff) + 1 };
+  }
+  return null;
+}
+
+// width/height attributes for an <img>, or '' when the size is unknown.
+const sizeAttrs = (heroPath) => {
+  const s = imageSize(heroPath);
+  return s ? ` width="${s.width}" height="${s.height}"` : '';
+};
+
 const slugify = (s) =>
   s
     .toLowerCase()
@@ -449,10 +534,17 @@ function relatedBlock(post, all) {
 </section>`;
 }
 
-function card(p) {
+// eager: for the handful of cards that sit above the fold on the hub. Marking
+// a visible image lazy makes the browser wait for layout before it even starts
+// the request, so the first row of cards is the one thing that must not be.
+function card(p, eager = false) {
+  const src = p.hero || OG_FALLBACK;
+  const priority = eager
+    ? 'fetchpriority="high" decoding="async"'
+    : 'loading="lazy" decoding="async"';
   return `<a class="blog-card" href="/blog/${p.slug}">
       <div class="blog-card-media">
-        <img src="${esc(p.hero || OG_FALLBACK)}" alt="${esc(p.heroAlt || '')}" loading="lazy" decoding="async">
+        <img src="${esc(src)}" alt="${esc(p.heroAlt || '')}"${sizeAttrs(src)} ${priority}>
       </div>
       <div class="blog-card-body">
         <span class="blog-card-tag">${esc(TYPE_LABEL[p.type] || 'Guide')}</span>
@@ -675,7 +767,9 @@ function renderPost(post, all, tpl) {
 
   const hero = post.hero
     ? `<figure class="blog-hero-media">
-        <img src="${esc(post.hero)}" alt="${esc(post.heroAlt || post.title)}" width="1600" height="900" fetchpriority="high" decoding="async">
+        <img src="${esc(post.hero)}" alt="${esc(post.heroAlt || post.title)}"${sizeAttrs(
+          post.hero
+        )} fetchpriority="high" decoding="async">
       </figure>${
         post.heroCredit
           ? `\n      <p class="blog-hero-credit">Photo by <a href="${esc(
@@ -758,7 +852,15 @@ function renderHub(all, tpl) {
     .filter(group => group.posts.length);
   const cards = groups.length
     ? `<nav class="blog-topic-nav" aria-label="Browse field notes">${groups.map(g => `<a href="#${g.type}">${g.label}</a>`).join('')}</nav>` +
-      groups.map(g => `<section id="${g.type}" class="blog-topic-section" aria-labelledby="${g.type}-title"><h2 id="${g.type}-title" class="blog-h2">${g.label}</h2><div class="blog-grid">${g.posts.map(card).join('\n')}</div></section>`).join('\n')
+      // The grid is three columns at desktop width, so the first three cards
+      // are the row a visitor actually sees. Those load eagerly; everything
+      // below stays lazy, which is what keeps the hub cheap as posts pile up.
+      // Counted across sections, not per section, since only the first section
+      // is above the fold.
+      (() => {
+        let shown = 0;
+        return groups.map(g => `<section id="${g.type}" class="blog-topic-section" aria-labelledby="${g.type}-title"><h2 id="${g.type}-title" class="blog-h2">${g.label}</h2><div class="blog-grid">${g.posts.map(p => card(p, shown++ < 3)).join('\n')}</div></section>`).join('\n');
+      })()
     : '<p class="blog-empty">The first posts are on their way.</p>';
 
   const jsonld = [

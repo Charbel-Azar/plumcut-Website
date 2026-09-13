@@ -202,6 +202,17 @@ and `PEXELS_API_KEY` are set, and falls back to Openverse, which needs no key
 but returns far weaker results. **Setting the Unsplash key is the single
 biggest quality upgrade available to this pipeline.**
 
+`blog/heroes/` is served with `max-age=31536000, immutable` from `vercel.json`,
+so the library is **append only**. A browser that has cached one of these files
+will not ask for it again for a year. To change what an image looks like, add a
+new file under a new name and point the post at it; never overwrite a hero in
+place, or visitors keep seeing the old one.
+
+The builder reads each hero's real width and height off the file itself and puts
+them on the `<img>`, so nothing needs recording in the manifest for that, and a
+stale manifest cannot put a wrong aspect ratio on the page. JPEG, PNG and WebP
+are understood; anything else, or a remote URL, just omits the attributes.
+
 Two rules the finder cannot enforce:
 
 - **Cosmos is never an image source.** Its images are third-party copyrighted
