@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "echo 'Static site - use a local server'",
     "build": "node scripts/build-blog.js",
-    "check": "node scripts/build-blog.js --check",
+    "check": "node scripts/build-blog.js --check && node scripts/geo-lint.js",
+    "lint": "node scripts/geo-lint.js",
     "test": "node --test scripts/blog.test.js"
   }
 }

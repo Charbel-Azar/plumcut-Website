@@ -239,10 +239,13 @@ work. Cannot synchronise safely, stop and report it.
 ```bash
 node scripts/build-blog.js --check   # renders and validates, writes nothing
 node scripts/build-blog.js           # writes
+node scripts/geo-lint.js             # AI-readiness lint of the published pages
 ```
 
 Fix any conversion error, broken internal link, invalid metadata or FAQ mismatch
-before going further. Read the warnings. A short complete answer is fine and
+before going further. `geo-lint` exits 1 on an error, and an error blocks the
+run: a post that ships without a description, a canonical, an `h1` or alt text
+is one an answer engine cannot attribute. Its warnings are advisory, read them. Read the warnings. A short complete answer is fine and
 should not be padded to clear a word count.
 
 ## Step 8. Commit and push

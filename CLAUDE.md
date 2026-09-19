@@ -65,6 +65,7 @@ change it there and every label, title, breadcrumb and feed follows.
 ```bash
 node scripts/build-blog.js          # build everything
 node scripts/build-blog.js --check  # validate and report, write nothing
+node scripts/geo-lint.js            # AI-readiness lint of the published pages
 node scripts/serve.js               # preview at localhost:5500
 node scripts/find-image.js "terms"  # ranked, licensed hero candidates
 ```
@@ -107,6 +108,23 @@ descriptions, missing heroes and normalized dashes. It fails on invalid dates or
 slugs, malformed FAQs, missing related posts/internal destinations, unresolved
 template tokens and FAQ/schema mismatches. Check mode renders without writing.
 Run `node --test scripts/blog.test.js` after builder changes.
+
+`scripts/geo-lint.js` is a separate, zero-dependency lint over the pages that
+actually ship: the six top-level pages and every `blog/*.html`. It holds the
+properties an answer engine needs in order to read, attribute and quote a page,
+and nothing else. Title, meta description, canonical, `lang`, exactly one `h1`,
+at least two `h2` sections, alt text on every content image, JSON-LD that
+parses, and one coherent Organization entity across all of them. It exits 1 on
+an error and 0 on a warning, so `npm run check` runs it after the blog check.
+It is deliberately not in the Vercel build command: a lint must never be able
+to block a deploy.
+
+Templates and the hero contact sheet are excluded because they are not served.
+Tracking pixels inside `<noscript>` are exempt from the alt rule. Nothing it
+checks is a ranking factor, and none of it predicts a citation. It catches
+regressions in properties we decided to hold. `npx geoptimize scan . --dir` is
+a wider external lint worth running occasionally by hand; it is not a
+dependency and must not become one.
 
 Optional author/authorUrl and reviewedBy/reviewerUrl fields render real attribution.
 Never invent a name or claim a person reviewed an automated draft. updated is only
