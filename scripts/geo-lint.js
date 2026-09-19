@@ -89,6 +89,23 @@ function types(node) {
   return Array.isArray(t) ? t : [t];
 }
 
+/** Order-insensitive rendering of the entity, so two pages can be compared. */
+function fingerprint(node) {
+  const sort = (value) => {
+    if (Array.isArray(value)) return value.map(sort);
+    if (value && typeof value === 'object') {
+      return Object.keys(value)
+        .sort()
+        .reduce((out, key) => {
+          if (key !== '@context') out[key] = sort(value[key]);
+          return out;
+        }, {});
+    }
+    return value;
+  };
+  return JSON.stringify(sort(node));
+}
+
 function lintPage(rel) {
   const html = fs.readFileSync(path.join(ROOT, rel), 'utf8');
   const errors = [];
@@ -152,14 +169,38 @@ function lintPage(rel) {
     for (const field of ['sameAs', 'contactPoint', 'address', 'areaServed', 'foundingDate']) {
       if (!identity[field]) warnings.push(`Organization is missing ${field}`);
     }
+  } else {
+    warnings.push('no full Organization entity, only a stub or a reference');
   }
 
-  return { page: rel, errors, warnings };
+  return { page: rel, errors, warnings, identity: identity ? fingerprint(identity) : null };
 }
 
 function main() {
   const asJson = process.argv.includes('--json');
   const results = publishedPages().map(lintPage);
+
+  // One company, or an engine reading two of our pages finds two companies.
+  const entities = new Map();
+  for (const result of results) {
+    if (!result.identity) continue;
+    if (!entities.has(result.identity)) entities.set(result.identity, []);
+    entities.get(result.identity).push(result.page);
+  }
+  if (entities.size > 1) {
+    const variants = [...entities.values()].sort((a, b) => b.length - a.length);
+    const majority = variants[0];
+    for (const pages of variants.slice(1)) {
+      for (const page of pages) {
+        const target = results.find((r) => r.page === page);
+        target.errors.push(
+          `Organization entity differs from the ${majority.length} pages that agree ` +
+            `(for example ${majority[0]}). One company, one entity.`
+        );
+      }
+    }
+  }
+
   const errors = results.reduce((n, r) => n + r.errors.length, 0);
   const warnings = results.reduce((n, r) => n + r.warnings.length, 0);
 

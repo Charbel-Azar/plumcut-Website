@@ -378,17 +378,23 @@ function markdown(md) {
   return { html: out.join('\n'), headings };
 }
 
-/* The publisher entity every generated page carries. Values are taken from what
-   the hand-written pages already assert; nothing here is invented. foundingDate
-   is deliberately absent until someone supplies the real one. */
+/* The publisher entity every generated page carries, and the same object the six
+   hand-written pages assert. One entity, one @id, identical fields everywhere:
+   an answer engine that reads two of our pages must not find two companies.
+   Nothing here is invented. Change it and rerun the build, then mirror it into
+   the hand-written pages, or scripts/geo-lint.js will report the divergence. */
 const ORGANIZATION = {
   '@type': 'Organization',
   '@id': SITE + '/#organization',
   name: 'plumcut',
   url: SITE + '/',
-  logo: { '@type': 'ImageObject', url: SITE + '/images/shared/new%20icon.png' },
+  logo: { '@type': 'ImageObject', url: SITE + '/images/shared/icon-192.png' },
   description:
     'plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.',
+  foundingDate: '2025',
+  address: { '@type': 'PostalAddress', addressLocality: 'Beirut', addressCountry: 'LB' },
+  telephone: '+96181864662',
+  email: 'info@plumcut.com',
   areaServed: [
     { '@type': 'Place', name: 'Lebanon' },
     { '@type': 'Place', name: 'Saudi Arabia' },
@@ -402,14 +408,37 @@ const ORGANIZATION = {
     'Arabic and Arabizi customer support',
     'customer conversation insight',
   ],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'sales',
-    email: 'info@plumcut.com',
-    url: SITE + '/',
-    areaServed: ['LB', 'SA'],
-    availableLanguage: ['en', 'ar'],
-  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: 'info@plumcut.com',
+      telephone: '+96181864662',
+      url: SITE + '/',
+      areaServed: ['LB', 'SA'],
+      availableLanguage: ['en', 'ar'],
+    },
+  ],
+  founder: [
+    {
+      '@type': 'Person',
+      name: 'Nour Zeineddine',
+      jobTitle: 'AI Engineering',
+      sameAs: 'https://www.linkedin.com/in/nour-h-zeineddine/',
+    },
+    {
+      '@type': 'Person',
+      name: 'Charbel Azar',
+      jobTitle: 'Full-Stack Development and Business',
+      sameAs: 'https://www.linkedin.com/in/charbelazar-/',
+    },
+    {
+      '@type': 'Person',
+      name: 'Michael Tamer',
+      jobTitle: 'Design, Brand and Growth',
+      sameAs: 'https://www.linkedin.com/in/michael-p-tamer/',
+    },
+  ],
   sameAs: [
     'https://www.instagram.com/plumcut_/',
     'https://www.linkedin.com/company/plumcut/',

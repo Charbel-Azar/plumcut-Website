@@ -119,6 +119,25 @@ an error and 0 on a warning, so `npm run check` runs it after the blog check.
 It is deliberately not in the Vercel build command: a lint must never be able
 to block a deploy.
 
+### The publisher entity
+
+Every page on the site, hand-written or generated, carries the same
+`Organization` node under one `@id`, `https://plumcut.com/#organization`. It is
+defined once as the `ORGANIZATION` constant in `scripts/build-blog.js` and
+mirrored verbatim into the six hand-written pages. An answer engine that reads
+two of our pages must not be able to conclude there are two companies, which is
+what four divergent copies of the block used to imply.
+
+`geo-lint` compares the entity across every published page and fails on any
+divergence, so changing it is a two-step edit: change the constant, rerun the
+build, then mirror the same object into the hand-written pages. Never edit one
+copy alone.
+
+Facts in that object are supplied by the founders, never inferred. It currently
+carries the founding year, a Beirut postal address, the public WhatsApp number
+and email, areaServed, knowsAbout, the three founders with their LinkedIn URLs,
+and sameAs. If a value is unknown, leave the field out rather than guess it.
+
 Templates and the hero contact sheet are excluded because they are not served.
 Tracking pixels inside `<noscript>` are exempt from the alt rule. Nothing it
 checks is a ranking factor, and none of it predicts a citation. It catches
