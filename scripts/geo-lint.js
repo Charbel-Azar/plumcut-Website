@@ -89,6 +89,25 @@ function types(node) {
   return Array.isArray(t) ? t : [t];
 }
 
+/** Shorten a string for a message without losing which one it was. */
+function truncate(value, max = 60) {
+  const flat = value.replace(/\s+/g, ' ').trim();
+  return flat.length > max ? flat.slice(0, max - 1) + '\u2026' : flat;
+}
+
+/** Visible text, entities decoded, whitespace flattened. */
+function visibleText(html) {
+  return html
+    .replace(/<(script|style|noscript)[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&(amp|lt|gt|quot|#39|apos|nbsp|rsquo|lsquo|ldquo|rdquo);/g, (m, name) =>
+      ({ amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'", apos: "'", nbsp: ' ',
+         rsquo: '’', lsquo: '‘', ldquo: '“', rdquo: '”' }[name])
+    )
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 /** Order-insensitive rendering of the entity, so two pages can be compared. */
 function fingerprint(node) {
   const sort = (value) => {
@@ -153,6 +172,31 @@ function lintPage(rel) {
       errors.push(`JSON-LD block ${index + 1} does not parse: ${error.message}`);
     }
   });
+
+  // FAQ schema has to describe something a reader can actually see. Google
+  // treats invisible FAQ markup as a violation, and an answer engine quoting a
+  // question nobody can find on the page is worse than no markup at all. The
+  // blog builder enforces this on generated posts; CLAUDE.md leaves the
+  // hand-written pages "on you", which is what this automates.
+  const text = visibleText(html);
+  const questions = nodes
+    .filter((node) => types(node).includes('Question'))
+    .map((node) => node.name)
+    .filter((name) => typeof name === 'string' && name.trim());
+  for (const question of questions) {
+    if (!text.includes(question.trim())) {
+      errors.push(`FAQ schema asks "${truncate(question)}" but the page never shows it`);
+    }
+  }
+  // Only a heading marks a real FAQ section. The word in a sentence does not,
+  // or the home page's "skip the FAQ rabbit hole" would count as one.
+  const headings = html.match(/<h[1-3][^>]*>[\s\S]*?<\/h[1-3]>/gi) || [];
+  const faqHeading = headings.some((h) =>
+    /\b(FAQ|Frequently asked|Questions people also ask)\b/i.test(visibleText(h))
+  );
+  if (faqHeading && !questions.length) {
+    warnings.push('a visible FAQ section with no FAQPage schema behind it');
+  }
 
   const organizations = nodes.filter((node) => types(node).includes('Organization'));
   if (!organizations.length) warnings.push('no Organization node in JSON-LD');

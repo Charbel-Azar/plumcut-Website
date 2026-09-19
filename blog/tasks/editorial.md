@@ -88,6 +88,17 @@ nothing concrete in it to lift. These rules exist because an audit in September
   Do not manufacture one where the topic does not support it.
 - **Front-load the answer.** The question in the title is answered in the first
   screen, in prose that stands on its own when quoted away from the page.
+- **Bind every entity to a hard fact.** Naming a tool, a country or a courier
+  carries nothing on its own. Put a number, a date, a cost, a frequency or a
+  place in the same sentence. "Saudi Arabia uses a national short address" is a
+  mention. "Saudi Arabia uses a national short address of four letters and four
+  digits, issued by Saudi Post" is something a reader or an engine can lift.
+- **Keep the proof beside the claim it proves.** Evidence for a heading belongs
+  inside that heading's own section, not three sections later and not only in
+  the intro. Retrieval reads a passage, not the whole page, so a statistic
+  stranded away from the claim it supports helps neither of them. This and the
+  rule above are heuristics from public GEO toolkits, not established ranking
+  factors. Follow them because they make a post easier to quote either way.
 - **FAQ answers are published as data.** Every faq entry is compiled into
   /ai/faq.json and served to crawlers detached from the article, so each answer
   must be true and complete in isolation, with no "as described above".

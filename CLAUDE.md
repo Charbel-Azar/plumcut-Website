@@ -114,7 +114,10 @@ actually ship: the six top-level pages and every `blog/*.html`. It holds the
 properties an answer engine needs in order to read, attribute and quote a page,
 and nothing else. Title, meta description, canonical, `lang`, exactly one `h1`,
 at least two `h2` sections, alt text on every content image, JSON-LD that
-parses, and one coherent Organization entity across all of them. It exits 1 on
+parses, and one coherent Organization entity across all of them. It also holds
+the house rule that `FAQPage` markup must match a visible FAQ, by checking every
+`Question` in a page's schema actually appears in that page's text, which is the
+half the blog builder cannot enforce. It exits 1 on
 an error and 0 on a warning, so `npm run check` runs it after the blog check.
 It is deliberately not in the Vercel build command: a lint must never be able
 to block a deploy.
