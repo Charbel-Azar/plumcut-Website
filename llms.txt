@@ -11,6 +11,8 @@
 ## Field notes
 - [Field notes](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.
 <!-- BLOG:LIST:START -->
+- [Which WhatsApp AI Actually Does the Work? 13 Tools Compared for MENA](https://plumcut.com/blog/whatsapp-ai-that-takes-action-mena): Thirteen WhatsApp AI tools compared on one axis: can the agent change something in your store, CRM or courier account, and who has to build it.
+- [Automation Is Not Just Customer Service. The Value Is in the Internal Work](https://plumcut.com/blog/automation-beyond-customer-service): Answering is becoming the cheap half. The value is in what happens after the reply, when an order, a record or a handover has to change. For MENA brands.
 - [How to Upsell and Cross-Sell Inside a Customer Conversation](https://plumcut.com/blog/upsell-cross-sell-in-conversation): Every upsell tool fires on a page where nobody is talking. The four moments in a conversation worth an offer, what to say at each, and where helpful turns pushy.
 - [What Happens When Your Store Gets More Messages Than Your Team Can Read](https://plumcut.com/blog/too-many-customer-messages-retail): Four things fail in a fixed order as retail message volume climbs, and revenue is only the third. How to scale a busy shop without growing the team to match.
 - [Can AI Actually Handle Retail Customer Service in 2026?](https://plumcut.com/blog/ai-customer-service-retail): Which retail questions a machine should answer, what it has to be connected to, and the ten platforms compared on the one thing that decides your bill at volume.
@@ -70,6 +72,60 @@ Answers below are reproduced verbatim from the articles that publish them. The
 full text of every article is at https://plumcut.com/llms-full.txt.
 
 <!-- FAQ:LIST:START -->
+### Which WhatsApp AI Actually Does the Work? 13 Tools Compared for MENA
+Source: https://plumcut.com/blog/whatsapp-ai-that-takes-action-mena
+
+**What is the difference between an AI agent that answers and one that takes actions?**
+
+An answering agent produces text from knowledge you supply. An acting agent calls another system and changes something in it, such as creating an order, updating a delivery address, raising a return or writing a lead into a CRM. Reads are easy to demonstrate and safe to get wrong. Writes need permissioned credentials, validated inputs, a confirmation step and a log, which is why many vendors stop at lookups.
+
+**Which WhatsApp platforms document their AI agent calling an external API?**
+
+Checked on 19 September 2026 against each vendor's own published pages, these do. respond.io documents a Make HTTP Requests action with a limit of ten per agent. SleekFlow documents custom API integrations enabled per agent under Configuration then Actions. Infobip documents external systems as agent tools and chatbots that call external APIs. Yellow.ai documents workflows that connect backend systems by API. Meta documents custom connectors to your external APIs for Meta Business Agent. Vendor documentation shows a capability exists, not that it will work on your stack without building.
+
+**Does Meta's own business agent replace these tools?**
+
+It replaces the answering layer for many businesses. Meta said in June 2026 that more than a million businesses were already using a Business Agent on WhatsApp and Messenger, free to activate, with paid options signalled later. It does not replace the work of building connectors to your systems, deciding what the agent may change, or keeping it working. Eligibility is also limited by country and by vertical, with finance, government, health, alcohol, gambling, over the counter drugs and matrimony excluded, and one phone number cannot run two competing messaging products at once.
+
+**Which tools show the strongest signals for Arabic speaking markets?**
+
+Unifonic is headquartered in Saudi Arabia and publishes a regional AI and data residency position, including partnerships with HUMAIN and Groq. Yellow.ai documents right to left Arabic support in its v3 chat widget and an established Middle East presence. Wati and SleekFlow published Arabic versions of their own websites when we checked on 11 September 2026. None of that demonstrates that an agent reads Gulf dialect or Arabizi correctly in a real customer message, which only a test with your own inbox will show.
+
+**Is a managed service better than a self serve platform for this?**
+
+It depends on who will own the work. Self serve platforms cost less in software and require someone in your team to build the actions, test them and repair them when an API changes. A managed service costs more in fees and removes that dependency. If you have a capable owner in house, buy a platform. If nobody on your team will own it and the work spans conversations, a store, payments and internal handovers, a managed service is usually the cheaper answer once staff time is counted.
+
+**Does plumcut publish this comparison?**
+
+Yes. plumcut sells a managed WhatsApp service and has a commercial interest in this topic. This guide compares publicly documented capabilities using each vendor's own pages, checked on 19 September 2026, plus editorial judgment about which buyer each approach fits. It is not a hands on benchmark and it does not claim measured superiority over any named vendor.
+
+### Automation Is Not Just Customer Service. The Value Is in the Internal Work
+Source: https://plumcut.com/blog/automation-beyond-customer-service
+
+**Is AI customer service the same thing as operations automation?**
+
+No. Customer service automation produces a reply. Operations automation produces a change in a system: an order created, a record updated, a courier booked, an internal task raised. Most requests need both, and a business that automates only the reply still pays a person to do the second half by hand. The reply is also the part that is commoditising fastest, because Meta now ships a business agent that answers on a brand's own WhatsApp number.
+
+**What does it actually mean for an AI agent to take an action?**
+
+It means the agent calls another system and changes something there, rather than only reading from it. Looking up an order status is a read. Creating the order, changing a delivery address, raising a return or writing a qualified lead into a CRM is a write. Writes need credentials with permission to change data, validation of what goes in, a confirmation step with the customer, a record of what changed, and a written list of things the agent may never do on its own.
+
+**Why is the internal half of a customer request harder in MENA than in Europe or the US?**
+
+Mostly because the data the internal step needs is shaped differently. Saudi Arabia uses a national short address issued by Saudi Post, four letters followed by four digits, for last mile delivery. Dubai uses Makani, a ten digit code from Dubai Municipality that identifies a building entrance. Lebanon has no unified national addressing at all and couriers navigate by landmark. A capture step that asks for a street line and a postal code produces a failed delivery in all three. Add cash on delivery confirmation where it is still used, and Arabizi input that has to become structured data, and the internal half carries work a global template does not account for.
+
+**Should an AI agent be allowed to write to my store or CRM?**
+
+Yes, for the narrow set of writes you have defined, with a confirmation step and a log. The safe pattern is a short list of permitted actions, each with validated inputs, rather than broad access to the API. Keep decisions that cost real money, such as refunds above a threshold, discounts beyond policy, and anything touching a disputed order, behind a human approval that the agent prepares but does not grant.
+
+**Is Meta's free business agent enough on its own?**
+
+It is enough to answer. Meta said in June 2026 that more than a million businesses were already using a Business Agent on WhatsApp and Messenger, and it is free to activate, with paid subscription options signalled for later. Its developer documentation describes custom connectors to external APIs so an agent can check an order or book an appointment. Someone still has to build those connectors against your systems, decide what the agent may change, and keep it working when your API changes. Eligibility is also restricted by vertical and country, and one phone number cannot run two competing messaging products at once.
+
+**What should stay with a person when the rest is automated?**
+
+The decisions, not the typing. Approving money out, accepting an order from a delivery area that has lost you money, releasing a refund on a disputed item, and any exception that has never happened before. Automate the holding, the notification, the preparation of everything needed to decide, and the record of what was decided. Never automate the yes itself.
+
 ### How to Upsell and Cross-Sell Inside a Customer Conversation
 Source: https://plumcut.com/blog/upsell-cross-sell-in-conversation
 
