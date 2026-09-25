@@ -1,7 +1,57 @@
 {
   "source": "https://plumcut.com/blog/",
-  "count": 115,
+  "count": 125,
   "faqs": [
+    {
+      "question": "Can one chatbot answer for several stores or brands at once?",
+      "answer": "Yes, if it is built as one engine with separate front doors. The shared engine holds the language skills, the policies common to every store and the connections to stock, orders and couriers. Each store keeps its own WhatsApp number, Instagram account or Facebook Page, its own name and tone, its own catalogue, prices, opening hours and delivery areas. The system knows which store a message belongs to from the number, account or Page it arrived on, so the customer only ever talks to the brand they chose.",
+      "source": "https://plumcut.com/blog/one-ai-multiple-stores-channels"
+    },
+    {
+      "question": "How many WhatsApp numbers can one business have on the WhatsApp Business Platform?",
+      "answer": "Meta's documentation, checked on 25 September 2026, says a new business portfolio is capped at two registered business phone numbers, and the cap rises automatically to 20 once the business is verified or reaches a messaging limit of 2,000. A portfolio can initially hold up to 20 WhatsApp Business Accounts. Messaging limits are set at the portfolio level and shared by every number in it, so one store's large broadcast can use up capacity the other stores needed that day.",
+      "source": "https://plumcut.com/blog/one-ai-multiple-stores-channels"
+    },
+    {
+      "question": "Does a customer who messages two of my stores count as one person?",
+      "answer": "Not automatically. Messenger gives each person a Page scoped ID and Instagram gives an Instagram scoped ID, and both are unique to the Page or account being messaged, so the same shopper messaging two of your Instagram accounts arrives as two different IDs. On WhatsApp, Meta's business scoped user IDs, which began appearing in webhooks in April 2026, are unique per business portfolio, so numbers in the same portfolio see the same ID. Linking one person across channels still depends on a phone number or email captured in the conversation or already held in your own systems.",
+      "source": "https://plumcut.com/blog/one-ai-multiple-stores-channels"
+    },
+    {
+      "question": "How long do I have to reply on WhatsApp, Instagram and Messenger?",
+      "answer": "All three give a 24 hour window after the customer's last message. On Messenger and Instagram, a human agent tag lets a person, not an automated reply, respond within 7 days of the customer's message. On WhatsApp, messages outside the 24 hour window have to use a template Meta has approved. Automated replies should therefore be fast enough that the window is rarely the problem, with a clear handover when a human needs more time.",
+      "source": "https://plumcut.com/blog/one-ai-multiple-stores-channels"
+    },
+    {
+      "question": "Should every store share the same WhatsApp number?",
+      "answer": "Usually not. A shared number makes every store look like one brand, mixes their promotions and their customer history, and lets one store's complaints or blocks affect the rating of a number the others depend on. Separate numbers per store or brand, connected to one shared engine, keep each identity clean while the logic, the integrations and the reporting stay in one place. One number for several branches of the same brand is a reasonable exception.",
+      "source": "https://plumcut.com/blog/one-ai-multiple-stores-channels"
+    },
+    {
+      "question": "Should a holding company use one automation system for all its brands?",
+      "answer": "In most cases, yes, for the engine and the data, and no, for the customer facing identity. One system behind every brand avoids paying for the same integrations several times, gives the group one view of customers and conversations, and lets improvements made for one brand reach the others. Each brand should still keep its own WhatsApp number, Instagram account and Facebook Page, its own voice, catalogue, prices and promotions. Letting each brand buy its own tool is faster at first and more expensive and less visible every year after.",
+      "source": "https://plumcut.com/blog/holding-company-conversation-automation"
+    },
+    {
+      "question": "How should a group roll out conversation automation across its brands?",
+      "answer": "One brand at a time. Start with the brand that has the most conversations and the clearest pain, because a quiet brand produces too little data to judge the result. Agree the measures before launch, such as response time, share of conversations resolved without a person and orders placed in chat. Run it long enough to cover a busy period, then reuse the same engine, integrations and reporting for the next brand, changing only what is specific to it.",
+      "source": "https://plumcut.com/blog/holding-company-conversation-automation"
+    },
+    {
+      "question": "Can a customer who opted in to one brand be messaged by another brand in the same group?",
+      "answer": "Treat each brand's consent as separate. WhatsApp's Business Messaging Policy requires opt in permission before a business contacts someone and requires every opt out request to be honoured, and it does not say that permission given to one business covers a related one. A customer who agreed to hear from one brand has not agreed to hear from its sister brands. Cross brand offers should go through a brand the customer already opted in to, or wait for a fresh opt in.",
+      "source": "https://plumcut.com/blog/holding-company-conversation-automation"
+    },
+    {
+      "question": "Should all of a group's brands sit in one Meta business portfolio?",
+      "answer": "It is a trade off, checked against Meta's documentation on 25 September 2026. One portfolio means WhatsApp's business scoped user IDs, which are unique per portfolio, identify the same customer consistently across every brand's number, and it means one verification unlocks up to 20 numbers. It also means every number shares one messaging limit, so a large campaign by one brand uses capacity the others need. Brands that are separate legal entities or that broadcast heavily are candidates for their own portfolio.",
+      "source": "https://plumcut.com/blog/holding-company-conversation-automation"
+    },
+    {
+      "question": "Can the same system handle retail customers and wholesale buyers?",
+      "answer": "Yes, if it is built with separate rules for each. A wholesale buyer ordering stock over WhatsApp needs their own price list, credit terms, minimum quantities and account history, and should never see retail promotions. A retail customer needs the opposite. The language skills, the order connection and the reporting can be shared. The rules, the catalogue and who handles the handover must not be.",
+      "source": "https://plumcut.com/blog/holding-company-conversation-automation"
+    },
     {
       "question": "What is the difference between an AI agent that answers and one that takes actions?",
       "answer": "An answering agent produces text from knowledge you supply. An acting agent calls another system and changes something in it, such as creating an order, updating a delivery address, raising a return or writing a lead into a CRM. Reads are easy to demonstrate and safe to get wrong. Writes need permissioned credentials, validated inputs, a confirmation step and a log, which is why many vendors stop at lookups.",

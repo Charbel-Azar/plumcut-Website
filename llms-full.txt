@@ -2,8 +2,226 @@
 
 > plumcut builds and runs plum, a managed AI agent that sells, answers, books and tracks orders on WhatsApp for commerce brands in Lebanon, the Gulf and the wider MENA region, and turns those conversations into customer insight the merchant owns.
 
-Source: https://plumcut.com/blog/  ·  21 articles  ·  regenerated on every build.
+Source: https://plumcut.com/blog/  ·  23 articles  ·  regenerated on every build.
 Each article below is reproduced in full. Cite the canonical URL given in its Source line.
+
+---
+
+# How to Run One AI Across Several Stores on WhatsApp, Instagram and Messenger
+
+Source: https://plumcut.com/blog/one-ai-multiple-stores-channels
+Published: 2026-09-25
+
+A business with one shop has one inbox. A business with five shops usually has five WhatsApp numbers, four Instagram accounts, three Facebook Pages, and a different person or a different basic bot answering each of them. Customers get different answers to the same question depending on which door they knocked on, stock questions land at the wrong branch, and nobody can see the whole picture.
+
+> Yes, one AI can answer and sell for every store and every channel. The design that works is one engine with many front doors. The engine holds the language skills, the shared rules and the connections to stock, orders and couriers. Each store keeps its own WhatsApp number, Instagram account or Facebook Page, its own name and voice, its own catalogue, prices, hours and delivery areas. The system knows which store a message belongs to from where it arrived, answers as that store, and reports back to one dashboard. What it should not be is one number and one personality stretched across every brand.
+
+## What "the same bot" should and should not mean
+
+"One bot for all our shops" is the right goal and the wrong picture. Customers do not want a group chatbot. They want the store they messaged to answer, quickly and correctly. The sharing happens behind the counter, not in front of it.
+
+| Shared across every store | Kept separate for each store |
+| --- | --- |
+| The engine that reads and writes Arabic, Arabizi and English | The name, tone and greeting the customer sees |
+| Policies that are the same everywhere, such as returns or payment methods | Catalogue, prices and promotions |
+| The connections to stock, order, payment and courier systems | Which branch or warehouse holds the stock |
+| The dashboard, the conversation history and the reporting | Opening hours, delivery areas and delivery fees |
+| The rules for when a human takes over | Which team receives that handover |
+
+Get this split right and adding a new store is mostly configuration: a new number or account, a new catalogue feed, a new set of rules. Get it wrong and every store becomes its own project.
+
+## How the three channels actually connect
+
+WhatsApp, Instagram and Messenger all belong to Meta, but they connect differently, and a multi store setup has to respect each one's rules. Everything below was checked against Meta's developer documentation on 25 September 2026.
+
+| Channel | What each store connects | Reply window | Outside the window |
+| --- | --- | --- | --- |
+| WhatsApp | A business phone number, inside a WhatsApp Business Account, inside a business portfolio | 24 hours from the customer's last message | Only templates Meta has approved |
+| Instagram | An Instagram professional account, with or without a linked Facebook Page | 24 hours | A human agent tag allows a person to reply within 7 days |
+| Messenger | A Facebook Page | 24 hours | A human agent tag allows a person to reply within 7 days |
+
+**WhatsApp numbers have a ceiling you will meet.** Meta's [phone number documentation](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/phone-numbers) says a new business portfolio is capped at two registered business phone numbers, rising automatically to 20 once the business is verified or reaches a messaging limit of 2,000. The [WhatsApp Business Accounts](https://developers.facebook.com/documentation/business-messaging/whatsapp/whatsapp-business-accounts/) page says a portfolio can initially hold 20 of those accounts, and that each account belongs to exactly one portfolio. For a business with six stores, verification is not paperwork you do later. It is the step that lets the third store exist.
+
+**Messaging limits are shared.** Meta's [messaging limits documentation](https://developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits) states that limits are set at the business portfolio level and shared by all business phone numbers in it. A new portfolio starts at 250 unique customers per rolling 24 hours for messages sent outside a customer service window, with higher tiers of 2,000, 10,000, 100,000 and unlimited. Replies inside the 24 hour window do not count. Broadcasts do. So if one store sends a big promotion on a Friday, it can use up the capacity the other stores needed for their own messages that day. Plan broadcasts at group level, not store by store.
+
+**Instagram no longer needs a Facebook Page.** Meta's [Instagram platform overview](https://developers.facebook.com/docs/instagram-platform/overview/) describes two setups: Instagram API with Instagram Login, for professional accounts that exist only on Instagram, and Instagram API with Facebook Login, for accounts linked to a Page. Both support messaging. That matters for businesses whose smaller stores only ever opened an Instagram account.
+
+**Automated replies should say they are automated where the law asks for it.** Meta's [Messenger and Instagram messaging policy](https://developers.facebook.com/documentation/business-messaging/messenger-platform/policy) requires automated chat to disclose that it is automated where legally required, and recommends doing so anyway. The same policy sets the 24 hour window and the 7 day human agent tag above.
+
+## How the system knows which store a message is for
+
+Routing is the part people underestimate. A good multi store setup decides in this order.
+
+1. **Where the message arrived.** The number, account or Page tells you the store, and therefore the voice, the catalogue and the rules. This settles most messages on its own.
+2. **Where the customer is.** For a brand with several branches on one number, the delivery area or the nearest branch decides who fulfils the order.
+3. **Where the stock is.** If the item is out of stock at the store that was messaged, the system checks the others, if you allow that.
+
+A hypothetical example to make it concrete. A customer messages the Instagram account of one of your shops asking for a size that shop has sold out of. A single store bot says sorry. A group setup can see the same item at another of your branches and offer to deliver it from there, in the voice of the shop the customer chose, with the order created at the branch that holds it. Whether you allow that is a business decision. Whether the system can do it depends on whether it was connected to stock across stores in the first place.
+
+## One customer, many doors
+
+Most businesses assume a customer who messages two of their stores is one person in their system. On Meta's channels, that is not automatic.
+
+Meta's messaging documentation says each person who messages a Facebook Page or an Instagram professional account gets an ID scoped to that Page or account: a Page scoped ID on [Messenger](https://developers.facebook.com/documentation/business-messaging/messenger-platform/send-messages), an Instagram scoped ID on [Instagram](https://developers.facebook.com/docs/instagram-platform/instagram-api-with-instagram-login/messaging-api/). The same shopper messaging two of your Instagram accounts arrives as two different IDs.
+
+WhatsApp is moving the other way. Its [business scoped user IDs](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/), introduced because WhatsApp users can now choose a username instead of showing their phone number, began appearing in webhooks in early April 2026. They are unique to each business portfolio and user pair, so every number in the same portfolio sees the same person as the same ID. Numbers in a different portfolio see a different ID.
+
+The practical rule: if you want one customer profile across stores and channels, you have to build the link. The usual key is a phone number or email captured naturally in the conversation, when the customer places an order or asks for delivery, and matched against what your own systems already hold. Keep it honest in both directions. A profile built from the first message forward is solid. Linking someone to purchases you cannot prove were theirs is not.
+
+## Tools that already handle several brands in one place
+
+If what you need is one inbox for several stores, with people answering, several platforms do it. We checked each vendor's own page on 25 September 2026. plumcut publishes this list and is one of the options on it.
+
+| Tool | What it documents for several stores or brands |
+| --- | --- |
+| [Meta Business Suite Inbox](https://www.facebook.com/business/help/294426838452244) | Messages and comments from a Facebook Page, Messenger, Instagram and WhatsApp in one inbox, with basic automated responses |
+| [Zendesk](https://support.zendesk.com/hc/en-us/articles/4408829476378-Setting-up-multiple-brands) | Up to five brands on Suite Growth and Professional, up to 300 on Enterprise plans, with a WhatsApp channel associated to a brand at setup |
+| [Gorgias](https://docs.gorgias.com/en-US/manage-multiple-stores-in-gorgias-1905893) | Several Shopify, BigCommerce or Magento 2 stores in one helpdesk, with channels managed store by store; its [multi store page](https://www.gorgias.com/product/multi-stores) says all plans include unlimited brands |
+| [respond.io](https://respond.io/faqs/is-respondio-right-for-multiple-brands-one-operation) | A workspace per brand, each with its own channels, contacts, history, workflows and AI Agents, on the Advanced plan at $279 a month per its [pricing page](https://respond.io/pricing) |
+| [SleekFlow](https://help.sleekflow.io/en_US/connecting-channels) | Several WhatsApp numbers plus Instagram and Messenger accounts connected to one account and one inbox |
+| [Freshdesk](https://support.freshdesk.com/support/solutions/articles/37638-supporting-multiple-products-with-freshdesk) | Separate branded portals for several products or brands from one helpdesk |
+| [plumcut](/solutions) | One engine answering and selling for every store and channel, connected to stock, orders and couriers, built and run for you |
+
+Each of these solves the inbox problem well. What they leave to you is the logic in the section above: which store holds the stock, how an order gets created at the right branch, how the courier gets told, and who maintains all of that when a system changes. That is the part that decides whether "one bot for all our stores" saves anyone any work.
+
+## Where multi store setups break
+
+Five failures come up again and again, and all of them are design decisions rather than bugs.
+
+- **One number for several brands.** It saves setup time and costs you every brand's identity. Complaints or blocks on that number affect all of them.
+- **One stock feed without locations.** The system tells a customer the item is available, and it is, in a branch 40 minutes away that does not deliver to them.
+- **Broadcasts planned store by store.** Shared messaging limits mean one store's campaign can crowd out another's order updates.
+- **Handover to a shared inbox.** When the conversation needs a human, it has to go to the team that can act for that store, with the context attached, not to a general queue.
+- **Reporting that mixes everything.** A group dashboard is useful only if you can also see each store on its own. Otherwise you cannot tell which shop is losing sales in its conversations.
+
+## Why this matters more in MENA
+
+Two regional realities make the single engine more valuable here than in most markets. First, customers write in Arabic, English, Arabizi and every mix of the three, often in the same message, which we cover in [our guide to Arabic customer service](/blog/ai-customer-service-arabic). Teaching that once, in one engine, is far cheaper than teaching it separately to five store bots. Second, WhatsApp is where buying happens, not just where support happens. DataReportal's [Digital 2026 Saudi Arabia](https://datareportal.com/reports/digital-2026-saudi-arabia) report puts WhatsApp use at 92.2 percent of internet users. When every store's sales run through the same channel, a weak link in one store is a lost order, not a slow ticket.
+
+## How plumcut does it
+
+plum runs as one system across all of your stores and channels. Each store keeps its own WhatsApp number, Instagram account and Facebook Page, its own name and voice, and its own catalogue and rules. Behind them, plum is connected to what the business already runs on, so it can check stock, create orders at the right branch, take payment and follow up with delivery, as set out in [how it works](/how-it-works). You get one dashboard with every conversation, a profile for each customer, and human takeover whenever a person should step in.
+
+We build it, run it and keep it working, so adding a store is our job, not yours. Pricing is a setup fee and a fixed monthly fee set by what the solution does, with Meta messaging and AI usage billed at cost, as shown on [pricing](/pricing). Adding stores changes the scope, and you see the new figure before you agree to it.
+
+**When we are not the right answer.** If all you need is one shared inbox where your team answers every store by hand, Meta Business Suite is free and Gorgias or respond.io will organise it well. If you have an in house team that wants to build the routing and integrations itself, a platform will cost you less. We fit the business that wants the stores answered and the orders created without adding a person per shop.
+
+## What to do this week
+
+1. **List every door.** Every WhatsApp number, Instagram account and Facebook Page, per store, and who answers each today.
+2. **Draw the split.** Use the table at the top of this post and decide what is shared and what belongs to each store.
+3. **Find where stock lives.** For each store, which system knows what is on the shelf, and can anything read it?
+4. **Check your Meta setup.** Is the business verified, and are all the numbers in one portfolio? That decides how many numbers you can add and how broadcast capacity is shared.
+5. **Pick one busy store to start.** Busy enough that the results are obvious, simple enough to launch in weeks. Then copy the pattern to the rest.
+
+If you run a group of brands rather than a group of branches, the decisions above sit inside a bigger one about how to buy and roll this out across the group. We cover that in [how holding companies can automate customer conversations across their brands](/blog/holding-company-conversation-automation).
+
+---
+
+# How Holding Companies Can Automate Customer Conversations Across Their Brands
+
+Source: https://plumcut.com/blog/holding-company-conversation-automation
+Published: 2026-09-25
+
+A group with several brands rarely decides how its brands talk to customers. It happens brand by brand. One brand hires an agency that sets up a basic chatbot, another answers WhatsApp from a manager's phone, a third bought a platform nobody fully configured. Each one pays for its own tools and its own integrations, and the group cannot see what any of them is hearing from customers.
+
+> The answer for most holding companies is to centralise the engine and the data, keep every brand distinct at the front, and roll out one brand at a time. One system behind all the brands avoids paying for the same integrations again and again, gives the group one view of its customers, and lets what works for one brand reach the rest. Each brand still keeps its own WhatsApp number, Instagram account and Facebook Page, its own voice, catalogue and rules. Letting each brand buy its own tool looks faster and costs more every year after.
+
+## Why this is a regional question
+
+In the Gulf and the wider Middle East, the group is the normal shape of a business, not the exception. Strategy&, part of PwC, [wrote in 2020](https://www.strategyand.pwc.com/m1/en/articles/2020/how-gcc-family-businesses-can-prepare-for-growth-after-the-pandemic.html) that family businesses constitute 60 percent of the GCC's non oil GDP and employ 80 percent of its workforce, citing PwC's Middle East Family Business Survey. Many of those businesses run several retail brands, franchises or distribution agencies under one owner.
+
+That structure changes the automation question. A single brand asks "which tool should we buy?" A group has to ask who buys it, who runs it, what is shared, and what each brand keeps to itself. Get that wrong and you end up with several half working chatbots and no group view at all.
+
+## Three ways a group can buy it
+
+We compare the three models on the criteria a group finance or operations lead would actually use. This is editorial judgment from plumcut, which sells the third option, so read the last column with that in mind.
+
+| | Each brand buys its own | One platform license, run in house | One managed system for the group |
+| --- | --- | --- | --- |
+| Speed for the first brand | Fastest | Medium | Medium |
+| Speed for each brand after | Same as the first, every time | Faster, if the team stays | Faster, the pattern is reused |
+| Integrations paid for | Once per brand | Once, built by your team | Once, built by the provider |
+| Group view of customers and conversations | None | Yes, if configured | Yes |
+| Who fixes it when a system changes | Each brand, or nobody | Your team | The provider |
+| Brand voice and catalogue | Separate by default | Separate if configured | Separate by design |
+| Fits a group that | Has brands with nothing in common | Has a digital team with capacity | Has no team to own it |
+
+**Each brand buys its own** is right when the brands genuinely share nothing: different customers, different systems, different markets. It is wrong the moment two brands share a warehouse, a courier, an ERP or a customer base, because every shared thing gets integrated twice.
+
+**One platform license run in house** is the strongest option for a group with a real digital team. Several platforms already support multiple brands, such as [respond.io](https://respond.io/faqs/is-respondio-right-for-multiple-brands-one-operation) with a workspace per brand or [Zendesk](https://support.zendesk.com/hc/en-us/articles/4408829476378-Setting-up-multiple-brands) with up to 300 brands on its Enterprise plans, both checked on 25 September 2026. The license is the easy part. The group still has to build the connections to stock, orders and couriers, write the rules for each brand and keep all of it working.
+
+**One managed system for the group** is for the group that wants the outcome without building a team to produce it. The provider builds the engine once, connects it to the group's systems, sets up each brand's front door and runs it. The trade is dependence on that provider, which is why data ownership has to be written into the agreement.
+
+## What to centralise and what to leave to each brand
+
+| Centralise at group level | Leave to each brand |
+| --- | --- |
+| The engine and its language skills | Name, tone and greeting |
+| Connections to ERP, stock, payments and couriers | Catalogue, prices and promotions |
+| Customer data, conversation history and reporting | Which team receives a handover |
+| Security, access control and data retention rules | Opening hours, delivery areas and fees |
+| The Meta business setup and broadcast planning | What to broadcast, and to whom |
+
+The rule of thumb: anything that costs money to build or is a risk to get wrong belongs to the group. Anything the customer can see belongs to the brand.
+
+Groups rarely run one system across every brand. One brand runs an older ERP, another a newer one, a third runs its online store on Shopify. The automation layer should connect to each brand's system through its own connector, so that when a brand moves to a new ERP, one connector changes and the conversations carry on. If a provider's answer to an ERP migration is "we rebuild", that is a cost you will pay every time a brand upgrades.
+
+## The Meta setup decision most groups skip
+
+Every WhatsApp number a group uses sits inside a business portfolio on Meta, and that choice has consequences most groups discover late. Checked against Meta's documentation on 25 September 2026:
+
+- **Numbers are capped.** A new portfolio can register two business phone numbers, rising automatically to 20 once the business is [verified or reaches a messaging limit of 2,000](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-phone-numbers/phone-numbers). A group with several brands needs verification early.
+- **Messaging limits are shared.** [Limits are set per portfolio](https://developers.facebook.com/documentation/business-messaging/whatsapp/messaging-limits) and shared by every number in it. A new portfolio starts at 250 unique customers per rolling 24 hours for messages outside a customer service window, and higher tiers go up to unlimited. One brand's big campaign can use capacity another brand needed.
+- **Customer IDs follow the portfolio.** WhatsApp's [business scoped user IDs](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/), in webhooks since early April 2026, are unique per portfolio and user. Brands in one portfolio see the same customer as the same ID. Brands in separate portfolios do not.
+
+So one portfolio gives the group consistent customer identity and one verification, at the cost of shared capacity. Separate portfolios isolate each brand, at the cost of a joined up view. Brands that are separate legal entities, or that broadcast heavily, are good candidates for their own. Decide it deliberately, before the numbers are registered, because moving later is work.
+
+## Customer data across brands
+
+The biggest prize in a group is also the easiest to misuse. A group can see that the customer who buys from one of its brands is exactly the customer another brand wants. That does not mean the second brand can message them.
+
+WhatsApp's [Business Messaging Policy](https://whatsappbusiness.com/policy/) requires opt in permission before a business contacts someone and requires every opt out to be honoured, and it says nothing to suggest that permission given to one business covers a related one. Our judgment: treat each brand's consent as belonging to that brand. Use the group view to understand customers, to decide where to invest and to spot what they keep asking for. Make cross brand offers only through a brand the customer already chose to hear from, or ask them first.
+
+Data ownership matters as much as consent. Whatever the model, the group should own the conversations, the customer profiles and the insight built from them, and be able to take them if it changes provider. Put it in the contract.
+
+## The wholesale arm is a second customer
+
+Many groups also distribute: they import brands and supply other retailers and supermarkets. Those buyers already order over WhatsApp, usually by messaging a sales rep. The same engine can serve them, with different rules.
+
+| Retail customer | Wholesale buyer |
+| --- | --- |
+| Public prices and promotions | Their own price list and credit terms |
+| Single items, delivered home | Cases and minimum quantities, delivered to a store |
+| Answers about sizes, stock and delivery | Answers about availability, invoices and statements |
+| Handover to customer service | Handover to the account's sales rep |
+
+Keeping these apart is non negotiable: a wholesale buyer should never see a retail promotion, and a retail customer should never be quoted a trade price. Sharing the language skills, the order connection and the reporting is what makes serving both affordable.
+
+## Roll out one brand at a time
+
+A group rollout fails in two ways: everything at once, or a pilot too small to prove anything. The pattern that works:
+
+1. **Pick the brand with the most to gain.** The most conversations and the clearest pain. A quiet brand produces too little data to judge the result, and a disappointing pilot on the wrong brand can stall the whole group.
+2. **Agree the measures before launch.** Response time, share of conversations resolved without a person, orders placed in chat, handover rate. Write the current numbers down first. We explain how to judge whether a brand is ready in [when a business is ready for AI customer service](/blog/when-ready-for-ai-customer-service).
+3. **Cover a busy period.** A pilot that only sees a quiet month has not been tested.
+4. **Copy the pattern, not the setup.** The second brand reuses the engine, integrations and reporting, and only its front door, catalogue and rules are new. How that works across numbers, accounts and Pages is set out in [how to run one AI across several stores](/blog/one-ai-multiple-stores-channels).
+5. **Move the back office once the front works.** Order handovers, stock checks between branches and courier updates are where the larger savings sit, as we cover in [automation beyond customer service](/blog/automation-beyond-customer-service).
+
+## How plumcut works with a group
+
+plumcut is the managed option in the table above. We build plum once for the group and give every brand its own front door on WhatsApp, Instagram and Messenger, in its own voice, with its own catalogue and rules. Behind them, plum connects to each brand's store, ERP, payments and couriers through their own connectors, reads Arabic, Arabizi and English, and feeds one dashboard with every conversation and customer profile, which the group owns. We run it and keep it working as brands change systems, as described in [how it works](/how-it-works).
+
+Pricing follows the same shape as for any client: a setup fee for the build, then a fixed monthly fee set by what the solution does, with Meta messaging and AI usage billed at cost, as shown on [pricing](/pricing). For a group, that usually means scoping the first brand properly, then adding brands as a change in scope rather than a new project.
+
+**When we are not the right answer.** If your group has a digital team that wants to own the build, license a multi brand platform and keep the difference. If your brands share no systems, customers or suppliers, letting each choose its own tool is reasonable. We fit the group that wants every brand answering and selling properly, and has nobody whose job it is to make that happen.
+
+## What to do this week
+
+1. **Count the doors.** Every WhatsApp number, Instagram account and Facebook Page across the group, and who answers each.
+2. **List what the brands share.** ERP, warehouse, couriers, payment provider, customers. Every shared item is an integration you should only pay for once.
+3. **Check the Meta setup.** Which portfolios exist, who owns them, and whether they are verified.
+4. **Pick the first brand.** The busiest one with the clearest problem, and write down its numbers today so you can measure the change.
 
 ---
 
