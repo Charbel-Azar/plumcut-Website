@@ -148,6 +148,10 @@ posts you added backlinks to as well. If plumcut.com cannot be reached, say
 `pushed, deployment unverified` and log the row as `approved` instead of
 `published`.
 
+You do not need to ping search engines. The push triggers the `IndexNow`
+GitHub workflow, which waits for the deploy and submits the new and changed
+URLs to IndexNow automatically.
+
 ## Step 8. Record it in Notion
 
 The run is not finished until this is done. One row per post in the Blog

@@ -1,0 +1,67 @@
+name: IndexNow
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'blog/**'
+      - '*.html'
+      - 'sitemap.xml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Collect URLs
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node scripts/indexnow.js --all --dry-run > urls.txt
+          elif [ -n "$BEFORE" ] && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            node scripts/indexnow.js --changed "$BEFORE" --dry-run > urls.txt
+          else
+            node scripts/indexnow.js --changed --dry-run > urls.txt
+          fi
+          cat urls.txt
+      - name: Wait for the Vercel deploy
+        run: |
+          # The key file always; on push, the changed pages too.
+          echo "https://plumcut.com/697538b93d349bb6fef6e915bfd3006e.txt" > wait.txt
+          if [ "${{ github.event_name }}" = "push" ]; then cat urls.txt >> wait.txt; fi
+          deadline=$(( $(date +%s) + 300 ))
+          while :; do
+            pending=0
+            while read -r url; do
+              [ -z "$url" ] && continue
+              code=$(curl -s -o /dev/null -w '%{http_code}' -H 'Cache-Control: no-cache' "$url" || true)
+              if [ "$code" != "200" ]; then echo "  $code $url"; pending=1; fi
+            done < wait.txt
+            [ "$pending" = "0" ] && { echo "All URLs return 200."; break; }
+            if [ "$(date +%s)" -ge "$deadline" ]; then
+              echo "::warning::Not every URL returned 200 within 5 minutes; pinging anyway."
+              break
+            fi
+            sleep 15
+          done
+      - name: Ping IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node scripts/indexnow.js --all
+          elif [ -n "$BEFORE" ] && git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            node scripts/indexnow.js --changed "$BEFORE"
+          else
+            node scripts/indexnow.js --changed
+          fi

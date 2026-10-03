@@ -230,6 +230,14 @@ After pushing, the run must pass `node scripts/verify-blog.js <slug>`, which
 checks the deployed content version, canonical and sitemap. A push alone is not
 publication proof.
 
+New and changed posts are pinged to IndexNow automatically. On every push to
+`main` that touches `blog/**`, a top-level `*.html` or `sitemap.xml`,
+`.github/workflows/indexnow.yml` waits for the Vercel deploy to serve the key
+file and the changed pages, then runs `node scripts/indexnow.js --changed`.
+Running the workflow by hand pings every URL in `sitemap.xml` (`--all`). The key
+file `697538b93d349bb6fef6e915bfd3006e.txt` at the repo root proves ownership to
+the engines; never rename or delete it.
+
 ## Hero images
 
 **`blog/heroes/` is the hero library blog runs use.** Licensed images
