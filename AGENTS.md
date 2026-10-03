@@ -10,7 +10,9 @@ runbooks the scheduled agent uses; fetch the current version before a run.
 There is no human approval step, so the review pass in the runbook is the only
 gate and it may kill the post. Read the Blog control page first: a paused blog
 stays paused. Never name, quote or point at anyone from a meeting. Do not invent
-reviews, results or credentials.
+reviews, results or credentials. A run ends in Notion, not at the push: add the
+post's row to the Blog database under Online Presence / cowork - Blog, as
+Step 10 of author.md describes.
 
 Validate changes with node scripts/build-blog.js --check. For builder changes,
 also run node --test scripts/blog.test.js. Rebuild tracked generated outputs with

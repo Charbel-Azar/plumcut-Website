@@ -4,6 +4,26 @@ Static marketing site. Plain HTML, no framework, no bundler. Deployed on Vercel
 from `main`; every push goes live. `cleanUrls: true`, so `/blog/foo.html` serves
 at `/blog/foo`.
 
+## When asked to write a blog
+
+Any request to write, draft, publish or ship a blog post, field note or article,
+in any wording, with or without `/blog`, means the same job: invoke the `blog`
+skill, which runs `blog/tasks/author.md`. Do not write a post from memory or
+from this file alone.
+
+1. **Sync first.** `git fetch` and fast-forward `main` before reading anything,
+   so you follow today's runbook and see every existing post.
+2. **Read the repo**: `blog/tasks/author.md`, `blog/tasks/editorial.md`,
+   `blog/posts/_TEMPLATE.md`, `blog/ART-DIRECTION.md`, and this file.
+3. **Write, review, build, push, verify** exactly as the runbook says.
+4. **Then update Notion.** The run is not finished until the post has a row in
+   the `Blog` database (`collection://0f269a5b-550b-4e9e-b34d-f4c4837be033`),
+   which lives under **Brand & Identity / Branding / Online Presence /
+   cowork - Blog** and is the record of every post ever written. `published`
+   once verified, `approved` if the deploy could not be verified, `killed` if
+   review threw it away. Also add the Run log line on the Blog control page.
+   A post that is live on the site with no Notion row is an unfinished run.
+
 ## Layout
 
 ```

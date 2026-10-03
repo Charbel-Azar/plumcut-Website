@@ -280,7 +280,11 @@ network block as a failed deployment. Neither route available, report
 
 ## Step 10. Write the row and the log
 
-One Notion row per post, created after verification, not before.
+One Notion row per post, created after verification, not before. **This step is
+mandatory.** The Blog database (under Brand & Identity / Branding / Online
+Presence / cowork - Blog) is the team's record of every post ever written, so a
+run that pushes a post but skips this step is unfinished, not successful. If
+Notion cannot be reached, say so in the report and list the row's properties.
 
 Properties: `Status = published`, Title, Slug, Question, Description, Type,
 Keywords, Words, all seven Hero fields, `Source` (`meeting` when a room started
