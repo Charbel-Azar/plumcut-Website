@@ -215,7 +215,9 @@ review pass with the authority to delete the post, plus the `Paused` switch and
 is a good outcome. Notion is the record of what shipped, not the gate before it.
 
 Content standards live in Notion under **plumcut - HQ / Brand & Identity /
-Branding / cowork - Blog**: archetypes, voice, what a good post looks like.
+Branding / Online Presence / cowork - Blog**: archetypes, voice, what a good
+post looks like. The same page holds the `Blog` database, the record of every
+post ever written, and the Blog control page.
 `blog/tasks/editorial.md` keeps the essential topic, promotion and review rules
 in GitHub, with Notion as supplemental guidance. Every run reads both.
 
