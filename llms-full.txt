@@ -1,6 +1,6 @@
 # plumcut — full text of every Field note
 
-> plumcut builds and runs plum, a managed AI agent that sells, answers, books and tracks orders on WhatsApp for commerce brands in Lebanon, the Gulf and the wider MENA region, and turns those conversations into customer insight the merchant owns.
+> plumcut builds and runs an intelligent automation system on the channels a brand's customers already use — it answers, actively sells (upsell, cross-sell, booking), and reads across every interaction to show the owner what customers actually want.
 
 Source: https://plumcut.com/blog/  ·  26 articles  ·  regenerated on every build.
 Each article below is reproduced in full. Cite the canonical URL given in its Source line.
