@@ -8,8 +8,7 @@ is guaranteed by publishing frequency, schema, or paragraph length.
 These rules govern every run of blog/tasks/author.md, at every stage: choosing
 the subject, writing, reviewing and publishing. The Notion manual may supplement
 voice and examples; if inaccessible, report that and use this file with
-CLAUDE.md. Notion access is still required to read the control page and to log
-the published row. Project rules override conflicting imported SEO heuristics.
+CLAUDE.md. Notion access is still required to log the published row. Project rules override conflicting imported SEO heuristics.
 
 ## Select useful questions
 

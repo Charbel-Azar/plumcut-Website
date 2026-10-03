@@ -21,8 +21,7 @@ from this file alone.
    which lives under **Brand & Identity / Branding / Online Presence /
    cowork - Blog** and is the record of every post ever written. `published`
    once verified, `approved` if the deploy could not be verified, `killed` if
-   review threw it away. Also add the Run log line on the Blog control page.
-   A post that is live on the site with no Notion row is an unfinished run.
+   review threw it away. A post that is live on the site with no Notion row is an unfinished run.
 
 ## Layout
 
@@ -203,41 +202,27 @@ add a Blog item to `.pc-nav`.
 
 ### The publishing pipeline
 
-One run does the whole job. Run it by hand with **`/blog [topic]`**, or let the
-scheduled cloud routine `plumcut blog` fire it Mon / Wed / Sat. Both read the
-same runbook, so manual and scheduled runs can never drift apart.
-
-**The runbook lives in this repo**, at `blog/tasks/author.md`. The scheduled
-routine is a three-line pointer that reads that file and follows it, so changing
-the runbook changes what the next run does. No API call, no routine edit. Fix a
-bug in a commit.
+Posts are written on request: someone asks Claude Code for a post (with `/blog`
+or in plain words), and one run does the whole job. There is no scheduled
+routine and no control page; both were retired on 4 Oct 2026. The procedure is
+`blog/tasks/author.md`.
 
 ```
-one run   subject -> question -> write -> review -> build -> push -> verify -> log
+one run   subject -> question -> write -> review -> build -> push -> verify -> Notion row
 ```
 
-Subjects come from the **Meetings** database first, `collection://fd9c0e54-8bb3-47f4-bd2e-fd240acfef2f`,
-and from web search when no room yields one. The rule for a meeting subject is
-the subject only: what area the room was about, then what the wider market asks
-about that area, then whether plum honestly helps. Never a name, never a quote,
-never a deal, never "a client told us". The link back to the room lives in the
-internal Notion row and nowhere else.
+If a subject comes from the **Meetings** database, `collection://fd9c0e54-8bb3-47f4-bd2e-fd240acfef2f`,
+use the subject only. Never a name, never a quote, never a deal, never "a client
+told us".
 
-**You steer it from the [Blog control page](https://app.notion.com/p/3d78d6e734f481298d03e96918155768)**,
-under cowork - Blog. Three switches, no commit needed: `Paused` freezes the whole
-thing, `Focus` points every run at one subject, `Meetings read up to` is the
-watermark that stops a room being mined twice. The run appends to the log there
-each time it fires.
-
-**There is no human approval step.** What replaces it is Step 6 of the runbook, a
-review pass with the authority to delete the post, plus the `Paused` switch and
-`git revert`. A post that cannot be verified honestly is killed, and an empty run
-is a good outcome. Notion is the record of what shipped, not the gate before it.
+**There is no human approval step.** The review step in the runbook can delete
+the post, and `git revert` undoes a bad one. Notion is the record of what
+shipped, not the gate before it.
 
 Content standards live in Notion under **plumcut - HQ / Brand & Identity /
 Branding / Online Presence / cowork - Blog**: archetypes, voice, what a good
-post looks like. The same page holds the `Blog` database, the record of every
-post ever written, and the Blog control page.
+post looks like. The same page holds the `Blog` database, the history of every
+post ever written.
 `blog/tasks/editorial.md` keeps the essential topic, promotion and review rules
 in GitHub, with Notion as supplemental guidance. Every run reads both.
 
@@ -247,7 +232,7 @@ publication proof.
 
 ## Hero images
 
-**`blog/heroes/` is the library the scheduled run uses.** Licensed images
+**`blog/heroes/` is the hero library blog runs use.** Licensed images
 committed to the repo with `manifest.json` describing each one: alt text, tags,
 credit, licence. The run matches `tags` against the post subject and copies the
 entry into front matter as `hero: /blog/heroes/<file>.jpg`.
