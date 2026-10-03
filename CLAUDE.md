@@ -57,6 +57,41 @@ orange `#E65E04`, plum `#481D52`, deep plum `#4B1D6A`.
 with `!important`. Article prose has to outrank that, which is why the blog CSS
 carries `!important` on its heading rules.
 
+## Brand rules (locked)
+
+These are fixed by the founders. Use them verbatim and never reword, shorten or
+"improve" them unless a founder asks for that specific change.
+
+- **One-liner**, used exactly, including the dash (the one sanctioned exception
+  to the no-dash rule below):
+  "plumcut builds and runs an intelligent automation system on the channels a
+  brand's customers already use — it answers, actively sells (upsell,
+  cross-sell, booking), and reads across every interaction to show the owner
+  what customers actually want."
+  Lives in `llms.txt` line 2, the Organization JSON-LD `description` (the
+  `ORGANIZATION` constant plus the six hand-written pages), the WebSite and
+  Service JSON-LD on `index.html`, `ai/summary.json` (`SUMMARY`), and the first
+  sentence of the footer on every page and `scripts/templates/page.html`,
+  followed by "Built in Lebanon, made for the brands of the region."
+- **Short version**, for fields with length limits:
+  "plumcut builds and runs an intelligent automation system that answers, sells
+  and books, and shows owners what customers actually want."
+  Lives in the home meta, og and twitter descriptions, the `about.html` meta
+  description and `package.json`.
+- **Founding date**: `foundingDate: "2025-12"`; `ai/summary.json` carries
+  `"founded": "2025-12"` and `"location": "Lebanon"`.
+- **Organization sameAs**: `https://www.instagram.com/plumcut_/`,
+  `https://www.linkedin.com/company/plumcut/`, `https://www.facebook.com/plumcut`,
+  `https://www.wikidata.org/wiki/Q141633318`,
+  `https://www.crunchbase.com/organization/plumcut`.
+- `<title>` tags keep "WhatsApp AI sales agent". The solutions page's own
+  description (`solutions.html`, the JSON-LD block around line 231) describes
+  the solutions, not the company, and does not use the one-liner. Its
+  Organization node and footer still do.
+
+`scripts/geo-lint.js` fails if `llms.txt`, any page's Organization description
+or any page's footer stops containing the one-liner.
+
 ## House rules for copy
 
 - **No em dashes or en dashes anywhere.** Commas, full stops, or restructure.

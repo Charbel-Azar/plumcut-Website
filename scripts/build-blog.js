@@ -390,8 +390,8 @@ const ORGANIZATION = {
   url: SITE + '/',
   logo: { '@type': 'ImageObject', url: SITE + '/images/shared/icon-192.png' },
   description:
-    'plumcut builds and runs AI sales agents for WhatsApp, then turns customer conversations into owned customer insight for high-traffic commerce brands.',
-  foundingDate: '2025',
+    "plumcut builds and runs an intelligent automation system on the channels a brand's customers already use — it answers, actively sells (upsell, cross-sell, booking), and reads across every interaction to show the owner what customers actually want.",
+  foundingDate: '2025-12',
   address: { '@type': 'PostalAddress', addressLocality: 'Beirut', addressCountry: 'LB' },
   telephone: '+96181864662',
   email: 'info@plumcut.com',
@@ -443,6 +443,8 @@ const ORGANIZATION = {
     'https://www.instagram.com/plumcut_/',
     'https://www.linkedin.com/company/plumcut/',
     'https://www.facebook.com/plumcut',
+    'https://www.wikidata.org/wiki/Q141633318',
+    'https://www.crunchbase.com/organization/plumcut',
   ],
 };
 
@@ -1041,9 +1043,10 @@ const WELL_KNOWN_DIR = path.join(ROOT, '.well-known');
 const SUMMARY = {
   name: 'plumcut',
   description:
-    'plumcut builds and runs plum, a managed AI agent that sells, answers, books and tracks orders on WhatsApp for commerce brands in Lebanon, the Gulf and the wider MENA region, and turns those conversations into customer insight the merchant owns.',
+    "plumcut builds and runs an intelligent automation system on the channels a brand's customers already use — it answers, actively sells (upsell, cross-sell, booking), and reads across every interaction to show the owner what customers actually want.",
   url: SITE,
-  founded: 'Lebanon',
+  founded: '2025-12',
+  location: 'Lebanon',
   regions: ['Lebanon', 'United Arab Emirates', 'Saudi Arabia', 'Egypt', 'MENA', 'GCC'],
   languages: ['English', 'Arabic (Modern Standard)', 'Gulf Arabic', 'Levantine Arabic', 'Arabizi'],
   model: 'Managed service, not a self-serve bot builder',

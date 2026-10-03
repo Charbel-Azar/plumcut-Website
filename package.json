@@ -1,7 +1,7 @@
 {
   "name": "plumcut",
   "version": "1.0.0",
-  "description": "Plumcut - AI-Powered Business Automation & Chatbots",
+  "description": "plumcut builds and runs an intelligent automation system that answers, sells and books, and shows owners what customers actually want.",
   "scripts": {
     "dev": "echo 'Static site - use a local server'",
     "build": "node scripts/build-blog.js",

@@ -39,6 +39,10 @@ const MIN_SECTIONS = 2;
 const ORG_ID = 'https://plumcut.com/#organization';
 const ORG_NAME = 'plumcut';
 
+/** The locked company one-liner. Brand rule in CLAUDE.md; change it only on request. */
+const ONE_LINER =
+  "plumcut builds and runs an intelligent automation system on the channels a brand's customers already use — it answers, actively sells (upsell, cross-sell, booking), and reads across every interaction to show the owner what customers actually want.";
+
 function publishedPages() {
   const pages = [];
   for (const entry of fs.readdirSync(ROOT)) {
@@ -213,9 +217,15 @@ function lintPage(rel) {
     for (const field of ['sameAs', 'contactPoint', 'address', 'areaServed', 'foundingDate']) {
       if (!identity[field]) warnings.push(`Organization is missing ${field}`);
     }
+    if (!String(identity.description || '').includes(ONE_LINER))
+      errors.push('Organization description does not contain the locked one-liner');
   } else {
     warnings.push('no full Organization entity, only a stub or a reference');
   }
+
+  const footer = html.match(/<footer[\s\S]*?<\/footer>/i);
+  if (!footer || !visibleText(footer[0]).includes(ONE_LINER))
+    errors.push('footer does not contain the locked one-liner');
 
   return { page: rel, errors, warnings, identity: identity ? fingerprint(identity) : null };
 }
@@ -223,6 +233,14 @@ function lintPage(rel) {
 function main() {
   const asJson = process.argv.includes('--json');
   const results = publishedPages().map(lintPage);
+
+  const llms = fs.readFileSync(path.join(ROOT, 'llms.txt'), 'utf8');
+  results.push({
+    page: 'llms.txt',
+    errors: llms.includes(ONE_LINER) ? [] : ['does not contain the locked one-liner'],
+    warnings: [],
+    identity: null,
+  });
 
   // One company, or an engine reading two of our pages finds two companies.
   const entities = new Map();

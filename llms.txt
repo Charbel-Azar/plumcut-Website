@@ -1,5 +1,5 @@
 # plumcut
-> plumcut builds and runs the AI that sells on WhatsApp for high-traffic DTC brands, then turns customer conversations into owned customer insight.
+> plumcut builds and runs an intelligent automation system on the channels a brand's customers already use — it answers, actively sells (upsell, cross-sell, booking), and reads across every interaction to show the owner what customers actually want.
 
 ## Core Pages
 - [Home](https://plumcut.com/): The AI that answers, sells, books, and reads customer conversations for insight.
