@@ -93,7 +93,7 @@ Contact-based pricing has the same shape with a different trigger. You grow your
 
 A fixed fee in bands inverts that. Busy months inside your band cost nothing extra, and the top band is a ceiling. That is [how plumcut prices](/pricing), and it is a deliberate answer to this exact problem: the fee is set by what the solution does rather than by how busy it gets, and the metered costs that genuinely do scale, Meta messaging and AI usage, are billed to you at cost on your own accounts with nothing added.
 
-Neither model is universally correct. Per resolution pricing is better if your volume is low, spiky, or you want to pay nothing in a quiet month. A fixed band is better if you are growing and want the invoice to stop being a function of your success. Pick the one that matches which of those you are.
+Neither model is universally correct. Per resolution pricing is better if your volume is low, spiky, or you want to pay nothing in a quiet month. A fixed band is better if you are growing and want the invoice to stop being a function of your success. Pick the one that matches which of those you are. The billing unit is one of six lines on the invoice; the other five are broken down in [what AI customer service really costs per month](/blog/ai-customer-service-hidden-costs).
 
 ## How you actually connect it to your shop
 

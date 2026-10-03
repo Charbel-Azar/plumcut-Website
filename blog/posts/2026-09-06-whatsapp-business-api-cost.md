@@ -120,7 +120,7 @@ Common omissions include exception handling, catalogue updates and the time need
 
 Plan number onboarding and migration with your provider before promising a launch date. Account eligibility and supported onboarding routes should be checked for the actual setup.
 
-For outbound reminders, verify consent and template category as well as price. Our guide to [WhatsApp abandoned-cart messages](/blog/whatsapp-abandoned-cart-rules) explains why the intended message matters.
+For outbound reminders, verify consent and template category as well as price. Our guide to [WhatsApp abandoned-cart messages](/blog/whatsapp-abandoned-cart-rules) explains why the intended message matters. For the platform side of the bill, seats, per resolution charges and contact overages checked vendor by vendor, see [what AI customer service really costs per month](/blog/ai-customer-service-hidden-costs).
 
 ## What to do this week
 

@@ -128,4 +128,6 @@ For a brand in Saudi Arabia, the UAE or Lebanon doing real volume on WhatsApp, w
 5. Show me the log of everything it changed yesterday.
 6. Send it three real customer messages from my inbox, in Arabizi, with the typos left in.
 
+An agent that can write to your systems also holds your customers' data, so add the data questions too. We listed ten in [is your customer data safe with an AI chatbot](/blog/ai-chatbot-customer-data-safety).
+
 The sixth question is the one that ends most demos in this region. Bring your own messages, not theirs.

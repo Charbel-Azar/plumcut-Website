@@ -1,7 +1,82 @@
 {
   "source": "https://plumcut.com/blog/",
-  "count": 125,
+  "count": 140,
   "faqs": [
+    {
+      "question": "How much does AI customer service cost per month?",
+      "answer": "The advertised plan is usually between 10 and 280 US dollars a month, but that is rarely the bill. On vendor pricing pages checked on 3 October 2026, the AI part is often charged separately, at 0.90 to 1.00 US dollars per automated interaction at Gorgias, 0.99 US dollars per outcome at Intercom, and 1.50 to 2.00 US dollars per extra automated resolution at Zendesk. Seats, contact overages and Meta's WhatsApp message fees come on top. A store automating a few hundred conversations a month should budget for the total of all of those, not for the plan price.",
+      "source": "https://plumcut.com/blog/ai-customer-service-hidden-costs"
+    },
+    {
+      "question": "What are the hidden costs of an AI chatbot?",
+      "answer": "Six lines that the headline price usually leaves out. Per seat charges for the people who still answer. A per resolution or per AI conversation charge for the automation itself. Overage fees when tickets or monthly active contacts pass the plan limit. Meta's WhatsApp template message fees, plus any per message fee a provider adds, such as Twilio's 0.005 US dollars. Add-ons like integrations or extra numbers. And the staff time needed to build, test and maintain the automation, which no invoice shows.",
+      "source": "https://plumcut.com/blog/ai-customer-service-hidden-costs"
+    },
+    {
+      "question": "Are WhatsApp replies to customers free?",
+      "answer": "Mostly yes. Since 1 July 2025 Meta charges per template message, and its pricing documentation says all non-template messages are free, which covers ordinary replies inside the customer service window. Utility templates sent inside an open customer service window are also free. Marketing, authentication and utility templates sent outside that window are charged, and the rate depends on the recipient's country calling code.",
+      "source": "https://plumcut.com/blog/ai-customer-service-hidden-costs"
+    },
+    {
+      "question": "Does Meta charge the same WhatsApp rate in Lebanon, Saudi Arabia and the UAE?",
+      "answer": "No. Meta's rate card prices by the recipient's country calling code. Its pricing documentation lists Saudi Arabia (966) and the United Arab Emirates (971) as their own markets, while Lebanon (961) falls into a grouping called Rest of Middle East. A brand selling across all three should budget per market rather than use one blended rate.",
+      "source": "https://plumcut.com/blog/ai-customer-service-hidden-costs"
+    },
+    {
+      "question": "Is a fixed monthly fee better than per resolution pricing?",
+      "answer": "It depends on your volume. Per resolution pricing is cheaper when traffic is low or very uneven, because a quiet month costs little. A fixed fee is cheaper and easier to plan when you are growing, because a busy month does not raise the bill. plumcut charges a one time setup fee and a fixed monthly fee in wide traffic bands with a ceiling, and passes Meta messaging and AI model usage through at cost with no margin.",
+      "source": "https://plumcut.com/blog/ai-customer-service-hidden-costs"
+    },
+    {
+      "question": "Is an AI chatbot cheaper than hiring a customer service employee?",
+      "answer": "For repetitive questions, almost always, because the comparison is not one salary against one subscription. A week has 168 hours and the labour laws of Saudi Arabia, the UAE and Lebanon all cap a standard working week at 48 hours, so covering every hour takes about three and a half full time people before leave. Each one also carries employer costs such as social insurance and an end of service payment. An AI answers at any hour for a monthly fee. It is not cheaper for judgment work, such as complaints and refunds, which should stay with a person.",
+      "source": "https://plumcut.com/blog/ai-chatbot-vs-hiring-customer-service"
+    },
+    {
+      "question": "How many employees do you need to answer WhatsApp 24 hours a day?",
+      "answer": "At least three and a half full time employees, and more in practice. A week is 168 hours and the standard maximum working week is 48 hours in Saudi Arabia, the UAE and Lebanon, so 168 divided by 48 gives 3.5 people just to keep one seat filled. Annual leave, sick days and breaks push the real number higher. Most small brands do not do this, which is why messages sent at night or on weekends wait until the morning.",
+      "source": "https://plumcut.com/blog/ai-chatbot-vs-hiring-customer-service"
+    },
+    {
+      "question": "What does a customer service hire really cost an employer in Saudi Arabia?",
+      "answer": "More than the salary. For a Saudi employee the employer pays GOSI contributions for annuities, 9 percent for existing contributors and rising in steps toward 11 percent for new entrants under the new Social Insurance Law, plus 2 percent for occupational hazards and 0.75 percent for SANED unemployment insurance. The Labor Law also requires an end of service award of half a month's wage for each of the first five years, at least 21 days of paid annual leave, and a working week capped at 48 hours.",
+      "source": "https://plumcut.com/blog/ai-chatbot-vs-hiring-customer-service"
+    },
+    {
+      "question": "Can AI completely replace customer service staff?",
+      "answer": "No, and it should not try. AI is reliable for questions with one correct answer, such as stock, prices, delivery areas, order status and policies, which make up most of the volume in a typical store. Refunds, exceptions and complaints where the business was at fault need a person with the authority to decide. Meta's WhatsApp messaging policy also requires a prompt, clear and direct way to reach a human when replies are automated. The usual result is a smaller team doing better work, not no team.",
+      "source": "https://plumcut.com/blog/ai-chatbot-vs-hiring-customer-service"
+    },
+    {
+      "question": "How much does plumcut cost compared with hiring?",
+      "answer": "plumcut charges a one time setup fee and then a fixed monthly fee set by what the solution does, stepping up in wide traffic bands to a ceiling, with Meta messaging and AI usage billed at cost with no margin. There is no gratuity, social insurance, leave cover or recruitment cost, and it answers at every hour of the week. The exact figure depends on the solution and is quoted on a short call, so compare it against the fully loaded cost of the hires it would replace, not against one salary.",
+      "source": "https://plumcut.com/blog/ai-chatbot-vs-hiring-customer-service"
+    },
+    {
+      "question": "Is customer data safe with an AI chatbot on WhatsApp?",
+      "answer": "It can be, but safety depends on the chain, not the chatbot. A WhatsApp AI usually passes each message through three parties, Meta's WhatsApp Cloud API, the vendor's own servers, and an AI model provider. Meta states that Cloud API messages are encrypted at rest and kept for a maximum of 30 days. The major AI model APIs from OpenAI, Anthropic and Google say they do not train on API data by default. The weakest link is usually the vendor in the middle, so ask where it stores conversations, for how long, and who can read them.",
+      "source": "https://plumcut.com/blog/ai-chatbot-customer-data-safety"
+    },
+    {
+      "question": "Does the AI train on my customers' WhatsApp messages?",
+      "answer": "Not by default at the major model providers. OpenAI says data sent to its API has not been used to train its models since 1 March 2023 unless the customer opts in. Anthropic says it does not use inputs or outputs from its API to train models by default. Google says paid Gemini API prompts and responses are not used to improve its products. Meta's WhatsApp Business Platform terms also restrict using platform data to train AI models, other than fine tuning a model for the business's exclusive use. Ask your vendor to confirm in writing which provider it uses and whether it opted into anything.",
+      "source": "https://plumcut.com/blog/ai-chatbot-customer-data-safety"
+    },
+    {
+      "question": "Can WhatsApp chatbot data be stored in Saudi Arabia or the UAE?",
+      "answer": "For data at rest on Meta's Cloud API, partly. Meta offers a local storage option that keeps message content at rest in a chosen region after processing. The supported region codes listed in Meta's registration documentation include the United Arab Emirates and Bahrain, but not Saudi Arabia or Lebanon. Messages are still processed in Meta data centers before that. Separately, the vendor's own database and the AI provider may store data elsewhere, so ask each one.",
+      "source": "https://plumcut.com/blog/ai-chatbot-customer-data-safety"
+    },
+    {
+      "question": "What does Saudi Arabia's PDPL mean for a chatbot?",
+      "answer": "Saudi Arabia's Personal Data Protection Law came into force on 14 September 2023, with organisations expected to comply by 14 September 2024, and SDAIA is the competent authority. It applies to processing the data of people in the Kingdom even by parties outside it. Transfers outside the Kingdom are conditioned rather than banned, under a separate SDAIA regulation that relies on an adequacy list or safeguards such as standard contractual clauses. A brand selling in Saudi Arabia should ask its chatbot vendor where data goes and which transfer basis it relies on.",
+      "source": "https://plumcut.com/blog/ai-chatbot-customer-data-safety"
+    },
+    {
+      "question": "Who owns the conversations a chatbot has with my customers?",
+      "answer": "Check the contract, because it varies. Some platforms keep conversation history and analytics inside their product, so leaving means losing it. Ask whether you can export every conversation and contact in a usable format, what happens to your data on the day you cancel, and whether the vendor can use your conversations for anything beyond serving your own customers. plumcut's position is that the conversations, and what they show about your customers, belong to the brand and are not locked into a platform or handed to anyone else.",
+      "source": "https://plumcut.com/blog/ai-chatbot-customer-data-safety"
+    },
     {
       "question": "Can one chatbot answer for several stores or brands at once?",
       "answer": "Yes, if it is built as one engine with separate front doors. The shared engine holds the language skills, the policies common to every store and the connections to stock, orders and couriers. Each store keeps its own WhatsApp number, Instagram account or Facebook Page, its own name and tone, its own catalogue, prices, opening hours and delivery areas. The system knows which store a message belongs to from the number, account or Page it arrived on, so the customer only ever talks to the brand they chose.",

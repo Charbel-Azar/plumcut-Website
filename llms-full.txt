@@ -2,8 +2,262 @@
 
 > plumcut builds and runs plum, a managed AI agent that sells, answers, books and tracks orders on WhatsApp for commerce brands in Lebanon, the Gulf and the wider MENA region, and turns those conversations into customer insight the merchant owns.
 
-Source: https://plumcut.com/blog/  ·  23 articles  ·  regenerated on every build.
+Source: https://plumcut.com/blog/  ·  26 articles  ·  regenerated on every build.
 Each article below is reproduced in full. Cite the canonical URL given in its Source line.
+
+---
+
+# What AI Customer Service Really Costs Per Month in 2026
+
+Source: https://plumcut.com/blog/ai-customer-service-hidden-costs
+Published: 2026-10-03
+
+You found a tool that says 29 dollars a month. Then the first invoice arrived and it said something else. That gap is not a scam, it is how the category prices: the plan is the entry ticket, and the automation, the people, the contacts and the WhatsApp messages are each metered on their own line.
+
+> AI customer service usually costs far more than its headline plan. On 12 vendor pages checked on 3 October 2026, the advertised plan ran from about 10 to 280 US dollars a month, but the AI itself was often billed separately, at 0.90 to 2.00 US dollars per automated conversation or resolution. On top of that come seats, contact or ticket overages, and Meta's WhatsApp template fees, which vary by country. To compare vendors honestly, add every line for your real monthly volume. plumcut takes the other route: a one time setup fee, then a fixed monthly fee in wide bands with a ceiling, with Meta and AI usage passed through at cost.
+
+## The six lines behind every AI customer service bill
+
+Almost every invoice in this category is built from the same six parts. Vendors differ in which ones they show on the pricing page.
+
+| Line | What it charges for | Where you will see it |
+| --- | --- | --- |
+| 1. Plan or seat | Access, usually per person who logs in | Every helpdesk |
+| 2. Automation | Each conversation or resolution the AI closes | Intercom, Zendesk, Gorgias, Tidio, Interakt |
+| 3. Overage | Tickets or monthly active contacts above the plan limit | Gorgias, respond.io, SleekFlow |
+| 4. Meta's message fees | WhatsApp template messages, priced by country | Everyone on WhatsApp, passed through |
+| 5. Provider fees on messages or numbers | A per message fee, a licence or a number hosting fee | Twilio, 360dialog, SleekFlow |
+| 6. Your team's time | Building flows, writing answers, fixing what breaks | Never on the invoice |
+
+The sixth line is the one that decides whether a cheap tool stays cheap. A self serve platform at 50 dollars a month that needs a person half a day a week to maintain it is not a 50 dollar product.
+
+## What 12 vendors actually charge, checked on 3 October 2026
+
+plumcut sells in this category, so this is a comparison written by a participant. Every figure below comes from the vendor's own pricing or documentation page on 3 October 2026, follows the same six lines, and links to the page so you can check it. Prices change. Pull the current number before you budget; the structure is the part that lasts. Where a page did not state something, the table says not stated.
+
+| Vendor | Headline plan | The lines that are not in the headline |
+| --- | --- | --- |
+| [Intercom](https://www.intercom.com/pricing) | Essential 29 US dollars per seat a month, billed annually | Fin AI at 0.99 US dollars per outcome, on top of seats |
+| [Zendesk](https://www.zendesk.com/pricing/) | Support Team 19 US dollars per agent a month, paid yearly | 5 automated resolutions per agent a month included on Team plans, then 1.50 US dollars each committed or 2.00 pay as you go |
+| [Gorgias](https://www.gorgias.com/pricing) | Starter 10 US dollars a month with 50 tickets | 0.40 US dollars per ticket over the limit, its AI at 0.90 US dollars per automated interaction on annual or 1.00 on monthly |
+| [Tidio](https://www.tidio.com/pricing/) | Starter 24.17 US dollars a month for 100 billable conversations, billed annually | Lyro AI sold separately, from 32.50 US dollars a month for 50 AI conversations |
+| [respond.io](https://respond.io/pricing) | Starter 79 US dollars a month, billed annually | 12 US dollars per 100 extra monthly active contacts on Growth, 15 on Advanced; WhatsApp fees not included |
+| [Wati](https://www.wati.io/pricing/) | Plan prices load dynamically and were not captured on 3 October 2026, check the page | Extra users at 24 US dollars a month on Pro, 69 on Business; per message charges for marketing, utility and authentication; Shopify integration 4.99 US dollars a month |
+| [SleekFlow](https://sleekflow.io/pricing) | Pro 109 US dollars a month, billed yearly, with 500 monthly active contacts | WhatsApp number hosting at 15 US dollars a month; conversation rates per SleekFlow's own rate card |
+| [Interakt](https://www.interakt.shop/pricing/) | Growth 55 US dollars a month plus taxes | AI add-on at 74.99 US dollars with 100 AI messages, then 0.011 US dollars per AI message |
+| [Twilio](https://www.twilio.com/en-us/whatsapp/pricing) | No platform plan, pay per message | 0.005 US dollars per WhatsApp message inbound or outbound, plus Meta's template fee passed through |
+| [360dialog](https://360dialog.com/pricing) | 49 euros per number a month plus Meta fees | States no markup on Meta fees; higher tiers at 99 and 500 euros |
+| [Meta](https://developers.facebook.com/docs/whatsapp/pricing) | Per template message since 1 July 2025 | Rate set by template category and the recipient's country code |
+| [plumcut](/pricing) | One time setup fee, then a fixed monthly fee set by what the solution does | Meta messaging and AI model usage billed at cost with no margin; fee steps up in wide bands to a ceiling |
+
+Three patterns stand out once the lines sit side by side.
+
+**The AI is usually a second product.** Intercom, Zendesk, Gorgias, Tidio and Interakt all price the automation separately from the plan. The plan buys you an inbox. The thing you came for is metered.
+
+**Contacts are a growth tax.** respond.io and SleekFlow bill by monthly active contacts. Talk to more customers, which is the goal, and the bill climbs with you.
+
+**Message fees hide in the plumbing.** Twilio's half cent per message looks small until you multiply it by every inbound and outbound message in a month. 360dialog is the opposite case: it states no markup on Meta's fees and charges a flat licence instead. Ask every provider which of those two models it follows.
+
+## Meta's fees, and why your market matters
+
+Meta moved WhatsApp to [per message pricing](https://developers.facebook.com/docs/whatsapp/pricing) on 1 July 2025. Its documentation says all non-template messages are free, and utility templates sent inside an open customer service window are free too. What you pay for are template messages: marketing, utility outside the window, and authentication.
+
+The rate depends on the recipient's country calling code, and the region is split in a way that matters for anyone selling across it. Saudi Arabia (966) and the United Arab Emirates (971) are listed as their own markets. Lebanon (961) sits in a grouping called Rest of Middle East. A brand messaging customers in Beirut, Riyadh and Dubai is paying three different rate lines, and a vendor quote that uses one blended number is guessing. We broke the categories down in [what the WhatsApp Business API really costs](/blog/whatsapp-business-api-cost).
+
+## The same store, priced three ways
+
+An illustrative calculation, not a customer result. A store with two people on the inbox and 600 conversations a month that the AI closes on its own. Annual billing prices from the table above. Meta fees left out because they are the same everywhere.
+
+| Vendor | Seats | Automation | Overage | Monthly total before Meta fees |
+| --- | --- | --- | --- | --- |
+| Intercom, Advanced at 85 per seat | 170 | 600 × 0.99 = 594 | none | about 764 US dollars |
+| Zendesk, Suite Team at 55 per agent | 110 | 10 included, 590 × 1.50 = 885 | none | about 995 US dollars |
+| Gorgias, Basic at 50 with 300 tickets | 50 | 600 × 0.90 = 540 | 1,500 tickets means 1,200 × 0.40 = 480 | about 1,070 US dollars |
+
+Now double the traffic, which is what a good season does. Every one of those totals rises, because three of the six lines are metered. That is the real cost question: not what you pay this month, but what your bill does when you succeed. We compared that effect across ten platforms in [AI customer service for retail](/blog/ai-customer-service-retail).
+
+## Why plumcut prices the opposite way
+
+plumcut does not sell you an inbox and a meter. It builds plum, the AI that answers, sells and books on your WhatsApp, connects it to your store and systems, and runs it for you. The [pricing](/pricing) follows from that.
+
+- **One setup fee, stated up front.** It pays for learning your brand, building plum around your products and policies, testing it on real questions and launching. It is live in about two weeks.
+- **One fixed monthly fee.** Set by what your solution does, not by how many conversations it handles. It steps up in wide bands as traffic settles higher, the top band is a ceiling, and you are told before a band changes.
+- **Meta and AI usage at cost.** The two costs that genuinely scale with volume are billed to you at cost with no margin added. No per message fee on top, no per resolution charge, no contact tax.
+- **No line six.** There is nobody on your side writing flows or fixing answers. That work is the service.
+- **Arabic and English, built in.** No add-on for the language most of your customers write in.
+
+Line by line, that removes the seat charge, the automation meter, the overage and the hidden staff time, and leaves you two numbers: a fixed fee and Meta's own rates.
+
+## When a metered tool is the better buy
+
+Plainly, because a comparison that never says this is an advert. If your volume is very low or very uneven, a per resolution tool like Gorgias or Intercom can cost less than any fixed fee, since a quiet month costs almost nothing. If you already run a trained support team on Zendesk, adding its automation is less disruptive than switching. And if you want to build and own every flow yourself, a self serve platform like respond.io or Wati is the right shape. If none of those describes you, and you would rather have one predictable number and nobody on your team maintaining a bot, [see how plumcut works](/how-it-works).
+
+## What to do this week
+
+1. Pull last month's numbers: conversations, people on the inbox, unique customers who messaged, and how many template messages you sent per country.
+2. For each vendor you are considering, fill in all six lines from the table, not just line one.
+3. Run the same sum at double your volume. The vendor whose total moves least is the one built for a growing brand.
+4. Then ask plum for a fixed quote and compare it with the six line total, not with the headline plan.
+
+---
+
+# AI Chatbot vs Hiring a Customer Service Employee: Which Is Cheaper?
+
+Source: https://plumcut.com/blog/ai-chatbot-vs-hiring-customer-service
+Published: 2026-10-03
+
+Messages are piling up, replies are going out late, and the obvious fix is to hire someone. Before you post the job ad, run the numbers properly, because the cost of a customer service hire is not the salary on the offer letter, and one hire does not cover the hours your customers are actually messaging.
+
+> For repetitive customer questions, an AI chatbot is almost always cheaper than hiring. A week has 168 hours, and the labour laws of Saudi Arabia, the UAE and Lebanon cap a standard working week at 48 hours, so keeping one seat filled around the clock takes about three and a half people before anyone takes leave. Each hire then adds employer costs: social insurance, an end of service payment, paid leave and recruitment. An AI like plum answers at every hour for one fixed monthly fee. Hiring still wins for judgment work, refunds, exceptions and complaints, which is why the best answer is usually AI for the volume and people for the decisions.
+
+## The number most people get wrong: coverage
+
+Your customers do not message in office hours. They message after dinner, on Friday, during Ramadan nights. A hire covers their shift and nothing else.
+
+| Country | Standard maximum working week | Hires needed to cover 168 hours | Paid annual leave on top |
+| --- | --- | --- | --- |
+| Saudi Arabia | [48 hours](https://www.hrsd.gov.sa/en/knowledge-centre/articles/312), 36 in Ramadan for Muslim employees | 3.5, or 4.7 in Ramadan | [At least 21 days](https://www.hrsd.gov.sa/en/knowledge-centre/articles/321), 30 after five years |
+| UAE | [8 hours a day or 48 a week](https://u.ae/en/information-and-services/jobs/Sector-of-employment/employment-in-the-private-sector/working-hours) | 3.5 | 30 days after one year of service |
+| Lebanon | [48 hours](https://www.nrc.no/globalassets/pdf/guidelines/guide-to-employment-rights/lebanon-employment-rights-guide---english.pdf) under the Labour Code | 3.5 | 15 days after one year |
+
+So the honest comparison is never "one salary against one subscription". It is either three and a half salaries against one subscription, or one salary plus a promise to customers that nobody answers after six. Most brands quietly choose the second, and pay for it in carts that go cold overnight. We looked at what that silence costs in [what happens when your store gets more messages than your team can read](/blog/too-many-customer-messages-retail).
+
+## What a hire costs beyond the salary
+
+Every country in the region adds employer costs that never appear on the offer letter. Checked on official or published legal sources on 3 October 2026; this is a guide, not payroll advice.
+
+**Saudi Arabia.** For a Saudi employee, the employer pays GOSI [annuities at 9 percent](https://www.gosi.gov.sa/GOSIOnline/FAQ_Employer?locale=en_US) for existing contributors, and GOSI's own guidance says the rate for new entrants under the new Social Insurance Law rises in half point steps to 11 percent. On top of that, [2 percent for occupational hazards](https://www.gosi.gov.sa/GOSIOnline/FAQ_Employer?locale=en_US), which also applies to non-Saudi employees, and [0.75 percent for SANED](https://www.gosi.gov.sa/GOSIOnline/FAQ_Unemployment_Insurance_(SANED)?locale=en_US) unemployment insurance. The [Labor Law](https://www.hrsd.gov.sa/sites/default/files/2023-02/Labor.pdf) adds an end of service award of half a month's wage for each of the first five years and a full month for each year after.
+
+**United Arab Emirates.** The [end of service gratuity](https://u.ae/en/information-and-services/jobs/Sector-of-employment/employment-in-the-private-sector/end-of-service-benefits-for-employees-in-the-private-sector) is 21 days of salary for each of the first five years and 30 days for each year after, capped at two years of wages. If you hire an Emirati, the private sector [minimum wage is AED 6,000 a month](https://u.ae/en/information-and-services/jobs/Sector-of-employment/employment-in-the-private-sector/emiratis-employment-in-private-sector) from 1 January 2026.
+
+**Lebanon.** A published legal guide to Lebanese employment rights lists employer NSSF contributions of 8.5 percent for end of service indemnity, 6 percent for family allowances and 8 percent for sickness and maternity, about 22.5 percent in total before wage ceilings. The private sector minimum wage was [raised to LBP 28 million a month](https://wageindicator.org/work/minimum-wage/updates/2025/minimum-wage-updated-in-lebanon-from-01-august-2025-august-08-2025/) in mid 2025.
+
+Then add what no law lists: recruiting, the weeks of training before a new hire answers confidently, a manager's time, a laptop and a phone line, and starting over when they leave.
+
+## Run it for your own store
+
+An illustrative method, not a measured result. Plug in your own salary figure; we are deliberately not quoting market salaries, because they vary too much by city and seniority to be useful.
+
+1. **Monthly salary** of one customer service hire: call it S.
+2. **Employer on-costs**: in Lebanon, roughly 22.5 percent NSSF from the guide above. In Saudi Arabia, for a Saudi hire, about 11.75 percent rising toward 13.75 percent with GOSI, plus the end of service accrual. In the UAE, the gratuity alone accrues at 21 days of salary for every year of the first five.
+3. **Coverage**: multiply by 3.5 if you want every hour covered, or accept that one hire means one shift.
+4. **Hidden overhead**: recruitment, training and management time, honestly estimated.
+
+A single Lebanese hire on salary S therefore costs about 1.225 S a month before overhead, and round the clock cover costs about 4.3 S. Compare that with a fixed monthly AI fee plus Meta's own message charges, and the gap is usually not close. To price the AI side properly, line by line, see [what AI customer service really costs](/blog/ai-customer-service-hidden-costs).
+
+## What an AI does better, and what a person does better
+
+| Job | AI on WhatsApp | A trained person |
+| --- | --- | --- |
+| "Is this in stock, how much, do you deliver to my area" | Instant, at any hour, from live data | Accurate, but only in their shift |
+| The same question for the hundredth time today | Same quality the hundredth time | Quality drops by evening |
+| Arabic, English and Arabizi in one chat | Handles all three when built for it | Depends on the hire |
+| A sudden flood of messages after a campaign | Answers them all at once | Queue forms |
+| Refunds, exceptions, goodwill | Should hand over | Should decide |
+| An angry customer you let down | Should hand over, fast | The right person for it |
+
+Meta's [WhatsApp Business messaging policy](https://whatsappbusiness.com/policy/) allows automated replies in the 24 hour customer service window but requires prompt, clear and direct escalation to a person. So the realistic design is not AI instead of people. It is AI for the volume and your existing team for the moments that need judgment, which usually means you do not need the extra hire at all.
+
+## Why plumcut is built for exactly this decision
+
+Most AI tools hand you software and leave the work of running it to you, which quietly brings the hire back: somebody has to write the flows, update the answers and fix what breaks. plumcut removes that too.
+
+- **Done for you.** plumcut learns your brand, builds plum around your products, prices and policies, connects it to your store, and [runs and improves it](/how-it-works). Nobody on your team operates a tool.
+- **Every hour, every message.** plum answers, sells and books on your WhatsApp at 3 a.m. and on a Friday afternoon, in Arabic and English.
+- **Hands over at the right moment.** Tricky and sensitive conversations go to your team with the context attached, so the people you have spend their time on decisions, not on copy and paste.
+- **One fixed number.** A one time setup fee, then a [fixed monthly fee](/pricing) in wide bands with a ceiling, and Meta and AI usage at cost. No gratuity, no social insurance, no leave cover, no notice period.
+- **Live in about two weeks.**
+
+There are cases where hiring is the better first move. If your messages are mostly unique judgment calls rather than repeated questions, or you are still agreeing internally on what the right answers are, a person will serve you better today, and we wrote the case for waiting in [when your business is ready for AI customer service](/blog/when-ready-for-ai-customer-service). For everyone else drowning in the same questions, the cheaper hire is not a person.
+
+## What to do this week
+
+1. Count the messages that arrived outside working hours in the last two weeks, and how long each waited.
+2. Write down the fully loaded monthly cost of the hire you are considering, using the steps above, not the salary.
+3. Mark last week's questions as repeatable or judgment. The repeatable share is what an AI takes off the new hire's desk.
+4. Ask plum for a fixed monthly quote and put it next to the number from step 2.
+
+---
+
+# Is Your Customer Data Safe With an AI Chatbot? 10 Questions to Ask
+
+Source: https://plumcut.com/blog/ai-chatbot-customer-data-safety
+Published: 2026-10-03
+
+Your customers send you their address, their phone number, sometimes a photo of a receipt, and they send it on WhatsApp because it feels private. Put an AI in front of that inbox and a reasonable question follows: where does all of that go now, and who else can see it?
+
+> Customer data can be safe with an AI chatbot, but the answer depends on three parties, not one. On WhatsApp, each message passes through Meta's Cloud API, which says it encrypts messages at rest and keeps them for a maximum of 30 days; through the chatbot vendor's own systems; and through an AI model provider, where OpenAI, Anthropic and Google all say they do not train on API data by default. The middle party, the vendor, is where policies differ most. Ask it the ten questions below before you connect your number, and get the answers in writing.
+
+This is a practical guide, not legal advice. For a regulated business, take the answers to your lawyer.
+
+## Where a WhatsApp chatbot message actually goes
+
+Picture one message, "can you deliver to Jounieh tomorrow", on its way to an answer.
+
+| Step | Who holds it | What they say about it |
+| --- | --- | --- |
+| 1. Meta's WhatsApp Cloud API | Meta | [Encrypted at rest, kept for a maximum of 30 days](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/data-privacy-and-security) for features like retransmission, not automatically used for ads |
+| 2. The vendor's platform | Your chatbot provider | Varies by vendor. This is where conversation history, contacts and analytics usually live |
+| 3. The AI model | OpenAI, Anthropic, Google or another provider | Major APIs say no training on API data by default, with logs kept for a limited period |
+| 4. Your own systems | You | Order lookups, stock, CRM records the chatbot reads or writes |
+
+Steps one and three are documented by companies with large legal teams. Step two is the one you are actually choosing when you choose a vendor, and it is the step most sales pages say least about.
+
+## What the AI providers say about your data
+
+Checked on each provider's own page on 3 October 2026.
+
+- **[OpenAI](https://developers.openai.com/api/docs/guides/your-data)**: data sent to the API has not been used to train or improve its models since 1 March 2023, unless the customer opts in. Abuse monitoring logs are kept for up to 30 days unless law requires longer. Zero data retention exists for certain endpoints with prior approval, and its data residency regions include the United Arab Emirates.
+- **[Anthropic](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)**: by default, inputs and outputs from its commercial products, including the API, are not used to train models. It [deletes API inputs and outputs within 30 days](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data) by default.
+- **[Google Gemini API, paid tier](https://ai.google.dev/gemini-api/terms)**: prompts and responses are not used to improve Google's products, and are logged for a limited period only to detect policy violations. No duration is stated.
+- **[Meta's WhatsApp Business Platform terms](https://www.facebook.com/legal/Meta-Terms-for-WhatsApp-Business-Platform)** go further on the platform side: businesses may not use platform data to create or train AI models, with an exception for fine tuning a model customised for their own exclusive use.
+
+So "will the AI learn from my customers and tell my competitor" has a reassuring default answer at the model layer. The real question is whether your vendor changed that default, and which provider it uses at all.
+
+## The regional part: where the law and the servers are
+
+This is where a brand selling in Lebanon and the Gulf has questions a global vendor's FAQ will not answer.
+
+**Saudi Arabia.** The [Personal Data Protection Law](https://dgp.sdaia.gov.sa/wps/wcm/connect/f579bc32-fda8-47bd-bc6f-66b8cb77985c/ENG-Guide+to+the+saudi+PDP+law+for+controllersprocessors.pdf?MOD=AJPERES) came into force on 14 September 2023, with compliance expected by 14 September 2024, and SDAIA is the competent authority. It covers processing of data about people in the Kingdom even when done from outside it. Sending data abroad is conditioned, not banned: SDAIA's [regulation on transfers outside the Kingdom](https://sdaia.gov.sa/Documents/RegulationonPersonalDataEN.pdf) relies on a published list of adequate countries, or on safeguards such as standard contractual clauses.
+
+**United Arab Emirates.** [Federal Decree-Law No. 45 of 2021](https://u.ae/en/about-the-uae/digital-uae/data/data-protection-laws) on personal data came into force on 2 January 2022 and sets requirements for cross-border transfers. Businesses in the DIFC fall under its own Data Protection Law, DIFC Law No. 5 of 2020.
+
+**Lebanon.** [Law No. 81 of 2018](https://www.dlapiperdataprotection.com/index.html?t=law&c=LB) on electronic transactions and personal data covers the collection, recording, storage and other processing of personal data, whatever the medium.
+
+**And the servers.** Meta lets a business choose [local storage](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/local-storage) for Cloud API message content at rest. The region codes listed in its [registration reference](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/registration) include the UAE and Bahrain, but not Saudi Arabia or Lebanon. So a UAE brand can ask for its WhatsApp messages to rest in the UAE; a Saudi brand currently cannot pick Saudi Arabia through that option, and should ask how its vendor handles the transfer question instead.
+
+## The 10 questions to ask any AI chatbot vendor
+
+1. **Which AI model provider do you use, and on which plan?** Consumer apps and business APIs have different data terms.
+2. **Have you opted into any training or data sharing with that provider?** The default is no. Make sure it still is.
+3. **Where are my conversations stored, in which country, and for how long?** Get a number of days, not "securely".
+4. **Who on your team can read my customers' messages, and when?** Support access should be limited and logged.
+5. **Do you use my conversations for anything other than serving my customers?** Benchmarks, demos and training other clients' bots all count.
+6. **Can I export every conversation and contact, in a usable format, at any time?**
+7. **What happens to my data on the day I cancel?** Deletion timeline, and what you get to keep.
+8. **Which countries does my data pass through, and on what basis?** Essential if you sell in Saudi Arabia.
+9. **How does a customer reach a human, and how do I see what the AI said?** Meta's [messaging policy](https://whatsappbusiness.com/policy/) requires prompt, clear and direct escalation paths when you automate replies.
+10. **How do you verify a customer before sharing their order or account details?** A phone number alone is identity, not authorisation, for anything sensitive.
+
+A vendor that answers all ten plainly is one you can work with. A vendor that answers with a security badge and no numbers has told you something too.
+
+## How plumcut answers them
+
+plumcut builds and runs plum, the AI that answers, sells and books on your WhatsApp, for commerce brands in Lebanon, Saudi Arabia and the wider region. Data ownership is part of the product rather than a clause, because plumcut's whole offer is that the conversations and the customer insight inside them belong to you.
+
+- **Your data stays yours.** The conversations, the patterns and what they show about why customers buy or do not are the brand's, [not locked inside a platform](/how-it-works) you would lose if you left, and not handed to anyone else.
+- **Your own accounts.** Meta messaging and AI usage are [billed to you at cost](/pricing), on your own accounts, so the relationship with Meta is yours.
+- **A human route, built in.** Tricky and sensitive conversations are handed to your team at the right moment, which is both good service and what Meta's policy requires.
+- **Arabic and English, from the region.** The questions in the regional section above are the ones the team works with every week, not a footnote.
+
+Bring the list. Ask all ten on the first call and compare the answers with whoever else you are considering. For what the rest of the bill looks like, see [what AI customer service really costs](/blog/ai-customer-service-hidden-costs).
+
+## What to do this week
+
+1. List every tool that touches your WhatsApp inbox today, including the ones a freelancer connected once and nobody checked since.
+2. Send each one questions 1, 3 and 7. Those three answers tell you most of what you need.
+3. If you sell in Saudi Arabia, add question 8 and keep the reply on file.
+4. Write down how a customer reaches a person on your WhatsApp today. If you cannot, fix that before you automate anything.
 
 ---
 
@@ -329,6 +583,8 @@ For a brand in Saudi Arabia, the UAE or Lebanon doing real volume on WhatsApp, w
 5. Show me the log of everything it changed yesterday.
 6. Send it three real customer messages from my inbox, in Arabizi, with the typos left in.
 
+An agent that can write to your systems also holds your customers' data, so add the data questions too. We listed ten in [is your customer data safe with an AI chatbot](/blog/ai-chatbot-customer-data-safety).
+
 The sixth question is the one that ends most demos in this region. Bring your own messages, not theirs.
 
 ---
@@ -554,7 +810,7 @@ Both take an afternoon to measure and neither requires buying anything. Run them
 
 Support headcount added to absorb volume scales linearly. Twice the messages needs twice the people. That is fine for a business whose revenue also doubles per person, and ruinous for a retail shop whose margin per order is fixed.
 
-Worse, each hire has to be trained on answers that are not written down, which is the same consistency problem from failure two, now multiplied by the number of people in the room.
+Worse, each hire has to be trained on answers that are not written down, which is the same consistency problem from failure two, now multiplied by the number of people in the room. We ran the full cost of a support hire in Lebanon, Saudi Arabia and the UAE, social insurance and end of service included, in [AI chatbot vs hiring a customer service employee](/blog/ai-chatbot-vs-hiring-customer-service).
 
 Here is the honest comparison of the five ways to absorb volume. The cost shapes are structural and checkable. The prices are from each vendor's own pricing pages, checked on 13 September 2026, and plumcut sells in this category, so read it as a comparison published by a participant.
 
@@ -674,7 +930,7 @@ Contact-based pricing has the same shape with a different trigger. You grow your
 
 A fixed fee in bands inverts that. Busy months inside your band cost nothing extra, and the top band is a ceiling. That is [how plumcut prices](/pricing), and it is a deliberate answer to this exact problem: the fee is set by what the solution does rather than by how busy it gets, and the metered costs that genuinely do scale, Meta messaging and AI usage, are billed to you at cost on your own accounts with nothing added.
 
-Neither model is universally correct. Per resolution pricing is better if your volume is low, spiky, or you want to pay nothing in a quiet month. A fixed band is better if you are growing and want the invoice to stop being a function of your success. Pick the one that matches which of those you are.
+Neither model is universally correct. Per resolution pricing is better if your volume is low, spiky, or you want to pay nothing in a quiet month. A fixed band is better if you are growing and want the invoice to stop being a function of your success. Pick the one that matches which of those you are. The billing unit is one of six lines on the invoice; the other five are broken down in [what AI customer service really costs per month](/blog/ai-customer-service-hidden-costs).
 
 ## How you actually connect it to your shop
 
@@ -742,7 +998,7 @@ The practical shape of that: **answering a customer who messaged you is not what
 
 The same split shows up in the volume limits. New business phone numbers begin at 250 delivered messages, and the path to a higher tier is measured in delivered template messages to unique recipients outside customer service windows, over a rolling 30-day period, with a good quality rating. Replying to people who wrote to you first is not what the ceiling counts.
 
-So if your problem is that you cannot keep up with incoming questions, the platform is not charging you per answer and not capping your answers. Cost belongs in the conversation about marketing and re-engagement campaigns. It does not belong in the decision about whether to answer your customers faster.
+So if your problem is that you cannot keep up with incoming questions, the platform is not charging you per answer and not capping your answers. Cost belongs in the conversation about marketing and re-engagement campaigns. It does not belong in the decision about whether to answer your customers faster. If the alternative you are weighing is another hire, we compared the two properly in [AI chatbot vs hiring a customer service employee](/blog/ai-chatbot-vs-hiring-customer-service).
 
 Verify the current rates for your own country code before you budget, because they are set per country and they move. Our own breakdown of the [real cost of the WhatsApp Business API](/blog/whatsapp-business-api-cost) goes through the categories in detail.
 
@@ -1663,7 +1919,7 @@ Common omissions include exception handling, catalogue updates and the time need
 
 Plan number onboarding and migration with your provider before promising a launch date. Account eligibility and supported onboarding routes should be checked for the actual setup.
 
-For outbound reminders, verify consent and template category as well as price. Our guide to [WhatsApp abandoned-cart messages](/blog/whatsapp-abandoned-cart-rules) explains why the intended message matters.
+For outbound reminders, verify consent and template category as well as price. Our guide to [WhatsApp abandoned-cart messages](/blog/whatsapp-abandoned-cart-rules) explains why the intended message matters. For the platform side of the bill, seats, per resolution charges and contact overages checked vendor by vendor, see [what AI customer service really costs per month](/blog/ai-customer-service-hidden-costs).
 
 ## What to do this week
 

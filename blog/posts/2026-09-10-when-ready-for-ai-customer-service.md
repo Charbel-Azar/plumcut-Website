@@ -53,7 +53,7 @@ The practical shape of that: **answering a customer who messaged you is not what
 
 The same split shows up in the volume limits. New business phone numbers begin at 250 delivered messages, and the path to a higher tier is measured in delivered template messages to unique recipients outside customer service windows, over a rolling 30-day period, with a good quality rating. Replying to people who wrote to you first is not what the ceiling counts.
 
-So if your problem is that you cannot keep up with incoming questions, the platform is not charging you per answer and not capping your answers. Cost belongs in the conversation about marketing and re-engagement campaigns. It does not belong in the decision about whether to answer your customers faster.
+So if your problem is that you cannot keep up with incoming questions, the platform is not charging you per answer and not capping your answers. Cost belongs in the conversation about marketing and re-engagement campaigns. It does not belong in the decision about whether to answer your customers faster. If the alternative you are weighing is another hire, we compared the two properly in [AI chatbot vs hiring a customer service employee](/blog/ai-chatbot-vs-hiring-customer-service).
 
 Verify the current rates for your own country code before you budget, because they are set per country and they move. Our own breakdown of the [real cost of the WhatsApp Business API](/blog/whatsapp-business-api-cost) goes through the categories in detail.
 

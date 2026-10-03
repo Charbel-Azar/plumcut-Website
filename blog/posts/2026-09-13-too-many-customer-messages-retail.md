@@ -56,7 +56,7 @@ Both take an afternoon to measure and neither requires buying anything. Run them
 
 Support headcount added to absorb volume scales linearly. Twice the messages needs twice the people. That is fine for a business whose revenue also doubles per person, and ruinous for a retail shop whose margin per order is fixed.
 
-Worse, each hire has to be trained on answers that are not written down, which is the same consistency problem from failure two, now multiplied by the number of people in the room.
+Worse, each hire has to be trained on answers that are not written down, which is the same consistency problem from failure two, now multiplied by the number of people in the room. We ran the full cost of a support hire in Lebanon, Saudi Arabia and the UAE, social insurance and end of service included, in [AI chatbot vs hiring a customer service employee](/blog/ai-chatbot-vs-hiring-customer-service).
 
 Here is the honest comparison of the five ways to absorb volume. The cost shapes are structural and checkable. The prices are from each vendor's own pricing pages, checked on 13 September 2026, and plumcut sells in this category, so read it as a comparison published by a participant.
 
