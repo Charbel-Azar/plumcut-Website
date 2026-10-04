@@ -1877,7 +1877,11 @@ function initReviewsSwiper() {
     socialProofSwiper
   };
 }
-initReviewsSwiper();
+// No page ships a swiper element, so vendor/swiper.min.js is no longer loaded.
+// Initialise only if both the library and a carousel are present.
+if (typeof window.Swiper !== "undefined" && document.querySelector(".swiper")) {
+  initReviewsSwiper();
+}
 const tabAnimation = {
   // Configuration
   config: {

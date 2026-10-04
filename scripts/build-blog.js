@@ -888,6 +888,11 @@ ${html}
     IMAGETYPE: /\.png(\?|$)/i.test(post.hero || '') ? 'image/png' : 'image/jpeg',
     IMAGEALT: esc(post.heroAlt || post.title),
     JSONLD: articleJsonLd(post),
+    // The hero is the post's LCP element; fetch it before the inline CSS and
+    // body markup are parsed.
+    PRELOAD: post.hero
+      ? `<link rel="preload" href="${esc(post.hero)}" as="image" fetchpriority="high" />`
+      : '',
     PAGECSS: BLOG_CSS,
     MAIN: main,
   });
@@ -985,6 +990,7 @@ function renderHub(all, tpl) {
     IMAGETYPE: 'image/jpeg',
     IMAGEALT: 'plumcut, the AI that sells on WhatsApp',
     JSONLD: jsonld,
+    PRELOAD: '',
     PAGECSS: BLOG_CSS,
     MAIN: main,
   });
