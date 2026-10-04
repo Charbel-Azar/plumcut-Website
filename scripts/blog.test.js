@@ -6,7 +6,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawnSync } = require('node:child_process');
-const { markdown, articleJsonLd, renderSitemap, validatePage } = require('./build-blog');
+const { markdown, articleJsonLd, renderSitemap, validatePage, pageText } = require('./build-blog');
 const { verifyContent } = require('./verify-blog');
 
 test('editorial links preserve query parameters and reject executable URLs', () => {
@@ -26,6 +26,31 @@ test('FAQ schema preserves visible formatted answers and cannot close its script
   const schema = [...markup.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
     .map(m => JSON.parse(m[1])).find(s => s['@type'] === 'FAQPage');
   assert.equal(schema.mainEntity[0].acceptedAnswer.text, markdown(faq[0].a).html);
+});
+
+test('BlogPosting names a founder as author and uses the real last edit', () => {
+  const schema = (post) => [...articleJsonLd(post).matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map(m => JSON.parse(m[1])).find(s => s['@type'] === 'BlogPosting');
+  const base = { title: 'Test', date: '2026-09-01', slug: 'test' };
+  const byDefault = schema({ ...base, modified: '2026-09-20' });
+  assert.equal(byDefault.author['@type'], 'Person');
+  assert.equal(byDefault.author.name, 'Charbel Azar');
+  assert.match(byDefault.author.sameAs, /linkedin\.com\/in\//);
+  assert.equal(byDefault.dateModified, '2026-09-20');
+  assert.equal(byDefault.publisher['@id'], 'https://plumcut.com/#organization');
+  assert.equal(schema({ ...base, author: 'Nour Zeineddine' }).author.sameAs, 'https://www.linkedin.com/in/nour-h-zeineddine/');
+});
+
+test('sitemap carries core-page dates when known', () => {
+  const sitemap = renderSitemap([{ slug: 'test', date: '2026-09-01', modified: '2026-09-09' }], { '/': '2026-10-01' });
+  assert.match(sitemap, /<loc>https:\/\/plumcut.com\/<\/loc>\s*<lastmod>2026-10-01/);
+  assert.match(sitemap, /<loc>https:\/\/plumcut.com\/blog\/test<\/loc>\s*<lastmod>2026-09-09/);
+});
+
+test('page text keeps visible wording and drops hidden decoration', () => {
+  const html = '<main><h2 class="x">Two <span>things</span></h2><div aria-hidden="true"><p>decor</p></div>' +
+    '<img aria-hidden="true" src="a.png"><p>Answers &amp; sells.</p><script>x()</script><ul><li>One</li></ul></main>';
+  assert.equal(pageText(html), '### Two things\n\nAnswers & sells.\n- One');
 });
 
 test('sitemap uses actual article revisions and omits unknown core dates', () => {

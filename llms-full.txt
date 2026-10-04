@@ -1,9 +1,607 @@
-# plumcut — full text of every Field note
+# plumcut — full text of every page and Field note
 
 > plumcut builds and runs an intelligent automation system on the channels a brand's customers already use — it answers, actively sells (upsell, cross-sell, booking), and reads across every interaction to show the owner what customers actually want.
 
-Source: https://plumcut.com/blog/  ·  26 articles  ·  regenerated on every build.
-Each article below is reproduced in full. Cite the canonical URL given in its Source line.
+Source: https://plumcut.com/  ·  6 pages and 26 articles  ·  regenerated on every build.
+Each page and article below is reproduced in full. Cite the canonical URL given in its Source line.
+
+---
+
+# WhatsApp AI Agent That Sells & Understands Every Customer | plumcut
+
+Source: https://plumcut.com/
+Updated: 2026-10-04
+
+Beyond the reply
+
+## Automate your business. Know every customer.
+
+Chat with plum
+See how it works →
+Every business runs on the same repetitive tasks and conversations. We build automation that handles all of it… automation that answers like a human, sells like a pro, and never sleeps. And while it works, it listens, so every conversation becomes insight into what your customers actually want.
+The problem
+
+### Two things are quietly costing you
+
+#### The sales you can see slipping
+
+A reply that comes six hours late is a sale you never see. Conversion drops sharply within minutes, and your customers message at midnight, when no one's there to answer. The ready-to-buy ones don't wait. They move on.
+
+#### The customers you can't see
+
+Every WhatsApp conversation is full of signals, what they want, what they hesitate on, what they keep asking for that you don't even sell. It disappears, because no one can read thousands of conversations. So you guess at what to stock, and why people buy.
+How plum sells
+
+### From "is this available?" to a confirmed order
+
+#### Answers instantly, in your voice
+
+Availability, shipping, returns, the same question for the hundredth time, answered in seconds, the way you'd answer it.
+
+#### Sells, doesn't just reply
+
+Recommends the right product, suggests the matching add-on, nudges the hesitant buyer, and recovers the cart before it's gone.
+
+#### Books and closes
+
+From "do you have this?" to a confirmed order or appointment, without you touching a single message.
+The insight layer
+
+### plum sells to them, then tells you about them
+
+Because plum is in every conversation, it sees what no dashboard can: why people buy, why they don't, the things they keep asking for, the demand you can't even see. You get a clear picture that turns thousands of chats into decisions, and it's yours. Your data, your customers, not locked inside a platform.
+What plum does
+
+### Solutions that work together
+
+From the first "hello" to the final receipt: not a stack of separate tools, but one connected layer that answers, sells, books, and learns from every conversation.
+
+#### Instant answers
+
+Availability, shipping, returns, product questions, answered in seconds, in your voice, day and night. The same question for the hundredth time, handled, so you never lose a buyer to silence.
+
+#### Order tracking
+
+"Where's my package?" handled end to end. plum confirms orders, sends updates, and tracks shipments, so those messages stop landing on you and your customers stay calm.
+
+#### Smart selling
+
+The part most bots skip. plum recommends the right product, suggests the matching add-on, nudges the hesitant buyer, and rescues the cart before it goes cold, closing in the conversation.
+
+#### Bookings & orders
+
+Fill your calendar while you sleep. Customers pick a slot or place an order, get instant confirmation, and receive reminders, appointments and orders closed without a single back-and-forth from you.
+
+#### In-chat payments
+
+Close and collect in the same conversation. plum sends a secure payment link the moment a customer's ready, confirms it instantly, and never leaves money waiting on a follow-up.
+
+#### Customer insights
+
+The dashboard you own. Because plum is in every chat, it shows you why people buy, what they keep asking for, and what to stock next, decisions, not just metrics. Your data, your customers.
+See all solutions
+How it works
+
+### Done for you, in three steps
+
+You operate nothing. We build plum, launch it, and run it for you.
+See exactly how it works
+Don't take our word for it
+
+### Have a question? Ask plum. See it for yourself
+
+Most companies can only describe their product. You can message ours. Ask plum about availability, its benefits to you, and skip the FAQ rabbit hole while you're at it. See how it answers, how it sells, and how it sounds. Then we'll build you your own.
+Chat with plum
+ask a question
+book a meeting
+
+#### Built by people who lived it
+
+We're not describing a problem we read about. We ran online stores ourselves and lived the 2am messages, the leads that went cold, the guessing about what to stock. plum is the fix we wished we'd had, built from inside the problem.
+Read our story →
+First client: Tia Dib. Done for her, start to finish: plum answers and sells on WhatsApp, and our virtual try-on lets shoppers tap "See it on you" to try any piece on themselves before they buy.
+
+---
+
+# How plumcut works | done-for-you AI sales agent
+
+Source: https://plumcut.com/how-it-works
+Updated: 2026-10-04
+
+How it works
+
+## plum does the talking, & we do everything else.
+
+You don't set anything up, learn any software, or manage a single conversation. We build plum around your brand, launch it on WhatsApp, and run it for you, so all you do is watch the sales and the insight come in.
+
+### From first hello to selling on its own, in three steps
+
+01
+
+#### We learn your brand
+
+We sit down with you once and learn how you talk, what you sell, your policies, your prices, and the questions you get asked a hundred times a week. That's the only real time you'll spend. Everything plum says afterward sounds like you, not a robot.
+02
+
+#### We build & launch
+
+We build plum around what we learned and connect it to the channels your customers already use, WhatsApp and your store. In about two weeks plum is live on WhatsApp, answering, selling, and booking. You don't touch a tool, write a flow, or configure anything.
+03
+
+#### We run, sell & improve
+
+plum keeps working day and night. We watch it, fix what needs fixing, and sharpen how it sells as it learns your customers, week after week. You get the results, and a clear picture of what your customers actually want. It gets better the longer it runs.
+
+### You barely lift a finger. we do the rest.
+
+Here's the honest split of who actually does the work, and how quickly it becomes ready.
+
+#### plumcut handles
+
+- Answering every message, in your voice, 7/24
+- Selling, recommending, upselling, rescuing carts, closing
+- Booking appointments and taking orders
+- Tracking orders and handling the "where's my package?" messages
+- Reading every conversation and turning it into insight you can act on
+- Monitoring, fixing, and improving all of it, continuously
+
+#### you handle
+
+- Telling us about your brand, once
+- Approving how plum sounds
+- Reading the insights and deciding what to do with them
+That imbalance
+is the whole point.
+Day 1Kickoff
+One conversation to learn your brand.
+Day 2-10We build
+We train on your voice, products, and policies, and connect to your channels.
+Day 10-14Test & launch
+We test on real questions, you sign off, and it goes live on WhatsApp.
+Livein about
+2 weeks
+OngoingWe run it
+Daily monitoring, fixes, and improvements. It gets sharper every week.
+
+### Meets your customer where they are. Plugs into your tools.
+
+Two connections, both handled by us, so your plum slots into your business without you changing a thing.
+
+#### Where your customers already are
+
+Your plum lives where your customers already are: WhatsApp and your store...
+So there's no new app to download and no link sending them somewhere else.
+The same plum works across both, and remembers the customer wherever they show up.
+
+#### The tools you already use
+
+Your plum doesn't live in isolation. It plugs into the stack you already work in: your CRM, your calendar, your store, your payment links, your inbox…
+So orders, bookings, leads, and conversations land in the tools your business already runs on.
+Nothing to rebuild, nothing to migrate.
+
+#### Tools included… and many more
+
+WhatsApp · Shopify · WooCommerce · Stripe · PayPal · Google Calendar · Calendly · HubSpot · Salesforce · Gmail · Slack
+We handle every connection. You don't touch the wiring.
+
+### Two things grow. Both are yours.
+
+As your plum runs, two things climb together… and everything it learns stays with you.
+
+#### More sales
+
+Your plum answers in seconds at any hour, turns questions into orders, and never lets a ready-to-buy customer go cold, so you sell more without hiring more.
+
+#### Real understanding
+
+Because your plum is in every conversation, you finally see why customers buy, what they keep asking for, and the demand you couldn't see before: a clear picture you can act on, not numbers locked inside a platform.
+It's your brand, your customers, your data. Everything your plum learns about your customers belongs to you. We don't lock it inside a platform you'd lose if you left, and we don't hand it to anyone else. The understanding your plum builds is an asset you keep.
+
+### That's how plum gets to work
+
+We build it, run it, and keep tuning it, you read the results. The fastest way to see it for your brand is to talk to plum yourself.
+Chat with plum
+ask a question
+book a meeting
+
+---
+
+# WhatsApp AI sales solutions | plumcut
+
+Source: https://plumcut.com/solutions
+Updated: 2026-10-04
+
+Solutions
+
+## Everything plum does, works on your WhatsApp
+
+One connected layer that answers, sells, books, and reads every conversation.
+Understand your customers, own what you learn.
+Customer understanding
+
+### why they buy, and why they don't.
+
+Automating your chats won't disconnect you from your customers. You'll understand them better and faster than before.
+
+#### who is ready to buy
+
+the leads most likely to convert, ranked so you call them first.
+
+#### lead temperature
+
+how warm each lead is right now: hot, warm, or cold.
+
+#### hot leads
+
+the contacts showing the strongest intent to buy today.
+
+#### qualified leads
+
+people who fit your offer and gave enough buying info.
+
+#### what they keep asking for
+
+the questions your customers raise again and again.
+
+#### why they didn't book
+
+the real reasons people stopped short of booking.
+
+#### conversion funnel
+
+how many move from first chat to confirmed booking.
+
+#### sentiment
+
+how customers feel in their chats: positive, neutral, or negative.
+
+#### booking conversion
+
+the share of chats that turn into real bookings.
+
+#### preferred booking day
+
+the days customers most often ask to be booked.
+
+#### sentiment trajectory
+
+whether a conversation is warming up or cooling down.
+
+#### objection raised
+
+the doubts and pushbacks customers bring up before buying.
+
+#### how objections were handled
+
+whether the bot resolved each objection or left it open.
+
+#### buying signals
+
+the words and moments that show someone's ready to buy.
+
+#### urgency level
+
+how soon a customer wants to move, from now to later.
+
+#### preferred booking time
+
+the times of day customers most want to book.
+
+#### where conversation drop off
+
+the exact points where chats stall and people leave.
+
+#### top pain points
+
+the problems customers complain about most, in their words.
+
+#### budget posture
+
+what customers signal they're willing to spend.
+
+#### risk and safety flags
+
+anything sensitive that needs a human to step in.
+
+#### tools they already used
+
+the competing tools and brands your customers mention.
+
+#### feature demand
+
+the features and products customers ask for most.
+
+#### languages used
+
+the languages your customers actually chat in.
+
+#### priority queue
+
+your leads sorted by who to follow up with first.
+
+#### recommended action
+
+the next best move per lead: call, nurture, or close.
+See the Insights Dashboard
+The bundle
+
+### Six solutions, one plum
+
+Every solution is a conversation, and every conversation feeds the understanding above.
+01
+
+#### The sales engine
+
+The part most bots skip, plum actively sells. It recommends the right product, suggests the matching add-on, nudges the hesitant buyer, and rescues the cart before it goes cold, closing right there in the conversation. Your customer asks "do you have this in beige?" and leaves with the set and the matching covers.
+02
+
+#### Instant answers
+
+Availability, shipping, returns, sizing, the same question for the hundredth time, answered in seconds, in your brand's voice, 24/7. Your customer messages at 1am and gets a real answer, not a "we'll get back to you." Tricky ones get handed to you at the right moment, nothing dropped.
+03
+
+#### Virtual try-on
+
+She sees the piece on her own body before she buys, not on a model. She sends a photo, plum shows her the look, and the "how will this look on me?" hesitation that kills the sale goes away. She buys with confidence instead of clicking away to think about it.
+04
+
+#### Booking & orders
+
+From "do you have a slot?" to a confirmed appointment or order, with instant confirmations and reminders that cut no-shows. No phone tag, no back-and-forth. Your customer books at midnight and wakes up to a confirmation; you wake up to the sale.
+05
+
+#### Order tracking
+
+"Where's my order?" handled end to end. plum confirms, updates, and tracks every delivery, so those messages stop landing on you and your customers stay calm and informed, right up to "it's at your door."
+06
+
+#### Gets paid in chat
+
+Close and collect in the same conversation. plum sends a secure payment link the moment a customer's ready, confirms it instantly, and never leaves money waiting on a follow-up. Less friction between "yes" and paid means more sales actually land.
+Let's Talk
+
+### Ready to see plum sell on WhatsApp?
+
+Message plum the way your customer would, or book a call and we'll build you your own.
+Chat with plum
+ask a question
+book a 15-min call
+
+---
+
+# plumcut pricing | one setup fee, one fixed monthly fee
+
+Source: https://plumcut.com/pricing
+Updated: 2026-10-04
+
+Pricing
+
+## Instantaneous service, complete knowledge
+
+Keep your customers served around the clock.
+Upgrade to the Customer Insight dashboard and stop guessing what they want.
+Set up
+
+#### One-Time Fee
+
+A one-time payment at the start of the project to cover the build. The amount is set after a detailed meeting about your needs.
+
+#### Monthly Subscription
+
+One fixed fee to run and maintain your solution. No counting messages, no counting conversations, so you know the invoice before it arrives.
+Monthly fee
+
+##### Fixed monthly fee
+
+Your fee is set by how much your solution does, not by how busy it gets.
+Flat
+the same amount every month
+Your fee grows with your traffic, stepping up in wide bands, and then it stops.
+Flagship
+
+##### Customer Insights
+
+Get an analysis of all the conversations, presented to you in detail, so you don't miss anything.
+Add-on
+priced into your monthly fee
+NOTE: A chat dashboard that allows you to monitor user interactions is included by default with your solution.
+Customer Insights gives you access to our flagship insights of these interactions.
+Usage
+
+#### Usage, At Cost
+
+Meta messaging and AI usage go to your own accounts, at cost, with nothing added by us.
+FAQ
+
+### More details about the pricing
+
+How much does plum cost?
+Two parts. A one-time setup fee for the build, then a fixed monthly fee to run it. The
+monthly fee is set by how much your solution does, not by how many conversations it
+handles. Meta messaging and AI usage are billed to you at cost, with nothing added
+by us. Tell plum about your brand and we'll put a real number in front of you on a
+15-minute call.
+Do I have to operate anything?
+No. plumcut is done for you. We learn your brand, build plum, connect your
+channels, and run and improve it day to day, see exactly
+how it works.
+You read the results, you never touch a tool, write a flow, or manage a single
+conversation.
+How fast until plum is live?
+About two weeks from our first conversation. We learn your brand, build and test
+plum on real questions, you sign off, and it goes live on WhatsApp, answering,
+selling, and booking. From there we keep tuning it so it gets sharper every week.
+Is there a setup fee?
+Yes, one payment at the start, and we're upfront about it. It pays for learning your
+brand and building and launching plum around your voice, products, and policies. After
+that you're on a fixed monthly fee.
+Do I own my data?
+Yes. Everything plum learns about your customers, the conversations, the
+patterns, the understanding of why they buy, why they don't, and everything they keep asking for, belongs to you.
+It isn't locked inside a platform you'd lose if you left. Your brand, your
+customers, your data.
+What if my message volume suddenly spikes?
+Nothing changes. Your monthly fee covers a wide band of traffic, so a busy month sits
+inside it. If your traffic settles at a higher level, the fee steps up one band, and we
+tell you before it does.
+How does your pricing model work?
+A one-time setup fee for the build, then a fixed monthly fee to run and maintain it. The
+monthly fee is set by how much your solution does, and it steps up in wide bands as your
+traffic grows, up to a ceiling. Meta messaging and AI usage are billed to you at
+cost, with no margin from us.
+Can I start with one solution and add more later?
+Yes. Start with what you need most, answering, selling, booking, and add
+solutions,
+like the customer-insights dashboard, as you grow. Adding one changes your monthly
+fee, and you see the new figure before you agree to it.
+Does my fee change as I grow?
+It steps up in wide bands, and each band covers a broad range of traffic, so most growth
+costs you nothing. The top band is a ceiling, so there is no figure above it. We always
+tell you before a band changes.
+
+---
+
+# About plumcut | MENA-native AI sales team
+
+Source: https://plumcut.com/about
+Updated: 2026-10-04
+
+## Our Story
+
+Before we built plum, we built online stores. Over 30 of them. We stayed long enough to feel what actually breaks when a business grows: the "is this still available?" at 2am that nobody answered in time, the ready-to-buy customer who went cold, and the nagging sense that we had no real idea why the people who did buy chose what they chose.
+So we built the thing we wished we'd had. plumcut is designed and built by people who:
+Experienced operational pain, first hand
+Managed the chaos you are managing now
+Lost sleep over missed leads
+Will stay until it actually works
+The team
+
+### Three founders, MENA-native
+
+Arabic-fluent, and from the region we build for, the edge the English-first tools can't match. Here's who's behind plum.
+
+#### Nour Zeineddine
+
+The intelligence
+Builds and runs what makes plum smart, and the infrastructure behind it.
+Nour Zeineddine on LinkedIn
+
+#### Charbel Azar
+
+The product & the business
+Full-stack, the dashboard you own, and the people side of plumcut.
+Charbel Azar on LinkedIn
+
+#### Michael Tamer
+
+Design, brand & growth
+How plum looks, sounds, and reaches you.
+Michael Tamer on LinkedIn
+Solving Real Problems
+
+#### You're dealing with...
+
+Ready-to-buy WhatsApp leads going cold
+
+#### We build you...
+
+plum that answers in seconds and sells
+
+#### You're dealing with...
+
+The same questions, a hundred times a day
+
+#### We build you...
+
+plum answering in your voice, 24/7
+
+#### You're dealing with...
+
+Missed bookings and no-shows
+
+#### We build you...
+
+plum books, confirms, and reminds
+
+#### You're dealing with...
+
+Guessing what your customers actually want
+
+#### We build you...
+
+the owned dashboard that shows what they actually want
+
+#### You're dealing with...
+
+A team buried in the inbox
+
+#### We build you...
+
+plum handles the inbox so your team can sell
+Our Promise
+
+### We won't sell you automation you don't need.
+
+We'll only build what actually moves the needle, and stay until it works. Our mission is simple: build the AI that sells for the region's brands, and give owners back the understanding of their own customers, with Arabic and MENA as part of the edge.
+Chat with plum
+
+---
+
+# Privacy Policy | plumcut
+
+Source: https://plumcut.com/privacy
+Updated: 2026-10-04
+
+## Privacy
+
+### What happens to your information when you talk to plum.
+
+Last updated 4 September 2026
+plum is our AI sales agent on WhatsApp. When you message her, real information about you passes through our systems. This page says plainly what we keep, why we keep it, who else sees it, and how to make us delete it. No legal fog.
+
+#### Who we are
+
+plumcut is a small team based in Beirut, Lebanon. We build and run AI sales agents for WhatsApp. We decide what happens to the information described here, which makes us responsible for it.
+Anything on this page, write to info@plumcut.com.
+
+#### What we collect
+
+Only what arrives in a conversation you start. We do not buy lists and we do not scrape anyone.
+Your WhatsApp number and the profile name you have set
+What you send - text, images, voice notes, documents
+Anything you volunteer - your name, email, company, what you are after
+Booking details when you ask plum for a meeting
+Do not send card numbers, passwords or ID documents. If you do, we delete them.
+
+#### Why we use it
+
+To answer you, to book the meetings you ask for, and to remember the conversation so you do not have to repeat yourself next time. In aggregate, we look at what customers ask about so plum gets better at answering.
+We do not sell your data. We do not use your conversation to send you unrelated marketing.
+
+#### plum is an AI
+
+Your messages are processed by a language model to generate replies. That is automated, but nothing plum does makes a legal or similarly significant decision about you - she answers, informs and books.
+You can always reach a person. Ask plum for a human, or email info@plumcut.com, and one of us takes over.
+
+#### How long we keep it
+
+Conversation records are kept for 24 months after your last message, then deleted. Booking records last as long as the meeting and our own bookkeeping need them. Ask us sooner and we delete sooner.
+
+#### Your rights
+
+You can ask us for a copy of what we hold, have it corrected, have it deleted, or tell us to stop using it. Email info@plumcut.com and we answer within 30 days. Or just message plum and ask to be deleted - that works too.
+
+#### Security and children
+
+Messages are encrypted in transit by WhatsApp. Our systems are access-controlled and limited to the people who need them. No system is perfect, so do not send us anything you would not want stored.
+plum is for adults doing business. We do not knowingly collect data from anyone under 18 - tell us if that happens and we delete it.
+
+#### Changes
+
+If this policy changes, the date at the top changes with it. Anything material gets announced on the site.
+plumcut
+Beirut, Lebanon
+info@plumcut.com
 
 ---
 

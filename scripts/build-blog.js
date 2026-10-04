@@ -19,6 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 
 const ROOT = path.join(__dirname, '..');
 const POSTS_DIR = path.join(ROOT, 'blog', 'posts');
@@ -398,6 +399,7 @@ const ORGANIZATION = {
   areaServed: [
     { '@type': 'Place', name: 'Lebanon' },
     { '@type': 'Place', name: 'Saudi Arabia' },
+    { '@type': 'Place', name: 'United Arab Emirates' },
     { '@type': 'Place', name: 'MENA' },
   ],
   knowsAbout: [
@@ -415,7 +417,7 @@ const ORGANIZATION = {
       email: 'info@plumcut.com',
       telephone: '+96181864662',
       url: SITE + '/',
-      areaServed: ['LB', 'SA'],
+      areaServed: ['LB', 'SA', 'AE'],
       availableLanguage: ['en', 'ar'],
     },
   ],
@@ -434,7 +436,7 @@ const ORGANIZATION = {
     },
     {
       '@type': 'Person',
-      name: 'Michael Tamer',
+      name: 'Michael P. Tamer',
       jobTitle: 'Design, Brand and Growth',
       sameAs: 'https://www.linkedin.com/in/michael-p-tamer/',
     },
@@ -445,8 +447,27 @@ const ORGANIZATION = {
     'https://www.facebook.com/plumcut',
     'https://www.wikidata.org/wiki/Q141633318',
     'https://www.crunchbase.com/organization/plumcut',
+    'https://techbehemoths.com/company/plumcut',
   ],
 };
+
+/* Post author for BlogPosting. A post's own author wins; otherwise the default
+   founder. A founder gets their LinkedIn as sameAs so the Person resolves to
+   the same human the Organization lists. The visible byline is unchanged. */
+const DEFAULT_AUTHOR = 'Charbel Azar';
+const FOUNDERS = new Map(ORGANIZATION.founder.map((p) => [p.name, p]));
+
+function authorNode(post) {
+  const name = post.author || DEFAULT_AUTHOR;
+  const node = { '@type': 'Person', name };
+  if (post.author && post.authorUrl) node.url = absUrl(post.authorUrl);
+  const founder = FOUNDERS.get(name);
+  if (founder) {
+    node.jobTitle = founder.jobTitle;
+    node.sameAs = founder.sameAs;
+  }
+  return node;
+}
 
 /*
  * Emitted as their own top-level JSON-LD blocks on every generated page, with
@@ -747,11 +768,9 @@ function articleJsonLd(post) {
       description: post.description,
       image: absUrl(post.hero) || OG_FALLBACK,
       datePublished: post.date,
-      dateModified: post.updated || post.date,
+      dateModified: post.modified || post.updated || post.date,
       inLanguage: 'en',
-      author: post.author
-        ? { '@type': 'Person', name: post.author, ...(post.authorUrl ? { url: absUrl(post.authorUrl) } : {}) }
-        : { '@type': 'Organization', '@id': SITE + '/#organization', name: 'plumcut', url: SITE + '/about' },
+      author: authorNode(post),
       publisher: ORG_REF,
       mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/blog/${post.slug}` },
       isPartOf: { '@type': 'Blog', '@id': `${SITE}/blog/`, name: `plumcut ${SECTION.toLowerCase()}` },
@@ -910,6 +929,7 @@ function renderHub(all, tpl) {
         headline: p.title,
         description: p.description,
         datePublished: p.date,
+        dateModified: p.modified || p.updated || p.date,
         url: `${SITE}/blog/${p.slug}`,
       })),
     },
@@ -1007,22 +1027,70 @@ ${items}
 `;
 }
 
-function renderSitemap(all) {
+/* ------------------------------------------------ real last-edit dates */
+/*
+ * lastmod and dateModified come from git: the date of the last commit that
+ * touched the page's source (the .html for a hand-written page, the .md for a
+ * post), or today when that source has uncommitted edits. Vercel builds from a
+ * shallow clone, where git dates would be wrong, so without full history the
+ * dates already committed in sitemap.xml are reused. Building before you
+ * commit, as the runbook says, keeps the two identical.
+ */
+const CORE_PAGES = [
+  ['/', 'index.html'],
+  ['/how-it-works', 'how-it-works.html'],
+  ['/solutions', 'solutions.html'],
+  ['/pricing', 'pricing.html'],
+  ['/about', 'about.html'],
+  ['/privacy', 'privacy.html'],
+];
+
+function git(args) {
+  return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+}
+
+const FULL_HISTORY = (() => {
+  try {
+    return path.resolve(git(['rev-parse', '--show-toplevel'])) === path.resolve(ROOT) &&
+      git(['rev-parse', '--is-shallow-repository']) === 'false';
+  } catch {
+    return false;
+  }
+})();
+
+const COMMITTED_LASTMOD = (() => {
+  try {
+    const xml = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
+    return new Map(
+      [...xml.matchAll(/<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g)].map((m) => [m[1].trim(), m[2].trim()])
+    );
+  } catch {
+    return new Map();
+  }
+})();
+
+function lastEdit(file, loc) {
+  if (FULL_HISTORY) {
+    try {
+      if (git(['status', '--porcelain', '--', file])) return new Date().toISOString().slice(0, 10);
+      const d = git(['log', '-1', '--format=%cs', '--', file]);
+      if (d) return d;
+    } catch {
+      /* fall through to the committed date */
+    }
+  }
+  return COMMITTED_LASTMOD.get(SITE + loc) || null;
+}
+
+const latest = (...dates) => dates.filter(Boolean).sort().pop() || null;
+
+function renderSitemap(all, coreDates = {}) {
   // Unknown core-page dates are omitted rather than fabricated or rolled forward.
-  const core = [
-    ['/'], ['/how-it-works'], ['/solutions'], ['/pricing'], ['/about'], ['/privacy'],
-    ['/blog/', all.map(p => p.updated || p.date).sort().pop()],
-  ];
+  const mod = (p) => p.modified || p.updated || p.date;
+  const core = CORE_PAGES.map(([loc]) => [loc, coreDates[loc]]).concat([['/blog/', latest(...all.map(mod))]]);
   const urls = core
-    .map(([loc, mod]) => `  <url>\n    <loc>${SITE}${loc}</loc>${mod ? `\n    <lastmod>${mod}</lastmod>` : ''}\n  </url>`)
-    .concat(
-      all.map(
-        (p) =>
-          `  <url>\n    <loc>${SITE}/blog/${p.slug}</loc>\n    <lastmod>${
-            p.updated || p.date
-          }</lastmod>\n  </url>`
-      )
-    )
+    .map(([loc, d]) => `  <url>\n    <loc>${SITE}${loc}</loc>${d ? `\n    <lastmod>${d}</lastmod>` : ''}\n  </url>`)
+    .concat(all.map((p) => `  <url>\n    <loc>${SITE}/blog/${p.slug}</loc>\n    <lastmod>${mod(p)}</lastmod>\n  </url>`))
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
@@ -1126,16 +1194,108 @@ function writeAiDiscovery(all) {
  * llms.txt is the index; llms-full.txt is the corpus. An engine that wants the
  * whole argument without fetching twelve HTML pages reads this one file.
  */
-function writeLlmsFull(all) {
+const ENTITIES = {
+  amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', rsquo: '’', lsquo: '‘',
+  rdquo: '”', ldquo: '“', hellip: '…', middot: '·', times: '×', copy: '©',
+  rarr: '→', larr: '←',
+};
+const decodeEntities = (s) =>
+  s.replace(/&(#x[0-9a-f]+|#[0-9]+|[a-z]+);/gi, (m, e) => {
+    if (e[0] === '#') return String.fromCodePoint(e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10));
+    const k = e.toLowerCase();
+    return Object.prototype.hasOwnProperty.call(ENTITIES, k) ? ENTITIES[k] : m;
+  });
+
+const VOID_TAGS = new Set(['img', 'br', 'hr', 'input', 'meta', 'link', 'source', 'wbr', 'area', 'col', 'embed', 'track']);
+
+// Removes each element whose opening tag matches `open`, subtree included.
+function dropElements(html, open) {
+  let out = '';
+  let i = 0;
+  let m;
+  const re = new RegExp(open.source, 'gi');
+  while ((m = re.exec(html))) {
+    const tag = m[1].toLowerCase();
+    out += html.slice(i, m.index);
+    if (VOID_TAGS.has(tag) || m[0].endsWith('/>')) {
+      i = re.lastIndex;
+      continue;
+    }
+    const tagRe = new RegExp('<(/?)' + tag + '(?![a-z0-9])[^>]*?(/?)>', 'gi');
+    tagRe.lastIndex = m.index;
+    let depth = 0;
+    let end = html.length;
+    let t;
+    while ((t = tagRe.exec(html))) {
+      if (t[1]) depth--;
+      else if (!t[2]) depth++;
+      if (depth === 0) {
+        end = tagRe.lastIndex;
+        break;
+      }
+    }
+    i = re.lastIndex = end;
+  }
+  return out + html.slice(i);
+}
+
+/*
+ * The visible text of a hand-written page's <main>, word for word. Scripts,
+ * styles, SVG and aria-hidden decoration are dropped; headings become Markdown
+ * headings and list items become bullets. Nothing is reworded.
+ */
+function pageText(html) {
+  const main = (html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) || [])[1];
+  if (!main) throw new Error('no <main> element');
+  const flat = (s) => s.replace(/<[^>]+>/g, ' ').replace(/[ \t\r\n]+/g, ' ').trim();
+  let s = main.replace(/<!--[\s\S]*?-->/g, '');
+  s = s.replace(/<(script|style|noscript|svg|template|iframe)(?![a-z0-9])[\s\S]*?<\/\1>/gi, '');
+  s = dropElements(s, /<([a-z][a-z0-9]*)(?![a-z0-9])[^>]*aria-hidden="true"[^>]*>/);
+  s = s.replace(/<h([1-6])(?![a-z0-9])[^>]*>([\s\S]*?)<\/h[1-6]>/gi,
+    (m, n, inner) => '\n\n' + '#'.repeat(Math.min(6, Number(n) + 1)) + ' ' + flat(inner) + '\n\n');
+  s = s.replace(/<li(?![a-z0-9])[^>]*>/gi, '\n- ');
+  s = s.replace(/<br[^>]*>/gi, '\n');
+  s = s.replace(/<\/?(p|div|section|article|ul|ol|li|tr|table|details|summary|blockquote|figure|figcaption|dl|dt|dd|header|footer|aside|form|label)(?![a-z0-9])[^>]*>/gi, '\n');
+  s = decodeEntities(s.replace(/<[^>]+>/g, ''));
+  const lines = s.split('\n').map((l) => l.replace(/[ \t ]+/g, ' ').trim()).filter((l) => l && l !== '-');
+  const out = [];
+  for (const l of lines) {
+    const heading = /^#{2,6} /.test(l);
+    if (heading && out.length) out.push('');
+    out.push(l);
+    if (heading) out.push('');
+  }
+  return out.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+}
+
+function writeLlmsFull(all, coreDates = {}) {
+  const pages = CORE_PAGES.filter(([, file]) => fs.existsSync(path.join(ROOT, file))).map(([loc, file]) => {
+    const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+    const title = decodeEntities(((html.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || loc).trim());
+    return { loc, title, text: pageText(html) };
+  });
   const parts = [
-    '# plumcut — full text of every Field note',
+    '# plumcut — full text of every page and Field note',
     '',
     '> ' + SUMMARY.description,
     '',
-    `Source: ${SITE}/blog/  ·  ${all.length} articles  ·  regenerated on every build.`,
-    'Each article below is reproduced in full. Cite the canonical URL given in its Source line.',
+    `Source: ${SITE}/  ·  ${pages.length} pages and ${all.length} articles  ·  regenerated on every build.`,
+    'Each page and article below is reproduced in full. Cite the canonical URL given in its Source line.',
     '',
   ];
+  for (const page of pages) {
+    parts.push(
+      '---',
+      '',
+      `# ${page.title}`,
+      '',
+      `Source: ${SITE}${page.loc}`,
+      ...(coreDates[page.loc] ? [`Updated: ${coreDates[page.loc]}`] : []),
+      '',
+      page.text,
+      ''
+    );
+  }
   for (const post of all) {
     parts.push(
       '---',
@@ -1273,13 +1433,17 @@ function main() {
 
     const words = body.split(/\s+/).filter(Boolean).length;
 
+    const slug = d.slug || slugify(d.title);
     posts.push({
       file: f,
-      slug: d.slug || slugify(d.title),
+      slug,
       title: d.title,
       description: d.description,
       date: d.date,
       updated: d.updated || null,
+      // Real last edit, for dateModified and lastmod only. The visible
+      // "Updated" line stays tied to `updated`, a material revision.
+      modified: latest(d.date, d.updated, lastEdit(`blog/posts/${f}`, `/blog/${slug}`)),
       author: d.author || '',
       authorUrl: d.authorUrl || '',
       reviewedBy: d.reviewedBy || '',
@@ -1332,7 +1496,8 @@ function main() {
 
   // Render and validate everything before replacing any output, including --check.
   for (const [url, html] of outputs) validatePage(url, html, outputs);
-  const sitemap = renderSitemap(posts);
+  const coreDates = Object.fromEntries(CORE_PAGES.map(([loc, file]) => [loc, lastEdit(file, loc)]));
+  const sitemap = renderSitemap(posts, coreDates);
   const rss = renderRss(posts);
 
   if (!DRY) {
@@ -1350,7 +1515,7 @@ function main() {
   }
   const llmsTouched = updateLlmsTxt(posts);
   const faqCount = writeAiDiscovery(posts);
-  const fullWords = writeLlmsFull(posts);
+  const fullWords = writeLlmsFull(posts, coreDates);
 
   console.log(`${DRY ? '[check] ' : ''}built ${posts.length} post(s)`);
   for (const p of posts) console.log(`  /blog/${p.slug}  (${p.words}w, ${p.readingTime}min)`);
@@ -1391,4 +1556,4 @@ function validatePage(url, html, outputs) {
 if (require.main === module) {
   try { main(); } catch (error) { console.error(error.message); process.exitCode = 1; }
 }
-module.exports = { parseFrontMatter, markdown, articleJsonLd, renderSitemap, validatePage };
+module.exports = { parseFrontMatter, markdown, articleJsonLd, renderSitemap, validatePage, pageText, ORGANIZATION };

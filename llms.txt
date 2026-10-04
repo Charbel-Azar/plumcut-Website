@@ -7,6 +7,7 @@
 - [Solutions](https://plumcut.com/solutions): AI selling, instant answers, booking, order tracking, payments, and customer insights for WhatsApp.
 - [Pricing](https://plumcut.com/pricing): A one-time setup fee, then a fixed monthly fee set by the scope of the solution.
 - [About](https://plumcut.com/about): plumcut's MENA-native founding team and origin story.
+- [Full text](https://plumcut.com/llms-full.txt): Every page and Field note above in plain text, in one file.
 
 ## Field notes
 - [Field notes](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.

@@ -20,6 +20,43 @@
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
   window.gtag('js', new Date());
+
+  // Session context, fixed on the first page of the session and attached to
+  // every event after it (page_view, user_engagement, WhatsApp clicks):
+  //   landing_page  the path the session entered on
+  //   ai_source     the AI assistant that referred it, or '' for none
+  //   traffic_type  'AI referral' when ai_source is set
+  // ChatGPT often strips the referrer but tags links utm_source=chatgpt.com, so
+  // both are read. GA4 reports these once they are registered as custom
+  // dimensions (Admin > Custom definitions).
+  const AI_REFERRERS = {
+    'chatgpt.com': 'chatgpt', 'chat.openai.com': 'chatgpt',
+    'perplexity.ai': 'perplexity', 'gemini.google.com': 'gemini',
+    'copilot.microsoft.com': 'copilot', 'claude.ai': 'claude'
+  };
+  const aiSourceFor = (host) => {
+    host = String(host || '').toLowerCase().replace(/^www\./, '');
+    for (const domain in AI_REFERRERS) {
+      if (host === domain || host.endsWith('.' + domain)) return AI_REFERRERS[domain];
+    }
+    return '';
+  };
+  const SESSION_KEY = 'pc_session_ctx';
+  let ctx = null;
+  try { ctx = JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null'); } catch (e) {}
+  if (!ctx) {
+    let referrerHost = '';
+    try { referrerHost = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+    const utmSource = new URLSearchParams(location.search).get('utm_source') || '';
+    ctx = { landing_page: location.pathname, ai_source: aiSourceFor(referrerHost) || aiSourceFor(utmSource) };
+    try { sessionStorage.setItem(SESSION_KEY, JSON.stringify(ctx)); } catch (e) {}
+  }
+  window.__pcSessionCtx = ctx;
+  window.gtag('set', {
+    landing_page: ctx.landing_page,
+    ai_source: ctx.ai_source,
+    traffic_type: ctx.ai_source ? 'AI referral' : ''
+  });
   window.gtag('config', GA_MEASUREMENT_ID);
 
   let started = false;
@@ -72,11 +109,16 @@
     if (!el || !isChatWithPlum(el)) return;
 
     if (typeof window.gtag === 'function') {
+      const ctx = window.__pcSessionCtx || {};
       window.gtag('event', 'chat_with_plum_click', {
         page: (location.pathname.split('/').pop() || 'index.html').replace('.html', '') || 'index',
         page_path: location.pathname,
         article_slug: el.dataset.article || (location.pathname.startsWith('/blog/') ? (location.pathname.split('/')[2] || '').replace(/\.html$/, '') : ''),
-        cta: el.dataset.cta || 'site-chat'
+        cta: el.dataset.cta || 'site-chat',
+        link_url: el.getAttribute('href') || '',
+        landing_page: ctx.landing_page || location.pathname,
+        ai_source: ctx.ai_source || '',
+        transport_type: 'beacon'
       });
     }
     if (typeof window.fbq === 'function') {

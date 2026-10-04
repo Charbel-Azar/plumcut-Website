@@ -131,11 +131,20 @@ Reads `blog/posts/*.md` (files starting with `_` are ignored) and writes:
 - `blog/<slug>.html` for each post
 - `blog/index.html`, the hub
 - `blog/rss.xml`
-- `sitemap.xml`, regenerated whole
+- `sitemap.xml`, regenerated whole, with a real `<lastmod>` on every URL
 - two generated regions inside `llms.txt`: the blog listing between the
   `BLOG:LIST` markers, and every published FAQ between the `FAQ:LIST`
   markers. Text outside the markers is hand-written and survives a build.
-- `llms-full.txt`, the full text of every post in one file
+- `llms-full.txt`, the visible text of the six hand-written pages (their
+  `<main>`, word for word, via `pageText`) and the full text of every post
+
+`lastmod` and BlogPosting `dateModified` are the real last edit: the date of
+the last git commit touching the page's source (the `.html` for a hand-written
+page, the `.md` for a post), or today if it has uncommitted edits. Vercel
+builds from a shallow clone, so without full history the builder reuses the
+dates already committed in `sitemap.xml`. Always build before you commit, so
+the committed sitemap and article dates are the ones Vercel reproduces.
+The visible "Updated" line still comes only from `updated:` front matter.
 - `ai/summary.json`, `ai/service.json`, `ai/faq.json`
 - `.well-known/ai.txt`
 
@@ -192,8 +201,10 @@ copy alone.
 
 Facts in that object are supplied by the founders, never inferred. It currently
 carries the founding year, a Beirut postal address, the public WhatsApp number
-and email, areaServed, knowsAbout, the three founders with their LinkedIn URLs,
-and sameAs. If a value is unknown, leave the field out rather than guess it.
+and email, areaServed (Lebanon, Saudi Arabia, United Arab Emirates, MENA; the
+Service nodes on the hand-written pages carry the same list), knowsAbout, the
+three founders (Nour Zeineddine, Charbel Azar, Michael P. Tamer) with their
+LinkedIn URLs, and sameAs. If a value is unknown, leave the field out rather than guess it.
 
 Templates and the hero contact sheet are excluded because they are not served.
 Tracking pixels inside `<noscript>` are exempt from the alt rule. Nothing it
@@ -205,7 +216,20 @@ dependency and must not become one.
 Optional author/authorUrl and reviewedBy/reviewerUrl fields render real attribution.
 Never invent a name or claim a person reviewed an automated draft. updated is only
 for a material revision. ctaLine and related are carried through Notion's publishing
-metadata block. WhatsApp events include article_slug, page_path and cta.
+metadata block.
+
+BlogPosting `author` is always a `Person`: the post's `author:` (the founder who
+wrote it), or Charbel Azar by default, as the founders decided on 4 Oct 2026. A
+founder author gets their LinkedIn URL as `sameAs`, looked up from
+`ORGANIZATION.founder`. `publisher` stays the plumcut Organization. The visible
+byline is not changed by this.
+
+Analytics (GA4, `assets/main.js`): the first page of a session fixes
+`landing_page`, `ai_source` (chatgpt, perplexity, gemini, copilot, claude, from
+the referrer or `utm_source`) and `traffic_type` = `AI referral`, set on every
+event after it. WhatsApp clicks send `chat_with_plum_click` with article_slug,
+page_path, cta, link_url, landing_page and ai_source. These parameters show in
+reports only once registered as custom dimensions in GA4 Admin.
 
 ### Changing the design
 
