@@ -1,0 +1,4 @@
+# Kept in the repo, never deployed. Vercel serves the repo root
+# (outputDirectory "."), so anything not listed here is public.
+# The Readiness Workbook is internal positioning material.
+/markdown
