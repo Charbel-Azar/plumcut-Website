@@ -230,10 +230,10 @@ Head links
 <link rel="manifest" href="site.webmanifest" />
 <link rel="preload" href="fonts/alan-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="assets/fonts.css" />
-<link rel="preload" href="assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" href="assets/main.css?v=c29db4798c" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
 <title>How plumcut works | done-for-you AI sales agent</title>
     
-    <noscript><link rel="stylesheet" href="assets/main.css"></noscript>
+    <noscript><link rel="stylesheet" href="assets/main.css?v=c29db4798c"></noscript>
     <style id="critical-loader-style">
   .site-loader { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; background: #fff; z-index: 9999; opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s linear .45s; }
   .site-loader--hidden { opacity: 0; visibility: hidden; }
@@ -1139,6 +1139,20 @@ Head links
         <source src="images/loader-840.mp4" type="video/mp4">
       </video>
     </div>
+    <script>
+      // Loader failsafe. main.js hides the loader on DOMContentLoaded; this
+      // hides it anyway if main.js never runs (a stale cached copy, a blocked
+      // request, an error earlier in the file), so the page cannot stay stuck.
+      (function () {
+        var hide = function () {
+          document.body.classList.remove("is-loading");
+          var loader = document.querySelector(".site-loader");
+          if (loader) loader.classList.add("site-loader--hidden");
+        };
+        document.addEventListener("DOMContentLoaded", function () { setTimeout(hide, 2500); });
+        setTimeout(hide, 8000);
+      })();
+    </script>
 
     <!-- =========================
 Top Nav Buttons
@@ -1859,7 +1873,7 @@ Footer
 <script src="vendor/stack-card.min.js"></script>
 
 
-  <script  src="assets/main.js"></script>
+  <script  src="assets/main.js?v=018f80d493"></script>
   <script>
     (function() {
       const navbar = document.querySelector(".pc-navbar:not(.pc-navbar--sticky)");

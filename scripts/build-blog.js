@@ -1373,9 +1373,40 @@ function updateLlmsTxt(all) {
   return true;
 }
 
+/*
+ * Cache-bust assets/main.js and assets/main.css. /assets/ is served with
+ * stale-while-revalidate, so without a version in the URL a returning browser
+ * runs its old cached main.js against new HTML for one page load. That is how
+ * removing swiper.min.js left an old main.js throwing on `new Swiper` and the
+ * loader stuck until a reload. Each reference carries ?v=<content hash>, so
+ * any change to either file is a new URL. Runs on every build, Vercel's
+ * included, so the stamp cannot drift from the file it names.
+ */
+const VERSIONED_ASSETS = ['main.js', 'main.css'];
+
+function stampAssetVersions() {
+  const hashes = {};
+  for (const name of VERSIONED_ASSETS) {
+    const file = path.join(ROOT, 'assets', name);
+    if (fs.existsSync(file)) hashes[name] = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 10);
+  }
+  const re = /(assets\/(main\.(?:js|css)))(?:\?v=[0-9a-f]*)?"/g;
+  const touched = [];
+  for (const file of [...CORE_PAGES.map(([, f]) => path.join(ROOT, f)), TEMPLATE]) {
+    if (!fs.existsSync(file)) continue;
+    const html = fs.readFileSync(file, 'utf8');
+    const next = html.replace(re, (whole, ref, name) => (hashes[name] ? `${ref}?v=${hashes[name]}"` : whole));
+    if (next === html) continue;
+    touched.push(path.relative(ROOT, file));
+    if (!DRY) fs.writeFileSync(file, next);
+  }
+  return touched;
+}
+
 /* -------------------------------------------------------------------- main */
 
 function main() {
+  const stamped = stampAssetVersions();
   const tpl = fs.readFileSync(TEMPLATE, 'utf8');
 
   if (!fs.existsSync(POSTS_DIR)) throw new Error('missing blog/posts directory');
@@ -1530,6 +1561,7 @@ function main() {
   );
   console.log(`  /ai/    summary.json + service.json + faq.json (${faqCount} Q&A) + /.well-known/ai.txt`);
   console.log(`  /llms-full.txt  ${fullWords} words`);
+  if (stamped.length) console.log(`  asset versions ${DRY ? 'stale in' : 'stamped into'} ${stamped.join(', ')}`);
   if (warnings.length) {
     console.log('\nwarnings:');
     for (const w of warnings) console.log('  ! ' + w);

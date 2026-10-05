@@ -301,11 +301,11 @@ Head links
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="preload" href="/fonts/alan-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/assets/fonts.css" />
-<link rel="preload" href="/assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" href="/assets/main.css?v=c29db4798c" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
 <link rel="preload" href="/blog/heroes/home-working-table.jpg" as="image" fetchpriority="high" />
 <title>When Is Your Business Ready for AI Customer Service? | plumcut</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+    <noscript><link rel="stylesheet" href="/assets/main.css?v=c29db4798c"><style>
       .site-loader { display: none !important; }
       body.is-loading { overflow: auto !important; }
       [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
@@ -1207,7 +1207,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="de152c76c77114bcb9cf23ea974906021abdb5b31d48f49fc7594631b63205b2">
+<meta name="plumcut-content-version" content="e75311c73958adb78ad1a1a21d0601b4ec8550b2d23f4865cc2cc6cc29bb9605">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1223,6 +1223,20 @@ Head links
         <source src="/images/loader-840.mp4" type="video/mp4">
       </video>
     </div>
+    <script>
+      // Loader failsafe. main.js hides the loader on DOMContentLoaded; this
+      // hides it anyway if main.js never runs (a stale cached copy, a blocked
+      // request, an error earlier in the file), so the page cannot stay stuck.
+      (function () {
+        var hide = function () {
+          document.body.classList.remove("is-loading");
+          var loader = document.querySelector(".site-loader");
+          if (loader) loader.classList.add("site-loader--hidden");
+        };
+        document.addEventListener("DOMContentLoaded", function () { setTimeout(hide, 2500); });
+        setTimeout(hide, 8000);
+      })();
+    </script>
 
     <!-- =========================
 Top Nav Buttons
@@ -1616,7 +1630,7 @@ Footer
 <script src="/vendor/stack-card.min.js"></script>
 
 
-  <script  src="/assets/main.js"></script>
+  <script  src="/assets/main.js?v=018f80d493"></script>
   <script>
     (function() {
       const navbar = document.querySelector(".pc-navbar:not(.pc-navbar--sticky)");

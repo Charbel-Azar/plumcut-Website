@@ -317,11 +317,11 @@ Head links
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="preload" href="/fonts/alan-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/assets/fonts.css" />
-<link rel="preload" href="/assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" href="/assets/main.css?v=c29db4798c" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
 <link rel="preload" href="/blog/heroes/notebook-pen-glasses.jpg" as="image" fetchpriority="high" />
 <title>The Best WhatsApp Automation Tools in 2026, Honestly Compared | plumcut</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+    <noscript><link rel="stylesheet" href="/assets/main.css?v=c29db4798c"><style>
       .site-loader { display: none !important; }
       body.is-loading { overflow: auto !important; }
       [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
@@ -1223,7 +1223,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="65023fc0a8a4f061a19d4a32135574a163e400905b58a4b392e4f2062fadb8a6">
+<meta name="plumcut-content-version" content="31333a926aee70349019474e5187e461057c2b99e05cd8ab803c05a90b9b925a">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1239,6 +1239,20 @@ Head links
         <source src="/images/loader-840.mp4" type="video/mp4">
       </video>
     </div>
+    <script>
+      // Loader failsafe. main.js hides the loader on DOMContentLoaded; this
+      // hides it anyway if main.js never runs (a stale cached copy, a blocked
+      // request, an error earlier in the file), so the page cannot stay stuck.
+      (function () {
+        var hide = function () {
+          document.body.classList.remove("is-loading");
+          var loader = document.querySelector(".site-loader");
+          if (loader) loader.classList.add("site-loader--hidden");
+        };
+        document.addEventListener("DOMContentLoaded", function () { setTimeout(hide, 2500); });
+        setTimeout(hide, 8000);
+      })();
+    </script>
 
     <!-- =========================
 Top Nav Buttons
@@ -1658,7 +1672,7 @@ Footer
 <script src="/vendor/stack-card.min.js"></script>
 
 
-  <script  src="/assets/main.js"></script>
+  <script  src="/assets/main.js?v=018f80d493"></script>
   <script>
     (function() {
       const navbar = document.querySelector(".pc-navbar:not(.pc-navbar--sticky)");

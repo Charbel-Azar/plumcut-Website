@@ -309,11 +309,11 @@ Head links
 <link rel="manifest" href="/site.webmanifest" />
 <link rel="preload" href="/fonts/alan-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/assets/fonts.css" />
-<link rel="preload" href="/assets/main.css" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
+<link rel="preload" href="/assets/main.css?v=c29db4798c" as="style" data-main-styles onload="this.onload=null;this.rel='stylesheet'" />
 <link rel="preload" href="/blog/heroes/sealed-box.jpg" as="image" fetchpriority="high" />
 <title>Can AI Answer Where Is My Order on WhatsApp in 2026? | plumcut</title>
     
-    <noscript><link rel="stylesheet" href="/assets/main.css"><style>
+    <noscript><link rel="stylesheet" href="/assets/main.css?v=c29db4798c"><style>
       .site-loader { display: none !important; }
       body.is-loading { overflow: auto !important; }
       [data-ns-animate] { opacity: 1 !important; filter: none !important; transform: none !important; }
@@ -1215,7 +1215,7 @@ Head links
         .blog-cta { border-radius: 20px; }
       }
     </style>
-<meta name="plumcut-content-version" content="e2a590322b6fadb608600908923fba0bac218c70c68b24a769a33e04f3458938">
+<meta name="plumcut-content-version" content="7f97a5647fe5146e41b4d81c983ae5aae9bef42bd63205782974864951330d1e">
 </head>
   <body class="bg-white dark:bg-background-5 is-loading">
     <script>
@@ -1231,6 +1231,20 @@ Head links
         <source src="/images/loader-840.mp4" type="video/mp4">
       </video>
     </div>
+    <script>
+      // Loader failsafe. main.js hides the loader on DOMContentLoaded; this
+      // hides it anyway if main.js never runs (a stale cached copy, a blocked
+      // request, an error earlier in the file), so the page cannot stay stuck.
+      (function () {
+        var hide = function () {
+          document.body.classList.remove("is-loading");
+          var loader = document.querySelector(".site-loader");
+          if (loader) loader.classList.add("site-loader--hidden");
+        };
+        document.addEventListener("DOMContentLoaded", function () { setTimeout(hide, 2500); });
+        setTimeout(hide, 8000);
+      })();
+    </script>
 
     <!-- =========================
 Top Nav Buttons
@@ -1626,7 +1640,7 @@ Footer
 <script src="/vendor/stack-card.min.js"></script>
 
 
-  <script  src="/assets/main.js"></script>
+  <script  src="/assets/main.js?v=018f80d493"></script>
   <script>
     (function() {
       const navbar = document.querySelector(".pc-navbar:not(.pc-navbar--sticky)");
