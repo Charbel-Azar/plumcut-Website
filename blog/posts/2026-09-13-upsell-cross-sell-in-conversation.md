@@ -48,7 +48,7 @@ The ranking is the useful part. Most stores put all their effort into moment two
 
 Vague advice about being helpful is useless, so here are the shapes.
 
-**Moment one, a need stated.** The customer says what they are looking for and roughly what they want to spend. The reply names two or three real options within that range, says plainly what separates them, and includes one slightly better option with the reason attached. Not "we also have a premium version" but "the larger one is 20 percent more and lasts about twice as long, which people buying it for daily use usually prefer". The offer is the reason, not the product.
+**Moment one, a need stated.** The customer says what they are looking for and roughly what they want to spend. The reply names two or three real options within that range, says plainly what separates them, and includes one slightly better option with the reason attached. Not "we also have a premium version" but "the larger one is 20 percent more and lasts about twice as long, which people buying it for daily use usually prefer". The offer is the reason, not the product. In grocery the stated need is often a whole meal, which is why this moment does so much work there; we walked through it in [how to upsell groceries on WhatsApp](/blog/upsell-groceries-whatsapp).
 
 **Moment two, just confirmed.** One item, obviously related, mentioned once. "Most people order the refill with this so they do not run out in a month, want me to add it?" If the answer is no, it is closed. Do not restate it in the confirmation message.
 

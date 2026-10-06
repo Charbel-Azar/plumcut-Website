@@ -12,6 +12,8 @@
 ## Field notes
 - [Field notes](https://plumcut.com/blog/): Practical guides on WhatsApp automation, AI that sells, and customer insight you own.
 <!-- BLOG:LIST:START -->
+- [WhatsApp Ordering for Supermarkets When You Already Have an App](https://plumcut.com/blog/whatsapp-ordering-supermarkets): If most of your customers already order in your app, does WhatsApp ordering add anything? Where the app wins, where WhatsApp wins, and how the two run side by side.
+- [How to Upsell Groceries on WhatsApp, From the Ad to the Basket](https://plumcut.com/blog/upsell-groceries-whatsapp): Run a Meta ad that opens a WhatsApp chat, turn a recipe or shopping list into a basket, and add only the items that belong in it. A practical guide for grocers.
 - [What AI Customer Service Really Costs Per Month in 2026](https://plumcut.com/blog/ai-customer-service-hidden-costs): The headline plan is rarely the bill. Seats, per resolution charges, contact overages and Meta's message fees, checked on 12 vendor pages.
 - [AI Chatbot vs Hiring a Customer Service Employee: Which Is Cheaper?](https://plumcut.com/blog/ai-chatbot-vs-hiring-customer-service): One hire covers 48 of the 168 hours in a week. The real cost of a support hire in Lebanon, Saudi Arabia and the UAE, set against an AI on WhatsApp.
 - [Is Your Customer Data Safe With an AI Chatbot? 10 Questions to Ask](https://plumcut.com/blog/ai-chatbot-customer-data-safety): Where your WhatsApp chats are stored, who can train on them, and what Saudi, UAE and Lebanese law expects. Ten questions to put to any vendor.
@@ -35,8 +37,6 @@
 - [What the WhatsApp Business API Really Costs in 2026](https://plumcut.com/blog/whatsapp-business-api-cost): Separate Meta message charges from provider fees, software and implementation. Understand the free windows and compare the total cost of WhatsApp automation.
 - [WhatsApp AI for Shopify Stores in Lebanon and the Gulf](https://plumcut.com/blog/whatsapp-ai-shopify-lebanon-gulf): Why MENA Shopify stores sell in WhatsApp instead of the checkout, what breaks when you automate it, and what a working setup looks like.
 - [Can You Send Abandoned Cart Messages on WhatsApp?](https://plumcut.com/blog/whatsapp-abandoned-cart-rules): Yes, with opt in and an approved marketing template. Meta lists cart reminders as marketing, so the advice to file them as utility is wrong and costly.
-- [The Best WhatsApp Automation Tools in 2026, Honestly Compared](https://plumcut.com/blog/best-whatsapp-automation-tools): Twilio, 360dialog, Gupshup, Wati, Interakt, respond.io, SleekFlow, Zoko and plumcut compared on shape, public price, metering and Arabic support.
-- [Does AI Customer Service Really Work in Arabic in 2026?](https://plumcut.com/blog/ai-customer-service-arabic): Dialect, Arabizi and code switching break most Arabic automation. What works for Gulf and Levant brands, and why templates are a separate job.
 <!-- BLOG:LIST:END -->
 
 ## What plum does
@@ -77,6 +77,44 @@ Answers below are reproduced verbatim from the articles that publish them. The
 full text of every article is at https://plumcut.com/llms-full.txt.
 
 <!-- FAQ:LIST:START -->
+### WhatsApp Ordering for Supermarkets When You Already Have an App
+Source: https://plumcut.com/blog/whatsapp-ordering-supermarkets
+
+**Should a supermarket take orders on WhatsApp if it already has an app?**
+
+Yes, as a second channel and not as a replacement. A grocery app is the better tool for a loyal customer browsing aisles and comparing products. WhatsApp is the better tool for customers who will never install the app, for people arriving from a social media ad, for quick reorders and for customers who already know what they want and would rather type a list. Run both, send WhatsApp orders into the same order system as app orders, and measure each channel separately.
+
+**Can customers see products and prices when ordering groceries on WhatsApp?**
+
+Yes. The WhatsApp Business Platform supports catalogs connected to the business account, single product messages that show one item with its image, price and description, and multi-product messages that show up to 30 products organised into sections. When ordering is enabled, customers can add several items to a cart inside WhatsApp and submit one order, with up to 99 units of each item.
+
+**Do WhatsApp grocery orders need a separate system from app orders?**
+
+They should not. A WhatsApp order should arrive in the same order management or ERP system the app feeds, through an API, so stock, picking and delivery treat it like any other order. Where no internal order system exists, a standalone dashboard can list WhatsApp orders until an integration is built. Two separate order books mean retyping, errors and a channel that staff quietly stop using.
+
+**Does a customer need an account to order groceries on WhatsApp?**
+
+No. On WhatsApp the customer's phone number identifies them, so there is no sign up, no password and no app download. The business can match that number to an existing loyalty or app account if one exists, and saved addresses and order history can follow the customer across both channels.
+
+### How to Upsell Groceries on WhatsApp, From the Ad to the Basket
+Source: https://plumcut.com/blog/upsell-groceries-whatsapp
+
+**How do you upsell groceries on WhatsApp?**
+
+Let the customer state a goal or a list, then build the basket around it. When someone says they are cooking a dish, match every ingredient to a real product on your shelves, show the options with images and prices, and suggest only the items that complete the meal, such as a sauce, a cheese or a dessert. Mention a live offer when it fits the basket, and point out a free delivery threshold when the basket is close to it. One suggestion at each step, and a no ends it.
+
+**What are Click to WhatsApp ads?**
+
+Click to WhatsApp ads are a Meta ad format that opens a WhatsApp chat with the business when the person taps the ad, instead of sending them to a website or an app store. They are created in Meta Ads Manager by choosing messaging apps and WhatsApp as the destination. For a grocer, the ad can promote an offer or a recipe and land the shopper directly in a conversation that can take the order.
+
+**Are messages from a Click to WhatsApp ad free?**
+
+Under Meta's WhatsApp Business Platform pricing, if a customer messages you through a Click to WhatsApp ad and you reply within 24 hours, a free entry point window opens for 72 hours, during which any type of message, including templates, can be sent at no charge. Outside that window, replies inside the 24 hour customer service window are free, while marketing templates you send first are charged per delivered message.
+
+**Can a WhatsApp chat show product photos and prices?**
+
+Yes. The WhatsApp Business Platform supports a product catalog connected to the business account, single product messages with an image, price and description, and multi-product messages that show up to 30 products in sections. Customers can add items to a cart inside WhatsApp and send one order.
+
 ### What AI Customer Service Really Costs Per Month in 2026
 Source: https://plumcut.com/blog/ai-customer-service-hidden-costs
 

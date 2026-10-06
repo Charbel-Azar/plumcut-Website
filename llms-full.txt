@@ -2,7 +2,7 @@
 
 > plumcut builds and runs an intelligent automation system on the channels a brand's customers already use — it answers, actively sells (upsell, cross-sell, booking), and reads across every interaction to show the owner what customers actually want.
 
-Source: https://plumcut.com/  ·  6 pages and 26 articles  ·  regenerated on every build.
+Source: https://plumcut.com/  ·  6 pages and 28 articles  ·  regenerated on every build.
 Each page and article below is reproduced in full. Cite the canonical URL given in its Source line.
 
 ---
@@ -602,6 +602,148 @@ If this policy changes, the date at the top changes with it. Anything material g
 plumcut
 Beirut, Lebanon
 info@plumcut.com
+
+---
+
+# WhatsApp Ordering for Supermarkets When You Already Have an App
+
+Source: https://plumcut.com/blog/whatsapp-ordering-supermarkets
+Published: 2026-10-06
+
+If most of your customers already order through your app, a WhatsApp ordering channel can look like a solution to a problem you do not have. It is a fair objection, and it is half right. The app is the better tool for some shoppers and some baskets. The question is not whether WhatsApp beats your app. It is whether there are customers and orders your app is not reaching at all.
+
+> Yes, a supermarket with an app should still take orders on WhatsApp, but as a parallel channel, not a replacement. The app wins for loyal customers browsing and comparing. WhatsApp wins for everyone who will never install the app, for traffic arriving from social media ads, for quick reorders and for shoppers who already know what they want. Feed both into the same order system and measure them separately.
+
+## Why "our customers already use the app" is only half the picture
+
+An app only counts the people who installed it. Your app's order share tells you how the customers who downloaded it behave. It says nothing about the people who saw your weekly offers on social media, wanted three things, and were never going to install an app to buy them.
+
+That second group is not small. In Meta's [State of Business Messaging](https://whatsappbusiness.com/resources/resource-library/state-of-business-messaging/) research, a survey of 11,056 consumers across 22 markets run from April to September 2025, 73.3% said they prefer messaging when communicating with a business, and 72.4% said they are more likely to buy from a brand that offers it. Saudi Arabia and the UAE are two of the 22 markets in that survey. It is Meta's own research about its own channel, so read it as a direction rather than a forecast for your store, but it is the best public number on the question.
+
+The useful test is in your own data: what share of your social media traffic ends in an app install, and what share of your WhatsApp support messages start with "can I order" or "do you have". If both numbers are noticeable, there are orders leaking.
+
+## Where the app wins, and where WhatsApp wins
+
+| Situation | Better channel | Why |
+| --- | --- | --- |
+| Weekly shop by a loyal customer | App | Full catalogue, saved lists, aisle browsing, loyalty points |
+| Comparing brands and sizes on a shelf | App | Product grids beat a chat for side by side comparison |
+| First purchase from someone who saw an ad | WhatsApp | No install, no account, one tap from the ad |
+| "Same as last week, plus milk" | WhatsApp | A sentence is faster than rebuilding a basket |
+| A typed or photographed shopping list | WhatsApp | The customer already wrote the order |
+| "What do I need to make pasta for six?" | WhatsApp | A question, not a search term, which a conversation handles and a search bar does not |
+| A problem with an order already placed | WhatsApp | Customers already go there for this, and it is where trust is won or lost |
+
+The pattern is simple. The app is a store you walk around. WhatsApp is the phone call to the shop where someone knows you. Most supermarkets need both, and they serve different moments.
+
+## "Shoppers need to see products." They can, inside WhatsApp
+
+The strongest objection to conversational grocery ordering is that people choose with their eyes. Nobody wants to describe the yoghurt they want in words. That was true of text only chat. It is not true of the WhatsApp Business Platform as documented today.
+
+According to Meta's [developer documentation on selling products](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/sell-products-and-services), checked on 6 October 2026:
+
+- A **catalog** of your products can be connected to your WhatsApp Business account.
+- A **single product message** shows one item with its image, price and description.
+- A **multi-product message** shows a curated selection of up to 30 products, organised into sections.
+- With ordering enabled, customers add several items to a **cart inside WhatsApp** and submit one order, with up to 99 units of each item.
+
+So the conversation does the narrowing and the catalogue does the showing. A customer asks for olive oil, the reply shows the four oils you stock with photos and prices, and they tap the one they want. That is closer to asking a shop assistant than to scrolling an app, and it still ends with the customer choosing.
+
+## How a WhatsApp order should reach your systems
+
+A WhatsApp channel rarely fails because customers ignore it. It fails when it creates a second order book. An order typed into a chat, then retyped by a staff member into the real system, is slow, error prone and ends up switched off.
+
+The setup that lasts has three parts:
+
+1. **Identity from the phone number.** On WhatsApp the customer's number identifies them. No sign up, no password. If they also have an app account, the number links the two, so addresses and history carry across.
+2. **The same order pipeline.** The WhatsApp order goes into the same order management or ERP system the app feeds, through an API, so stock, picking and delivery do not care which channel it came from. If there is no internal system to connect to, a standalone dashboard holds WhatsApp orders until there is.
+3. **Separate measurement.** Tag every order with its channel. You want to know what WhatsApp brings that the app did not, not a blended number that hides it.
+
+We covered the integration side for delivery businesses in [how to connect WhatsApp orders to fleet software](/blog/connect-whatsapp-orders-fleet-software). The principle is identical for grocery: one source of truth for orders, whatever the door.
+
+## What a supermarket should not put on WhatsApp
+
+Not everything belongs in a chat. Full catalogue browsing is better in the app. Loyalty scheme mechanics, account settings and long order histories are app jobs. And anything that needs a human decision, such as a refund on a damaged delivery, should be handed to a person quickly rather than handled by automation. We wrote about where that line sits for retail in [can AI actually handle retail customer service](/blog/ai-customer-service-retail).
+
+The other limit is cost. Replies inside a conversation the customer started are free on the WhatsApp Business Platform, but promotional messages you send first are charged per delivered message under Meta's [pricing rules](https://developers.facebook.com/docs/whatsapp/pricing/). A WhatsApp grocery channel works best when customers come to you, which is exactly why it pairs well with ads that open a WhatsApp chat. We go through that, and how to sell more inside each order, in [how to upsell groceries on WhatsApp](/blog/upsell-groceries-whatsapp).
+
+## Where plumcut fits
+
+plumcut builds and runs the conversation layer on top of a store's own catalogue, prices and offers. plum reads what the customer asks for, matches it to real products, shows options with images and prices, takes the order and sends it into the store's system, or into a standalone dashboard if there is no system to connect to yet. It runs next to the app, not instead of it. You can see the flow on [how it works](/how-it-works) and the full scope on [solutions](/solutions).
+
+## What to do this week
+
+Pull two numbers. First, the share of your WhatsApp support messages in the last month that were really an attempt to buy something: "do you have", "how much is", "can you deliver". Second, the click to install rate on your last social media campaign. If the first is above zero and the second is low, you have customers who want to order and a door that is too heavy for them. Start with one category, such as fresh produce or a weekly offer, on WhatsApp, routed into your existing order system, and compare it to the app for a month.
+
+---
+
+# How to Upsell Groceries on WhatsApp, From the Ad to the Basket
+
+Source: https://plumcut.com/blog/upsell-groceries-whatsapp
+Published: 2026-10-06
+
+Grocery runs on thin margins and frequent repeat visits, so basket size is the number that matters. Most supermarket upselling happens on a shelf end or in an app banner, aimed at nobody in particular. A conversation is different, because the customer has just told you what they are trying to do. This guide covers both halves: getting shoppers into a WhatsApp conversation straight from an ad, and growing the basket once they are there.
+
+> To upsell groceries on WhatsApp, start the conversation from a Meta ad that opens WhatsApp directly, let the customer state a goal ("pasta for six tonight") or paste a list, then match each item to a real product with an image and price and suggest only what completes that goal: the sauce, the cheese, the dessert, the live offer, the item that crosses the free delivery threshold. One suggestion per step. A declined offer ends it.
+
+## Step one: send ad traffic straight into WhatsApp
+
+The usual grocery ad sends people to an app store or a website. Every step in between, the download, the sign up, the search, loses shoppers. Meta's [ads that click to WhatsApp](https://whatsappbusiness.com/products/create-ads-that-click-to-whatsapp/) remove those steps: the person taps the ad and a WhatsApp chat with your business opens. In Meta Ads Manager you build the ad as usual and, at the destination step, choose messaging apps and then WhatsApp.
+
+Three things make this especially suited to grocery:
+
+- **No account.** The shopper's phone number identifies them. There is nothing to install or register before the first order.
+- **The ad can start the conversation.** The ad's message template in Ads Manager can set a pre-filled first message, which the shopper can edit before sending, as described in [Braze's documentation of the format](https://www.braze.com/docs/user_guide/channels/whatsapp/use_cases/ads_that_click_to_whatsapp/). A tap on a "Weekend barbecue box" ad lands the shopper in a chat that already knows what they came for.
+- **The first three days are free to message.** Under Meta's [WhatsApp pricing rules](https://developers.facebook.com/docs/whatsapp/pricing/), checked on 6 October 2026, when a customer messages you through a Click to WhatsApp ad and you reply within 24 hours, a free entry point window opens for 72 hours. During it, any type of message, templates included, is sent at no charge. For a grocer that covers the order, the confirmation, the delivery update and a follow up about the next shop.
+
+That last point matters for the economics. Outside that window, promotional messages you send first are marketing templates, charged per delivered message. We broke down the full structure in [what the WhatsApp Business API really costs](/blog/whatsapp-business-api-cost).
+
+## Step two: let the customer state a goal, not a search term
+
+A search bar needs a product name. A conversation accepts a goal. That is the whole advantage, and it is where the upsell starts.
+
+Three kinds of message a grocer can expect, and what each one opens up:
+
+| The customer writes | What it tells you | The natural addition |
+| --- | --- | --- |
+| "I want to make pasta for six tonight" | A complete meal, a quantity and a deadline | Sauce, parmesan, garlic bread, a dessert |
+| A pasted or photographed shopping list | The core basket, already decided | Items usually bought with those, offers on listed brands |
+| "Same as last week" | A repeat basket | What changed since: a new offer, a seasonal item |
+
+Regional shoppers rarely write in textbook English. A message like "bade 2 kilo banadoura w khebez" mixes Arabizi with a quantity and a product. A conversation layer that only understands clean English product names misses that order entirely. We covered how far Arabic and Arabizi understanding has come in [whether AI customer service really works in Arabic](/blog/ai-customer-service-arabic).
+
+## Step three: match every item to a real product, with a picture
+
+The goal becomes a basket only when every ingredient maps to something on your shelves, at today's price. This is the part that needs your catalogue, not a generic chatbot.
+
+WhatsApp now supports this visually. According to Meta's [developer documentation on selling products](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/sell-products-and-services), a business can connect a product catalog to its WhatsApp account, send single product messages with an image, price and description, and send multi-product messages showing up to 30 products in sections. Customers add items to a cart inside WhatsApp and submit one order.
+
+So when "pasta" matches five pastas, the shopper is shown the five with photos and prices and taps one. When a brand is out of stock, the substitute is offered with its picture rather than silently swapped. Substitution handled well is itself a sale saved.
+
+## Step four: suggest what completes the basket, once
+
+Here is a worked example. It is illustrative, not a customer conversation.
+
+A shopper taps a weekend recipe ad and writes that they want to make pasta for six tonight. The reply confirms quantities and shows two pastas and three sauces with prices. The shopper picks one of each. The next message adds one suggestion: parmesan, with the reason attached, because the recipe calls for it and it is on offer this week. The shopper adds it. Before confirming, the reply notes that the basket is a small amount short of free delivery and names one relevant item that would cross the line. The shopper declines. The order is confirmed with no further offers.
+
+Four rules sit behind that exchange:
+
+1. **Only suggest what completes the stated goal.** Parmesan for pasta, charcoal for a barbecue, lemons for fish. Not this week's random promotion.
+2. **Attach the reason.** "It is in the recipe and 20% off this week" sells. "You may also like" does not.
+3. **Use the offers you already run.** The conversation is a new place to put the promotions your team already sets, matched to baskets they actually fit.
+4. **One suggestion per step, and a no ends it.** We went through why in detail in [how to upsell and cross-sell inside a conversation](/blog/upsell-cross-sell-in-conversation).
+
+## Step five: read what customers ask for
+
+Every conversation records something an app search log never captures: what people were trying to cook, which items they asked for that you do not stock, which substitutes they refused. Across thousands of conversations that is a demand signal for buying and promotions. It is also the part most grocers never see, because the conversations live on staff phones.
+
+## Where plumcut fits
+
+plumcut builds and runs this conversation layer on top of a store's own catalogue, prices and offers. plum takes the shopper from the ad into the chat, turns a goal or a list into a matched basket with images and prices, suggests what completes it, takes the order into the store's system, and shows the owner what customers actually asked for. It works next to the store's app, not instead of it, a point we covered in [WhatsApp ordering for supermarkets](/blog/whatsapp-ordering-supermarkets). See the flow on [how it works](/how-it-works).
+
+## What to do this week
+
+Pick one meal your customers already buy for, a weekend barbecue, a family pasta night, a Friday breakfast. Write down the eight to twelve products that make it up and which of them are on offer. Then run one small Click to WhatsApp ad for that meal and answer every chat by hand for a week, logging what people ask for and what they add when you suggest the missing item. That week tells you whether the channel is worth automating, using your own customers rather than anyone's averages.
 
 ---
 
@@ -1307,7 +1449,7 @@ The ranking is the useful part. Most stores put all their effort into moment two
 
 Vague advice about being helpful is useless, so here are the shapes.
 
-**Moment one, a need stated.** The customer says what they are looking for and roughly what they want to spend. The reply names two or three real options within that range, says plainly what separates them, and includes one slightly better option with the reason attached. Not "we also have a premium version" but "the larger one is 20 percent more and lasts about twice as long, which people buying it for daily use usually prefer". The offer is the reason, not the product.
+**Moment one, a need stated.** The customer says what they are looking for and roughly what they want to spend. The reply names two or three real options within that range, says plainly what separates them, and includes one slightly better option with the reason attached. Not "we also have a premium version" but "the larger one is 20 percent more and lasts about twice as long, which people buying it for daily use usually prefer". The offer is the reason, not the product. In grocery the stated need is often a whole meal, which is why this moment does so much work there; we walked through it in [how to upsell groceries on WhatsApp](/blog/upsell-groceries-whatsapp).
 
 **Moment two, just confirmed.** One item, obviously related, mentioned once. "Most people order the refill with this so they do not run out in a month, want me to add it?" If the answer is no, it is closed. Do not restate it in the confirmation message.
 
@@ -1540,7 +1682,7 @@ Neither model is universally correct. Per resolution pricing is better if your v
 
 That gap is not an accident. It is what happens when the category is built for a market that is not this one, and it is the practical reason a done for you setup often beats a self serve tool here. [How plumcut works](/how-it-works) covers what connecting to your existing stack looks like when someone else does it.
 
-Depth matters as much as coverage. A tool that reads order status but cannot read live stock will answer "where is my order" and guess at "is this in stock", and the second answer is the one that produces an order you cannot fill.
+Depth matters as much as coverage. A tool that reads order status but cannot read live stock will answer "where is my order" and guess at "is this in stock", and the second answer is the one that produces an order you cannot fill. Supermarkets with their own ordering app face the same question from the other side, which we covered in [WhatsApp ordering for supermarkets](/blog/whatsapp-ordering-supermarkets).
 
 ## Where something else fits better than plum
 

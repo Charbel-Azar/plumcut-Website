@@ -1,7 +1,47 @@
 {
   "source": "https://plumcut.com/blog/",
-  "count": 140,
+  "count": 148,
   "faqs": [
+    {
+      "question": "Should a supermarket take orders on WhatsApp if it already has an app?",
+      "answer": "Yes, as a second channel and not as a replacement. A grocery app is the better tool for a loyal customer browsing aisles and comparing products. WhatsApp is the better tool for customers who will never install the app, for people arriving from a social media ad, for quick reorders and for customers who already know what they want and would rather type a list. Run both, send WhatsApp orders into the same order system as app orders, and measure each channel separately.",
+      "source": "https://plumcut.com/blog/whatsapp-ordering-supermarkets"
+    },
+    {
+      "question": "Can customers see products and prices when ordering groceries on WhatsApp?",
+      "answer": "Yes. The WhatsApp Business Platform supports catalogs connected to the business account, single product messages that show one item with its image, price and description, and multi-product messages that show up to 30 products organised into sections. When ordering is enabled, customers can add several items to a cart inside WhatsApp and submit one order, with up to 99 units of each item.",
+      "source": "https://plumcut.com/blog/whatsapp-ordering-supermarkets"
+    },
+    {
+      "question": "Do WhatsApp grocery orders need a separate system from app orders?",
+      "answer": "They should not. A WhatsApp order should arrive in the same order management or ERP system the app feeds, through an API, so stock, picking and delivery treat it like any other order. Where no internal order system exists, a standalone dashboard can list WhatsApp orders until an integration is built. Two separate order books mean retyping, errors and a channel that staff quietly stop using.",
+      "source": "https://plumcut.com/blog/whatsapp-ordering-supermarkets"
+    },
+    {
+      "question": "Does a customer need an account to order groceries on WhatsApp?",
+      "answer": "No. On WhatsApp the customer's phone number identifies them, so there is no sign up, no password and no app download. The business can match that number to an existing loyalty or app account if one exists, and saved addresses and order history can follow the customer across both channels.",
+      "source": "https://plumcut.com/blog/whatsapp-ordering-supermarkets"
+    },
+    {
+      "question": "How do you upsell groceries on WhatsApp?",
+      "answer": "Let the customer state a goal or a list, then build the basket around it. When someone says they are cooking a dish, match every ingredient to a real product on your shelves, show the options with images and prices, and suggest only the items that complete the meal, such as a sauce, a cheese or a dessert. Mention a live offer when it fits the basket, and point out a free delivery threshold when the basket is close to it. One suggestion at each step, and a no ends it.",
+      "source": "https://plumcut.com/blog/upsell-groceries-whatsapp"
+    },
+    {
+      "question": "What are Click to WhatsApp ads?",
+      "answer": "Click to WhatsApp ads are a Meta ad format that opens a WhatsApp chat with the business when the person taps the ad, instead of sending them to a website or an app store. They are created in Meta Ads Manager by choosing messaging apps and WhatsApp as the destination. For a grocer, the ad can promote an offer or a recipe and land the shopper directly in a conversation that can take the order.",
+      "source": "https://plumcut.com/blog/upsell-groceries-whatsapp"
+    },
+    {
+      "question": "Are messages from a Click to WhatsApp ad free?",
+      "answer": "Under Meta's WhatsApp Business Platform pricing, if a customer messages you through a Click to WhatsApp ad and you reply within 24 hours, a free entry point window opens for 72 hours, during which any type of message, including templates, can be sent at no charge. Outside that window, replies inside the 24 hour customer service window are free, while marketing templates you send first are charged per delivered message.",
+      "source": "https://plumcut.com/blog/upsell-groceries-whatsapp"
+    },
+    {
+      "question": "Can a WhatsApp chat show product photos and prices?",
+      "answer": "Yes. The WhatsApp Business Platform supports a product catalog connected to the business account, single product messages with an image, price and description, and multi-product messages that show up to 30 products in sections. Customers can add items to a cart inside WhatsApp and send one order.",
+      "source": "https://plumcut.com/blog/upsell-groceries-whatsapp"
+    },
     {
       "question": "How much does AI customer service cost per month?",
       "answer": "The advertised plan is usually between 10 and 280 US dollars a month, but that is rarely the bill. On vendor pricing pages checked on 3 October 2026, the AI part is often charged separately, at 0.90 to 1.00 US dollars per automated interaction at Gorgias, 0.99 US dollars per outcome at Intercom, and 1.50 to 2.00 US dollars per extra automated resolution at Zendesk. Seats, contact overages and Meta's WhatsApp message fees come on top. A store automating a few hundred conversations a month should budget for the total of all of those, not for the plan price.",

@@ -105,7 +105,7 @@ Neither model is universally correct. Per resolution pricing is better if your v
 
 That gap is not an accident. It is what happens when the category is built for a market that is not this one, and it is the practical reason a done for you setup often beats a self serve tool here. [How plumcut works](/how-it-works) covers what connecting to your existing stack looks like when someone else does it.
 
-Depth matters as much as coverage. A tool that reads order status but cannot read live stock will answer "where is my order" and guess at "is this in stock", and the second answer is the one that produces an order you cannot fill.
+Depth matters as much as coverage. A tool that reads order status but cannot read live stock will answer "where is my order" and guess at "is this in stock", and the second answer is the one that produces an order you cannot fill. Supermarkets with their own ordering app face the same question from the other side, which we covered in [WhatsApp ordering for supermarkets](/blog/whatsapp-ordering-supermarkets).
 
 ## Where something else fits better than plum
 
