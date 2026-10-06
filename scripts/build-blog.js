@@ -1388,7 +1388,10 @@ function stampAssetVersions() {
   const hashes = {};
   for (const name of VERSIONED_ASSETS) {
     const file = path.join(ROOT, 'assets', name);
-    if (fs.existsSync(file)) hashes[name] = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex').slice(0, 10);
+    // Hash LF-normalised text so a Windows checkout (CRLF) stamps the same
+    // version Vercel's Linux build does.
+    const text = fs.existsSync(file) && fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n');
+    if (text) hashes[name] = crypto.createHash('sha256').update(text).digest('hex').slice(0, 10);
   }
   const re = /(assets\/(main\.(?:js|css)))(?:\?v=[0-9a-f]*)?"/g;
   const touched = [];
