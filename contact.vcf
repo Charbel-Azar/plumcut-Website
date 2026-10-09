@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;plumcut;;;
+FN:plumcut
+ORG:plumcut
+TEL;TYPE=WORK,VOICE:+96178860758
+EMAIL;TYPE=WORK:info@plumcut.com
+URL:https://plumcut.com
+ADR;TYPE=WORK:;;;Beirut;;;Lebanon
+NOTE:Automation within reach.
+END:VCARD

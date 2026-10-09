@@ -13,3 +13,6 @@ scripts/*.js  text eol=lf
 scripts/templates/*.html text eol=lf
 blog/posts/*.md text eol=lf
 blog/tasks/*.md text eol=lf
+
+# vCard spec requires CRLF line endings; keep the bytes exactly as written.
+contact.vcf   -text

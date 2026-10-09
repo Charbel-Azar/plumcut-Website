@@ -32,6 +32,14 @@
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
       ]
+    },
+    {
+      "source": "/contact.vcf",
+      "headers": [
+        { "key": "Content-Type", "value": "text/vcard; charset=utf-8" },
+        { "key": "Content-Disposition", "value": "inline; filename=\"plumcut.vcf\"" },
+        { "key": "Cache-Control", "value": "public, max-age=300" }
+      ]
     }
   ]
 }
